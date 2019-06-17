@@ -5,12 +5,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.sgic.internal</groupId>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath /> 
+	</parent>
+	<groupId>com.sgic.internal</groupId>
 		<artifactId>sgic-internal-services</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<groupId>com.sgic.internal.defecttracker</groupId>
-	<artifactId>defecttracker-service</artifactId>
 	<name>defecttracker-service</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -29,6 +31,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,4 +69,12 @@
 		</dependency>
 
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
