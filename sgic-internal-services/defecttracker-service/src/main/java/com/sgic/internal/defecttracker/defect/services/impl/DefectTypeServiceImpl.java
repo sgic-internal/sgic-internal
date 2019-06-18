@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.defect.services.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,11 @@ import com.sgic.internal.defecttracker.defect.repositories.DefectTypeRepository;
 import com.sgic.internal.defecttracker.defect.services.DefectTypeService;
 
 @Service
-public class DefectTypeServiceImpl implements DefectTypeService{
-	
+public class DefectTypeServiceImpl implements DefectTypeService {
+
 	@Autowired
 	private DefectTypeRepository defectTypeRepository;
-	
+
 	@Override
 	public DefectType createDefectType(DefectType defectType) {
 		DefectType responseDefectType = defectTypeRepository.save(defectType);
@@ -29,9 +30,15 @@ public class DefectTypeServiceImpl implements DefectTypeService{
 	}
 
 	@Override
+	public List<DefectType> findAll() {
+		List<DefectType> defectTypes = defectTypeRepository.findAll();
+		return defectTypes;
+	}
+
+	@Override
 	public void deleteDefectTypeById(long id) {
 		defectTypeRepository.deleteById(id);
-		
+
 	}
 
 	@Override
