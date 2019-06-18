@@ -2,9 +2,10 @@ package com.sgic.internal.login.controller.dto;
 
 public class UserData {
 	
+	//DTO Class
 	private String email;
-	 private String password;
-	 private String role;
+	private String password;
+	private String role;
 	public String getEmail() {
 		return email;
 	}

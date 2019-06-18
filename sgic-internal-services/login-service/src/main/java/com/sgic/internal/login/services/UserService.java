@@ -13,5 +13,6 @@ public interface UserService {
 	public List<User> getAllUsers ();
 	public void deleteUser(String email);
 	public boolean isUserAlreadyExist(String email);
-
+	public User findByEmail(String email);
+//	public User updateUser(User user);
 }

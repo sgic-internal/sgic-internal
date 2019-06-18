@@ -38,8 +38,13 @@ public class UserServiceImpl implements UserService {
 	public boolean isUserAlreadyExist(String email) {
 		return userRepository.existsById(email) ;
 	}
-	
-	
+
+	@Override
+	public User findByEmail(String email) {
+		
+		return userRepository.getByEmail(email);
+	}
+
 	
 
 }
