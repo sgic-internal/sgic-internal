@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.defect.services.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,5 +26,16 @@ public class DefectTypeServiceImpl implements DefectTypeService{
 	@Transactional(readOnly = true)
 	public boolean isDefectTypeAlreadyExists(Long id) {
 		return defectTypeRepository.existsById(id);
+	}
+
+	@Override
+	public void deleteDefectTypeById(long id) {
+		defectTypeRepository.deleteById(id);
+		
+	}
+
+	@Override
+	public Optional<DefectType> findDefectTypeById(long id) {
+		return defectTypeRepository.findById(id);
 	}
 }
