@@ -34,64 +34,51 @@ public class DefectTypeController {
 	@Autowired
 	private DefectTypeMapper defectTypeMapper;
 
+	// Author : Varnitha :: Create Defect Type
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
-		if(defectTypeMapper.createDefectType(defectTypeDto)) {
+		if (defectTypeMapper.createDefectType(defectTypeDto)) {
 			logger.info("Defect Type created");
 			return new ResponseEntity<>("Defect Type Added Succesfully", HttpStatus.OK);
+		} else {
+			logger.error("Defect Type Create Fail");
+			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
 		}
-		logger.error("Defect Type Create Fail");
-		return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
+
+	}
+
+	// Author : Paheerathan :: Get All Defect Types
+	@GetMapping(value = "/defecttypes")
+	public List getAllDefectType() {
+		BasicConfigurator.configure();
+		logger.info("Defect Types Listed");
+		return defectTypeMapper.getAllDefect();
 	}
 
 	// Author : Shawmiya :: Delete Defect Type
-//	@DeleteMapping("/defecttype/{id}")
-//	public ResponseEntity<Object> delete(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
-//		if(defectTypeService.deleteDefectTypeById(id)) {
-//			return new ResponseEntity<>("Defect Type Deleted Succesfully", HttpStatus.OK);
-//		}
-//		BasicConfigurator.configure();
-//		logger.info("Defect Type Deleted.");
-//
-//		return new ResponseEntity<>("Defect Type Deleted Failure", HttpStatus.BAD_REQUEST);
-//	}
-	
-	// Author : Paheerathan :: Get All Defect Types
-//	@GetMapping(value = "/defecttypes")
-//	public List<DefectType> getAllDefectTypes() {
-//		List<DefectType> defectTypesList = defectTypeService.findAll();
-//		
-//		BasicConfigurator.configure();
-//		logger.info("All Defect Types Listed.");
-//		
-//		return defectTypesList;
-//	}
+	@GetMapping(value = "/defecttype/{id}")
+	public DefectTypeDto getDefectById(@PathVariable Long id) {
+		BasicConfigurator.configure();
+		logger.info("Defect Type Get By Id Listed");
+		return defectTypeMapper.getDefectTypeById(id);
+	}
 
 	// Author : Varnitha :: Get Defect Type By Id
-//	@GetMapping(value = "/defecttype/{id}")
-//	public ResponseEntity<DefectTypeDto> getDefectById(@PathVariable Long id) {
-//		DefectType defectType = defectTypeService.findDefectTypeById(id);
-//		
-//		BasicConfigurator.configure();
-//		logger.info("Get Defect Type By Id.");
-//
-//		return new ResponseEntity<>(DefectTypeDtoMapping.defectTypeToDefectTypeDto(defectType),HttpStatus.OK);
-//	}
+	@DeleteMapping("/defecttype/{id}")
+	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
+		BasicConfigurator.configure();
+		defectTypeMapper.deleteDefectType(id);
+		logger.info("Defect Type Deleted");
+		return new ResponseEntity<>("Defect Type Deleted Succesfully", HttpStatus.OK);
+	}
 
 	// Author : Mathura :: Defect Type Updated
-//	@PutMapping(value = "/defecttype/{id}")
-//	public ResponseEntity<Object> updateDefectType(@RequestBody DefectType defectType, @PathVariable Long id) {
-//		Optional<DefectType> defectTypeOptional = defectTypeService.findDefectTypeById(id);
-//		if (!defectTypeOptional.isPresent()) {
-//			return ResponseEntity.notFound().build();
-//		}
-//		defectType.setId(id);
-//		defectTypeService.createDefectType(defectType);
-//
-//		BasicConfigurator.configure();
-//		logger.info("Defect Type Updated.");
-//
-//		return ResponseEntity.noContent().build();
-//	}
+	@PutMapping(value = "/defecttype/{id}")
+	public ResponseEntity<Object> updateDefectType(@RequestBody DefectTypeDto defectTypeDto, @PathVariable Long id) {
+		BasicConfigurator.configure();
+		defectTypeMapper.updateDefectType(id, defectTypeDto);
+		logger.info("Defect Type Updated");
+		return new ResponseEntity<>("Defect Type Updated Succesfully", HttpStatus.OK);
+	}
 }

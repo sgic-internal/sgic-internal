@@ -1,12 +1,19 @@
 package com.sgic.internal.defecttracker.defect.controller.dto.mapper;
 
+import java.util.List;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 import com.sgic.internal.defecttracker.defect.controller.dto.converter.DefectTypeConverter;
 import com.sgic.internal.defecttracker.defect.entities.DefectType;
 import com.sgic.internal.defecttracker.defect.services.DefectTypeService;
+import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 
+@Service
 public class DefectTypeMapper {
 	@Autowired
 	private DefectTypeService defectTypeService;
@@ -14,12 +21,69 @@ public class DefectTypeMapper {
 	@Autowired
 	private DefectTypeConverter defectTypeConverter;
 	
+	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
+	
 	public Boolean createDefectType (DefectTypeDto defectTypeDto){
+		BasicConfigurator.configure();
 		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
 		defectTypeService.createDefectType(defectType);
+		logger.info("Defect Type Create Mapper");
 		return true;
 	}
 	
+	public List<DefectTypeDto> getAllDefect(){
+		BasicConfigurator.configure();
+		List<DefectType> defectTypeList = defectTypeService.findAllDefectType();
+		if(defectTypeList != null) {
+			logger.info("Defect Types List Mapper");
+			return (defectTypeConverter.defectTypeToDefectTypeDto(defectTypeList));
+		}
+		else {
+			logger.warn("No Defect Types");
+			return null;
+		}
+				
+	}
 	
-
+	public DefectTypeDto getDefectTypeById(Long id) {
+		BasicConfigurator.configure();		
+	    DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
+	    if (defectTypeList != null) {
+	    	logger.info("Defect Type Get By Id Mapper");
+	    	return defectTypeConverter.defectTypeToDefectTypeDto(defectTypeList);
+	    }
+	    else {
+	    	logger.warn("No Defect Type By Id");
+	    	return null;
+	    }
+	    
+	}
+	
+	public Boolean deleteDefectType(Long id) {
+		BasicConfigurator.configure();
+		if(defectTypeService.deleteDefectTypeById(id)) {
+			logger.info("Defect Type Delete Mapper");
+			return true;
+		}
+		else {
+			logger.warn("No Defect Type");
+			return false;
+		}		
+	}
+	
+	public Boolean updateDefectType(Long id, DefectTypeDto defectTypeDto) {
+		BasicConfigurator.configure();
+		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
+		DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
+		if(defectTypeList == null) {
+			logger.warn("No Defect Type By Id");
+			return false;
+		}
+		else {
+			defectType.setId(id);
+			defectTypeService.createDefectType(defectType);
+			logger.info("Defect Type Update Mapper");
+			return true;
+		}		
+	}
 }

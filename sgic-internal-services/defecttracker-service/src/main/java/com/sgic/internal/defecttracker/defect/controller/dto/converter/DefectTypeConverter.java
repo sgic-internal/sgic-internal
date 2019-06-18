@@ -3,16 +3,19 @@ package com.sgic.internal.defecttracker.defect.controller.dto.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 import com.sgic.internal.defecttracker.defect.entities.DefectType;
 
+@Service
 public class DefectTypeConverter {
 	
 	private DefectTypeConverter() {
 		
 	}
 	
-	// Convert Dto to Entity
+	// Convert Entity to Dto
 	public static DefectTypeDto defectTypeToDefectTypeDto(DefectType defectType) {
 		DefectTypeDto defectTypeDto = new DefectTypeDto();
 		
@@ -24,6 +27,7 @@ public class DefectTypeConverter {
 		return null;
 	}
 	
+	// Convert Dto to Entity
 	public static DefectType defectTypeDtoToDefectType(DefectTypeDto defectTypeDto) {
 		DefectType defectType = new DefectType();
 		defectType.setId(defectTypeDto.getId());
