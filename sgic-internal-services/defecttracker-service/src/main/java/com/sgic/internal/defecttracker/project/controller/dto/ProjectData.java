@@ -17,6 +17,9 @@ public class ProjectData {
 		 private String duration;
 		
 		 private String status;
+		 
+		 private String configId;
+		 
 
 		public Long getProjectId() {
 			return projectId;
@@ -74,4 +77,11 @@ public class ProjectData {
 			this.status = status;
 		}
 		 
+		public String getConfigId() {
+			return configId;
+		}
+
+		public void setConfigId(String configId) {
+			this.configId = configId;
+		}
 }
