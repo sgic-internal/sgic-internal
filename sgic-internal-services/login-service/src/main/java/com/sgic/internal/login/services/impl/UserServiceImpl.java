@@ -30,11 +30,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deleteUser(String email) {
-		userRepository.deleteById(email);
-	}
-
-	@Override
 	public boolean isUserAlreadyExist(String email) {
 		return userRepository.existsById(email) ;
 	}
@@ -43,6 +38,27 @@ public class UserServiceImpl implements UserService {
 	public User findByEmail(String email) {
 		
 		return userRepository.getByEmail(email);
+	}
+
+	@Override
+	public void deleteUser(String email) {
+		userRepository.deleteById(email);
+	}
+
+	@Override
+	public User updateUser(String email, User user) {
+		
+			if (userRepository.getOne(email) != null) {
+				user.setEmail(email);
+				userRepository.save(user);
+			}
+		
+		return user;
+	}
+
+	@Override
+	public User findByRole(String role) {
+		return userRepository.getByRole(role);
 	}
 
 	

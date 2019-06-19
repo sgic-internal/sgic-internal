@@ -9,4 +9,5 @@ import com.sgic.internal.login.entities.User;
 public interface UserRepository  extends JpaRepository<User, String >{
 
 	User getByEmail(String email);   //Get the user by his email address
+	User getByRole(String role);   //Get the user by his role
 }

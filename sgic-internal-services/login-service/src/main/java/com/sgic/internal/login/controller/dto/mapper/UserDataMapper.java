@@ -38,21 +38,40 @@ public class UserDataMapper {
 		return userService.createUsers(user) ;
 		
 	}
+	
 	@SuppressWarnings("static-access")
 	public List<UserData> getAllUser() {
-		logger.info("Mapper work");
+		logger.info("List work");
 		List<User> userList = userService.getAllUsers();
 		return userDataConverter.userEntityToUserData(userList);
 	}
 
 	public void  deleteUser(String email) {
-		userService.deleteUser(email);
-    	
+		userService.deleteUser(email); 	
     }
 	
+	@SuppressWarnings("static-access")
 	public UserData findUserByMail(String email) {
-		return null;
+		logger.info("FindByMail work");
+		User user = userService.findByEmail(email);
+		return userDataConverter.userEntityToUserData(user);
 		
+	}
+	
+	@SuppressWarnings("static-access")
+	public UserData findUserByRole(String role) {
+		logger.info("FindByRole work");
+		User user = userService.findByRole(role);
+		return userDataConverter.userEntityToUserData(user);
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	public User UpdateUser(String email, UserData userData) {
+		logger.info("Update work");
+		User user = userDataConverter.UserDataToUser(userData);
+		return userService.updateUser(email, user);
+
 	}
 	
 }

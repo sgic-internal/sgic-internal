@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +41,18 @@ public class UserController {
 		  return  userDataMapper.getAllUser();
 	  }
 	 
+	 @GetMapping(value = "/getByUserMail/{email}")
+	 public ResponseEntity<UserData> getUserByMail(@PathVariable("email")String email){;
+		return  new ResponseEntity<>( userDataMapper.findUserByMail(email),HttpStatus.OK);
+		 
+	 }
+	 
+	 @GetMapping(value = "/getByUserRole/{role}")
+	 public ResponseEntity<UserData> getUserByRole(@PathVariable("role")String role){;
+		return  new ResponseEntity<>( userDataMapper.findUserByRole(role),HttpStatus.OK);
+		 
+	 }
+	  
 	 @DeleteMapping("/user/{email}")
 	   public ResponseEntity<?>deleteUser(@PathVariable("email")String email ){ 
 		 userDataMapper.deleteUser(email);
@@ -47,4 +60,12 @@ public class UserController {
 		   
 	   }
 	 
+	 
+	 @PutMapping("update/{email}")
+		public ResponseEntity<String> updateEmployee(@PathVariable(name = "email") String email,
+				@RequestBody UserData userData) {
+			userDataMapper.UpdateUser(email, userData);
+			return new ResponseEntity<>("user updated succesfully", HttpStatus.OK);
+
+		}
 }

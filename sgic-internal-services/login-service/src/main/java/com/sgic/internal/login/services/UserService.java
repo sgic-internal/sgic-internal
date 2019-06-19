@@ -14,5 +14,6 @@ public interface UserService {
 	public void deleteUser(String email);
 	public boolean isUserAlreadyExist(String email);
 	public User findByEmail(String email);
-//	public User updateUser(User user);
+	public User findByRole(String role);
+	public User updateUser(String email,User user);
 }
