@@ -3,7 +3,7 @@ package com.sgic.internal.login.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,19 +16,19 @@ import com.sgic.internal.login.services.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository,
-            BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.userRepository = userRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
-    
+//    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+//    
+//   @Autowired
+//    public UserServiceImpl(UserRepository userRepository,
+//            BCryptPasswordEncoder bCryptPasswordEncoder) {
+//        this.userRepository = userRepository;
+//        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+//    }
+//    
 //    @Override
 //    public User createUser(User userDto) {
 //        UserDto returnValue = new UserDto();
-//        ...
+//        
 //  
 //        // Generate secure password
 //        userDto.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
@@ -91,10 +91,7 @@ public class UserServiceImpl implements UserService {
 
 	//Get the user detail using the role
 	@Override
-	public User findByRole(String role) {
+	public List <User>findByRole(String role) {
 		return userRepository.getByRole(role);
 	}
-
-	
-
 }

@@ -48,8 +48,8 @@ public class UserController {
 	 }
 	 
 	 @GetMapping(value = "/getByUserRole/{role}")
-	 public ResponseEntity<UserData> getUserByRole(@PathVariable("role")String role){;
-		return  new ResponseEntity<>( userDataMapper.findUserByRole(role),HttpStatus.OK);
+	 public List<UserData> getUserByRole(@PathVariable("role")String role){;
+		return userDataMapper.findUserByRole(role);
 		 
 	 }
 	  
@@ -59,8 +59,7 @@ public class UserController {
 		return new ResponseEntity<String>("User detail is Deleted",HttpStatus.OK);
 		   
 	   }
-	 
-	 
+	  
 	 @PutMapping("update/{email}")
 		public ResponseEntity<String> updateEmployee(@PathVariable(name = "email") String email,
 				@RequestBody UserData userData) {

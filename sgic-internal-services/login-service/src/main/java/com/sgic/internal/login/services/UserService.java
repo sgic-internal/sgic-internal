@@ -14,7 +14,7 @@ public interface UserService {
 	public void deleteUser(String email);              //Delete user using his email address
 	public boolean isUserAlreadyExist(String email);   //check the user email address is already exists or not
 	public User findByEmail(String email);             //Get the user detail using the mail address
-	public User findByRole(String role);               //Get the user detail using the role
+	public List <User> findByRole(String role);        //Get the user detail using the role
 	public User updateUser(String email,User user);    //Update user details
 	
 }

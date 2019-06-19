@@ -59,9 +59,9 @@ public class UserDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public UserData findUserByRole(String role) {
+	public List<UserData> findUserByRole(String role) {
 		logger.info("FindByRole work");
-		User user = userService.findByRole(role);
+		List <User> user = userService.findByRole(role);
 		return userDataConverter.userEntityToUserData(user);
 		
 	}

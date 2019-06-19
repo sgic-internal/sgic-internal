@@ -33,20 +33,20 @@ public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTest
 
   }
   
-  @Test
-  public void getCareerDevelopmentPlanCompanySuccessfull() throws IOException, RestClientException {
-    ResponseEntity<String> response =
-        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/users", HttpMethod.GET,
-            new HttpEntity<>(httpHeaders), String.class);
-    assertEquals(HttpStatus.OK, response.getStatusCode());
-   }
+//  @Test
+//  public void getCareerDevelopmentPlanCompanySuccessfull() throws IOException, RestClientException {
+//    ResponseEntity<String> response =
+//        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/user", HttpMethod.POST,
+//            new HttpEntity<>(httpHeaders), String.class);
+//    assertEquals(HttpStatus.OK, response.getStatusCode());
+//   }
   
   @Test
   public void getCareerDevelopmentPlanCompanySuccessfull1() throws IOException, RestClientException {
-    ResponseEntity<String> response =
+   ResponseEntity<String> response =
         testRestTemplate.exchange("http://localhost:8081/loginservice" + "/users", HttpMethod.GET,
-            new HttpEntity<>(httpHeaders), String.class);
-    assertEquals(HttpStatus.OK, response.getStatusCode());
+           new HttpEntity<>(httpHeaders), String.class);
+   assertEquals(HttpStatus.OK, response.getStatusCode());
    }
   
     
