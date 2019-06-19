@@ -24,7 +24,7 @@ public class DefectTypeMapper {
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 	
 	public Boolean createDefectType (DefectTypeDto defectTypeDto){
-		//BasicConfigurator.configure();
+		BasicConfigurator.configure();
 		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
 		defectTypeService.createDefectType(defectType);
 		logger.info("Defect Type Create Mapper");
@@ -32,7 +32,7 @@ public class DefectTypeMapper {
 	}
 	
 	public List<DefectTypeDto> getAllDefect(){
-		//BasicConfigurator.configure();
+		BasicConfigurator.configure();
 		List<DefectType> defectTypeList = defectTypeService.findAllDefectType();
 		if(defectTypeList != null) {
 			logger.info("Defect Types List Mapper");
@@ -46,7 +46,7 @@ public class DefectTypeMapper {
 	}
 	
 	public DefectTypeDto getDefectTypeById(Long id) {
-		//BasicConfigurator.configure();		
+		BasicConfigurator.configure();		
 	    DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
 	    if (defectTypeList != null) {
 	    	logger.info("Defect Type Get By Id Mapper");
@@ -60,7 +60,7 @@ public class DefectTypeMapper {
 	}
 	
 	public Boolean deleteDefectType(Long id) {
-		//BasicConfigurator.configure();
+		BasicConfigurator.configure();
 		if(defectTypeService.deleteDefectTypeById(id)) {
 			logger.info("Defect Type Delete Mapper");
 			return true;
@@ -72,7 +72,7 @@ public class DefectTypeMapper {
 	}
 	
 	public Boolean updateDefectType(Long id, DefectTypeDto defectTypeDto) {
-		//BasicConfigurator.configure();
+		BasicConfigurator.configure();
 		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
 		DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
 		if(defectTypeList == null) {

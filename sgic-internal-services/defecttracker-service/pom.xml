@@ -8,11 +8,11 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.4.RELEASE</version>
-		<relativePath /> 
+		<relativePath />
 	</parent>
 	<groupId>com.sgic.internal</groupId>
-		<artifactId>sgic-internal-services</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+	<artifactId>sgic-internal-services</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>defecttracker-service</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -66,6 +66,20 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock-standalone</artifactId>
+			<version>2.16.0</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
