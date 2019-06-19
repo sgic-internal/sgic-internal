@@ -1,11 +1,11 @@
-package com.sgic.internal.user;
+package com.sgic.internal.login;
 
 
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import com.sgic.internal.user.controller.CareerDevelopmentPlanCompanyTest;
+import com.sgic.internal.login.controller.CareerDevelopmentPlanCompanyTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

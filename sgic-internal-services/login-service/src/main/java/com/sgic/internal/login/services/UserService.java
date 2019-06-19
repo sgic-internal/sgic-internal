@@ -16,4 +16,6 @@ public interface UserService {
 	public User findByEmail(String email);             //Get the user detail using the mail address
 	public User findByRole(String role);               //Get the user detail using the role
 	public User updateUser(String email,User user);    //Update user details
+	
 }
+

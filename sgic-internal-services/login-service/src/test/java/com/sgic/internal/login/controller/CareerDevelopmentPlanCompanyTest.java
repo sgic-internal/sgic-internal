@@ -1,4 +1,4 @@
-package com.sgic.internal.user.controller;
+package com.sgic.internal.login.controller;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
-import com.sgic.internal.user.HrmEmployeeApplicationTests;
+import com.sgic.internal.login.HrmEmployeeApplicationTests;
 
 
 public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTests{
@@ -36,10 +36,19 @@ public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTest
   @Test
   public void getCareerDevelopmentPlanCompanySuccessfull() throws IOException, RestClientException {
     ResponseEntity<String> response =
-        testRestTemplate.exchange("http://localhost:8080/loginservice" + "/users", HttpMethod.GET,
+        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/users", HttpMethod.GET,
             new HttpEntity<>(httpHeaders), String.class);
     assertEquals(HttpStatus.OK, response.getStatusCode());
    }
+  
+  @Test
+  public void getCareerDevelopmentPlanCompanySuccessfull1() throws IOException, RestClientException {
+    ResponseEntity<String> response =
+        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/users", HttpMethod.GET,
+            new HttpEntity<>(httpHeaders), String.class);
+    assertEquals(HttpStatus.OK, response.getStatusCode());
+   }
+  
     
   
   @After
@@ -53,6 +62,7 @@ public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTest
     }
     
     private static final String CAREER_DEVELOPMENT_PLAN_RESPONSE =
-    		"[ { \\\"email\\\": \\\"iiiiiii\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"kala@gmail.com\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"mathu@gmail.com\\\", \\\"password\\\": \\\"one\\\", \\\"role\\\": \\\"user\\\" } ]";
+        "[ { \\\"email\\\": \\\"iiiiiii\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"kala@gmail.com\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"mathu@gmail.com\\\", \\\"password\\\": \\\"one\\\", \\\"role\\\": \\\"user\\\" } ]";
+
   }
 }

@@ -1,12 +1,11 @@
-package com.sgic.internal.user;
+package com.sgic.internal.login;
 
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.options;
 
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +18,6 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("test")
-@SpringBootConfiguration
 public class HrmEmployeeApplicationTests {
 
  @Rule	

@@ -3,9 +3,11 @@ package com.sgic.internal.login.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sgic.internal.login.controller.dto.UserData;
 import com.sgic.internal.login.entities.User;
 import com.sgic.internal.login.repositories.UserRepository;
 import com.sgic.internal.login.services.UserService;
@@ -14,6 +16,31 @@ import com.sgic.internal.login.services.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 	
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository,
+            BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+    
+//    @Override
+//    public User createUser(User userDto) {
+//        UserDto returnValue = new UserDto();
+//        ...
+//  
+//        // Generate secure password
+//        userDto.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+//        UserEntity userEntity = new UserEntity();
+//        BeanUtils.copyProperties(userDto, userEntity);
+//        // Record data into a database
+//        userEntity = userRepository.save(userEntity);
+// 
+//         ...
+//        return returnValue;
+//    }
+
 	@Autowired
 	private UserRepository userRepository;
 
