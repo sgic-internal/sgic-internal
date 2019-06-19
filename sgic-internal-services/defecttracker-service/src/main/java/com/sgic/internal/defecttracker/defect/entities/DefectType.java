@@ -14,9 +14,11 @@ import javax.persistence.Table;
 public class DefectType implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long id; // Defect Type id
 	
-	private String defectType;
+	private String name; // Defect Type Name
+	
+	private String value; // Defect Type Value
 	
 	public long getId() {
 		return id;
@@ -24,10 +26,17 @@ public class DefectType implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getDefectType() {
-		return defectType;
+	public String getName() {
+		return name;
 	}
-	public void setDefectType(String defectType) {
-		this.defectType = defectType;
+	public void setName(String name) {
+		this.name = name;
 	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
 }

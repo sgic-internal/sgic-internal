@@ -37,7 +37,7 @@ public class DefectTypeController {
 	// Author : Varnitha :: Create Defect Type
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		if (defectTypeMapper.createDefectType(defectTypeDto)) {
 			logger.info("Defect Type created");
 			return new ResponseEntity<>("Defect Type Added Succesfully", HttpStatus.OK);
@@ -51,7 +51,7 @@ public class DefectTypeController {
 	// Author : Paheerathan :: Get All Defect Types
 	@GetMapping(value = "/defecttypes")
 	public List getAllDefectType() {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		logger.info("Defect Types Listed");
 		return defectTypeMapper.getAllDefect();
 	}
@@ -59,7 +59,7 @@ public class DefectTypeController {
 	// Author : Shawmiya :: Delete Defect Type
 	@GetMapping(value = "/defecttype/{id}")
 	public DefectTypeDto getDefectById(@PathVariable Long id) {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		logger.info("Defect Type Get By Id Listed");
 		return defectTypeMapper.getDefectTypeById(id);
 	}
@@ -67,7 +67,7 @@ public class DefectTypeController {
 	// Author : Varnitha :: Get Defect Type By Id
 	@DeleteMapping("/defecttype/{id}")
 	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		defectTypeMapper.deleteDefectType(id);
 		logger.info("Defect Type Deleted");
 		return new ResponseEntity<>("Defect Type Deleted Succesfully", HttpStatus.OK);
@@ -76,7 +76,7 @@ public class DefectTypeController {
 	// Author : Mathura :: Defect Type Updated
 	@PutMapping(value = "/defecttype/{id}")
 	public ResponseEntity<Object> updateDefectType(@RequestBody DefectTypeDto defectTypeDto, @PathVariable Long id) {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		defectTypeMapper.updateDefectType(id, defectTypeDto);
 		logger.info("Defect Type Updated");
 		return new ResponseEntity<>("Defect Type Updated Succesfully", HttpStatus.OK);
