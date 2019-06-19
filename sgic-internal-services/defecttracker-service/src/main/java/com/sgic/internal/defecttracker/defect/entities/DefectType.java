@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.defect.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +15,13 @@ import javax.persistence.Table;
 public class DefectType implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id; // Defect Type id
+	private long id; // Defect type id
 	
-	private String name; // Defect Type Name
+	@Column(nullable=false)
+	private String name; // Defect type name
 	
-	private String value; // Defect Type Value
+	@Column(nullable=false)
+	private String value; // Defect type value
 	
 	public long getId() {
 		return id;

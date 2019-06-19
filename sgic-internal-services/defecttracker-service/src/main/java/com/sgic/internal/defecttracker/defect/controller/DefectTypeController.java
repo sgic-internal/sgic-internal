@@ -35,6 +35,7 @@ public class DefectTypeController {
 	private DefectTypeMapper defectTypeMapper;
 
 	// Author : Varnitha :: Create Defect Type
+	// Create defect type controller
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
@@ -45,10 +46,10 @@ public class DefectTypeController {
 			logger.error("Defect Type Create Fail");
 			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
 		}
-
 	}
 
 	// Author : Paheerathan :: Get All Defect Types
+	// List all defect types controller
 	@GetMapping(value = "/defecttypes")
 	public List getAllDefectType() {
 		BasicConfigurator.configure();
@@ -57,6 +58,7 @@ public class DefectTypeController {
 	}
 
 	// Author : Varnitha :: Get Defect Type By Id
+	// Get defect type by id controller
 	@GetMapping(value = "/defecttype/{id}")
 	public DefectTypeDto getDefectById(@PathVariable Long id) {
 		BasicConfigurator.configure();
@@ -65,6 +67,7 @@ public class DefectTypeController {
 	}
 
 	// Author : Shawmiya :: Delete Defect Type	
+	// Delete defect type controller
 	@DeleteMapping("/defecttype/{id}")
 	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
@@ -74,6 +77,7 @@ public class DefectTypeController {
 	}
 
 	// Author : Mathura :: Defect Type Updated
+	// Update defect type controller
 	@PutMapping(value = "/defecttype/{id}")
 	public ResponseEntity<Object> updateDefectType(@RequestBody DefectTypeDto defectTypeDto, @PathVariable Long id) {
 		BasicConfigurator.configure();

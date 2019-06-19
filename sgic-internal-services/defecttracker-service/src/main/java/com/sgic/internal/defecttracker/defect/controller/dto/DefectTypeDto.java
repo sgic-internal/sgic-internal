@@ -1,9 +1,9 @@
 package com.sgic.internal.defecttracker.defect.controller.dto;
 
 public class DefectTypeDto {
-	private long id;
-	private String name;
-	private String value;
+	private long id; // Defect type id
+	private String name; // Defect type name
+	private String value; // Defect type value
 
 	public long getId() {
 		return id;

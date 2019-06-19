@@ -49,9 +49,9 @@ public class DefectTypeTest extends DefectTypeAppTest {
 	}
 
 	@Test
-	public void createDefectTypeTest() throws IOException, RestClientException{
+	public void createDefectTypeTest() throws IOException, RestClientException {
 		DefectType defectType = new DefectType();
-		defectType.setName("zzz"); 
+		defectType.setName("");
 		defectType.setValue("ggg");
 		testRestTemplate.postForEntity(getRootUrl() + "/defecttype", HttpMethod.POST, DefectType.class);
 	}
@@ -64,13 +64,13 @@ public class DefectTypeTest extends DefectTypeAppTest {
 		testRestTemplate.delete(getRootUrl() + "/defecttype" + id);
 		try {
 			defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/" + id, DefectType.class);
-       } catch (final HttpClientErrorException e) {
-            assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
-       }
+		} catch (final HttpClientErrorException e) {
+			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	@Test
-	public void updateDefectTypeTest() throws IOException, RestClientException{
+	public void updateDefectTypeTest() throws IOException, RestClientException {
 		int id = 1;
 		DefectType defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/" + id, DefectType.class);
 		assertNotNull(defectType);
