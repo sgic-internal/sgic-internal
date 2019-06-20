@@ -33,7 +33,7 @@ public class DefectTypeMapper {
 	}
 	
 	// Mapper for listing all defect types
-	public List<DefectTypeDto> getAllDefect(){
+	public List<DefectTypeDto> getAllDefectType(){
 		//BasicConfigurator.configure();
 		List<DefectType> defectTypeList = defectTypeService.findAllDefectType();
 		if(defectTypeList != null) {

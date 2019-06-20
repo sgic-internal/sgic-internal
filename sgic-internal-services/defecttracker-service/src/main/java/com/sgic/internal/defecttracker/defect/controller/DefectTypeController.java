@@ -41,7 +41,7 @@ public class DefectTypeController {
 		BasicConfigurator.configure();
 		if (defectTypeMapper.createDefectType(defectTypeDto)) {
 			logger.info("Defect Type created");
-			return new ResponseEntity<>("Defect Type Added Succesfully", HttpStatus.OK);
+			return new ResponseEntity<>("Defect Type Added Successfully", HttpStatus.OK);
 		} else {
 			logger.error("Defect Type Create Fail");
 			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
@@ -54,7 +54,7 @@ public class DefectTypeController {
 	public List getAllDefectType() {
 		BasicConfigurator.configure();
 		logger.info("Defect Types Listed");
-		return defectTypeMapper.getAllDefect();
+		return defectTypeMapper.getAllDefectType();
 	}
 
 	// Author : Varnitha :: Get Defect Type By Id
@@ -73,7 +73,7 @@ public class DefectTypeController {
 		BasicConfigurator.configure();
 		defectTypeMapper.deleteDefectType(id);
 		logger.info("Defect Type Deleted");
-		return new ResponseEntity<>("Defect Type Deleted Succesfully", HttpStatus.OK);
+		return new ResponseEntity<>("Defect Type Deleted Successfully", HttpStatus.OK);
 	}
 
 	// Author : Mathura :: Defect Type Updated
@@ -83,6 +83,6 @@ public class DefectTypeController {
 		BasicConfigurator.configure();
 		defectTypeMapper.updateDefectType(id, defectTypeDto);
 		logger.info("Defect Type Updated");
-		return new ResponseEntity<>("Defect Type Updated Succesfully", HttpStatus.OK);
+		return new ResponseEntity<>("Defect Type Updated Successfully", HttpStatus.OK);
 	}
 }

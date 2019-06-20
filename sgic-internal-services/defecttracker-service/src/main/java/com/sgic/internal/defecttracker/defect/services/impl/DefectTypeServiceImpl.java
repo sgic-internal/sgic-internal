@@ -25,7 +25,7 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	// Create defect type service implementation
 	@Override
 	public Object createDefectType(DefectType defectType) {
-		logger.info("Create Defect Type Sercice Implementation");
+		logger.info("Create Defect Type Service Implementation");
 		return defectTypeRepository.save(defectType);
 	}
 
@@ -33,7 +33,7 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	@Override
 	@Transactional(readOnly = true)
 	public boolean isDefectTypeAlreadyExists(Long id) {
-		logger.info("Defect Type Exists Sercice Implementation");
+		logger.info("Defect Type Exists Service Implementation");
 		return defectTypeRepository.existsById(id);
 	}
 
@@ -41,23 +41,23 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	@Override
 	public List<DefectType> findAllDefectType() {
 		List<DefectType> defectTypes = defectTypeRepository.findAll();
-		logger.info("List All Defect Types Sercice Implementation");
+		logger.info("List All Defect Types Service Implementation");
 		return defectTypes;
-	}
-
-	// Get defect type by id implementation
-	@Override
-	public Boolean deleteDefectTypeById(long id) {
-		defectTypeRepository.deleteById(id);
-		logger.info("Delete Defect Type Sercice Implementation");
-		return true;
-
 	}
 
 	// Delete defect type implementation
 	@Override
+	public Boolean deleteDefectTypeById(long id) {
+		defectTypeRepository.deleteById(id);
+		logger.info("Delete Defect Type Service Implementation");
+		return true;
+
+	}
+
+	// Find defect type by id implementation
+	@Override
 	public DefectType findDefectTypeById(long id) {
-		logger.info("Get Defect Type By Id Sercice Implementation");
+		logger.info("Get Defect Type By Id Service Implementation");
 		return defectTypeRepository.findById(id).orElse(null);
 	}
 }
