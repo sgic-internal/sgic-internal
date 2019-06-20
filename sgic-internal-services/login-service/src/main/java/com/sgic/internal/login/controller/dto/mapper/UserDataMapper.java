@@ -31,7 +31,10 @@ public class UserDataMapper {
 	private UserDataConverter userDataConverter;
 
 	private static Logger logger = LogManager.getLogger(UserDataMapper.class);
-
+	
+	
+//=====================================================================================
+//Creating new users 
 	@SuppressWarnings("static-access")
 	public  User createUser(UserData userData) {
 		User user = userDataConverter.UserDataToUser(userData);
@@ -39,17 +42,24 @@ public class UserDataMapper {
 		
 	}
 	
+//=====================================================================================
+//List all the users	
 	@SuppressWarnings("static-access")
 	public List<UserData> getAllUser() {
 		logger.info("List work");
 		List<User> userList = userService.getAllUsers();
 		return userDataConverter.userEntityToUserData(userList);
 	}
-
+	
+	
+//=====================================================================================
+//Delete user details	
 	public void  deleteUser(String email) {
 		userService.deleteUser(email); 	
     }
 	
+//=====================================================================================	
+//Get the user detail using the mail address	
 	@SuppressWarnings("static-access")
 	public UserData findUserByMail(String email) {
 		logger.info("FindByMail work");
@@ -58,6 +68,8 @@ public class UserDataMapper {
 		
 	}
 	
+//=====================================================================================	
+//Get the user detail using the role	
 	@SuppressWarnings("static-access")
 	public List<UserData> findUserByRole(String role) {
 		logger.info("FindByRole work");
@@ -66,6 +78,8 @@ public class UserDataMapper {
 		
 	}
 	
+//=====================================================================================	
+//Update user details	
 	@SuppressWarnings("static-access")
 	public User UpdateUser(String email, UserData userData) {
 		logger.info("Update work");

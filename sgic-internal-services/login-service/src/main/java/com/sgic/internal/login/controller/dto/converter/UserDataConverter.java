@@ -13,7 +13,8 @@ import com.sgic.internal.login.entities.User;
 public class UserDataConverter {
 	
 	private static Logger logger = LogManager.getLogger(User.class);
-
+	
+//=====================================================================================
 	//To list all the user details
 	public static List<UserData> userEntityToUserData(List<User> userList){
 		
@@ -35,6 +36,7 @@ public class UserDataConverter {
 		return null;
 }
 	
+//=====================================================================================	
 	
 	//To convert Entity to DTO
 	    @SuppressWarnings("unused")
@@ -53,7 +55,7 @@ public class UserDataConverter {
 		}
 	
 	
-	
+//=====================================================================================	
    //To convert DTO to Entity 
 	public static User UserDataToUser(UserData userData) {
 		User user = new User();

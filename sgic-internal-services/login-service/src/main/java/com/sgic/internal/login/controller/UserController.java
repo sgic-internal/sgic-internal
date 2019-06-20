@@ -28,38 +28,49 @@ public class UserController {
 	private UserDataMapper userDataMapper ;
 	
 	private static Logger logger = LogManager.getLogger(UserDataMapper.class);
-
+	
+//=====================================================================================
+//POST login user details
 	 @RequestMapping(value="/user",method=RequestMethod.POST)  
 	 public HttpStatus createUser(@Valid @RequestBody UserData userData) {
 		userDataMapper.createUser(userData); 
 		return HttpStatus.CREATED;
 		}
-	 
+
+//=====================================================================================	
+//GET login user details by list
 	 @GetMapping(value = "/users")
 	  public List<UserData> getAllDetails(){
 		 logger.info("Success");
 		  return  userDataMapper.getAllUser();
 	  }
 	 
+//=====================================================================================	 
+//GET particular user detail by mail	 
 	 @GetMapping(value = "/getByUserMail/{email}")
 	 public ResponseEntity<UserData> getUserByMail(@PathVariable("email")String email){;
 		return  new ResponseEntity<>( userDataMapper.findUserByMail(email),HttpStatus.OK);
 		 
 	 }
-	 
+
+//=====================================================================================	 
+//GET all user details for particular role		 
 	 @GetMapping(value = "/getByUserRole/{role}")
 	 public List<UserData> getUserByRole(@PathVariable("role")String role){;
 		return userDataMapper.findUserByRole(role);
 		 
 	 }
 	  
+//=====================================================================================	
+//DELETE user detail by the mail	 
 	 @DeleteMapping("/user/{email}")
 	   public ResponseEntity<?>deleteUser(@PathVariable("email")String email ){ 
 		 userDataMapper.deleteUser(email);
 		return new ResponseEntity<String>("User detail is Deleted",HttpStatus.OK);
 		   
 	   }
-	  
+//=====================================================================================	 
+//UPDATE user detail using mail	  
 	 @PutMapping("update/{email}")
 		public ResponseEntity<String> updateEmployee(@PathVariable(name = "email") String email,
 				@RequestBody UserData userData) {

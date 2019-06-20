@@ -43,8 +43,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-
-	//Creating new users 
+	
+//=====================================================================================
+//Creating new users 
 	@Override
 	@Transactional(readOnly=false)
 	public User createUsers(User user) {
@@ -52,32 +53,37 @@ public class UserServiceImpl implements UserService {
 		return responseUser;
 	}
 
-	 //List all the users
+//=====================================================================================	
+//List all the users
 	@Override
 	public List<User> getAllUsers() {
 		return userRepository.findAll() ;
 	}
-
-	//check the user email address is already exists or not
+	
+//=====================================================================================
+//check the user email address is already exists or not
 	@Override
 	public boolean isUserAlreadyExist(String email) {
 		return userRepository.existsById(email) ;
 	}
-
-	//Get the user detail using the mail address
+	
+//=====================================================================================	
+//Get the user detail using the mail address
 	@Override
 	public User findByEmail(String email) {
 		
 		return userRepository.getByEmail(email);
 	}
-
-	 //List all the users
+	
+//=====================================================================================	
+//Delete user details
 	@Override
 	public void deleteUser(String email) {
 		userRepository.deleteById(email);
 	}
 
-	 //Update user details
+//=====================================================================================	
+//Update user details
 	@Override
 	public User updateUser(String email, User user) {
 		
@@ -89,7 +95,8 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	//Get the user detail using the role
+//=====================================================================================	
+//Get the user detail using the role
 	@Override
 	public List <User>findByRole(String role) {
 		return userRepository.getByRole(role);
