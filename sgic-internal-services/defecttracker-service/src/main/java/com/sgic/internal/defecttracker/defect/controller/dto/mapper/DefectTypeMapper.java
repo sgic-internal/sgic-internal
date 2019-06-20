@@ -1,7 +1,6 @@
 package com.sgic.internal.defecttracker.defect.controller.dto.mapper;
 
 import java.util.List;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

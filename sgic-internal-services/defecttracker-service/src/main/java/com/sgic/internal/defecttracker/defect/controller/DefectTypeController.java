@@ -1,13 +1,11 @@
 package com.sgic.internal.defecttracker.defect.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.annotation.DeterminableImports;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,13 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.common.api.enums.RestApiResponseStatus;
-import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
-import com.sgic.internal.defecttracker.defect.controller.dto.converter.DefectTypeConverter;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectTypeMapper;
-import com.sgic.internal.defecttracker.defect.entities.DefectType;
-import com.sgic.internal.defecttracker.defect.services.DefectTypeService;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 
 @RestController
@@ -35,7 +28,6 @@ public class DefectTypeController {
 	private DefectTypeMapper defectTypeMapper;
 
 	// Author : Varnitha :: Create Defect Type
-	// Create defect type controller
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
@@ -49,16 +41,14 @@ public class DefectTypeController {
 	}
 
 	// Author : Paheerathan :: Get All Defect Types
-	// List all defect types controller
 	@GetMapping(value = "/defecttypes")
-	public List getAllDefectType() {
+	public List<DefectTypeDto> getAllDefectType() {
 		BasicConfigurator.configure();
 		logger.info("Defect Types Listed");
 		return defectTypeMapper.getAllDefectType();
 	}
 
 	// Author : Varnitha :: Get Defect Type By Id
-	// Get defect type by id controller
 	@GetMapping(value = "/defecttype/{id}")
 	public DefectTypeDto getDefectById(@PathVariable Long id) {
 		BasicConfigurator.configure();
@@ -67,7 +57,6 @@ public class DefectTypeController {
 	}
 
 	// Author : Shawmiya :: Delete Defect Type	
-	// Delete defect type controller
 	@DeleteMapping("/defecttype/{id}")
 	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
@@ -77,7 +66,6 @@ public class DefectTypeController {
 	}
 
 	// Author : Mathura :: Defect Type Updated
-	// Update defect type controller
 	@PutMapping(value = "/defecttype/{id}")
 	public ResponseEntity<Object> updateDefectType(@RequestBody DefectTypeDto defectTypeDto, @PathVariable Long id) {
 		BasicConfigurator.configure();

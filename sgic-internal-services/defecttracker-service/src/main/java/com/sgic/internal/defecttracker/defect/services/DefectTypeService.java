@@ -1,7 +1,6 @@
 package com.sgic.internal.defecttracker.defect.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.sgic.internal.defecttracker.defect.entities.DefectType;
 

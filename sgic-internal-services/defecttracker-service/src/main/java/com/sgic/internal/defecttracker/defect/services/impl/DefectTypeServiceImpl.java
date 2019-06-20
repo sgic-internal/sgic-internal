@@ -1,9 +1,7 @@
 package com.sgic.internal.defecttracker.defect.services.impl;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +49,6 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 		defectTypeRepository.deleteById(id);
 		logger.info("Delete Defect Type Service Implementation");
 		return true;
-
 	}
 
 	// Find defect type by id implementation
