@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class EmployeeController {
 
 	@Autowired
@@ -51,10 +53,10 @@ public class EmployeeController {
 	}
 
 	/* Author:JothiM 17-06-2019 */
-	@DeleteMapping("DeleteById/{empid}") // Delete Employee Using Employee ID
-	public ResponseEntity<String> deleteEmployeeById(@PathVariable(name = "empid") String empid) {
+	@DeleteMapping("DeleteById/{empId}") // Delete Employee Using Employee ID
+	public ResponseEntity<String> deleteEmployeeById(@PathVariable("empId")String empId) {
 		logger.info("Successfully Deleted");
-		employeeDTOMapper.deleteByEmployeeId(empid);
+		employeeDTOMapper.deleteByEmployeeId(empId);
 		return new ResponseEntity<>("deleted", HttpStatus.OK);
 	}
 
