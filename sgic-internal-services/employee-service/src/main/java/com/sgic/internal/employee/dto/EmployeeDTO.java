@@ -1,23 +1,14 @@
-package com.sgic.internal.employee.entities;
+package com.sgic.internal.employee.dto;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class EmployeeDTO {
 
-@SuppressWarnings("serial")
-@Entity
-@Table(schema = "employeeservice", name = "employee")
-public class Employee implements Serializable {
-
-	@Id
-	// Initialize Variable for Attribute of Employee 
+//	Initialize Variable for Attribute of EmployeeDTO
 	private String empId;
 	private String name;
 	private String email;
 	private String designation;
 
-	// Getter and setter Method for all attributes
+	// getter setter methods
 	public String getEmpId() {
 		return empId;
 	}
