@@ -18,19 +18,15 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ActiveProfiles("test")
-public class HrmEmployeeApplicationTests {
+public class LoginApplicationTests {
 
  @Rule	
   public WireMockRule wireMockRule = new WireMockRule(options().port(7081).httpsPort(7082));
 
-//	protected WireMockServer wireMockServer;
 	 
   @Autowired
   protected TestRestTemplate testRestTemplate;
   protected HttpHeaders httpHeaders = new HttpHeaders();
-//
-//  @Value("http://localhost:7080/hrm_system")
-//  protected String HRM_SYSTEM_BASE_URL;
 }
 	
 

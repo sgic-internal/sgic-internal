@@ -1,1 +1,1 @@
-create schema if not exists loginservice;
+create schema if not exists login;

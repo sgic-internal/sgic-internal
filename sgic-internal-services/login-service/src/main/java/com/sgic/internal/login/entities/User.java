@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema="loginservice", name="user")
+@Table(schema="login", name="user")
 public class User {
 
 	 @Id                                               //Generate primary key as user email

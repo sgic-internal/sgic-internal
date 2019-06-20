@@ -15,10 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
-import com.sgic.internal.login.HrmEmployeeApplicationTests;
+import com.sgic.internal.login.LoginApplicationTests;
 
 
-public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTests{
+public class LoginApplicationFunctionalitiesTest extends LoginApplicationTests{
   
   @Autowired
   JdbcTemplate jdbcTemplate;
@@ -27,24 +27,16 @@ public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTest
   public void setup() {
 	  
   
-  String newUser = "INSERT INTO loginservice.user (email, password,role) VALUES ('mathu@gmail.com', 'mathu','sharma')";
+  String newUser = "INSERT INTO login.user(email, password,role) VALUES ('hai@gmail.com', 'mathu','sharma')";
 
   jdbcTemplate.execute(newUser);
 
   }
   
-//  @Test
-//  public void getCareerDevelopmentPlanCompanySuccessfull() throws IOException, RestClientException {
-//    ResponseEntity<String> response =
-//        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/user", HttpMethod.POST,
-//            new HttpEntity<>(httpHeaders), String.class);
-//    assertEquals(HttpStatus.OK, response.getStatusCode());
-//   }
-  
   @Test
-  public void getCareerDevelopmentPlanCompanySuccessfull1() throws IOException, RestClientException {
+  public void getLoginUserDetailSuccessfull() throws IOException, RestClientException {
    ResponseEntity<String> response =
-        testRestTemplate.exchange("http://localhost:8081/loginservice" + "/users", HttpMethod.GET,
+        testRestTemplate.exchange("http://localhost:8081/login" + "/users", HttpMethod.GET,
            new HttpEntity<>(httpHeaders), String.class);
    assertEquals(HttpStatus.OK, response.getStatusCode());
    }
@@ -56,9 +48,9 @@ public class CareerDevelopmentPlanCompanyTest extends HrmEmployeeApplicationTest
 
   }
   
-  public final class CareerDevelopmentPlanConstant{
+  public final class LoginApplicationTest{
     
-    public CareerDevelopmentPlanConstant() {
+    public LoginApplicationTest() {
     }
     
     private static final String CAREER_DEVELOPMENT_PLAN_RESPONSE =
