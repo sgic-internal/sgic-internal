@@ -1,7 +1,7 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+
 
 import javax.persistence.Entity;
 
@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(schema="project_service" , name="project")
@@ -27,9 +25,9 @@ public class Project  implements Serializable{
 	
 	 private String type;
 	
-	 private Date startDate;
+	 private String startDate;
 	
-	 private Date endDate;
+	 private String endDate;
 	
 	 private String duration;
 	
@@ -55,17 +53,21 @@ public class Project  implements Serializable{
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Date getStartDate() {
+	
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	public String getDuration() {
 		return duration;

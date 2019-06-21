@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.project.controller.dtomapper;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,25 +34,40 @@ public ProjectData getByProjectId(Long projectId) {
 	return ProjectConverter.projectToProjectData(project);
 }
 
-public ProjectData getByprojectName(String projectName) {
-	Project project = projectService.getByprojectName(projectName);
+public List<ProjectData> getByprojectNameForMapper(String projectName) {
+	List<Project> project = projectService.getByprojectName(projectName);
 	return ProjectConverter.projectToProjectData(project);
 }
 
 public List<ProjectData> getByProjecttype(String type) {
-	List<Project> projectList = projectService.getByProjecttype(type);
-	return ProjectConverter.projectToProjectData(projectList);
+	List<Project> project = projectService.getBytype(type);
+	return ProjectConverter.projectToProjectData(project);
 }
 
-public Project UpdateProject(Long projectId, ProjectData projectData) {
+public List<ProjectData> getBystartDateformapper(String date) {
+	List<Project> project = projectService.getBystartDate(date);
+	return ProjectConverter.projectToProjectData(project);
+}
+
+public List<ProjectData> getBydurationformapper(String duration) {
+	List<Project> project = projectService.getByduration(duration);
+	return ProjectConverter.projectToProjectData(project);
+}
+
+public List<ProjectData> getBystatusformapper(String status) {
+	List<Project> project = projectService.getBystatus(status);
+	return ProjectConverter.projectToProjectData(project);
+}
+
+
+public Project UpdateProject(Long projectid, ProjectData projectData) {
 	Project project = ProjectConverter.projectDataToProject(projectData);
-	return projectService.updateProject(project);
+	return projectService.updateProject(projectid, project);
 }
 
 public ProjectData deleteById(Long projectId) {
-	projectService.deleteByprojectId(projectId);
+	projectService.deleteById(projectId);
 	return null;
-
 }
 
 

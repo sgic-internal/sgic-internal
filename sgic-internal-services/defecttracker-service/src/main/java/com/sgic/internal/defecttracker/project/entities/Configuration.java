@@ -11,10 +11,6 @@ import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
 
-
-
-
-
 @Entity
 @Table(name="configuration",schema="project_service")
 public class Configuration {
