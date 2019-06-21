@@ -20,8 +20,8 @@ public interface UserRepository  extends JpaRepository<User, String >{
 	@Query(value ="UPDATE User SET password=:password WHERE email=:email ")     //Query function to get all users for a particular role
 	User updatePassword(@Param("email") String email, @Param("password") String password);  //Get the user by his role
 	
-	@Query(value="FROM user WHERE password=:password AND email=:email")
-	User loginUser(@Param("email") String email, @Param("password")String password);
+//	@Query(value="FROM user WHERE password=:password AND email=:email")
+//	User loginUser(@Param("email") String email, @Param("password")String password);
 	
 }
  
