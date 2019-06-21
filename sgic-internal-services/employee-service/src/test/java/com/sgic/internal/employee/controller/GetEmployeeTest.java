@@ -38,7 +38,7 @@ public class GetEmployeeTest extends EmployeeTest{
 	@Test
 	  public void getEmployeeSuccessfull() throws IOException, RestClientException {
 	    ResponseEntity<String> response =
-	        testRestTemplate.exchange("http://localhost:8080/employeeservice" + "/GetAllemployee", HttpMethod.GET,
+	        testRestTemplate.exchange("http://localhost:8080/employeeservice" + "/getallemployee", HttpMethod.GET,
 	        		   new HttpEntity<>(httpHeaders), String.class);
 	    assertEquals(HttpStatus.OK, response.getStatusCode());
 	   }

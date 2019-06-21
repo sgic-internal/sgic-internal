@@ -29,7 +29,7 @@ public class DeleteEmployeeTest extends EmployeeTest {
 		employee2.setEmail("saranya@gmail.com");
 		employee2.setDesignation("tech lead");
 		employee2.setName("puthiya jothi");
-		testRestTemplate.delete("http://localhost:8080/employeeservice" + "/GetEmpolyeeById/" + empId, employee2,
+		testRestTemplate.delete("http://localhost:8080/employeeservice" + "/deletebyid/" + empId, employee2,
 				Employee.class);
 
 	}
