@@ -20,7 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
-public class EmployeeControllerTest extends EmployeeTest{
+public class GetEmployeeTest extends EmployeeTest{
 
 	@Autowired
 	  JdbcTemplate jdbcTemplate;
