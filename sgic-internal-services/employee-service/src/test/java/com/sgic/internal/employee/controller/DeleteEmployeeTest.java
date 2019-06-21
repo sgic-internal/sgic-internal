@@ -11,7 +11,7 @@ import org.springframework.web.client.RestClientException;
 import com.sgic.internal.employee.EmployeeTest;
 import com.sgic.internal.employee.entities.Employee;
 
-public class UpdateEmployeeTest extends EmployeeTest {
+public class DeleteEmployeeTest extends EmployeeTest {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -29,7 +29,7 @@ public class UpdateEmployeeTest extends EmployeeTest {
 		employee2.setEmail("saranya@gmail.com");
 		employee2.setDesignation("tech lead");
 		employee2.setName("puthiya jothi");
-		testRestTemplate.put("http://localhost:8080/employeeservice" + "/GetEmpolyeeById/" + empId, employee2,
+		testRestTemplate.delete("http://localhost:8080/employeeservice" + "/GetEmpolyeeById/" + empId, employee2,
 				Employee.class);
 
 	}
