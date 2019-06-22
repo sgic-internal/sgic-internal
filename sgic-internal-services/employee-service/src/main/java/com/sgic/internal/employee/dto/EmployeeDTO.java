@@ -8,6 +8,20 @@ public class EmployeeDTO {
 	private String email;
 	private String designation;
 
+	
+
+	public EmployeeDTO() {
+		super();
+	}
+
+	public EmployeeDTO(String empId, String name, String email, String designation) {
+		super();
+		this.empId = empId;
+		this.name = name;
+		this.email = email;
+		this.designation = designation;
+	}
+
 	// getter setter methods
 	public String getEmpId() {
 		return empId;
