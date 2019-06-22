@@ -10,6 +10,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 
 @RunWith(SpringRunner.class)
@@ -19,6 +21,8 @@ public class EmployeeTest {
 
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(options().port(7081).httpsPort(7082));
+	
+	protected WireMockServer wireMockServer;
 
 	@Autowired
 	protected TestRestTemplate testRestTemplate;

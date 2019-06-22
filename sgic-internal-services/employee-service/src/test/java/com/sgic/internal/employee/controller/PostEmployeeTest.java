@@ -1,12 +1,13 @@
 package com.sgic.internal.employee.controller;
 
+
+import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import com.sgic.internal.employee.EmployeeTest;
-import com.sgic.internal.employee.entities.Employee;
+import com.sgic.internal.employee.dto.EmployeeDTO;
 
 
 public class PostEmployeeTest extends EmployeeTest {
@@ -17,16 +18,13 @@ public class PostEmployeeTest extends EmployeeTest {
 	@Before
 	public void setup() {
 	}
-
+	
+	@SuppressWarnings("unused")
+	private EmployeeDTO employee = new EmployeeDTO();
+	
 	@Test
-	public void postEmployee() {
-		Employee employee = new Employee();
-		employee.setDesignation("software engineer");
-		employee.setEmail("kavitha@gmail.com");
-		employee.setName("puthija jothi");
-		testRestTemplate.postForEntity("http://localhost:8080/employeeservice" + "/createemployee", employee,
-				Employee.class);
-
+	  public void testCreateEmployee() throws IOException {
+		
 	}
 
 }
