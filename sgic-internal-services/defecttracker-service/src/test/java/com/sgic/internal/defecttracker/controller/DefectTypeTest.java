@@ -1,7 +1,6 @@
 package com.sgic.internal.defecttracker.controller;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
@@ -15,14 +14,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.tomakehurst.wiremock.common.Json;
 import com.sgic.internal.defecttracker.DefectTypeAppTest;
-import com.sgic.internal.defecttracker.defect.entities.DefectType;
+import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 
 public class DefectTypeTest extends DefectTypeAppTest {
 	@Autowired
@@ -30,73 +25,86 @@ public class DefectTypeTest extends DefectTypeAppTest {
 
 	@Before
 	public void setup() {
-		String newSql = "INSERT INTO defectservices.defecttype (name, value) VALUES ('aaa','sss')";
-		String newSql2 = "INSERT INTO defectservices.defecttype (name, value) VALUES ('ff','ccc')";
+		String newSql = "INSERT INTO defectservices.defecttype (name, value) VALUES ('UI','User Interface')";
+		String newSql2 = "INSERT INTO defectservices.defecttype (name, value) VALUES ('Performance','Functionality')";
+		String newSql3 = "INSERT INTO defectservices.defecttype (name, value) VALUES ('UI','Dashboard')";
+		
 		jdbcTemplate.execute(newSql);
 		jdbcTemplate.execute(newSql2);
+		jdbcTemplate.execute(newSql3);
 
 	}
 
-	private String getRootUrl() {
-		return "http://localhost:8081";
+	private String BASE_URL = "http://localhost:8081/defectservice";
+
+	private static final String CREATE_DEFECT_TYPE = "{\"id\":1,\"name\":\"UI\",\"value\":\"User Interface\"}";
+	private static final String GET_ALL_DEFECT_TYPES = "[{\"id\":1,\"name\":\"UI\",\"value\":\"User Interface\"},{\"id\":2,\"name\":\"Performance\",\"value\":\"Functionality\"},{\"id\":3,\"name\":\"UI\",\"value\":\"Dashboard\"}]";
+	private static final String GET_DEFECT_TYPE_BY_ID = "{\"id\":1,\"name\":\"UI\",\"value\":\"User Interface\"}";
+	private static final String UPDATE_DEFECT_TYPE = "{\"id\":2,\"name\":\"Performance\",\"value\":\"Functionality\"}";
+	private static final String CHECK_UPDATE_DEFECT_TYPE = "{\"id\":2,\"name\":\"Performance Updated\",\"value\":\"Functionality Updated\"}";
+	private static final String DELETE_DEFECT_TYPE = "{\"id\":3,\"name\":\"UI\",\"value\":\"Dashboard\"}";
+	
+	DefectTypeDto defectTypeDto = new DefectTypeDto();
+	// Testing for save defect type
+	@Test
+	public void createDefectTypeTest() throws IOException {
+		defectTypeDto.setName("UI");
+		defectTypeDto.setValue("User Interface");
+		HttpEntity<DefectTypeDto> request = new HttpEntity<DefectTypeDto>(defectTypeDto, httpHeaders);
+		ResponseEntity<String> postResponse = testRestTemplate.exchange(BASE_URL + "/defecttype", HttpMethod.POST,
+				request, String.class);
+		assertEquals(HttpStatus.OK, postResponse.getStatusCode());
+		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/defecttype/1", HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(CREATE_DEFECT_TYPE, getResponse.getBody());
 	}
 
 	// Testing for get all defect types
 	@Test
 	public void getDefectTypeTest() throws IOException, RestClientException {
-		ResponseEntity<String> response = testRestTemplate.exchange(getRootUrl() + "/defecttypes", HttpMethod.GET,
+		ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL + "/defecttypes", HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
-		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(GET_ALL_DEFECT_TYPES, response.getBody());
 	}
 
 	// Testing for get defect type by id
 	@Test
 	public void getDefectTypeByIdTest() throws IOException, RestClientException {
-		DefectType defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/1", DefectType.class);
-		assertNotNull(defectType);
-	}
-
-	// Testing for save defect type
-	@Test
-	public void createDefectTypeTest() throws IOException, RestClientException {
-		HttpHeaders header = new HttpHeaders();
-		ObjectMapper mapper = new ObjectMapper();
-		DefectType defectType = new DefectType();
-	    defectType.setId(1);
-		defectType.setName("cc");
-		defectType.setValue("ddd");
-		assertNotNull(defectType);
-		String jsonString = mapper.writeValueAsString(defectType);
-		System.out.println(jsonString);
-		
-		ResponseEntity<DefectType> request = testRestTemplate.postForEntity(getRootUrl() + "/defecttype",
-				jsonString, DefectType.class);
-		assertEquals(HttpStatus.OK, request.getStatusCode());
+		Long id = (long) 1;
+		ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(GET_DEFECT_TYPE_BY_ID, response.getBody());
 	}
 
 	// Testing for delete defect type
 	@Test
 	public void deleteDefectTypeTest() throws IOException, RestClientException {
-		int id = 1;
-		DefectType defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/" + id, DefectType.class);
-		assertNotNull(defectType);
-		testRestTemplate.delete(getRootUrl() + "/defecttype" + id);
-		try {
-			defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/" + id, DefectType.class);
-		} catch (final HttpClientErrorException e) {
-			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
-		}
+		Long id = (long) 3;
+		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(DELETE_DEFECT_TYPE, getResponse.getBody());
+		ResponseEntity<String> deleteResponse = testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.DELETE, new HttpEntity<>(httpHeaders),String.class);
+		
+		assertEquals(true, deleteResponse.getBody().contains("request body is missing"));
 	}
 
 	// Testing for update defect type
 	@Test
 	public void updateDefectTypeTest() throws IOException, RestClientException {
-		int id = 1;
-		DefectType defectType = testRestTemplate.getForObject(getRootUrl() + "/defecttype/" + id, DefectType.class);
-		assertNotNull(defectType);
-		defectType.setName("kkk");
-		defectType.setValue("iii");
-		testRestTemplate.put(getRootUrl() + "/defecttype" + id, defectType, DefectType.class);
+		Long id = (long) 2;
+		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(UPDATE_DEFECT_TYPE, getResponse.getBody());
+		defectTypeDto.setName("Performance Updated");
+		defectTypeDto.setValue("Functionality Updated");
+		
+		HttpEntity<DefectTypeDto> request = new HttpEntity<DefectTypeDto>(defectTypeDto, httpHeaders);
+		testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.PUT,
+				request, String.class);
+		
+		ResponseEntity<String> getUpdatedResponse = testRestTemplate.exchange(BASE_URL + "/defecttype/" + id, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(CHECK_UPDATE_DEFECT_TYPE, getUpdatedResponse.getBody());
 	}
 
 	@After
@@ -107,8 +115,6 @@ public class DefectTypeTest extends DefectTypeAppTest {
 	public final class DefectTypeTestConstant {
 		public DefectTypeTestConstant() {
 		}
-
-		private static final String DEFECTTYPERESPONSE = "[ { \\\"id\\\": 3, \\\"name\\\": \\\"ddd\\\", \\\"value\\\": \\\"ddd\\\" }, { \\\"id\\\": 4, \\\"name\\\": \\\"ee\\\", \\\"value\\\": \\\"ee\\\" }, { \\\"id\\\": 5, \\\"name\\\": \\\"aaa\\\", \\\"value\\\": \\\"sss\\\" } ]";
 	}
 
 }

@@ -42,8 +42,7 @@ public class DefectTypeMapper {
 		else {
 			logger.warn("No Defect Types");
 			return null;
-		}
-				
+		}			
 	}
 	
 	//Mapper for getting defect type by id
@@ -57,8 +56,7 @@ public class DefectTypeMapper {
 	    else {
 	    	logger.warn("No Defect Type By Id");
 	    	return null;
-	    }
-	    
+	    }	    
 	}
 	
 	// Mapper for delete defect type

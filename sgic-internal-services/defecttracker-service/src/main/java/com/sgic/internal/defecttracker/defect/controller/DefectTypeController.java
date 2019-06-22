@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.common.api.enums.RestApiResponseStatus;
+import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectTypeMapper;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
@@ -30,10 +32,10 @@ public class DefectTypeController {
 	// Author : Varnitha :: Create Defect Type
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 		if (defectTypeMapper.createDefectType(defectTypeDto)) {
 			logger.info("Defect Type created");
-			return new ResponseEntity<>("Defect Type Added Successfully", HttpStatus.OK);
+			return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 		} else {
 			logger.error("Defect Type Create Fail");
 			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
@@ -71,6 +73,6 @@ public class DefectTypeController {
 		BasicConfigurator.configure();
 		defectTypeMapper.updateDefectType(id, defectTypeDto);
 		logger.info("Defect Type Updated");
-		return new ResponseEntity<>("Defect Type Updated Successfully", HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 	}
 }
