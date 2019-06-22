@@ -21,7 +21,6 @@ import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
-import com.sgic.internal.defecttracker.project.services.impl.ProjectServiceImpl;
 
 @CrossOrigin
 @RestController

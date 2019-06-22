@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: product-service
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Tyron
+Built-By: Sajidha
 Implementation-Vendor-Id: com.sgic.internal.product
-Build-Jdk: 1.8.0_201
+Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 
