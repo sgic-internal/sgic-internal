@@ -43,6 +43,21 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	 
+	
+	//Create Constructor
+	public User(String email, String password, String role) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.role = role;
+	}
+	
+	 //Create empty constructor
+	public User() {
+		super();
+	}
+	
+	
+	
 	
 }

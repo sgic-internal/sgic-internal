@@ -17,7 +17,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 
+import com.github.tomakehurst.wiremock.http.HttpHeaders;
 import com.sgic.internal.login.LoginApplicationTests;
+import com.sgic.internal.login.controller.dto.UserData;
 import com.sgic.internal.login.entities.User;
 
 
@@ -25,67 +27,55 @@ public class LoginApplicationFunctionalitiesTest extends LoginApplicationTests{
   
   @Autowired
   JdbcTemplate jdbcTemplate;
+  private UserData userData = new UserData();
+  private String BASE_URL ="http://localhost:8082/login";
+  private String ADD_API_URL="/user";
+  private String GET_API_URL="/users";
+  private String PUT_API_URL="/updateUser";
+  private String DELETE_API_URL="/deleteUser";
   
-  @Before
-  public void setup() {
-	  
+  private static final String GET_USER_RESPONSE="[{\"email\":\"jaanu\",\"password\":\"ja123\",\"role\":\"user\"}]";
+  private static final String PUT_USER_RESPONSE="[{ \\\"email\\\":\\\"jaanu\\\", \\\"password\\\":\\\"ja123\\\", \\\"role\\\":\\\"user\\\" }]";
+  private static final String ADD_USER_RESPONSE="{ \\\"email\\\":\\\"jaanu\\\", \\\"password\\\":\\\"ja123\\\", \\\"role\\\":\\\"user\\\" }";
   
-//  String newUser = "INSERT INTO login.user(email, password,role) VALUES ('pppp', 'ppp','ooo')";
-//  jdbcTemplate.execute(newUser);
+  
+//=====================Test to get create user detail==================================== 
+  @Test
+  public void addUser() throws IOException, RestClientException {
 
+	   userData.setEmail("jaanu");
+	   userData.setPassword("ja123");
+	   userData.setRole("user");
+	   
+	   HttpEntity<UserData> request = new HttpEntity<UserData>(userData,httpHeaders);
+
+
+    ResponseEntity<String> PostResponse = testRestTemplate.postForEntity(BASE_URL+ADD_API_URL, request, String.class);
+	assertEquals(200, PostResponse.getStatusCodeValue());
+	
+	ResponseEntity<String> GetResponse = testRestTemplate.exchange(BASE_URL+GET_API_URL, HttpMethod.GET,
+			new HttpEntity<>(httpHeaders), String.class);
+	assertEquals(HttpStatus.OK, GetResponse.getStatusCode());
+	assertEquals(GET_USER_RESPONSE, GetResponse.getBody());
   }
   
+//=====================Test to get login user details==================================== 
   @Test
   public void getLoginUserDetailSuccessfull() throws IOException, RestClientException {
    ResponseEntity<String> response =
-        testRestTemplate.exchange("http://localhost:8081/login" + "/users", HttpMethod.GET,
+        testRestTemplate.exchange(BASE_URL + GET_API_URL, HttpMethod.GET,
            new HttpEntity<>(httpHeaders), String.class);
    assertEquals(HttpStatus.OK, response.getStatusCode());
+   assertEquals(GET_USER_RESPONSE,GET_USER_RESPONSE);
    }
- 
-  @Test
-  public void getLoginUserByMailSuccessfull() throws IOException, RestClientException {
-	  User user = testRestTemplate.getForObject("http://localhost:8081/login" + "/getByUserMail/mathu@gmail.com", User.class);
-     assertNotNull(user);
-   }
-  
-    @Test
-    public void createLoginUserDetails() throws IOException, RestClientException{
-    	User user= new User();
-    	user.setEmail("mathu");
-    	user.setPassword("m123");
-    	user.setRole("user");
-    	
-    	testRestTemplate.postForEntity("http://localhost:8081/login" + "/user",HttpMethod.POST, User.class);
-    }
-    
-    @Test
-    public void deleteLoginUserDetail()throws IOException, RestClientException{
-    	String email ="mathu@gmail.com";
-    	User user = testRestTemplate.getForObject("http://localhost:8081/login" + "/user/"+email, User.class);
-    	assertNotNull(user);
-    	
-    	testRestTemplate.delete("http://localhost:8081/login" + "/user/"+email);
-    	try {
-    		
-    		user = testRestTemplate.getForObject("http://localhost:8081/login" + "/user/"+email, User.class);
-    	}catch(final HttpClientErrorException e) {
-    	  assertEquals(e.getStatusCode(),HttpStatus.NOT_FOUND);
-    	}
-    }
+
+//=====================Test to delete login user details====================================  
+
   
   @After
   public void tearDown() {
 
   }
   
-  public final class LoginApplicationTest{
-    
-    public LoginApplicationTest() {
-    }
-    
-    private static final String LOGIN_APPLICATION_DETAILS =
-        "[ { \\\"email\\\": \\\"iiiiiii\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"kala@gmail.com\\\", \\\"password\\\": \\\"kala\\\", \\\"role\\\": \\\"user\\\" }, { \\\"email\\\": \\\"mathu@gmail.com\\\", \\\"password\\\": \\\"one\\\", \\\"role\\\": \\\"user\\\" } ]";
-
-  }
+  
 }

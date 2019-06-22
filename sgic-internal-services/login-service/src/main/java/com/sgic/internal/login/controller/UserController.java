@@ -71,7 +71,7 @@ public class UserController {
 	  
 //=======================DELETE user detail by the mail	==========================	
 
-	 @DeleteMapping("/user/{email}")
+	 @DeleteMapping("/deleteUser/{email}")
 	   public ResponseEntity<?>deleteUser(@PathVariable("email")String email ){ 
 		 userDataMapper.deleteUser(email);
 		return new ResponseEntity<String>("User detail is Deleted",HttpStatus.OK);
@@ -79,7 +79,7 @@ public class UserController {
 	   }
 //=======================UPDATE user detail using mail==================================	 
  
-	 @PutMapping("update/{email}")
+	 @PutMapping("updateUser/{email}")
 		public ResponseEntity<String> updateEmployee(@PathVariable(name = "email") String email,
 				@RequestBody UserData userData) {
 			userDataMapper.UpdateUser(email, userData);
