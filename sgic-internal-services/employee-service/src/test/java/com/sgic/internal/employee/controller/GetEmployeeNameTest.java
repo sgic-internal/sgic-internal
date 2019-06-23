@@ -1,4 +1,4 @@
-/*package com.sgic.internal.employee.controller;
+package com.sgic.internal.employee.controller;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,38 +18,29 @@ import com.sgic.internal.employee.EmployeeTest;
 import com.sgic.internal.employee.dto.EmployeeDTO;
 
 public class GetEmployeeNameTest extends EmployeeTest {
-	
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
 	@SuppressWarnings("unused")
 	private EmployeeDTO employee = new EmployeeDTO();
-	
+
 	@Test
-	public void testCreateEmployee() throws IOException, RestClientException{
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001","Keerthi","keerthi@gmail.com","QA");
+	public void testCreateEmployee() throws IOException, RestClientException {
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "rammiya", "keerthi@gmail.com", "QA");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
-	    ResponseEntity<String> postresponse =
-	        testRestTemplate.postForEntity("http://localhost:8084/employeeservice"+"/createemployee", request, String.class);
-	    assertEquals(200, postresponse.getStatusCodeValue());
-	    
-//	    ResponseEntity<String> getresponse = testRestTemplate.exchange(
-//				"http://localhost:8084/employeeservice" + "/getallemployee", HttpMethod.GET,
-//				new HttpEntity<>(httpHeaders), String.class);
-//		assertEquals(HttpStatus.OK, getresponse.getStatusCode());
-//	    
-//		Object body = "[{\"empId\":\"EMP001\",\"name\":\"Keerthi\",\"email\":\"keerthi@gmail.com\",\"designation\":\"QA\"}]";
-//		assertEquals(body, getresponse.getBody());
-		
-		 ResponseEntity<String> getbynameresponse = testRestTemplate.exchange(
-					"http://localhost:8084/employeeservice" + "/getname"+"/{name}", HttpMethod.GET,
-					new HttpEntity<>(httpHeaders), String.class);
-			assertEquals(HttpStatus.OK, getbynameresponse.getStatusCode());
-		    
-			Object body = "[{\"empId\":\"EMP001\",\"name\":\"Keerthi\",\"email\":\"keerthi@gmail.com\",\"designation\":\"QA\"}]";
-			assertEquals(body, getbynameresponse.getBody());
+		ResponseEntity<String> postresponse = testRestTemplate
+				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
+		assertEquals(200, postresponse.getStatusCodeValue());
+
+		ResponseEntity<String> getbynameresponse = testRestTemplate.exchange(
+				"http://localhost:8084/employeeservice" + "/getname" + "/rammiya", HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(HttpStatus.OK, getbynameresponse.getStatusCode());
+
+		Object body = "[{\"empId\":\"EMP001\",\"name\":\"rammiya\",\"email\":\"keerthi@gmail.com\",\"designation\":\"QA\"}]";
+		assertEquals(body, getbynameresponse.getBody());
 	}
 
 }
-*/
