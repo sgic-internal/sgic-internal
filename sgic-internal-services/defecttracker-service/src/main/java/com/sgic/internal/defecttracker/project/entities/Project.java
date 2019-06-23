@@ -4,22 +4,20 @@ import java.io.Serializable;
 
 
 import javax.persistence.Entity;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
 
 @Entity
 @Table(schema="project_service" , name="project")
 public class Project  implements Serializable{
 
+/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	 private Long projectId;
+	 private String projectId;
 	
 	 private String projectName;
 	
@@ -35,10 +33,10 @@ public class Project  implements Serializable{
 	 
 	 private String configId;
 	
-	public Long getProjectId() {
+	public String getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(Long projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
 	public String getProjectName() {
@@ -65,9 +63,6 @@ public class Project  implements Serializable{
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	public String getDuration() {
 		return duration;

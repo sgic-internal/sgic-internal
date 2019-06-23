@@ -18,7 +18,8 @@ import org.springframework.web.client.RestClientException;
 import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 
-public class ProjectDevelopmentTest extends ProjectApplicationTest {
+public class GetById extends ProjectApplicationTest {
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -55,5 +56,4 @@ public class ProjectDevelopmentTest extends ProjectApplicationTest {
 	public void tearDown() {
 
 	}
-
 }

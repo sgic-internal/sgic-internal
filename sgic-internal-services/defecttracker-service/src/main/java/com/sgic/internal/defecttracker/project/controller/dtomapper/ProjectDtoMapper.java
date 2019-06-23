@@ -1,7 +1,5 @@
 package com.sgic.internal.defecttracker.project.controller.dtomapper;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.services.ProjectService;
 
 @Service
-
 public class ProjectDtoMapper {
 	@Autowired
 	public ProjectService projectService;
@@ -29,7 +26,7 @@ public Project saveProjectforMapper(ProjectData projectData) {
 	return projectService.createProject(project);
 }
 
-public ProjectData getByProjectId(Long projectId) {
+public ProjectData getByProjectId(String projectId) {
 	Project project = projectService.getByprojectId(projectId);
 	return ProjectConverter.projectToProjectData(project);
 }
@@ -60,12 +57,12 @@ public List<ProjectData> getBystatusformapper(String status) {
 }
 
 
-public Project UpdateProject(Long projectid, ProjectData projectData) {
+public Project UpdateProject(String projectid, ProjectData projectData) {
 	Project project = ProjectConverter.projectDataToProject(projectData);
 	return projectService.updateProject(projectid, project);
 }
 
-public ProjectData deleteById(Long projectId) {
+public ProjectData deleteById(String projectId) {
 	projectService.deleteById(projectId);
 	return null;
 }

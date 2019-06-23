@@ -41,6 +41,7 @@ public class ProjectConverter {
 	    	project.setConfigId(projectData.getConfigId());
 	        return project;
 	      }
+	    
 	    public static List<ProjectData> projectToProjectData(List<Project> projectList) {    
 	        
 	        if(projectList != null) {
