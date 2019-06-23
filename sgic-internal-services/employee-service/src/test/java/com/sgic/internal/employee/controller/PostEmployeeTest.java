@@ -26,6 +26,9 @@ public class PostEmployeeTest extends EmployeeTest {
 	private EmployeeDTO employeeDTO = new EmployeeDTO();
 	
 	
+	@SuppressWarnings("unused")
+	private EmployeeDTO employee = new EmployeeDTO();
+	
 	@Test
 	public void testCreateEmployee() throws IOException, RestClientException{
 		EmployeeDTO employeeDTO = new EmployeeDTO("EMP003","Dali","dali@gmail.com","QA");

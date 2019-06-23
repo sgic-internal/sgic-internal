@@ -22,6 +22,8 @@ public class EmployeeDTO {
 		this.designation = designation;
 	}
 
+	
+
 	// getter setter methods
 	public String getEmpId() {
 		return empId;
