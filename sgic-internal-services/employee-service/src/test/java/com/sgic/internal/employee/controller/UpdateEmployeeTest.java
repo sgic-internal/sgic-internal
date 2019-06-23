@@ -35,7 +35,7 @@ public class UpdateEmployeeTest extends EmployeeTest {
 	    
 	    EmployeeDTO employeeDTO1 = new EmployeeDTO("EMP002","rammi","rammi@gmail.com","QA");
 		HttpEntity<EmployeeDTO> updaterequest = new HttpEntity<EmployeeDTO>(employeeDTO1, httpHeaders);
-		ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8084/employeeservice" + "/update"+"/empId" , HttpMethod.PUT, updaterequest,
+		ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8084/employeeservice" + "/update"+"/EMP002" , HttpMethod.PUT, updaterequest,
 				String.class);
 		assertEquals(200, putResponse.getStatusCodeValue());
 		
