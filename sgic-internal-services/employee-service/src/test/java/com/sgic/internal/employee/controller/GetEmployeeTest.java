@@ -1,19 +1,15 @@
 package com.sgic.internal.employee.controller;
 
 import com.sgic.internal.employee.EmployeeTest;
-import com.sgic.internal.employee.repositories.EmployeeRepository;
-
+import com.sgic.internal.employee.dto.EmployeeDTO;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,40 +19,37 @@ import org.springframework.web.client.RestClientException;
 public class GetEmployeeTest extends EmployeeTest{
 
 	@Autowired
-	  JdbcTemplate jdbcTemplate;
-	
+	JdbcTemplate jdbcTemplate;
+
 	@SuppressWarnings("unused")
-	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
-	
-	@Before
-	  public void setup() {
-		logger.info("successfully Insert values");
-	  String Getemploye = "INSERT INTO employeeservice.employee (emp_id, designation, email, name) VALUES ('emp002', 'Software Engineer', 'tyronne90@gmail.com', 'tyronne')";
-	  jdbcTemplate.execute(Getemploye);
-	  }
-	
+	private EmployeeDTO employee = new EmployeeDTO();
+
+//	common URL
+	private String BASE_URL = "http://localhost:8084/employeeservice";
+//	Post API
+	private String ADD_API_URL = "/createemployee";
+
+//	Get API
+	private String GET_API_URL = "/getallemployee";
+
+//	Save unit Test expected Response
+	private static final String GET_EMPLOYEE_RESPONSE = "[{\"empId\":\"EMP003\",\"name\":\"Dali\",\"email\":\"dali@gmail.com\",\"designation\":\"SoftwareEngineer\"}]";
+
 	@Test
-	  public void getEmployeeSuccessfull() throws IOException, RestClientException {
-	    ResponseEntity<String> response =
-	        testRestTemplate.exchange("http://localhost:8084/employeeservice" + "/getallemployee", HttpMethod.GET,
-	        		   new HttpEntity<>(httpHeaders), String.class);
-	    assertEquals(HttpStatus.OK, response.getStatusCode());
-	   }
-	   
-	  @After
-	  public void tearDown() {
+	public void testCreateEmployee() throws IOException, RestClientException {
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP003", "Dali", "dali@gmail.com", "SoftwareEngineer");
+		HttpHeaders httpHeaders = new HttpHeaders();
+		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
+		ResponseEntity<String> postresponse = testRestTemplate
+				.postForEntity(BASE_URL + ADD_API_URL, request, String.class);
+		assertEquals(200, postresponse.getStatusCodeValue());
 
-	  }
-	  public final class EmployeeConstant{
-		    
-		    public EmployeeConstant() {
-		    }
-		    
-		    @SuppressWarnings("unused")
-			private static final String GETEMPLOYEE_RESPONSE =
-		    		"[ {\\\"empId\\\": \\\"emp001\\\", \\\"name\\\": \\\"tyronne\\\",\\\"email\\\": \\\"tyronne@gmail.com\\\",\\\"designation\\\": \\\"QA\\\"} ]";
-		  }
+		ResponseEntity<String> getresponse = testRestTemplate.exchange(BASE_URL + GET_API_URL, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(HttpStatus.OK, getresponse.getStatusCode());
 
+		assertEquals(GET_EMPLOYEE_RESPONSE, getresponse.getBody());
+	}
 	  
 	  
 }

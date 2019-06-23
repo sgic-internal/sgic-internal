@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: login-service
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Puthiyajothi
+Built-By: Dalistaa
 Implementation-Vendor-Id: com.sgic.internal.login
 Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse

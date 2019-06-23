@@ -45,7 +45,7 @@ public class EmployeeController {
 	}
 
 	/* Author:DalistaaA 17-06-2019 */
-	@GetMapping("/getempolyeeById/{empid}") // Get Employee By Employee ID
+	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
 	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
 		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
