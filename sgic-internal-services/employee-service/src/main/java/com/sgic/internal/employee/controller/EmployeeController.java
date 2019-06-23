@@ -52,7 +52,7 @@ public class EmployeeController {
 	}
 
 	/* Author:JothiM 17-06-2019 */
-	@DeleteMapping("deletebyid/{empId}") // Delete Employee Using Employee ID
+	@DeleteMapping("/deletebyid/{empId}") // Delete Employee Using Employee ID
 	public ResponseEntity<String> deleteEmployeeById(@PathVariable("empId") String empId) {
 		logger.info("Employee Controller -> DeleteEmployeeById");
 		employeeDTOMapper.deleteByEmployeeId(empId);
