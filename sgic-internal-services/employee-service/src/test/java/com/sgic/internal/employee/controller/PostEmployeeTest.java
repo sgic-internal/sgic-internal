@@ -21,9 +21,6 @@ public class PostEmployeeTest extends EmployeeTest {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-
-	@SuppressWarnings("unused")
-	private EmployeeDTO employeeDTO = new EmployeeDTO();
 	
 	
 	@SuppressWarnings("unused")

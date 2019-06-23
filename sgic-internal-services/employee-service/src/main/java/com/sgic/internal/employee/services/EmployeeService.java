@@ -14,6 +14,9 @@ public interface EmployeeService {
 
 	// Method for Getting One Employee Record by ID
 	public Employee getById(String empId);
+	
+	//Method for Getting One Employee Record by Name
+	public List<Employee> getByName(String name);
 
 	// Method for Getting One Employee Record by Email
 	public Employee getByEmail(String email);

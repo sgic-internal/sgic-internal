@@ -82,5 +82,14 @@ public class EmployeeDTOMapper {
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
+	
+	@SuppressWarnings("static-access")
+	//Find Employee By Name 
+	public List<EmployeeDTO> getEmployeeByName(String name){
+		logger.info("Successfully Get Employee By Name");
+		List<Employee> employee = employeeService.getByName(name);
+		return employeeConverter.EmployeeToEmployeeDTO(employee);
+		
+	}
 
 }

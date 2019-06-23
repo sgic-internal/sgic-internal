@@ -66,7 +66,7 @@ public class EmployeeController {
 		logger.info("Employee Controller -> GetEmail");
 		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeEmailforMapper(email), HttpStatus.OK);
 	}
-
+	
 	/* Author:RammiyaN 19-06-2019 */
 	@PutMapping("update/{empId}") // update Employee Using Employee ID
 	public ResponseEntity<String> updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
@@ -83,5 +83,13 @@ public class EmployeeController {
 	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designation") String designation) {
 		logger.info("Employee Controller -> GetDesignation");
 		return employeeDTOMapper.getEmployeeByDesignation(designation);
+	}
+	
+	/* Author:KeerthanaR 23-06-2019 */
+	@GetMapping("/getname/{name}") // Get Employee By Name
+	public List<EmployeeDTO> getByName(@PathVariable(name = "name") String name){
+		logger.info("Employee Controller -> GetName");
+		return employeeDTOMapper.getEmployeeByName(name);
+		
 	}
 }
