@@ -28,8 +28,7 @@ public class GetByDesignationTest extends EmployeeTest {
 
 	@Test
 	public void testCreateEmployee() throws IOException, RestClientException {
-	//	String  employee = "INSERT INTO employeeservice.employee (emp_id, designation, email, name) VALUES ('emp003', 'Dilu', 'saidputhi@gmail.com', 'soft')";
-	//	 jdbcTemplate.execute(employee);
+
 		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "rammiya", "rammiya@gmail.com", "QA");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
