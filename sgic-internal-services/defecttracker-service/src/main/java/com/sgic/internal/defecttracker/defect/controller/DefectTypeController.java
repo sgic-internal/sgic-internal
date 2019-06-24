@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectTypeMa
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 public class DefectTypeController {
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 
@@ -32,7 +34,7 @@ public class DefectTypeController {
 	// Author : Varnitha :: Create Defect Type
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
-		//BasicConfigurator.configure();
+		BasicConfigurator.configure();
 		if (defectTypeMapper.createDefectType(defectTypeDto)) {
 			logger.info("Defect Type created");
 			return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
@@ -51,6 +53,7 @@ public class DefectTypeController {
 	}
 
 	// Author : Varnitha :: Get Defect Type By Id
+	
 	@GetMapping(value = "/defecttype/{id}")
 	public DefectTypeDto getDefectById(@PathVariable Long id) {
 		BasicConfigurator.configure();
@@ -59,6 +62,7 @@ public class DefectTypeController {
 	}
 
 	// Author : Shawmiya :: Delete Defect Type	
+	
 	@DeleteMapping("/defecttype/{id}")
 	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();

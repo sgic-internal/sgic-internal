@@ -27,7 +27,7 @@ public class DefectTypeMapper {
 		//BasicConfigurator.configure();
 		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
 		defectTypeService.createDefectType(defectType);
-		logger.info("Defect Type Create Mapper");
+		//logger.info("Defect Type Create Mapper");
 		return true;
 	}
 	
@@ -36,11 +36,11 @@ public class DefectTypeMapper {
 		//BasicConfigurator.configure();
 		List<DefectType> defectTypeList = defectTypeService.findAllDefectType();
 		if(defectTypeList != null) {
-			logger.info("Defect Types List Mapper");
+			//logger.info("Defect Types List Mapper");
 			return (defectTypeConverter.defectTypeToDefectTypeDto(defectTypeList));
 		}
 		else {
-			logger.warn("No Defect Types");
+			//logger.warn("No Defect Types");
 			return null;
 		}			
 	}
@@ -50,11 +50,11 @@ public class DefectTypeMapper {
 		//BasicConfigurator.configure();		
 	    DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
 	    if (defectTypeList != null) {
-	    	logger.info("Defect Type Get By Id Mapper");
+	    	//logger.info("Defect Type Get By Id Mapper");
 	    	return defectTypeConverter.defectTypeToDefectTypeDto(defectTypeList);
 	    }
 	    else {
-	    	logger.warn("No Defect Type By Id");
+	    	//logger.warn("No Defect Type By Id");
 	    	return null;
 	    }	    
 	}
@@ -63,11 +63,11 @@ public class DefectTypeMapper {
 	public Boolean deleteDefectType(Long id) {
 		//BasicConfigurator.configure();
 		if(defectTypeService.deleteDefectTypeById(id)) {
-			logger.info("Defect Type Delete Mapper");
+			//logger.info("Defect Type Delete Mapper");
 			return true;
 		}
 		else {
-			logger.warn("No Defect Type");
+			//logger.warn("No Defect Type");
 			return false;
 		}		
 	}
@@ -78,13 +78,13 @@ public class DefectTypeMapper {
 		DefectType defectType = defectTypeConverter.defectTypeDtoToDefectType(defectTypeDto);
 		DefectType defectTypeList =defectTypeService.findDefectTypeById(id);
 		if(defectTypeList == null) {
-			logger.warn("No Defect Type By Id");
+			//logger.warn("No Defect Type By Id");
 			return false;
 		}
 		else {
 			defectType.setId(id);
 			defectTypeService.createDefectType(defectType);
-			logger.info("Defect Type Update Mapper");
+			//logger.info("Defect Type Update Mapper");
 			return true;
 		}		
 	}
