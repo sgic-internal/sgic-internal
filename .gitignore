@@ -14,3 +14,5 @@ sgic-internal/login-service/target
 sgic-internal/login-service/.classpath
 sgic-internal/product-service/target
 sgic-internal/product-service/.classpath
+sgic-internal-common/target
+sgic-internal-common/.classpath
