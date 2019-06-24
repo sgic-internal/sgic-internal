@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: defecttracker-service
+Implementation-Version: 2.1.3.RELEASE
+Built-By: Tyron
+Implementation-Vendor-Id: com.sgic.internal.defecttracker
+Build-Jdk: 1.8.0_201
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+
