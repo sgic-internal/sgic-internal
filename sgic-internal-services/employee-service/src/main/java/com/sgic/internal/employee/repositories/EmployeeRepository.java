@@ -19,4 +19,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
 	// Find Employee By Designation
 	@Query(value = "from Employee where designation = :designation")
 	List<Employee> findByDesignation(String designation);
+	
+	// Find Employee By Name
+	@Query(value= "from Employee where name = :name")
+	List<Employee> findByName(String name);
 }

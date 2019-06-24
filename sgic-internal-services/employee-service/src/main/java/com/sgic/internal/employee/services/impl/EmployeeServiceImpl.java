@@ -73,9 +73,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+	// Find By Employee Designation
 	public List<Employee> getByDesignation(String designation) {
 		logger.info("Successfully Get Employee By Designation");
 		return employeeRepository.findByDesignation(designation);
 	}
+
+	@Override
+	// Find By Employee Name
+	public List<Employee> getByName(String name) {
+		logger.info("Successfully Get Employee By Name");
+		return employeeRepository.findByName(name);
+	}	
 
 }
