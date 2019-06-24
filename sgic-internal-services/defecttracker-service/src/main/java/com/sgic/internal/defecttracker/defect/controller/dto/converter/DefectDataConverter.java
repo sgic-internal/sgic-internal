@@ -82,7 +82,7 @@ public class DefectDataConverter {
 	
 //========================To convert DefectDTO to DefectEntity =====================================================
 	
-	public static Defect UserDataToUser(DefectData defectData) {
+	public static Defect DefectDataToDefect(DefectData defectData) {
 		Defect defect = new Defect();
 		if (defectData != null) {
 			logger.info("Coverting DefectData to DefectEntity");
