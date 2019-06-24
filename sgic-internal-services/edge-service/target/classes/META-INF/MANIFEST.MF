@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: edge-service
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Dalistaa
+Built-By: Derushan
 Implementation-Vendor-Id: com.sgic.internal
 Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse
