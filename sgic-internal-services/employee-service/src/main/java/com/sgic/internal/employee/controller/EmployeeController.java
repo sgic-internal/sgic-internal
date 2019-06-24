@@ -27,7 +27,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDTOMapper employeeDTOMapper;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	/* Author:KeerthanaR 17-06-2019 */
