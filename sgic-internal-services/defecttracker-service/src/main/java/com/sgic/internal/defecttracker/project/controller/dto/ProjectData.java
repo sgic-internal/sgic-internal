@@ -1,89 +1,86 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
-import java.sql.Date;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class ProjectData {
-	     private Long projectId;
-		
-		 private String projectName;
-		
-		 private String type;
-		
-		 private String startDate;
-		
-		 private String endDate;
-		
-		 private String duration;
-		
-		 private String status;
-		 
-		 private String configId;
-		 
+	private String projectId;
 
-		public Long getProjectId() {
-			return projectId;
-		}
+	private String projectName;
 
-		public void setProjectId(Long projectId) {
-			this.projectId = projectId;
-		}
+	private String type;
 
-		public String getProjectName() {
-			return projectName;
-		}
+	private String startDate;
 
-		public void setProjectName(String projectName) {
-			this.projectName = projectName;
-		}
+	private String endDate;
 
-		public String getType() {
-			return type;
-		}
+	private String duration;
 
-		public void setType(String type) {
-			this.type = type;
-		}
+	private String status;
 
-		
+	private String configId;
 
-		public String getStartDate() {
-			return startDate;
-		}
+	public String getProjectId() {
+		return projectId;
+	}
 
-		public void setStartDate(String startDate) {
-			this.startDate = startDate;
-		}
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
 
-		public String getEndDate() {
-			return endDate;
-		}
+	public String getProjectName() {
+		return projectName;
+	}
 
-		public void setEndDate(String endDate) {
-			this.endDate = endDate;
-		}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
 
-		public String getDuration() {
-			return duration;
-		}
+	public String getType() {
+		return type;
+	}
 
-		public void setDuration(String duration) {
-			this.duration = duration;
-		}
+	public void setType(String type) {
+		this.type = type;
+	}
 
-		public String getStatus() {
-			return status;
-		}
+	public String getStartDate() {
+		return startDate;
+	}
 
-		public void setStatus(String status) {
-			this.status = status;
-		}
-		 
-		public String getConfigId() {
-			return configId;
-		}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
 
-		public void setConfigId(String configId) {
-			this.configId = configId;
-		}
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getConfigId() {
+		return configId;
+	}
+
+	public void setConfigId(String configId) {
+		this.configId = configId;
+	}
 }

@@ -12,14 +12,14 @@ import javax.persistence.Table;
 @Table(name="module", schema="project_service")
 public class Module {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long moduleId;
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String moduleId;
 	private String moduleName;
 	
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
 	public String getModuleName() {

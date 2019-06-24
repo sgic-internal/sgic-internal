@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name="configuration",schema="project_service")
 public class Configuration {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long configId;
 	private String configName;
 	private String configValue;

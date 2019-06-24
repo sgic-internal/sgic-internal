@@ -18,7 +18,8 @@ import org.springframework.web.client.RestClientException;
 import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 
-public class ProjectDevelopmentTest extends ProjectApplicationTest {
+public class GetByName extends ProjectApplicationTest {
+
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -26,7 +27,7 @@ public class ProjectDevelopmentTest extends ProjectApplicationTest {
 	ProjectData projectData;
 
 	@Test
-	public void createproject() throws IOException, RestClientException {
+	public void getByName() throws IOException, RestClientException {
 		projectData.setProjectId("Pro1");
 		projectData.setProjectName("DefectTracker");
 		projectData.setEndDate("2019-06-17");
@@ -43,17 +44,16 @@ public class ProjectDevelopmentTest extends ProjectApplicationTest {
 				.postForEntity("http://localhost:8080/project_service" + "/createproject", request, String.class);
 		assertEquals(200, response.getStatusCodeValue());
 
-		ResponseEntity<String> response1 = testRestTemplate.exchange(
-				"http://localhost:8080/project_service" + "/GetAllproject", HttpMethod.GET,
+		ResponseEntity<String> responseName = testRestTemplate.exchange(
+				"http://localhost:8080/project_service" + "/getName"  + "/DefectTracker", HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
-		assertEquals(HttpStatus.OK, response1.getStatusCode());
+		assertEquals(HttpStatus.OK, responseName.getStatusCode());
 		Object body = "[{\"projectId\":\"Pro1\",\"projectName\":\"DefectTracker\",\"type\":\"Medium\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"duration\",\"status\":\"status\",\"configId\":\"configId\"}]";
-		assertEquals(body, response1.getBody());
+		assertEquals(body, responseName.getBody());
 	}
 
 	@After
 	public void tearDown() {
 
 	}
-
 }

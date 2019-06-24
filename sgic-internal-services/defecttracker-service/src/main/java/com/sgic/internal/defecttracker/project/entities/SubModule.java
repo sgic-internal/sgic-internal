@@ -12,13 +12,13 @@ import javax.persistence.Table;
 
 public class SubModule {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long subModuleId;
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String subModuleId;
 	private String subModuleName;
-	public Long getSubModuleId() {
+	public String getSubModuleId() {
 		return subModuleId;
 	}
-	public void setSubModuleId(Long subModuleId) {
+	public void setSubModuleId(String subModuleId) {
 		this.subModuleId = subModuleId;
 	}
 	public String getSubModuleName() {

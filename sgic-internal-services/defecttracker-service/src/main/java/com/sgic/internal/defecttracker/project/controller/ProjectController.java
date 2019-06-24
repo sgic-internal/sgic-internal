@@ -21,14 +21,13 @@ import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
-import com.sgic.internal.defecttracker.project.services.impl.ProjectServiceImpl;
 
 @CrossOrigin
 @RestController
 public class ProjectController {
 	
 
-	private static Logger logger =LogManager.getLogger(ProjectRepository.class);
+	private static Logger logger = LogManager.getLogger(ProjectRepository.class);
 	
 	@Autowired
 	public ProjectDtoMapper projectDtoMapper;
@@ -53,7 +52,7 @@ public class ProjectController {
 	//Author :: by jakki
 	//Get Mapping For Get Project By Id
 	@GetMapping("/getProjectById/{id}")
-	public ResponseEntity<ProjectData> getProjectById(@PathVariable Long id) {
+	public ResponseEntity<ProjectData> getProjectById(@PathVariable String id) {
 		logger.info("Projects are get by id ");
 		return new ResponseEntity<>(projectDtoMapper.getByProjectId(id), HttpStatus.OK);
 	}
@@ -61,7 +60,7 @@ public class ProjectController {
 	//Author ::  By thadsha
 	// Delete Mapping For Project
 	@DeleteMapping("deleteById/{projectId}")
-	public ResponseEntity<ProjectData> deleteById(@PathVariable Long projectId) {
+	public ResponseEntity<ProjectData> deleteById(@PathVariable String projectId) {
 		logger.info("Projects are delete by id ");
 		return new ResponseEntity<>(projectDtoMapper.deleteById(projectId), HttpStatus.OK);
 	}
@@ -69,7 +68,7 @@ public class ProjectController {
 	//Author :: By Arany
     //Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
-	public ResponseEntity<String> updateProject(@PathVariable(name = "projectid") Long projectid,
+	public ResponseEntity<String> updateProject(@PathVariable(name = "projectid") String projectid,
 	@RequestBody ProjectData projectData) {
 	logger.info ("Projectcontroller -> updatedproject");
 	if(projectDtoMapper.UpdateProject(projectid, projectData) !=null);
