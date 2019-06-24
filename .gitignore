@@ -1,2 +1,7 @@
 /.metadata/
 /Servers
+/sgic-internal-services/login-service/target
+/sgic-internal-services/login-service/target/
+/sgic-internal-services/login-service/.classpath
+/sgic-internal-services/login-service/.factorypath
+/sgic-internal-services/login-service/.project
