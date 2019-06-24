@@ -1,7 +1,6 @@
+
 package com.sgic.internal.employee.controller;
 
-import com.sgic.internal.employee.EmployeeTest;
-import com.sgic.internal.employee.dto.EmployeeDTO;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
@@ -16,7 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
-public class GetEmployeeTest extends EmployeeTest{
+import com.sgic.internal.employee.EmployeeTest;
+import com.sgic.internal.employee.dto.EmployeeDTO;
+
+public class GetByDesignationTest extends EmployeeTest {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -24,32 +26,23 @@ public class GetEmployeeTest extends EmployeeTest{
 	@SuppressWarnings("unused")
 	private EmployeeDTO employee = new EmployeeDTO();
 
-//	common URL
-	private String BASE_URL = "http://localhost:8084/employeeservice";
-//	Post API
-	private String ADD_API_URL = "/createemployee";
-
-//	Get API
-	private String GET_API_URL = "/getallemployee";
-
-//	Save unit Test expected Response
-	private static final String GET_EMPLOYEE_RESPONSE = "[{\"empId\":\"EMP003\",\"name\":\"Dali\",\"email\":\"dali@gmail.com\",\"designation\":\"SoftwareEngineer\"}]";
-
 	@Test
 	public void testCreateEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP003", "Dali", "dali@gmail.com", "SoftwareEngineer");
+
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "rammiya", "rammiya@gmail.com", "QA");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postresponse = testRestTemplate
-				.postForEntity(BASE_URL + ADD_API_URL, request, String.class);
+				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
 		assertEquals(200, postresponse.getStatusCodeValue());
 
-		ResponseEntity<String> getresponse = testRestTemplate.exchange(BASE_URL + GET_API_URL, HttpMethod.GET,
+		ResponseEntity<String> getbynameresponse = testRestTemplate.exchange(
+				"http://localhost:8084/employeeservice" + "/getdesignation" + "/QA", HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
-		assertEquals(HttpStatus.OK, getresponse.getStatusCode());
+		assertEquals(HttpStatus.OK, getbynameresponse.getStatusCode());
 
-		assertEquals(GET_EMPLOYEE_RESPONSE, getresponse.getBody());
+		Object body = "[{\"empId\":\"EMP001\",\"name\":\"rammiya\",\"email\":\"rammiya@gmail.com\",\"designation\":\"QA\"}]";
+		assertEquals(body, getbynameresponse.getBody());
 	}
-	  
-	  
+
 }

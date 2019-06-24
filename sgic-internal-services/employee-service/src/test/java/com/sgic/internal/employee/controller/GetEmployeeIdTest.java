@@ -3,6 +3,7 @@ package com.sgic.internal.employee.controller;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -16,7 +17,7 @@ import org.springframework.web.client.RestClientException;
 import com.sgic.internal.employee.EmployeeTest;
 import com.sgic.internal.employee.dto.EmployeeDTO;
 
-public class UpdateEmployeeTest extends EmployeeTest {
+public class GetEmployeeIdTest extends EmployeeTest {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -24,25 +25,25 @@ public class UpdateEmployeeTest extends EmployeeTest {
 	@SuppressWarnings("unused")
 	private EmployeeDTO employee = new EmployeeDTO();
 
-	// Save unit Test expected Response private static final String
-	private static final String UPDATE_EMPLOYEE_RESPONSE = "Successfully Updated";
+	private String empIdV = "EMP001";
+
+	private static final String GET_BY_ID_RESPONSE = "{\"empId\":\"EMP001\",\"name\":\"puthijaJothi\",\"email\":\"kavitha@gmail.com\",\"designation\":\"softwareEngineer\"}";
 
 	@Test
-	public void testUpdateEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP002", "rammi", "dali@gmail.com", "QA");
+	public void GetByIdTestSuccessfull() throws IOException {
+
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "puthijaJothi", "kavitha@gmail.com", "softwareEngineer");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postresponse = testRestTemplate
-				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
+				.postForEntity("http://localhost:8084/employeeservice/" + "/createemployee", request, String.class);
+
+		ResponseEntity<String> getbyidresponse = testRestTemplate.exchange(
+				"http://localhost:8084/employeeservice" + "/getempolyeebyid" + "/" + empIdV, HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(200, postresponse.getStatusCodeValue());
-
-		EmployeeDTO employeeDTO1 = new EmployeeDTO("EMP002", "rammi", "rammi@gmail.com", "QA");
-		HttpEntity<EmployeeDTO> updaterequest = new HttpEntity<EmployeeDTO>(employeeDTO1, httpHeaders);
-		ResponseEntity<String> putResponse = testRestTemplate.exchange(
-				"http://localhost:8084/employeeservice" + "/update" + "/EMP002", HttpMethod.PUT, updaterequest,
-				String.class);
-
-		assertEquals(UPDATE_EMPLOYEE_RESPONSE, putResponse.getBody());
-
+		assertEquals(GET_BY_ID_RESPONSE, getbyidresponse.getBody());
+		assertEquals(HttpStatus.OK, getbyidresponse.getStatusCode());
 	}
+
 }

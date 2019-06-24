@@ -44,14 +44,14 @@ public class EmployeeController {
 	}
 
 	/* Author:DalistaaA 17-06-2019 */
-	@GetMapping("/getempolyeeById/{empid}") // Get Employee By Employee ID
+	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
 	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
 		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
 	}
 
 	/* Author:JothiM 17-06-2019 */
-	@DeleteMapping("deletebyid/{empId}") // Delete Employee Using Employee ID
+	@DeleteMapping("/deletebyid/{empId}") // Delete Employee Using Employee ID
 	public ResponseEntity<String> deleteEmployeeById(@PathVariable("empId") String empId) {
 		logger.info("Employee Controller -> DeleteEmployeeById");
 		employeeDTOMapper.deleteByEmployeeId(empId);
@@ -70,17 +70,27 @@ public class EmployeeController {
 	@PutMapping("update/{empId}") // update Employee Using Employee ID
 	public ResponseEntity<String> updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> Update");
+
 		if (employeeDTOMapper.UpdateEmployee(employeeDTO) != null) {
 			return new ResponseEntity<>("Successfully Updated", HttpStatus.OK);
 		}
 
 		return new ResponseEntity<>("Failed To Update", HttpStatus.OK);
+
 	}
 
 	/* Author:DalistaaA 19-06-2019 */
-	@GetMapping("/getdesignation/{designation}") // Get Employee By Email
+	@GetMapping("/getdesignation/{designation}") // Get Employee By Designation
 	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designation") String designation) {
 		logger.info("Employee Controller -> GetDesignation");
 		return employeeDTOMapper.getEmployeeByDesignation(designation);
+	}
+
+	/* Author:KeerthanaR 23-06-2019 */
+	@GetMapping("/getname/{name}") // Get Employee By Name
+	public List<EmployeeDTO> getByName(@PathVariable(name = "name") String name) {
+		logger.info("Employee Controller -> GetName");
+		return employeeDTOMapper.getEmployeeByName(name);
+
 	}
 }
