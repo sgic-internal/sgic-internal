@@ -6,9 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
@@ -18,7 +17,6 @@ public class Employee implements Serializable {
 
 	@Id
 	// Initialize Variable for Attribute of Employee
-
 	@NotEmpty
 	@Size(min = 5, max =8)
 	@Column(name = "emp_id")
@@ -31,7 +29,8 @@ public class Employee implements Serializable {
 
 	@NotEmpty
 	@Size(min =2, max =50)
-	@Column(name = "email")
+	@Email
+	@Column(name = "email",unique = true)
 	private String email;
 
 	@NotEmpty

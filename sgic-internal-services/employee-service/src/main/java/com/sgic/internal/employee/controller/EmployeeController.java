@@ -27,14 +27,18 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeDTOMapper employeeDTOMapper;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	/* Author:KeerthanaR 17-06-2019 */
 	@PostMapping(value = "/createemployee") // Save Employee
 	public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> CreateEmployee");
-		return employeeDTOMapper.saveEmployee(employeeDTO);
+		if(employeeDTOMapper.getById(employeeDTO.getEmpId())!=null) {
+			
+		}else {
+			employeeDTOMapper.saveEmployee(employeeDTO);
+		}
+		return null;
 	}
 
 	/* Author:KiishanthS 17-06-2019 */
@@ -45,7 +49,7 @@ public class EmployeeController {
 	}
 
 	/* Author:DalistaaA 17-06-2019 */
-	@GetMapping("/getempolyeeById/{empid}") // Get Employee By Employee ID
+	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
 	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
 		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
@@ -64,32 +68,36 @@ public class EmployeeController {
 	// Get Employee By Email
 	public ResponseEntity<EmployeeDTO> getEmployeeByEmail(@PathVariable(name = "email") String email) {
 		logger.info("Employee Controller -> GetEmail");
+
+		
 		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeEmailforMapper(email), HttpStatus.OK);
 	}
-	
+
 	/* Author:RammiyaN 19-06-2019 */
 	@PutMapping("update/{empId}") // update Employee Using Employee ID
 	public ResponseEntity<String> updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> Update");
+
 		if (employeeDTOMapper.UpdateEmployee(employeeDTO) != null) {
 			return new ResponseEntity<>("Successfully Updated", HttpStatus.OK);
 		}
 
 		return new ResponseEntity<>("Failed To Update", HttpStatus.OK);
+
 	}
 
 	/* Author:DalistaaA 19-06-2019 */
-	@GetMapping("/getdesignation/{designation}") // Get Employee By Email
+	@GetMapping("/getdesignation/{designation}") // Get Employee By Designation
 	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designation") String designation) {
 		logger.info("Employee Controller -> GetDesignation");
 		return employeeDTOMapper.getEmployeeByDesignation(designation);
 	}
-	
+
 	/* Author:KeerthanaR 23-06-2019 */
 	@GetMapping("/getname/{name}") // Get Employee By Name
-	public List<EmployeeDTO> getByName(@PathVariable(name = "name") String name){
+	public List<EmployeeDTO> getByName(@PathVariable(name = "name") String name) {
 		logger.info("Employee Controller -> GetName");
 		return employeeDTOMapper.getEmployeeByName(name);
-		
+
 	}
 }

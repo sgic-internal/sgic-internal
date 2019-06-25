@@ -23,29 +23,26 @@ public class UpdateEmployeeTest extends EmployeeTest {
 
 	@SuppressWarnings("unused")
 	private EmployeeDTO employee = new EmployeeDTO();
-	
+
+	// Save unit Test expected Response private static final String
+	private static final String UPDATE_EMPLOYEE_RESPONSE = "Successfully Updated";
+
 	@Test
-	public void testUpdateEmployee() throws IOException, RestClientException{
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP002","rammi","dali@gmail.com","QA");
+	public void testUpdateEmployee() throws IOException, RestClientException {
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP002", "rammi", "dali@gmail.com", "QA");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
-	    ResponseEntity<String> postresponse =
-	        testRestTemplate.postForEntity("http://localhost:8084/employeeservice"+"/createemployee", request, String.class);
-	    assertEquals(200, postresponse.getStatusCodeValue());
-	    
-	    EmployeeDTO employeeDTO1 = new EmployeeDTO("EMP002","rammi","rammi@gmail.com","QA");
+		ResponseEntity<String> postresponse = testRestTemplate
+				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
+		assertEquals(200, postresponse.getStatusCodeValue());
+
+		EmployeeDTO employeeDTO1 = new EmployeeDTO("EMP002", "rammi", "rammi@gmail.com", "QA");
 		HttpEntity<EmployeeDTO> updaterequest = new HttpEntity<EmployeeDTO>(employeeDTO1, httpHeaders);
-		ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8084/employeeservice" + "/update"+"/empId" , HttpMethod.PUT, updaterequest,
+		ResponseEntity<String> putResponse = testRestTemplate.exchange(
+				"http://localhost:8084/employeeservice" + "/update" + "/EMP002", HttpMethod.PUT, updaterequest,
 				String.class);
-		assertEquals(200, putResponse.getStatusCodeValue());
-		
-		ResponseEntity<String> getresponse = testRestTemplate.exchange(
-				"http://localhost:8084/employeeservice" + "/getallemployee", HttpMethod.GET,
-				new HttpEntity<>(httpHeaders), String.class);
-		assertEquals(HttpStatus.OK, getresponse.getStatusCode());
-	    
-		Object body = "[{\"empId\":\"EMP002\",\"name\":\"rammi\",\"email\":\"rammi@gmail.com\",\"designation\":\"QA\"}]";
-		assertEquals(body, getresponse.getBody());
-	        
+
+		assertEquals(UPDATE_EMPLOYEE_RESPONSE, putResponse.getBody());
+
 	}
 }

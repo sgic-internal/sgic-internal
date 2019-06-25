@@ -25,22 +25,25 @@ public class GetEmployeeIdTest extends EmployeeTest {
 	@SuppressWarnings("unused")
 	private EmployeeDTO employee = new EmployeeDTO();
 
+	private String empIdV = "EMP001";
+
+	private static final String GET_BY_ID_RESPONSE = "{\"empId\":\"EMP001\",\"name\":\"puthijaJothi\",\"email\":\"kavitha@gmail.com\",\"designation\":\"softwareEngineer\"}";
+
 	@Test
-	public void testGetByEmployee() throws IOException, RestClientException {
-		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "rammiya", "keerthi@gmail.com", "QA");
+	public void GetByIdTestSuccessfull() throws IOException {
+
+		EmployeeDTO employeeDTO = new EmployeeDTO("EMP001", "puthijaJothi", "kavitha@gmail.com", "softwareEngineer");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		HttpEntity<EmployeeDTO> request = new HttpEntity<EmployeeDTO>(employeeDTO, httpHeaders);
 		ResponseEntity<String> postresponse = testRestTemplate
-				.postForEntity("http://localhost:8084/employeeservice" + "/createemployee", request, String.class);
-		assertEquals(200, postresponse.getStatusCodeValue());
+				.postForEntity("http://localhost:8084/employeeservice/" + "/createemployee", request, String.class);
 
 		ResponseEntity<String> getbyidresponse = testRestTemplate.exchange(
-				"http://localhost:8084/employeeservice" + "/getempolyeeById" + "/EMP001", HttpMethod.GET,
+				"http://localhost:8084/employeeservice" + "/getempolyeebyid" + "/" + empIdV, HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(200, postresponse.getStatusCodeValue());
+		assertEquals(GET_BY_ID_RESPONSE, getbyidresponse.getBody());
 		assertEquals(HttpStatus.OK, getbyidresponse.getStatusCode());
-
-		Object bodyid = "[{\"empId\":\"EMP001\",\"name\":\"rammiya\",\"email\":\"keerthi@gmail.com\",\"designation\":\"QA\"}]";
-		assertEquals(bodyid, getbyidresponse.getBody());
 	}
 
 }
