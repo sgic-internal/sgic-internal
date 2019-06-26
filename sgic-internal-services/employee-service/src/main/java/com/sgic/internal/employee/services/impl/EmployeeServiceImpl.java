@@ -29,12 +29,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.save(employee);
 	}
 
-//	@Override
+	@Override
 	// List Employee
-//	public List<Employee> listEmployeeInfo() {
-//		logger.info("List Employee Details methods");
-//		return employeeRepository.findAll();
-//	}
+	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId) {
+		logger.info("Get All Employee Details Methods");
+		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"empId"));
+	}
 
 	@Override
 	// Find By Employee Id
@@ -87,9 +87,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.findByName(name);
 	}
 
-	@Override
-	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId) {
-		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"empId"));
-	}	
+		
 
 }

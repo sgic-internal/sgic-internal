@@ -40,13 +40,13 @@ public class EmployeeController {
 		return null;
 	}
 
-//	/* Author:KiishanthS 17-06-2019 */
-//	@GetMapping(value = "/getallemployee") // List Employee
-//	public ResponseEntity<List<EmployeeDTO>> listEmployeeInfo() {
-//		logger.info("Employee Controller -> GetEmployee");
-//		return new ResponseEntity<>(employeeDTOMapper.getAllEmployeeForMapper(), HttpStatus.OK);
-//	}
-
+	/* Author:KiishanthS 17-06-2019 */
+	@GetMapping(value = "/getallemployee") // List Employee
+	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(String empId){
+		logger.info("Employee Controller -> GetAllEmployeeInfo");
+		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);	
+	}
+	
 	/* Author:DalistaaA 17-06-2019 */
 	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
 	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
@@ -100,9 +100,5 @@ public class EmployeeController {
 
 	}
 	
-	@GetMapping(value = "/getallemployee")
-	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(String empId){
-		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);
-		
-	}
+	
 }

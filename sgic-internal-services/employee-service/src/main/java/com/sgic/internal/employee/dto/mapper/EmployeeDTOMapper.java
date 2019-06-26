@@ -33,14 +33,14 @@ public class EmployeeDTOMapper {
 		return employeeService.saveEmployee(employeeConverter.EmployeeDTOToEmployee(employeeDTO));
 	}
 
-//	@SuppressWarnings("static-access")
-//	// List Method for EmployeeMapper
-//	public List<EmployeeDTO> getAllEmployeeForMapper() {
-//		logger.info(" Employee Successfully Listed ");
-//		List<Employee> empList = employeeService.listEmployeeInfo();
-//		return employeeConverter.EmployeeToEmployeeDTO(empList);
-//
-//	}
+	@SuppressWarnings("static-access")
+	// List Method for EmployeeMapper
+	public List<EmployeeDTO> getAllSortEmployeeInfo(String empId){
+		logger.info(" Employee Successfully Get All Employee Details ");
+		List<Employee> sortEmployeeList = employeeService.findByEmployeeOrderByEmployeeIdDesc(empId);
+		return employeeConverter.EmployeeToEmployeeDTO(sortEmployeeList);
+		
+	}
 	
 	// getByID Method for EmployeeMapper
 	@SuppressWarnings("static-access")
@@ -91,10 +91,5 @@ public class EmployeeDTOMapper {
 		return employeeConverter.EmployeeToEmployeeDTO(employee);	
 	}
 
-	@SuppressWarnings("static-access")
-	public List<EmployeeDTO> getAllSortEmployeeInfo(String empId){
-		List<Employee> sortEmployeeList = employeeService.findByEmployeeOrderByEmployeeIdDesc(empId);
-		return employeeConverter.EmployeeToEmployeeDTO(sortEmployeeList);
-		
-	}
+
 }

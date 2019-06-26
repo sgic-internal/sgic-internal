@@ -9,7 +9,7 @@ public interface EmployeeService {
 	public Employee saveEmployee(Employee employee);
 
 	// Method for Employee List
-//	public List<Employee> listEmployeeInfo();
+	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId);
 
 	// Method for Getting One Employee Record by ID
 	public Employee getById(String empId);
@@ -29,5 +29,5 @@ public interface EmployeeService {
 	// Method for Update Employee
 	public Employee updateEmployee(Employee employee);
 	
-	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId);
+	
 }
