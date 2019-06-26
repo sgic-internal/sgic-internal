@@ -5,11 +5,12 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
+
 
 @Service
 //Implement from Employee Service
@@ -28,12 +29,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.save(employee);
 	}
 
-	@Override
+//	@Override
 	// List Employee
-	public List<Employee> listEmployeeInfo() {
-		logger.info("List Employee Details methods");
-		return employeeRepository.findAll();
-	}
+//	public List<Employee> listEmployeeInfo() {
+//		logger.info("List Employee Details methods");
+//		return employeeRepository.findAll();
+//	}
 
 	@Override
 	// Find By Employee Id
@@ -84,6 +85,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getByName(String name) {
 		logger.info("Successfully Get Employee By Name");
 		return employeeRepository.findByName(name);
+	}
+
+	@Override
+	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId) {
+		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"empId"));
 	}	
 
 }

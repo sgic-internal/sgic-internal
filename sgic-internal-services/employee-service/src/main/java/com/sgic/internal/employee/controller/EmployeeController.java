@@ -1,7 +1,6 @@
 package com.sgic.internal.employee.controller;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +40,12 @@ public class EmployeeController {
 		return null;
 	}
 
-	/* Author:KiishanthS 17-06-2019 */
-	@GetMapping(value = "/getallemployee") // List Employee
-	public ResponseEntity<List<EmployeeDTO>> listEmployeeInfo() {
-		logger.info("Employee Controller -> GetEmployee");
-		return new ResponseEntity<>(employeeDTOMapper.getAllEmployeeForMapper(), HttpStatus.OK);
-	}
+//	/* Author:KiishanthS 17-06-2019 */
+//	@GetMapping(value = "/getallemployee") // List Employee
+//	public ResponseEntity<List<EmployeeDTO>> listEmployeeInfo() {
+//		logger.info("Employee Controller -> GetEmployee");
+//		return new ResponseEntity<>(employeeDTOMapper.getAllEmployeeForMapper(), HttpStatus.OK);
+//	}
 
 	/* Author:DalistaaA 17-06-2019 */
 	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
@@ -99,5 +98,11 @@ public class EmployeeController {
 		logger.info("Employee Controller -> GetName");
 		return employeeDTOMapper.getEmployeeByName(name);
 
+	}
+	
+	@GetMapping(value = "/getallemployee")
+	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(String empId){
+		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);
+		
 	}
 }
