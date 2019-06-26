@@ -1,5 +1,7 @@
 package com.sgic.internal.product.controller.dto;
 
+import java.sql.Date;
+
 public class CompanyData {
 	private Long companyId; // Id AUTO INCREMENT
 	private String companyName; // Company Name
@@ -9,9 +11,29 @@ public class CompanyData {
 	private String companyAdminEmail; // Company admin Email
 	private String companyLicenseType; // Free, Silver, Gold, Platinum
 	private int companyLicensePeriod; // Duration of the license Period
-	private String LicenseStartDate; // License Start Date
-	private String LicenseEndDate; // License End Date
+	private Date licenseStartDate; // License Start Date
+	private Date licenseEndDate; // License End Date
 	private String companyDescription; // Description about the Company
+
+	public CompanyData() {
+		super();
+	}
+
+	public CompanyData(String companyName, String companyAbbrivation, String companyRegNo,
+			String companyAdminName, String companyAdminEmail, String companyLicenseType, int companyLicensePeriod,
+			Date licenseStartDate, Date licenseEndDate, String companyDescription) {
+		super();
+		this.companyName = companyName;
+		this.companyAbbrivation = companyAbbrivation;
+		this.companyRegNo = companyRegNo;
+		this.companyAdminName = companyAdminName;
+		this.companyAdminEmail = companyAdminEmail;
+		this.companyLicenseType = companyLicenseType;
+		this.companyLicensePeriod = companyLicensePeriod;
+		this.licenseStartDate = licenseStartDate;
+		this.licenseEndDate = licenseEndDate;
+		this.companyDescription = companyDescription;
+	}
 
 	public Long getCompanyId() {
 		return companyId;
@@ -77,20 +99,22 @@ public class CompanyData {
 		this.companyLicensePeriod = companyLicensePeriod;
 	}
 
-	public String getLicenseStartDate() {
-		return LicenseStartDate;
+	
+
+	public Date getLicenseStartDate() {
+		return licenseStartDate;
 	}
 
-	public void setLicenseStartDate(String licenseStartDate) {
-		LicenseStartDate = licenseStartDate;
+	public void setLicenseStartDate(Date licenseStartDate) {
+		this.licenseStartDate = licenseStartDate;
 	}
 
-	public String getLicenseEndDate() {
-		return LicenseEndDate;
+	public Date getLicenseEndDate() {
+		return licenseEndDate;
 	}
 
-	public void setLicenseEndDate(String licenseEndDate) {
-		LicenseEndDate = licenseEndDate;
+	public void setLicenseEndDate(Date licenseEndDate) {
+		this.licenseEndDate = licenseEndDate;
 	}
 
 	public String getCompanyDescription() {

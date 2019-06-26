@@ -45,6 +45,8 @@ public class CompanyController {
 	// Save All Company
 	@PostMapping("/SaveCompany")
 	public ResponseEntity<String> saveCompany(@Valid @RequestBody CompanyData companyData) {
+		System.out.println(companyData.getLicenseStartDate());
+		System.out.println(companyData.getLicenseEndDate());
 		if (companyMapper.saveCompany(companyData) != null) {
 			logger.info("Company Controller -> Company Created Successful");
 			return new ResponseEntity<>("Company added succesfully", HttpStatus.OK);
