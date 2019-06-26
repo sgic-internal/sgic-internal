@@ -29,7 +29,7 @@ public class GetTypeProject extends ProjectApplicationTest{
 	private String BASE_URL = "http://localhost:8080/project_service";
 	
 	@Test
-	public void GetByStats() throws IOException, RestClientException {
+	public void GetByType() throws IOException, RestClientException {
 		projectDto.setProjectId("Pro1");
 		projectDto.setProjectName("DefectTracker");
 		projectDto.setEndDate("2019-06-17");

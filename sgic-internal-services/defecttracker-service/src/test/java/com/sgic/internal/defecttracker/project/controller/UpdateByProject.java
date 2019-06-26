@@ -48,7 +48,7 @@ public class UpdateByProject extends ProjectApplicationTest{
 	// Testing for get all project types
 	
 	@Test
-	public void Updateproject() throws IOException, RestClientException {
+	public void UpdateByproject() throws IOException, RestClientException {
 		String projectId = "1";
 		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/getProjectById/" + projectId, HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
