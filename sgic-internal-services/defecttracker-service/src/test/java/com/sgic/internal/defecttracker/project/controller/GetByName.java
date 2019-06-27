@@ -41,11 +41,11 @@ public class GetByName extends ProjectApplicationTest {
 		HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectDto, httpHeaders);
 
 		ResponseEntity<String> response = testRestTemplate
-				.postForEntity("http://localhost:8081/project_service" + "/createproject", request, String.class);
+				.postForEntity("http://localhost:8080/project_service" + "/createproject", request, String.class);
 		assertEquals(200, response.getStatusCodeValue());
 
 		ResponseEntity<String> responseName = testRestTemplate.exchange(
-				"http://localhost:8081/project_service" + "/getName"  + "/DefectTracker", HttpMethod.GET,
+				"http://localhost:8080/project_service" + "/getName"  + "/DefectTracker", HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(HttpStatus.OK, responseName.getStatusCode());
 		Object body = "[{\"projectId\":\"Pro1\",\"projectName\":\"DefectTracker\",\"type\":\"Medium\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"duration\",\"status\":\"status\",\"configId\":\"configId\"}]";

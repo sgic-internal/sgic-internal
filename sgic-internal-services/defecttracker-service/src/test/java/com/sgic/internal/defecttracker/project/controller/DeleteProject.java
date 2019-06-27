@@ -24,7 +24,7 @@ public class DeleteProject  extends  ProjectApplicationTest {
 //@SuppressWarnings("unused")
 //private ProjectDto projectDto = new ProjectDto();
 
-private String BASE_URL = "http://localhost:8081/project_service";
+private String BASE_URL = "http://localhost:8080/project_service";
 private String ADD_API_URL = "/createprojec";
 private String DELETE_API_URL = "/deleteById/";
 private String projectId ="1";
@@ -44,8 +44,6 @@ ResponseEntity<String> postResponse = testRestTemplate.postForEntity(BASE_URL+ A
 //assertEquals(200,postResponse.getStatusCodeValue());
 
 ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL+ DELETE_API_URL + projectId,HttpMethod.DELETE, new HttpEntity<>(httpHeaders), String.class);
-//assertEquals(200, getResponse.getStatusCodeValue());
 //assertEquals(200, response.getStatusCodeValue());
-//assertEquals(DELETE_PROJECT_RESPONSE, DELETE_PROJECT_RESPONSE);
 }
 }

@@ -36,7 +36,7 @@ public class UpdateByProject extends ProjectApplicationTest{
 //		jdbcTemplate.execute(newSql3);
 	}
 
-	private String BASE_URL = "http://localhost:8081/project_service";
+	private String BASE_URL = "http://localhost:8080/project_service";
 	
 	//private static final String GET_ALL_PROJECT = "[{\"project_id\":1,\"config_id\":hi,\"duration\":hi,\"end_date\":2019-05-06,\"project_name\":MERCY,\"start_date\":2019-02-03,\"status\":hi,\"type\":hi}]";
 

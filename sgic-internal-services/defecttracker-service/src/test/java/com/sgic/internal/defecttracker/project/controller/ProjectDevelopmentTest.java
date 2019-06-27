@@ -40,15 +40,15 @@ public class ProjectDevelopmentTest extends ProjectApplicationTest {
 		HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectDto, httpHeaders);
 
 		ResponseEntity<String> response = testRestTemplate
-				.postForEntity("http://localhost:8081/project_service" + "/createproject", request, String.class);
-		//assertEquals(200, response.getStatusCodeValue());
+				.postForEntity("http://localhost:8080/project_service" + "/createproject", request, String.class);
+		assertEquals(200, response.getStatusCodeValue());
 
 		ResponseEntity<String> response1 = testRestTemplate.exchange(
-				"http://localhost:8081/project_service" + "/GetAllproject", HttpMethod.GET,
+				"http://localhost:8080/project_service" + "/GetAllproject", HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(HttpStatus.OK, response1.getStatusCode());
 		Object body = "[{\"projectId\":\"Pro1\",\"projectName\":\"DefectTracker\",\"type\":\"Medium\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"duration\",\"status\":\"status\",\"configId\":\"configId\"}]";
-//		//assertEquals(body, response1.getBody());
+//		assertEquals(body, response1.getBody());
 	}
 
 	@After

@@ -26,7 +26,7 @@ public class GetTypeProject extends ProjectApplicationTest{
 	@Autowired
 	ProjectDto projectDto;
 	
-	private String BASE_URL = "http://localhost:8081/project_service";
+	private String BASE_URL = "http://localhost:8080/project_service";
 	
 	@Test
 	public void GetByType() throws IOException, RestClientException {
