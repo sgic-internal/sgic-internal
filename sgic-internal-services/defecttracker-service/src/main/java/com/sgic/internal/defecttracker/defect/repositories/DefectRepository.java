@@ -28,7 +28,7 @@ List<Defect>getByPriorityId(@Param("priorityId")int priorityId);
 List<Defect>getByStatusId(@Param("statusId")int statusId);
 
 @Query(value ="FROM Defect WHERE date_and_time =:dateAndTime") 
-List<Defect>getByDefectDate(@Param("dateAndTime")Date dateAndTime);
+List<Defect>getByDefectDate(@Param("dateAndTime")String dateAndTime);
 
 
 }

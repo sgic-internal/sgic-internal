@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.defect.controller.dto.mapper;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -55,6 +56,50 @@ public class DefectDataMapper {
 	public Defect updateDefect(DefectData defectData) {
 		logger.info("DefectData Mapper -> Defect Details Updated ", defectData.getDefectId());
 		return defectService.updateDefect(defectDataConverter.defectDataToDefectEntity(defectData));
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByStatus(int statusId){
+		logger.info("DefectData Mapper -> Defect List by stutusId");
+		List<Defect> defactStatus=defectService.getAllDefectByStatus(statusId);
+		return defectDataConverter.defectEntityToDefectData(defactStatus);
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByProjectById(String projectId){
+		logger.info("DefectData Mapper -> Defect List by productId");
+		List<Defect> defectProject=defectService.getProjectById(projectId);
+		return defectDataConverter.defectEntityToDefectData(defectProject);
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefactByModuleById(String moduleId){
+		logger.info("DefectData Mapper -> Defect List by moduleId");
+		List<Defect> defectModule=defectService.getModuleById(moduleId);
+		return defectDataConverter.defectEntityToDefectData(defectModule);
+		
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefactBySeverityById(int severityId){
+		logger.info("DefectData Mapper -> Defect List by SeverityId ");
+		List<Defect> defectSeverity=defectService.getAllSeverityById(severityId);
+		return defectDataConverter.defectEntityToDefectData(defectSeverity);
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefactByPriorityById(int priorityId){
+		logger.info("DefectData Mapper -> Defect List by priorityId ");
+		List<Defect> defectPriority=defectService.getAllPriorityById(priorityId);
+		return defectDataConverter.defectEntityToDefectData(defectPriority);
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefactByData(String dateAndTime){
+		logger.info("DefectData Mapper -> Defect List by dateandTimeId ");
+		List<Defect> defectDateandTime=defectService.getDefectByDate(dateAndTime);
+		return defectDataConverter.defectEntityToDefectData(defectDateandTime);
 	}
 	
 }

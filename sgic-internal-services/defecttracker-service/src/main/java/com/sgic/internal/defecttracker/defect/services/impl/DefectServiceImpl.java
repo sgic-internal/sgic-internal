@@ -126,7 +126,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public List<Defect> getDefectByDate(Date dateAndTime) {
+	public List<Defect> getDefectByDate(String dateAndTime) {
 		logger.info("DefectService started -> getDefectByDate");
 		return defectRepository.getByDefectDate(dateAndTime);
 	}

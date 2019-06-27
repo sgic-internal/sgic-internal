@@ -1,6 +1,6 @@
 package com.sgic.internal.defecttracker.defect.services;
 
-import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public interface DefectService {
 	public List<Defect> getModuleById (String moduleId); 
 	public List<Defect> getAllSeverityById (int severityId); 
 	public List<Defect> getAllPriorityById (int priorityId);
-	public List<Defect> getDefectByDate (Date dateAndTime);
+	public List<Defect> getDefectByDate (String dateAndTime);
 	public boolean isDefectAlreadyExist(String defectId);           
 	     	
 }
