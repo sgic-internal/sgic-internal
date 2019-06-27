@@ -41,17 +41,17 @@
 //		HttpEntity<ProjectData> request = new HttpEntity<ProjectData>(projectData, httpHeaders);
 //
 //		ResponseEntity<String> response = testRestTemplate
-//				.postForEntity("http://localhost:8080/project_service" + "/createproject", request, String.class);
+//				.postForEntity("http://localhost:8081/project_service" + "/createproject", request, String.class);
 //		assertEquals(200, response.getStatusCodeValue());
 //
 //		ProjectData projectData1=new ProjectData("Pro1","DefectTracker","2019-06-17","configId","duration","2019-06-12","status","Medium");
 //			HttpEntity<ProjectData> updaterequest = new HttpEntity<ProjectData>(projectData1, httpHeaders);
-//			ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8080/project_service" + "/updateProject"+"/Pro1" , HttpMethod.PUT, updaterequest,
+//			ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8081/project_service" + "/updateProject"+"/Pro1" , HttpMethod.PUT, updaterequest,
 //					String.class);
 //			assertEquals(200, putResponse.getStatusCodeValue());
 //			
 //		ResponseEntity<String> getresponse = testRestTemplate.exchange(
-//				"http://localhost:8080/project_service" + "/GetAllproject" + "/Pro1", HttpMethod.GET ,String.class);
+//				"http://localhost:8081/project_service" + "/GetAllproject" + "/Pro1", HttpMethod.GET ,String.class);
 //				new HttpEntity<>(httpHeaders), String.class);
 //		assertEquals(HttpStatus.OK, getresponse.getStatusCode());
 //		
