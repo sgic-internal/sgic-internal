@@ -2,26 +2,42 @@ package com.sgic.internal.defecttracker.defect.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @SuppressWarnings("serial")
 @Entity
+@Component
 @Table(schema = "defectservices", name = "defecttype")
 public class DefectType implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id; // Defect Type id
+	private long id; // Defect type id
 	
-	private String name; // Defect Type Name
+	@Column(nullable=false)
+	private String name; // Defect type name
 	
-	private String value; // Defect Type Value
+	@Column(nullable=false)
+	private String value; // Defect type value
+	
 	
 	public long getId() {
 		return id;
+	}
+	public DefectType(long id, String name, String value) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.value = value;
+}
+	public DefectType() {
+		
 	}
 	public void setId(long id) {
 		this.id = id;
