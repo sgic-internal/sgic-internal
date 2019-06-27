@@ -50,7 +50,7 @@ public class CompanyServiceImpl implements CompanyService {
 		logger.info("service started -> getCompanyId");
 		boolean isExist = companyRepository.findCompanyById(id) != null;
 		if (isExist) {
-			logger.info("service started -> Updateed By CompanyId");
+			logger.info("service started -> Updated By CompanyId");
 			return companyRepository.save(company);
 		} else {
 			logger.info("service started -> companyId Not Found");

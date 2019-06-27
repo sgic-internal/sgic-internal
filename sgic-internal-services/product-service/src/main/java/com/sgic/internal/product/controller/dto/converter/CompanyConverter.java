@@ -1,5 +1,6 @@
 package com.sgic.internal.product.controller.dto.converter;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -53,8 +54,8 @@ public class CompanyConverter {
 				company.setAdminEmail(companyData.getCompanyAdminEmail());
 				company.setLicenseType(companyData.getCompanyLicenseType());
 				company.setLicensePeriod(companyData.getCompanyLicensePeriod());
-				company.setStartDate(companyData.getLicenseStartDate());
-				company.setEndDate(companyData.getLicenseEndDate());
+				company.setStartDate((Date) companyData.getLicenseStartDate());
+				company.setEndDate((Date) companyData.getLicenseEndDate());
 				company.setDescription(companyData.getCompanyDescription());
 				return company;
 			}
