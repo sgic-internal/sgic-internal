@@ -24,7 +24,7 @@ public class DeleteProject  extends  ProjectApplicationTest {
 //@SuppressWarnings("unused")
 //private ProjectDto projectDto = new ProjectDto();
 
-private String BASE_URL = "http://localhost:8080/project_service";
+private String BASE_URL = "http://localhost:8081/project_service";
 private String ADD_API_URL = "/createprojec";
 private String DELETE_API_URL = "/deleteById/";
 private String projectId ="1";

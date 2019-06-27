@@ -37,9 +37,9 @@ public void GetByProjectId() throws IOException {
 	ProjectDto projectData = new ProjectDto("pro1","Timetracker","springboot","2018-07-17","2018-02-26","1year","open","021");
 HttpHeaders httpHeaders = new HttpHeaders();
 HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectData, httpHeaders);
-ResponseEntity<String> postresponse =testRestTemplate.postForEntity("http://localhost:8080/project_service/" + "/createproject", request, String.class);
+ResponseEntity<String> postresponse =testRestTemplate.postForEntity("http://localhost:8081/project_service/" + "/createproject", request, String.class);
 
-ResponseEntity<String> getbyidresponse = testRestTemplate.exchange("http://localhost:8080/project_service" + "/getProjectById" + "/pro1" , HttpMethod.GET,
+ResponseEntity<String> getbyidresponse = testRestTemplate.exchange("http://localhost:8081/project_service" + "/getProjectById" + "/pro1" , HttpMethod.GET,
 new HttpEntity<>(httpHeaders), String.class);
 assertEquals(200, postresponse.getStatusCodeValue());
 assertEquals(GET_BY_ID_RESPONSE,getbyidresponse.getBody());
