@@ -16,12 +16,16 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+=======
 			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+>>>>>>> realease2
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
