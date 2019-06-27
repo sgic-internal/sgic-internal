@@ -74,21 +74,21 @@ public class DefectDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefactByModuleById(String moduleId){
+	public List<DefectData> getAllDefectByModuleById(String moduleId){
 		logger.info("DefectData Mapper -> Defect List by moduleId");
 		List<Defect> defectModule=defectService.getModuleById(moduleId);
 		return defectDataConverter.defectEntityToDefectData(defectModule);
 		
 	}
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefactBySeverityById(int severityId){
+	public List<DefectData> getAllDefectBySeverityById(int severityId){
 		logger.info("DefectData Mapper -> Defect List by SeverityId ");
 		List<Defect> defectSeverity=defectService.getAllSeverityById(severityId);
 		return defectDataConverter.defectEntityToDefectData(defectSeverity);
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefactByPriorityById(int priorityId){
+	public List<DefectData> getAllDefectByPriorityById(int priorityId){
 		logger.info("DefectData Mapper -> Defect List by priorityId ");
 		List<Defect> defectPriority=defectService.getAllPriorityById(priorityId);
 		return defectDataConverter.defectEntityToDefectData(defectPriority);
@@ -96,7 +96,7 @@ public class DefectDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefactByData(String dateAndTime){
+	public List<DefectData> getAllDefectByDate(String dateAndTime){
 		logger.info("DefectData Mapper -> Defect List by dateandTimeId ");
 		List<Defect> defectDateandTime=defectService.getDefectByDate(dateAndTime);
 		return defectDataConverter.defectEntityToDefectData(defectDateandTime);

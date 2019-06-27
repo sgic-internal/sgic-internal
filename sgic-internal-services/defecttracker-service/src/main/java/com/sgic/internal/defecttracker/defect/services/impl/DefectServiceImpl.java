@@ -59,36 +59,6 @@ public class DefectServiceImpl implements DefectService {
 		return defectRepository.findAll() ;
 	}
 
-
-	
-	
-	
-	
-	
-	//Depended functions
-	@Override
-	public Defect updateDefectStatus(int statusId) {
-		return null;
-	}
-
-	@Override
-	public Defect updateReassignTo(String reassignTo) {
-
-		return null;
-	}
-
-	@Override
-	public Defect updateDefectComment(int commentId) {
-		
-		return null;
-	}
-
-	@Override
-	public Defect updateDefectAttachment(int attachmentId) {
-		
-		return null;
-	}
-
 	@Override
 	public List<Defect> getAllDefectByStatus(int statusId) {
 		logger.info("DefectService started -> getAllDefectByStatus");
@@ -130,6 +100,30 @@ public class DefectServiceImpl implements DefectService {
 		logger.info("DefectService started -> getDefectByDate");
 		return defectRepository.getByDefectDate(dateAndTime);
 	}
+	
+	@Override
+	public Defect updateDefectStatus(int statusId) {
+		return null;
+	}
+
+	@Override
+	public Defect updateReassignTo(String reassignTo) {
+
+		return null;
+	}
+
+	@Override
+	public Defect updateDefectComment(int commentId) {
+		
+		return null;
+	}
+
+	@Override
+	public Defect updateDefectAttachment(int attachmentId) {
+		
+		return null;
+	}
+
 
 	
 }

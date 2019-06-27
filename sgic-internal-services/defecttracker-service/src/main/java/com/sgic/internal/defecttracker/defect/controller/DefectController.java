@@ -22,36 +22,72 @@ import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMa
 
 @RestController
 public class DefectController {
-	
+
 	@Autowired
 	private DefectDataMapper defectDataMapper;
-	
+
 	private static Logger logger = LogManager.getLogger(DefectDataMapper.class);
-	
-	@GetMapping(value="/getAllDefects")
-	public List<DefectData>getAllDefects(){
+
+	@GetMapping(value = "/getAllDefects")
+	public List<DefectData> getAllDefects() {
 		logger.info("Controller -> getAllDefects Successfull");
 		return defectDataMapper.getAllDefects();
 	}
 
-	@GetMapping(value="/getDefectById/{defectId}")
-	public DefectData getByDefectId(@PathVariable(name = "defectId")String defectId) {
+	@GetMapping(value = "/getDefectById/{defectId}")
+	public DefectData getByDefectId(@PathVariable(name = "defectId") String defectId) {
 		logger.info("Controller -> getByDefectId Successfull");
 		return defectDataMapper.getByDefectId(defectId);
-		
+
+	}
+
+	@GetMapping(value = "/getAllDefectsByStatusId/{statusId}")
+	public List<DefectData> getByStatusId(@PathVariable(name = "statusId") int statusId) {
+		logger.info("Controller -> getByStatusId Successfull");
+		return defectDataMapper.getAllDefectByStatus(statusId);
 	}
 	
+	@GetMapping(value = "/getAllDefectsByProjectId/{projectId}")
+	public List<DefectData> getByProjectId(@PathVariable(name = "projectId") String projectId) {
+		logger.info("Controller -> getByProjectId Successfull");
+		return defectDataMapper.getAllDefectByProjectById(projectId);
+	}
+
+	@GetMapping(value = "/getAllDefectsByModuleId/{moduleId}")
+	public List<DefectData> getByModuleId(@PathVariable(name = "moduleId") String moduleId) {
+		logger.info("Controller -> getBymoduleId Successfull");
+		return defectDataMapper.getAllDefectByModuleById(moduleId);
+	}
 	
+	@GetMapping(value = "/getAllDefectsBySeverityId/{severityId}")
+	public List<DefectData> getBySeverityId(@PathVariable(name = "severityId") int severityId) {
+		logger.info("Controller -> getBySeverityId Successfull");
+		return defectDataMapper.getAllDefectBySeverityById(severityId);
+	}
+	
+	@GetMapping(value = "/getAllDefectsByPriorityId/{priorityId}")
+	public List<DefectData> getByPriorityId(@PathVariable(name = "priorityId") int priorityId) {
+		logger.info("Controller -> getByPriorityId Successfull");
+		return defectDataMapper.getAllDefectByPriorityById(priorityId);
+	}
+	
+	@GetMapping(value = "/getAllDefectsByDate/{dateAndTime}")
+	public List<DefectData> getByDate(@PathVariable(name = "dateAndTime") String dateAndTime) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectByDate(dateAndTime);
+	}
+
+
 	@PostMapping("/saveDefect")
 	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
-		if ( defectDataMapper.createDefect(defectData)!= null) {
+		if (defectDataMapper.createDefect(defectData) != null) {
 			logger.info("Defect Controller -> Defects Created Successful");
 			return new ResponseEntity<>("Company added succesfully", HttpStatus.OK);
 		}
 		logger.info("Defect Controller -> Defects creation FAILED!!!");
 		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 	}
-	
+
 	@PutMapping("/updateDefect")
 	public ResponseEntity<String> updateDefect(@RequestBody DefectData defectData) {
 		logger.info("Defect Controller -> Defect Updated Successful");
@@ -61,8 +97,7 @@ public class DefectController {
 		logger.info("Defect Controller -> Defect Updated Failed!!!");
 		return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
-	
-	
+
 	@DeleteMapping("/deleteDefect/{defectId}")
 	public ResponseEntity<String> deleteCompany(@PathVariable(name = "defectId") String defectId) {
 		System.out.print(defectId);
@@ -78,13 +113,9 @@ public class DefectController {
 		logger.info("Defect Controller -> Defect Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
-	
-	
-	
-	@GetMapping(value="/getMockDefect")
+
+	@GetMapping(value = "/getMockDefect")
 	public DefectData getMockDefect() {
 		return new DefectData();
 	}
 }
-	
-
