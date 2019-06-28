@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.dtomapper;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,10 @@ public ProjectDto deleteById(String projectId) {
 	projectService.deleteById(projectId);
 	return null;
 }
+
+
+public class ProjectDtoMapper {
+
 
 
 
