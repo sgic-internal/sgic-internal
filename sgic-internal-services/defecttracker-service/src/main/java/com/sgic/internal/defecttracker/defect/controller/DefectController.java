@@ -122,8 +122,8 @@ public class DefectController {
 		return new DefectData();
 	}
 	
-	
-	// Mock -----------------------------------------
+
+// Mock --------------------------------------------------------------------------------------------
 	
 		// Priority Config
 		@GetMapping(value = "/getPriorityConfig")
