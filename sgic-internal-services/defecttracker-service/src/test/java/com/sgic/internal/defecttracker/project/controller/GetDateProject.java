@@ -50,7 +50,11 @@ public class GetDateProject extends ProjectApplicationTest{
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(HttpStatus.OK, responseName.getStatusCode());
 		Object body = "[{\"projectId\":\"Pro1\",\"projectName\":\"DefectTracker\",\"type\":\"Medium\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"duration\",\"status\":\"status\",\"configId\":\"configId\"}]";
+<<<<<<< HEAD
+//		assertEquals(body, responseName.getBody());
+=======
 		assertEquals(body, responseName.getBody());
+>>>>>>> realease2
 	}
 	
 	@After

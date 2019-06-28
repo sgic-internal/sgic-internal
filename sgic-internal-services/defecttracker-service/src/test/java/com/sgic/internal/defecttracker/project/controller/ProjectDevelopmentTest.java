@@ -48,7 +48,11 @@ public class ProjectDevelopmentTest extends ProjectApplicationTest {
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(HttpStatus.OK, response1.getStatusCode());
 		Object body = "[{\"projectId\":\"Pro1\",\"projectName\":\"DefectTracker\",\"type\":\"Medium\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"duration\",\"status\":\"status\",\"configId\":\"configId\"}]";
+<<<<<<< HEAD
+//		assertEquals(body, response1.getBody());
+=======
 		assertEquals(body, response1.getBody());
+>>>>>>> realease2
 	}
 
 	@After
