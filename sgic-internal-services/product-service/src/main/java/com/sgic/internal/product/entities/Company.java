@@ -1,7 +1,6 @@
 package com.sgic.internal.product.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -50,10 +49,10 @@ public class Company implements Serializable {
 	@Min(value = 1)
 	@Max(value = 120)
 	private int licensePeriod; // Duration of the license Period
-	@NotNull
-	private Date startDate; // License Start Date
-	@NotNull
-	private Date endDate; // License End Date
+//	@NotNull
+//	private Date startDate; // License Start Date
+//	@NotNull
+//	private Date endDate; // License End Date
 	private String description; // Description about the Company
 
 	public Long getId() {
@@ -120,22 +119,22 @@ public class Company implements Serializable {
 		this.licensePeriod = licensePeriod;
 	}
 
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+//
+//	public Date getStartDate() {
+//		return startDate;
+//	}
+//
+//	public void setStartDate(Date startDate) {
+//		this.startDate = startDate;
+//	}
+//
+//	public Date getEndDate() {
+//		return endDate;
+//	}
+//
+//	public void setEndDate(Date endDate) {
+//		this.endDate = endDate;
+//	}
 
 	public String getDescription() {
 		return description;
