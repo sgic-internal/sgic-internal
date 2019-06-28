@@ -1,4 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+eclipse.preferences.version=1
+org.eclipse.jdt.core.compiler.codegen.methodParameters=generate
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
+org.eclipse.jdt.core.compiler.compliance=1.8
+org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
+org.eclipse.jdt.core.compiler.processAnnotations=enabled
+org.eclipse.jdt.core.compiler.release=disabled
+org.eclipse.jdt.core.compiler.source=1.8
+=======
+=======
+>>>>>>> f0478cdec79c7baef9ee0f96a12b9266e87f48e6
 eclipse.preferences.version=1
 org.eclipse.jdt.core.compiler.codegen.methodParameters=generate
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
@@ -7,6 +19,9 @@ org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.processAnnotations=disabled
 org.eclipse.jdt.core.compiler.release=disabled
 org.eclipse.jdt.core.compiler.source=1.8
+<<<<<<< HEAD
+>>>>>>> branch 'harilojan' of https://github.com/sgic-internal/sgic-internal.git
+=======
 =======
 eclipse.preferences.version=1
 org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
@@ -15,3 +30,4 @@ org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.release=disabled
 org.eclipse.jdt.core.compiler.source=1.8
 >>>>>>> fd345ce8ac5e9e52b023d402ffa64d4097c7cde0
+>>>>>>> f0478cdec79c7baef9ee0f96a12b9266e87f48e6

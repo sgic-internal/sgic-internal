@@ -1,6 +1,5 @@
 package com.sgic.internal.product.controller.dto.converter;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
@@ -30,8 +29,8 @@ public class CompanyConverter {
 				companyData.setCompanyAdminEmail(company.getAdminEmail());
 				companyData.setCompanyLicenseType(company.getLicenseType());
 				companyData.setCompanyLicensePeriod(company.getLicensePeriod());
-				companyData.setLicenseStartDate(company.getStartDate());
-				companyData.setLicenseEndDate(company.getEndDate());
+//				companyData.setLicenseStartDate(company.getStartDate());
+//				companyData.setLicenseEndDate(company.getEndDate());
 				companyData.setCompanyDescription(company.getDescription());
 
 				listCompanyData.add(companyData);
@@ -54,8 +53,8 @@ public class CompanyConverter {
 				company.setAdminEmail(companyData.getCompanyAdminEmail());
 				company.setLicenseType(companyData.getCompanyLicenseType());
 				company.setLicensePeriod(companyData.getCompanyLicensePeriod());
-				company.setStartDate((Date) companyData.getLicenseStartDate());
-				company.setEndDate((Date) companyData.getLicenseEndDate());
+//				company.setStartDate((Date) companyData.getLicenseStartDate());
+//				company.setEndDate((Date) companyData.getLicenseEndDate());
 				company.setDescription(companyData.getCompanyDescription());
 				return company;
 			}
@@ -75,8 +74,8 @@ public class CompanyConverter {
 				companyData.setCompanyAdminEmail(company.getAdminEmail());
 				companyData.setCompanyLicenseType(company.getLicenseType());
 				companyData.setCompanyLicensePeriod(company.getLicensePeriod());
-				companyData.setLicenseStartDate(company.getStartDate());
-				companyData.setLicenseEndDate(company.getEndDate());
+//				companyData.setLicenseStartDate(company.getStartDate());
+//				companyData.setLicenseEndDate(company.getEndDate());
 				companyData.setCompanyDescription(company.getDescription());
 				return companyData;
 			}
