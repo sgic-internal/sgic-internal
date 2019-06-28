@@ -1,12 +1,13 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
 @Table(schema = "project_service", name = "project")
 public class Project implements Serializable {
 
@@ -92,5 +93,4 @@ public class Project implements Serializable {
 	public void setConfigId(String configId) {
 		this.configId = configId;
 	}
-
 }
