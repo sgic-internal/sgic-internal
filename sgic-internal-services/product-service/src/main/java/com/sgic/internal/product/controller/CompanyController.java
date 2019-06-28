@@ -30,14 +30,14 @@ public class CompanyController {
 	private static Logger logger = LogManager.getLogger(CompanyMapper.class);
 
 	// Get All Company
-	@GetMapping("/GetAllCompany")
+	@GetMapping("/Companys")
 	public List<CompanyData> getAllCompany() {
 		logger.info("Controller -> Data Retrieved Successfull");
 		return companyMapper.getAllCompany();
 	}
 
 	 //Get Company By Id
-	@GetMapping("/GetCompanyById/{companyId}")
+	@GetMapping("/Company/{companyId}")
 	public CompanyData getCompanyById(@PathVariable(name = "companyId") Long companyId) {
 		logger.info("Controller -> Data Retrieved Successfull");
 		return companyMapper.getCompanyById(companyId);
@@ -45,7 +45,7 @@ public class CompanyController {
 	
 
 	// Save All Company
-	@PostMapping("/SaveCompany")
+	@PostMapping("/company")
 	public ResponseEntity<String> saveCompany(@Valid @RequestBody CompanyData companyData) {
 		if (companyMapper.saveCompany(companyData) != null) {
 			logger.info("Company Controller -> Company Created Successful");
@@ -56,7 +56,7 @@ public class CompanyController {
 	}
 
 	// Update Company
-	@PutMapping("/UpdateCompany")
+	@PutMapping("/company")
 	public ResponseEntity<String> updateCompany(@RequestBody CompanyData companyData) {
 		logger.info("Company Controller -> Company Updated Successful");
 		if (companyMapper.updateCompany(companyData) != null) {
@@ -67,7 +67,7 @@ public class CompanyController {
 	}
 
 	// Delete Company
-	@DeleteMapping("/DeleteCompany/{companyId}")
+	@DeleteMapping("/company/{companyId}")
 	public ResponseEntity<String> deleteCompany(@PathVariable(name = "companyId") Long companyId) {
 		System.out.print(companyId);
 		if (companyMapper.getCompanyById(companyId) != null) {

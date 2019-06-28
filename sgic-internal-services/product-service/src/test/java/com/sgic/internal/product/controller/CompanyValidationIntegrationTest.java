@@ -45,8 +45,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		return company;
 	}
@@ -62,8 +62,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");					//	1
 		company.setLicenseType("free");							//	1
 		company.setLicensePeriod(1);							//	1
-		company.setStartDate(Date.valueOf("2018-02-02"));		//	1
-		company.setEndDate(Date.valueOf("2019-02-02"));			//	1
+//		company.setStartDate(Date.valueOf("2018-02-02"));		//	1
+//		company.setEndDate(Date.valueOf("2019-02-02"));			//	1
 		company.setDescription("some desc");					//	1  - This can be null
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 //		assertEquals(violations.isEmpty(), false);
@@ -81,8 +81,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -100,8 +100,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -119,8 +119,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -138,8 +138,8 @@ public class CompanyValidationIntegrationTest {
 //		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -156,8 +156,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail(correct_email);
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(0);
@@ -174,8 +174,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail(wrong_email);
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -193,8 +193,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 //		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -212,8 +212,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 //		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertEquals(violations.isEmpty(), false);
@@ -232,7 +232,7 @@ public class CompanyValidationIntegrationTest {
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -249,7 +249,7 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
 //		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
@@ -267,8 +267,8 @@ public class CompanyValidationIntegrationTest {
 		company.setAdminEmail("abc@gmail.com");
 		company.setLicenseType("free");
 		company.setLicensePeriod(1);
-		company.setStartDate(Date.valueOf("2018-02-02"));
-		company.setEndDate(Date.valueOf("2019-02-02"));
+//		company.setStartDate(Date.valueOf("2018-02-02"));
+//		company.setEndDate(Date.valueOf("2019-02-02"));
 //		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(0);
