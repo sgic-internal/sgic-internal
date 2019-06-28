@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.Valid;
 
@@ -19,6 +20,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMapper;
+import com.sgic.internal.defecttracker.defect.entities.SampleConfig;
+import com.sgic.internal.defecttracker.defect.entities.SampleConfig2;
 
 @RestController
 public class DefectController {
@@ -118,4 +121,71 @@ public class DefectController {
 	public DefectData getMockDefect() {
 		return new DefectData();
 	}
+	
+	
+	// Mock -----------------------------------------
+	
+		// Priority Config
+		@GetMapping(value = "/getPriorityConfig")
+		public List getPriorityConfig() {
+		
+			List<SampleConfig> list = new ArrayList();
+			
+			list.add(new SampleConfig(1,"High"));
+			list.add(new SampleConfig(2,"Medium"));
+			list.add(new SampleConfig(3,"Low"));
+			
+			return list;
+		}
+		
+		@GetMapping(value = "/getSeverityConfig")
+		public List getSeverityConfig() {
+		
+			List<SampleConfig> list = new ArrayList();
+			
+			list.add(new SampleConfig(1,"High"));
+			list.add(new SampleConfig(2,"Medium"));
+			list.add(new SampleConfig(3,"Low"));
+			
+			return list;
+		}
+		
+		@GetMapping(value = "/getDefectStatuses")
+		public List getDefectStatuses() {
+		
+			List<SampleConfig> list = new ArrayList();
+			
+			list.add(new SampleConfig(1,"Opened"));
+			list.add(new SampleConfig(2,"Reopened"));
+			list.add(new SampleConfig(3,"Closed"));
+			list.add(new SampleConfig(4,"Out of scope"));
+			list.add(new SampleConfig(5,"Rejected"));
+			
+			return list;
+		}
+		
+		@GetMapping(value = "/getProjects")
+		public List getProjects() {
+		
+			List<SampleConfig> list = new ArrayList();
+			
+			list.add(new SampleConfig(1,"SCMS"));
+			list.add(new SampleConfig(2,"WeatherApp"));
+			
+			return list;
+		}
+		
+		@GetMapping(value = "/getModules")
+		public List getModules() {
+		
+			List<SampleConfig2> list = new ArrayList();
+			
+			list.add(new SampleConfig2(1, 1, "Patient Dashboard"));
+			list.add(new SampleConfig2(2, 1, "Setting"));
+			list.add(new SampleConfig2(3, 2, "Welcome Screen"));
+			list.add(new SampleConfig2(4, 2, "API"));
+			list.add(new SampleConfig2(5, 2, "Main Screen"));
+			
+			return list;
+		}
 }
