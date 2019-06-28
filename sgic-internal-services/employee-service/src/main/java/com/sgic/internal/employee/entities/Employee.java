@@ -31,8 +31,6 @@ public class Employee implements Serializable {
 	@Size(min =2, max =50)
 	@Email
 
-	@Column(unique=true)
-
 	@Column(name = "email",unique = true)
 
 	private String email;

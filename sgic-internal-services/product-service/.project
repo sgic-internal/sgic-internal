@@ -4,12 +4,6 @@
 	<comment></comment>
 	<projects>
 	</projects>
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>product-service</name>
-	<comment></comment>
-	<projects>
-	</projects>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.wst.common.project.facet.core.builder</name>
