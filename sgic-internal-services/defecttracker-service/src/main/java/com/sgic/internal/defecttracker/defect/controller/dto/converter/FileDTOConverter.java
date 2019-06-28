@@ -18,7 +18,7 @@ import com.sgic.internal.defecttracker.defect.services.FileStorageService;
 public class FileDTOConverter {
 	@Autowired
 	private FileStorageService fileStorageService;
-	private static final String PATH = "//localhost:8081/defect/downloadFile/";
+	private static final String PATH = "//localhost:8081/defectservices/downloadFile/";
 
 	public DBFile DTOToEntity(FileData fileData) {
 		DBFile dbFile = new DBFile();
