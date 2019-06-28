@@ -16,8 +16,7 @@ public class CommentMapper {
 	private CommentDtoConverter commentDtoConverter;
 	@Autowired
 	private CommentService commentService;
-	
-	
+
 	public Comments createComments(CommentData commentData) {
 		Comments responseComments = commentService.createComments(commentDtoConverter.DTOtoEntity(commentData));
 		return responseComments;
@@ -26,8 +25,14 @@ public class CommentMapper {
 	public List<Comments> getCommentsById(String defectId) {
 		return commentService.getCommentsById(defectId);
 	}
+
 	public List<CommentData> getAllById() {
-		List<Comments> commentList =commentService.getAllComments();
+		List<Comments> commentList = commentService.getAllComments();
 		return commentDtoConverter.ListEntityToDTO(commentList);
+	}
+
+	public void deleteById(Long commentId) {
+		commentService.deleteById(commentId);
+
 	}
 }

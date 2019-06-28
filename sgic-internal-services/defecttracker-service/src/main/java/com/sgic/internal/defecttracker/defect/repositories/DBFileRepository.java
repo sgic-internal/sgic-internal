@@ -1,6 +1,10 @@
 package com.sgic.internal.defecttracker.defect.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,8 +14,7 @@ import com.sgic.internal.defecttracker.defect.entities.DBFile;
 @Transactional
 public interface DBFileRepository extends JpaRepository<DBFile,Long> {
 
-//	//DBFile findOne(Long fileId);
-//	@Query("SELECT d FROM DBFile d WHERE d.defect.id= :defectId")
-//	List<DBFile> findDBFileByDefectId(@Param("defectId") Long defectId);
-//	
+
+	@Query("SELECT d FROM DBFile d WHERE d.defect.defectId= :defectId")
+	List<DBFile> findDBFileByDefectId(@Param("defectId") String defectId);
 }

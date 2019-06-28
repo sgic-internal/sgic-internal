@@ -14,10 +14,10 @@ import com.sgic.internal.defecttracker.defect.entities.Defect;
 
 @Transactional
 @Repository
-public interface CommentRepository extends JpaRepository<Comments, Long>{
-	
+public interface CommentRepository extends JpaRepository<Comments, Long> {
+
 	@Query("SELECT c FROM Comments c WHERE c.defect.id= :defectId")
 	List<Comments> findCommentsByDefectId(@Param("defectId") String defectId);
-	
+
 	List<Comments> findByDefect(Defect defect);
 }

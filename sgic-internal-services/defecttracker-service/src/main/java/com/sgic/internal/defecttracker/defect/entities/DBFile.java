@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.defect.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,33 +11,37 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 @Entity
 @Table(name = "files")
-public class DBFile {
+public class DBFile implements Serializable {
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-	
-//	@ManyToOne
-//	@JoinColumn(name="defectId", nullable=false)
-//	private Defect defect;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
+	@ManyToOne
+	@JoinColumn(name = "defectId", nullable = false)
+	private Defect defect;
 
 	private String fileName;
 	private String fileDownloadUri;
-    private String fileType;
-    private Long defectId;
-    private long size;
+	private String fileType;
+//	private String defectId;
+	private long size;
+
 	public DBFile() {
 
-    }
-	
-    public DBFile(String fileName, String fileDownloadUri, String fileType, long size) {
-        this.fileName = fileName;
-        this.fileDownloadUri = fileDownloadUri;
-        this.fileType = fileType;
-        this.size = size;
-    }
+	}
+
+	public DBFile(String fileName, String fileDownloadUri, String fileType, long size) {
+		this.fileName = fileName;
+		this.fileDownloadUri = fileDownloadUri;
+		this.fileType = fileType;
+		this.size = size;
+	}
 
 	public long getId() {
 		return id;
@@ -69,12 +75,12 @@ public class DBFile {
 		this.fileType = fileType;
 	}
 
-	public Long getDefectId() {
-		return defectId;
+	public Defect getDefect() {
+		return defect;
 	}
 
-	public void setDefectId(Long defectId) {
-		this.defectId = defectId;
+	public void setDefect(Defect defect) {
+		this.defect = defect;
 	}
 
 	public long getSize() {

@@ -8,33 +8,39 @@ import org.springframework.data.annotation.Id;
 
 public class FileData {
 
-	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
 	private String fileName;
 	private String fileDownloadUri;
-    public Long getSize() {
+	private String fileType;
+	private String defectId;
+	private Long size;
+
+	public FileData() {
+
+	}
+
+	public FileData(String fileName, String fileDownloadUri, String fileType, long size, String defectId) {
+		this.fileName = fileName;
+		this.fileDownloadUri = fileDownloadUri;
+		this.fileType = fileType;
+		this.size = size;
+		this.defectId = defectId;
+	}
+
+	public String getDefectId() {
+		return defectId;
+	}
+
+	public void setDefectId(String defectId) {
+		this.defectId = defectId;
+	}
+
+	public Long getSize() {
 		return size;
 	}
 
 	public void setSize(Long size) {
 		this.size = size;
 	}
-
-	private String fileType;
-    //private Long defectId
-    private Long size;
-
-	public FileData() {
-
-    }
-
-    public FileData(String fileName, String fileDownloadUri, String fileType, long size) {
-    	 this.fileName = fileName;
-	        this.fileDownloadUri = fileDownloadUri;
-	        this.fileType = fileType;
-	        this.size = size;
-       
-    }
 
 	public String getFileName() {
 		return fileName;

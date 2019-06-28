@@ -38,42 +38,36 @@ import com.sgic.internal.defecttracker.defect.entities.DBFile;
 import com.sgic.internal.defecttracker.defect.entities.Defect;
 import com.sgic.internal.defecttracker.project.entities.Project;
 
-public class GetAttachmentApiTest extends CommentTest {
+public class GetAuditLogApiTest extends CommentTest {
 
-	
-	/* Unit test for Get Attachment - Piratheepan */
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
-	
-	
+
 	@Before
 	public void setup() throws JSONException {
 
 		String psql = "INSERT INTO defecttracker.project (project_name) VALUES ( 'hgyugu')";
 		String dsql = "INSERT INTO defecttracker.defect (defect_id, assign_to, comments, defect_type, description, module, priority, severity, status, steps, project_id) VALUES  ('1','','','','','','','','','',1)";
-		String sql1 = "INSERT INTO defecttracker.files (defect_id, file_download_uri, file_name, file_type, size) VALUES ('1', 'Users/Attachment/Thanushan.jpg', 'Thanushan.jpg', 'image/jpeg', '184286')";
-		
+		String sql1 = "INSERT INTO defecttracker.auditlog (fix_date, status, user, defect_id) VALUES ('2019/06/25 14:09:55', 'Niru', 'Thanus', '1')";
+
 		jdbcTemplate.execute(psql);
 		jdbcTemplate.execute(dsql);
 		jdbcTemplate.execute(sql1);
-		
-	}
-	
-	private String BASE_URL = "http://localhost:8080/defect";
-	private static final String GET_ATTACHMENTS ="[{184286}]";
-	
-	
-	@Test
-	public void getAllAttachmentsTest() throws IOException, RestClientException {
-		ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL + "/downloadFile/Thanushan.jpg", HttpMethod.GET,
-				new HttpEntity<>(httpHeaders), String.class);
-		assertEquals(GET_ATTACHMENTS, response.getBody());
+
 	}
 
-	@After                   
+	private String BASE_URL = "http://localhost:8080/defect";
+	private static final String GET_ALL_AUDITLOG = "[{\"auditId\":1,\"user\":\"Thanus\",\"defectId\":\"1\",\"status\":\"Niru\",\"fixDate\":\"2019/06/25 14:09:55\"}]";
+
+	@Test
+	public void getAllAuditTest() throws IOException, RestClientException {
+		ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL + "/auditLogAll", HttpMethod.GET,
+				new HttpEntity<>(httpHeaders), String.class);
+		assertEquals(GET_ALL_AUDITLOG, response.getBody());
+	}
+
+	@After
 	public void tearDown() {
 	}
-	
 
-		}
+}

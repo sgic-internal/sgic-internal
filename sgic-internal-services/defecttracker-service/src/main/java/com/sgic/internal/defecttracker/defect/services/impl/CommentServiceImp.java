@@ -10,29 +10,31 @@ import com.sgic.internal.defecttracker.defect.repositories.CommentRepository;
 import com.sgic.internal.defecttracker.defect.services.CommentService;
 
 @Service
-public class CommentServiceImp implements CommentService{
-	
+public class CommentServiceImp implements CommentService {
+
 	@Autowired
 	private CommentRepository commentRepository;
-	
+
 	@Override
 	public Comments createComments(Comments comments) {
 		Comments responseComments = commentRepository.save(comments);
 		return responseComments;
 	}
-	
+
 	@Override
 	public List<Comments> getCommentsById(String defectId) {
 		return commentRepository.findCommentsByDefectId(defectId);
 	}
 
-//	@Override
-//	public List<Comments> getByDefectId(Defect defect) {
-//		// TODO Auto-generated method stub
-//		return commentRepository.findByDefect(defect);
-//	}
 	@Override
 	public List<Comments> getAllComments() {
 		return commentRepository.findAll();
 	}
+
+	@Override
+	public void deleteById(Long commentId) {
+		commentRepository.deleteById(commentId);
+
+	}
+
 }
