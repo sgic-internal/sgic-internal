@@ -1,131 +1,131 @@
 package com.sgic.internal.defecttracker.defect.entities;
 
-
-
-
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.sgic.internal.defecttracker.project.entities.Project;
-
-
-
 @Entity
-@Table( name = "defect")
-public class Defect implements Serializable {
+@Table(schema="defectservices",name="defect")
+public class Defect {
 	
 	@Id
 	private String defectId;
-	private String module;
-	private String description;
-	private String steps;
-	private String severity;
-	private String priority;
-	private String defectType;
+	private String projectId;
+	private String moduleId;
+	private int severityId;
+	private int priorityId;
+	private int typeId;
+	private int  statusId;
+	private String defectDescription;
+	private String stepsToRecreate;
 	private String assignTo;
-	private String status;
-	private String comments;
+	private String reassignTo;
+	private String enteredBy;
+	private String fixedBy;
+	private int commentId;
+	private int attachmentId;
+	private String dateAndTime;
 	
-	@ManyToOne
-	@JoinColumn(name="projectId", nullable=false)
-	private Project project;
+	
+	//Generate getters and Setters
 	
 	public String getDefectId() {
 		return defectId;
 	}
-
 	public void setDefectId(String defectId) {
 		this.defectId = defectId;
 	}
-
-	public String getModule() {
-		return module;
+	public String getProjectId() {
+		return projectId;
 	}
-
-	public void setModule(String module) {
-		this.module = module;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
 	}
-
-	public String getDescription() {
-		return description;
+	public String getModuleId() {
+		return moduleId;
 	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
 	}
-
-	public String getSteps() {
-		return steps;
+	public int getSeverityId() {
+		return severityId;
 	}
-
-	public void setSteps(String steps) {
-		this.steps = steps;
+	public void setSeverityId(int severityId) {
+		this.severityId = severityId;
 	}
-
-	public String getSeverity() {
-		return severity;
+	public int getPriorityId() {
+		return priorityId;
 	}
-
-	public void setSeverity(String severity) {
-		this.severity = severity;
+	public void setPriorityId(int priorityId) {
+		this.priorityId = priorityId;
 	}
-
-	public String getPriority() {
-		return priority;
+	public int getTypeId() {
+		return typeId;
 	}
-
-	public void setPriority(String priority) {
-		this.priority = priority;
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
-
-	public String getDefectType() {
-		return defectType;
+	public int getStatusId() {
+		return statusId;
 	}
-
-	public void setDefectType(String defectType) {
-		this.defectType = defectType;
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
-
+	public String getDefectDescription() {
+		return defectDescription;
+	}
+	public void setDefectDescription(String defectDescription) {
+		this.defectDescription = defectDescription;
+	}
+	public String getStepsToRecreate() {
+		return stepsToRecreate;
+	}
+	public void setStepsToRecreate(String stepsToRecreate) {
+		this.stepsToRecreate = stepsToRecreate;
+	}
 	public String getAssignTo() {
 		return assignTo;
 	}
-
 	public void setAssignTo(String assignTo) {
 		this.assignTo = assignTo;
 	}
-
-	public String getStatus() {
-		return status;
+	public String getReassignTo() {
+		return reassignTo;
 	}
-
-	public void setStatus(String status) {
-		this.status = status;
+	public void setReassignTo(String reassignTo) {
+		this.reassignTo = reassignTo;
 	}
-
-	public String getComments() {
-		return comments;
+	public String getEnteredBy() {
+		return enteredBy;
 	}
-
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setEnteredBy(String enteredBy) {
+		this.enteredBy = enteredBy;
 	}
-
-	public Project getProject() {
-		return project;
+	public String getFixedBy() {
+		return fixedBy;
 	}
-
-	public void setProject(Project project) {
-		this.project = project;
+	public void setFixedBy(String fixedBy) {
+		this.fixedBy = fixedBy;
 	}
-
+	public int getCommentId() {
+		return commentId;
+	}
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
+	}
+	public int getAttachmentId() {
+		return attachmentId;
+	}
+	public void setAttachmentId(int attachmentId) {
+		this.attachmentId = attachmentId;
+	}
+	public String getDateAndTime() {
+		return dateAndTime;
+	}
+	public void setDateAndTime(String dateAndTime) {
+		this.dateAndTime = dateAndTime;
+	}
 	
-
-		
-
+	
+	
 }
-
