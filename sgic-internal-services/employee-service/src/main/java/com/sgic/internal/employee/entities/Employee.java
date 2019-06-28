@@ -30,7 +30,7 @@ public class Employee implements Serializable {
 	@NotEmpty
 	@Size(min =2, max =50)
 	@Email
-	@Column(name = "email",unique = true)
+	@Column(unique=true)
 	private String email;
 
 	@NotEmpty
