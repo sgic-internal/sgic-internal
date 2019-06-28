@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize
 @Entity
-@Table(name = "files")
+@Table(schema = "defectservices" ,name = "files")
 public class DBFile implements Serializable {
 
 	@Id

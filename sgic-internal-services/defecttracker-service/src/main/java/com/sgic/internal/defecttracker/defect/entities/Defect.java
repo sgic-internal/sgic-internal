@@ -14,8 +14,8 @@ public class Defect {
 	private String moduleId;
 	private int severityId;
 	private int priorityId;
-	private int typeId;
-	private int  statusId;
+	//private int typeId;
+	private int statusId;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
@@ -59,12 +59,12 @@ public class Defect {
 	public void setPriorityId(int priorityId) {
 		this.priorityId = priorityId;
 	}
-	public int getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
-	}
+//	public int getTypeId() {
+//		return typeId;
+//	}
+//	public void setTypeId(int typeId) {
+//		this.typeId = typeId;
+//	}
 	public int getStatusId() {
 		return statusId;
 	}

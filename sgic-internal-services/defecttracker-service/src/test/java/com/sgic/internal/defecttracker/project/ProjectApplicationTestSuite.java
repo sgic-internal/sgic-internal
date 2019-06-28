@@ -3,7 +3,6 @@ package com.sgic.internal.defecttracker.project;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-
 import com.sgic.internal.defecttracker.project.controller.DeleteProject;
 import com.sgic.internal.defecttracker.project.controller.GetByName;
 import com.sgic.internal.defecttracker.project.controller.GetByProjectId;
@@ -34,12 +33,3 @@ import com.sgic.internal.defecttracker.project.controller.UpdateByProject;
 public class ProjectApplicationTestSuite {
 
 }
-
-//@RunWith(Suite.class)
-//@Suite.SuiteClasses({
-//	ProjectDevelopmentTest.class
-//})
-//public class ProjectApplicationTestSuite {
-//
-//}
-

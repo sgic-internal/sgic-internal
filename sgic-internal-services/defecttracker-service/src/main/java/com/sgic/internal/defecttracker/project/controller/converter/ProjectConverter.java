@@ -1,6 +1,5 @@
 package com.sgic.internal.defecttracker.project.controller.converter;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,12 +68,3 @@ public class ProjectConverter {
 	}
 
 }
-
-public class ProjectConverter {
-	
-	
-
-	  }
-
-
-

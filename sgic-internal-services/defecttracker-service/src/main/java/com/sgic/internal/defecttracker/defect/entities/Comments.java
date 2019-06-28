@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema = "defecttracker", name = "comments")
+@Table(schema = "defectservices", name = "comments")
 public class Comments implements Serializable {
 
 	@Id

@@ -43,7 +43,7 @@ public class ProjectController {
 	// Author :: by Mercy
 	// Post Mapping For Create a Project
 	@GetMapping(value = "/GetAllproject")
-	public ResponseEntity<List<ProjectDto>> listProjectInfo() {
+	public ResponseEntity<List<ProjectDto>> listEmployeeInfo() {
 		logger.info("Project are listed ");
 		return new ResponseEntity<>(projectDtoMapper.getAllProjectForMapper(), HttpStatus.OK);
 	}

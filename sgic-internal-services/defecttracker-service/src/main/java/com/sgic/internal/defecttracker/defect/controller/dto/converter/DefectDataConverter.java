@@ -28,7 +28,7 @@ public class DefectDataConverter {
 				defectData.setModuleId(defect.getModuleId());
 				defectData.setSeverityId(defect.getSeverityId());
 				defectData.setPriorityId(defect.getPriorityId());
-				defectData.setTypeId(defect.getTypeId());
+				//defectData.setTypeId(defect.getTypeId());
 				defectData.setStatusId(defect.getStatusId());
 				defectData.setDefectDescription(defect.getDefectDescription());
 				defectData.setStepsToRecreate(defect.getStepsToRecreate());
@@ -62,7 +62,7 @@ public class DefectDataConverter {
 			defectData.setModuleId(defect.getModuleId());
 			defectData.setSeverityId(defect.getSeverityId());
 			defectData.setPriorityId(defect.getPriorityId());
-			defectData.setTypeId(defect.getTypeId());
+			//defectData.setTypeId(defect.getTypeId());
 			defectData.setStatusId(defect.getStatusId());
 			defectData.setDefectDescription(defect.getDefectDescription());
 			defectData.setStepsToRecreate(defect.getStepsToRecreate());
@@ -92,7 +92,7 @@ public class DefectDataConverter {
 			defect.setModuleId(defectData.getModuleId());
 			defect.setSeverityId(defectData.getSeverityId());
 			defect.setPriorityId(defectData.getPriorityId());
-			defect.setTypeId(defectData.getTypeId());
+			//defect.setTypeId(defectData.getTypeId());
 			defect.setStatusId(defectData.getStatusId());
 			defect.setDefectDescription(defectData.getDefectDescription());
 			defect.setStepsToRecreate(defectData.getStepsToRecreate());
