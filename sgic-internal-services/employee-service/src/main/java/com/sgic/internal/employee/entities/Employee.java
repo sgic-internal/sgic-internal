@@ -2,11 +2,13 @@ package com.sgic.internal.employee.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
@@ -14,36 +16,48 @@ import javax.persistence.Table;
 public class Employee implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String firstName;
-	private String lastName;
+	// Initialize Variable for Attribute of Employee
+	@NotEmpty
+	@Size(min = 5, max =8)
+	@Column(name = "emp_id")
+	private String empId;
+
+	@NotEmpty
+	@Size(min =2, max =30)
+	@Column(name = "name")
+	private String name;
+
+	@NotEmpty
+	@Size(min =2, max =50)
+	@Email
+
+	@Column(unique=true)
+
+	@Column(name = "email",unique = true)
+
 	private String email;
 
-	public Long getId() {
-		return id;
+	@NotEmpty
+	@Size(min =2, max =20)
+	@Column(name = "designation")
+	private String designation;
+
+	// Getter and setter Method for all attributes
+	public String getEmpId() {
+		return empId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setEmpId(String empId) {
+		this.empId = empId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 
 	public String getEmail() {
 		return email;
@@ -51,6 +65,14 @@ public class Employee implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
 	}
 
 }
