@@ -5,9 +5,13 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
@@ -18,25 +22,41 @@ public class Employee implements Serializable {
 	@Id
 	// Initialize Variable for Attribute of Employee
 	@NotEmpty
-	@Size(min = 5, max =8)
+	@Size(min = 5, max = 8)
 	@Column(name = "emp_id")
 	private String empId;
 
 	@NotEmpty
-	@Size(min =2, max =30)
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
 	@Column(name = "name")
 	private String name;
 
 	@NotEmpty
-	@Size(min =2, max =50)
+	@Size(min = 2, max = 50)
+	@Email(message = "{Employee.email.invalid}")
 	@Email
-	@Column(name = "email",unique = true)
+	@NotBlank(message = "{Employee.email.invalid}")
+//	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
+	@Column(name = "email", unique = true)
 	private String email;
 
-	@NotEmpty
-	@Size(min =2, max =20)
-	@Column(name = "designation")
-	private String designation;
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@DateTimeFormat(pattern="yyyy/MM/dd hh:mm:ss")
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "id", nullable = false)
+	private Designation designation;
+
+	public Designation getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
 
 	// Getter and setter Method for all attributes
 	public String getEmpId() {
@@ -61,14 +81,6 @@ public class Employee implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
 	}
 
 }

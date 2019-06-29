@@ -21,7 +21,7 @@ import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class EmployeeController {
 
 	@Autowired

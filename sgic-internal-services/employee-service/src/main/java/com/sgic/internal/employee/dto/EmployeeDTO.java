@@ -6,23 +6,20 @@ public class EmployeeDTO {
 	private String empId;
 	private String name;
 	private String email;
-	private String designation;
-
+	private int id;
+	private String designationname;
+	
+	
+	
 	
 
-	public EmployeeDTO() {
-		super();
+	public int getId() {
+		return id;
 	}
 
-	public EmployeeDTO(String empId, String name, String email, String designation) {
-		super();
-		this.empId = empId;
-		this.name = name;
-		this.email = email;
-		this.designation = designation;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	
 
 	// getter setter methods
 	public String getEmpId() {
@@ -49,12 +46,14 @@ public class EmployeeDTO {
 		this.email = email;
 	}
 
-	public String getDesignation() {
-		return designation;
+	public String getDesignationname() {
+		return designationname;
 	}
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public void setDesignationname(String designationname) {
+		this.designationname = designationname;
 	}
+
+
 
 }

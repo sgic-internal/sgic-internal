@@ -5,8 +5,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-
 import com.sgic.internal.employee.dto.EmployeeDTO;
+import com.sgic.internal.employee.entities.Designation;
 import com.sgic.internal.employee.entities.Employee;
 
 @Service
@@ -22,12 +22,15 @@ public class EmployeeConverter {
 			employeeDto.setEmpId(employee.getEmpId());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
-			employeeDto.setDesignation(employee.getDesignation());
+			employeeDto.setId(employee.getDesignation().getId());
+//			employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 			return employeeDto;
 		}
 		return null;
 
 	}
+	
+
 
 //	Employee DTO To Employee Entity Converter
 	public static Employee EmployeeDTOToEmployee(EmployeeDTO employeeDTO) {
@@ -36,7 +39,11 @@ public class EmployeeConverter {
 			employee.setEmpId(employeeDTO.getEmpId());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
-			employee.setDesignation(employeeDTO.getDesignation());
+//			Designation object converting 
+			Designation desi = new Designation();
+			desi.setId(employeeDTO.getId());
+//			desi.setDesignationname(employeeDTO.getDesignationname());
+			employee.setDesignation(desi);
 			return employee;
 		}
 		return null;
@@ -52,7 +59,8 @@ public class EmployeeConverter {
 				employeeDto.setEmpId(employee.getEmpId());
 				employeeDto.setName(employee.getName());
 				employeeDto.setEmail(employee.getEmail());
-				employeeDto.setDesignation(employee.getDesignation());
+				employeeDto.setId(employee.getDesignation().getId());
+				employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 				listemployeeDto.add(employeeDto);
 			}
 
