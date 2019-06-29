@@ -1,7 +1,8 @@
 package com.sgic.internal.product.entities;
 
 import java.io.Serializable;
-
+import java.sql.Date;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +15,22 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(schema = "productservice", name = "company")
 public class Company implements Serializable {
+//	 Calendar calendar = Calendar.getInstance();
+	 LocalDate todayDate = LocalDate.now();
+	 java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
+//	 Date currentDay = new java.sql.Date(calendar.getTime().getTime());
+	 
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // Id AUTO INCREMENT
@@ -33,6 +44,7 @@ public class Company implements Serializable {
 	@Size(min=2, max=20)
 	private String regNo; // Company Registration No
 	@NotEmpty
+//	@Pattern(regexp="[^a-zA-Z]*")
 	@Size(min=2, max=25)
 	private String companyAdminName; // Company Admin Name
 	@NotEmpty
@@ -46,13 +58,17 @@ public class Company implements Serializable {
 	@Size(min=2, max=20)
 	private String licenseType; // Free, Silver, Gold, Platinum
 	@NotNull
+	@Positive
 	@Min(value = 1)
 	@Max(value = 120)
 	private int licensePeriod; // Duration of the license Period
-//	@NotNull
-//	private Date startDate; // License Start Date
-//	@NotNull
-//	private Date endDate; // License End Date
+	@NotNull
+	@DateTimeFormat(iso=ISO.DATE)
+	private Date startDate = currentDay; // License Start Date
+	 
+	@NotNull
+	@DateTimeFormat(iso=ISO.DATE)
+	private Date endDate = currentDay ; // License End Date
 	private String description; // Description about the Company
 
 	public Long getId() {
@@ -119,22 +135,25 @@ public class Company implements Serializable {
 		this.licensePeriod = licensePeriod;
 	}
 
-//
-//	public Date getStartDate() {
-//		return startDate;
-//	}
-//
-//	public void setStartDate(Date startDate) {
-//		this.startDate = startDate;
-//	}
-//
-//	public Date getEndDate() {
-//		return endDate;
-//	}
-//
-//	public void setEndDate(Date endDate) {
-//		this.endDate = endDate;
-//	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = currentDay;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		LocalDate ld = currentDay.toLocalDate();
+		LocalDate monthLater = ld.plusMonths(licensePeriod);
+		java.sql.Date sqlEndDate = java.sql.Date.valueOf(monthLater);
+		this.endDate = sqlEndDate;
+	}
 
 	public String getDescription() {
 		return description;
@@ -143,5 +162,6 @@ public class Company implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 
 }
