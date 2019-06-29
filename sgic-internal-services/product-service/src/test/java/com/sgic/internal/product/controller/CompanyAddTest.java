@@ -22,13 +22,13 @@ public class CompanyAddTest extends CompanyControllerTest{
 	JdbcTemplate jdbcTemplate;
 	
 	private String BASE_URL = "http://localhost:8083/productservice";
-	private String ADD_API = "/SaveCompany";
-	private String GET_API = "/GetAllCompany";
-	private String GET_BY_ID_API = "/GetCompanyById/";
+	private String ADD_API = "/Company";
+	private String GET_API = "/Companys";
+	private String GET_BY_ID_API = "/Company/";
 	private static final String GET_COMPANY_RESPONSE = "["
-			+ "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2018-02-02\",\"licenseEndDate\":\"2019-02-02\",\"companyDescription\":\"some desc\"}"
+			+ "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}"
 			+ "]";
-	private static final String GET_COMPANY_BY_ID_RESPONSE = "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2018-02-02\",\"licenseEndDate\":\"2019-02-02\",\"companyDescription\":\"some desc\"}";
+	private static final String GET_COMPANY_BY_ID_RESPONSE = "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}";
 	
 //	@Before
 //	public void setup() {
@@ -50,8 +50,8 @@ public class CompanyAddTest extends CompanyControllerTest{
 		companyData.setCompanyAdminEmail("abc@gmail.com");
 		companyData.setCompanyLicenseType("free");
 		companyData.setCompanyLicensePeriod(1);
-		companyData.setLicenseStartDate(Date.valueOf("2018-02-02"));
-		companyData.setLicenseEndDate(Date.valueOf("2019-02-02"));
+		companyData.setLicenseStartDate(Date.valueOf("2019-06-29"));
+		companyData.setLicenseEndDate(Date.valueOf("2019-07-29"));
 		companyData.setCompanyDescription("some desc");
 		
 		HttpEntity<CompanyData> request = new HttpEntity<CompanyData>(companyData,
@@ -76,6 +76,7 @@ public class CompanyAddTest extends CompanyControllerTest{
 		}
 	
 
+		// Cannot be added to the database because of the duplicate e-mail
 		@Test
 		public void addCompanyUsingDuplicateEmail() throws IOException, RestClientException {
 			CompanyData companyData = new CompanyData();
@@ -86,7 +87,7 @@ public class CompanyAddTest extends CompanyControllerTest{
 			companyData.setCompanyAdminEmail("abc@gmail.com");	// duplicate e-mail
 			companyData.setCompanyLicenseType("free");
 			companyData.setCompanyLicensePeriod(1);
-			companyData.setLicenseStartDate(Date.valueOf("2018-02-02"));
+			companyData.setLicenseStartDate(Date.valueOf("2019-06-29"));
 			companyData.setLicenseEndDate(Date.valueOf("2019-02-02"));
 			companyData.setCompanyDescription("some desc");
 			
@@ -94,12 +95,7 @@ public class CompanyAddTest extends CompanyControllerTest{
 					httpHeaders);
 			ResponseEntity<String> postResponse = testRestTemplate.postForEntity(BASE_URL + ADD_API, request,
 					String.class);
-			assertEquals(200, postResponse.getStatusCodeValue());
-			
-//			ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + GET_BY_ID_API + 1,
-//					HttpMethod.GET, new HttpEntity<>(httpHeaders), String.class);
-//			assertEquals(HttpStatus.OK, getResponse.getStatusCode());
-//			assertEquals(GET_COMPANY_BY_ID_RESPONSE, getResponse.getBody());
+			assertEquals(500, postResponse.getStatusCodeValue());
 		}
 		
 	
