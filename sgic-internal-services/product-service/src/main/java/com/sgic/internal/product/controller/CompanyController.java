@@ -45,7 +45,7 @@ public class CompanyController {
 	
 
 	// Save All Company
-	@PostMapping("/company")
+	@PostMapping("/Company")
 	public ResponseEntity<String> saveCompany(@Valid @RequestBody CompanyData companyData) {
 		if (companyMapper.saveCompany(companyData) != null) {
 			logger.info("Company Controller -> Company Created Successful");
@@ -56,7 +56,7 @@ public class CompanyController {
 	}
 
 	// Update Company
-	@PutMapping("/company")
+	@PutMapping("/Company")
 	public ResponseEntity<String> updateCompany(@RequestBody CompanyData companyData) {
 		logger.info("Company Controller -> Company Updated Successful");
 		if (companyMapper.updateCompany(companyData) != null) {
@@ -67,7 +67,7 @@ public class CompanyController {
 	}
 
 	// Delete Company
-	@DeleteMapping("/company/{companyId}")
+	@DeleteMapping("/Company/{companyId}")
 	public ResponseEntity<String> deleteCompany(@PathVariable(name = "companyId") Long companyId) {
 		System.out.print(companyId);
 		if (companyMapper.getCompanyById(companyId) != null) {

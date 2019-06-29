@@ -2,18 +2,22 @@ package com.sgic.internal.product.controller.dto;
 
 import java.sql.Date;
 
+//DTO for Company Entity 
+//Created By:Tyron,24.06.2019
 public class CompanyData {
-	private Long companyId; // Id AUTO INCREMENT
-	private String companyName; // Company Name
-	private String companyAbbrivation; // Company Short Name
-	private String companyRegNo; // Company Registration No
-	private String companyAdminName; // Company Admin Name
-	private String companyAdminEmail; // Company admin Email
-	private String companyLicenseType; // Free, Silver, Gold, Platinum
-	private int companyLicensePeriod; // Duration of the license Period
-	private Date licenseStartDate; // License Start Date
-	private Date licenseEndDate; // License End Date
-	private String companyDescription; // Description about the Company
+	
+	//Id auto increment
+	private Long companyId;
+	private String companyName; 
+	private String companyAbbrivation; 
+	private String companyRegNo; 
+	private String companyAdminName; 
+	private String companyAdminEmail; 
+	private String companyLicenseType;
+	private int companyLicensePeriod; 
+	private Date licenseStartDate; 
+	private Date licenseEndDate; 
+	private String companyDescription; 
 
 	public CompanyData() {
 		super();
@@ -21,7 +25,8 @@ public class CompanyData {
 
 	public CompanyData(String companyName, String companyAbbrivation, String companyRegNo,
 			String companyAdminName, String companyAdminEmail, String companyLicenseType, int companyLicensePeriod,
-			Date licenseStartDate, Date licenseEndDate, String companyDescription) {
+			Date licenseStartDate, Date licenseEndDate, String companyDescription)
+	{
 		super();
 		this.companyName = companyName;
 		this.companyAbbrivation = companyAbbrivation;
@@ -34,7 +39,9 @@ public class CompanyData {
 		this.licenseEndDate = licenseEndDate;
 		this.companyDescription = companyDescription;
 	}
-
+	
+	//Getter and Setter for DTO Attributes
+	
 	public Long getCompanyId() {
 		return companyId;
 	}
