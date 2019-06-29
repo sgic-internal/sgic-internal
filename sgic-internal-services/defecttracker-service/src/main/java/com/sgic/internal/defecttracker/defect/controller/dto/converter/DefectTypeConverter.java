@@ -15,8 +15,8 @@ public class DefectTypeConverter {
 		
 	}
 	
-	// Convert Entity to Dto
-	public static DefectTypeDto defectTypeToDefectTypeDto(DefectType defectType) {
+	// Convert entity to dto
+	public DefectTypeDto defectTypeToDefectTypeDto(DefectType defectType) {
 		DefectTypeDto defectTypeDto = new DefectTypeDto();
 		
 		if(defectType != null) {
@@ -28,8 +28,8 @@ public class DefectTypeConverter {
 		return null;
 	}
 	
-	// Convert Dto to Entity 
-	public static DefectType defectTypeDtoToDefectType(DefectTypeDto defectTypeDto) {
+	// Convert dto to entity 
+	public DefectType defectTypeDtoToDefectType(DefectTypeDto defectTypeDto) {
 		DefectType defectType = new DefectType();
 		defectType.setId(defectTypeDto.getId());
 		defectType.setName(defectTypeDto.getName());
@@ -37,21 +37,20 @@ public class DefectTypeConverter {
 		return defectType;
 	}
 	
-	// Convert Entity To Dto List
-	public static List<DefectTypeDto> defectTypeToDefectTypeDto(List<DefectType> defectTypeList){
+	// Convert entity to dto list
+	public List<DefectTypeDto> defectTypeToDefectTypeDto(List<DefectType> defectTypeList){
 		if(defectTypeList != null) {
-			List<DefectTypeDto> listDafectTypeDto = new ArrayList<>();
+			List<DefectTypeDto> listDefectTypeDto = new ArrayList<>();
 			for (DefectType defectType: defectTypeList) {
 				DefectTypeDto defectTypeDto = new DefectTypeDto();
 				
 				defectTypeDto.setId(defectType.getId());
 				defectTypeDto.setName(defectType.getName());
 				defectTypeDto.setValue(defectType.getValue());
-				listDafectTypeDto.add(defectTypeDto);
+				listDefectTypeDto.add(defectTypeDto);
 			}
-			return listDafectTypeDto;
+			return listDefectTypeDto;
 		}
 		return null;
 	}
-
 }
