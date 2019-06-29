@@ -38,7 +38,8 @@ public class Employee implements Serializable {
 	@Email
 	@NotBlank(message = "{Employee.email.invalid}")
 //	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
-	@Column(name = "email", unique = true)
+
+	@Column(unique=true,name = "email")
 	private String email;
 
 //	@Temporal(TemporalType.TIMESTAMP)
