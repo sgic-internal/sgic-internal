@@ -2,12 +2,12 @@ package com.sgic.internal.defecttracker.defect.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.stereotype.Component;
 
@@ -20,10 +20,10 @@ public class DefectType implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; // Defect type id
 	
-	@Column(nullable=false)
+	@NotEmpty
 	private String name; // Defect type name
 	
-	@Column(nullable=false)
+	@NotEmpty
 	private String value; // Defect type value
 	
 	
@@ -53,6 +53,5 @@ public class DefectType implements Serializable {
 	}
 	public void setValue(String value) {
 		this.value = value;
-	}
-	
+	}	
 }
