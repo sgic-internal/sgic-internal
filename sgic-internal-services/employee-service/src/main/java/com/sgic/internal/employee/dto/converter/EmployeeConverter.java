@@ -23,6 +23,8 @@ public class EmployeeConverter {
 			employeeDto.setEmployeeid(employee.getEmployeeid());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
+			employeeDto.setAvailability(employee.getAvailability());
+			employeeDto.setBench(employee.isBench());
 			employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
 			employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 			return employeeDto;
@@ -41,6 +43,8 @@ public class EmployeeConverter {
 			employee.setEmployeeid(employeeDTO.getEmployeeid());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
+			employee.setAvailability(employeeDTO.getAvailability());
+			employee.setBench(employeeDTO.isBench());
 //			Designation object converting 
 			Designation desi = new Designation();
 			desi.setDesignationid(employeeDTO.getDesignationid());
@@ -62,6 +66,8 @@ public class EmployeeConverter {
 				employeeDto.setEmployeeid(employee.getEmployeeid());
 				employeeDto.setName(employee.getName());
 				employeeDto.setEmail(employee.getEmail());
+				employeeDto.setAvailability(employee.getAvailability());
+				employeeDto.setBench(employee.isBench());
 				employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
 				employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 				listemployeeDto.add(employeeDto);

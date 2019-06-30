@@ -16,6 +16,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.lang.Nullable;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
@@ -48,6 +50,14 @@ public class Employee implements Serializable {
 	@Column(name = "email")
 	@Email
 	private String email;
+	
+	@Nullable
+	private int availability;
+	
+	@Nullable
+	private boolean bench = false;
+	
+	
 
 	@ManyToOne
 	@JoinColumn(name = "designationid", nullable = false)
@@ -59,24 +69,6 @@ public class Employee implements Serializable {
 
 	public void setDesignation(Designation designation) {
 		this.designation = designation;
-	}
-
-	// Getter and setter Method for all attributes
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Long getEmpId() {
@@ -95,4 +87,39 @@ public class Employee implements Serializable {
 		this.employeeid = employeeid;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(int availability) {
+		this.availability = availability;
+	}
+
+	public boolean isBench() {
+		return bench;
+	}
+
+	public void setBench(boolean bench) {
+		this.bench = bench;
+	}
+
+	// Getter and setter Method for all attributes
+
+	
 }
