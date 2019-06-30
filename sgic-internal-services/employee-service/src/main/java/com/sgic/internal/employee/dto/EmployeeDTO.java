@@ -9,6 +9,8 @@ public class EmployeeDTO {
 	private String email;
 	private Long designationid;
 	private String designationname;
+	private int availability;
+	private boolean bench;
 	
 	
 	public Long getEmpId() {
@@ -46,6 +48,18 @@ public class EmployeeDTO {
 	}
 	public void setDesignationname(String designationname) {
 		this.designationname = designationname;
+	}
+	public int getAvailability() {
+		return availability;
+	}
+	public void setAvailability(int availability) {
+		this.availability = availability;
+	}
+	public boolean isBench() {
+		return bench;
+	}
+	public void setBench(boolean bench) {
+		this.bench = bench;
 	}
 	
 	
