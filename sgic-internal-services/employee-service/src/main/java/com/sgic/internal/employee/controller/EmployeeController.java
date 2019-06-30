@@ -87,10 +87,10 @@ public class EmployeeController {
 	}
 
 	/* Author:DalistaaA 19-06-2019 */
-	@GetMapping("/getdesignation/{designation}") // Get Employee By Designation
-	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designation") String designation) {
+	@GetMapping("/getdesignation/{designationid}") // Get Employee By Designation
+	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designationid") Long designationid) {
 		logger.info("Employee Controller -> GetDesignation");
-		return employeeDTOMapper.getEmployeeByDesignation(designation);
+		return employeeDTOMapper.getEmployeeByDesignation(designationid);
 	}
 
 	/* Author:KeerthanaR 23-06-2019 */

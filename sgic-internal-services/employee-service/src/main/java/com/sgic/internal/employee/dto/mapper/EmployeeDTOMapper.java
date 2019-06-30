@@ -76,9 +76,9 @@ public class EmployeeDTOMapper {
 	
 	@SuppressWarnings("static-access")
 	//Find Employee By Designation
-	public List<EmployeeDTO> getEmployeeByDesignation(String designation){
+	public List<EmployeeDTO> getEmployeeByDesignation(Long designationid){
 		logger.info("Successfully Get Employee By Designation");
-		List<Employee> employee= employeeService.getByDesignation(designation);
+		List<Employee> employee= employeeService.getByDesignation(designationid);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
