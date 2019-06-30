@@ -4,27 +4,33 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema = "employeeservice", name = "employee")
+@Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "employee_id", "email" }) })
 public class Employee implements Serializable {
 
-	@Id
 	// Initialize Variable for Attribute of Employee
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long empId;
+
+	@Column(name = "employee_id")
 	@NotEmpty
-	@Size(min = 5, max = 8)
-	@Column(name = "emp_id")
-	private String empId;
+	private String employeeid;
 
 	@NotEmpty
 	@Size(min = 2, max = 30)
@@ -34,21 +40,17 @@ public class Employee implements Serializable {
 
 	@NotEmpty
 	@Size(min = 2, max = 50)
-	@Email(message = "{Employee.email.invalid}")
+//	@Email(message = "{Employee.email.invalid}")
 	@Email
-	@NotBlank(message = "{Employee.email.invalid}")
+//	@NotBlank(message = "{Employee.email.invalid}")
 //	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
 
-	@Column(unique=true,name = "email")
+	@Column(name = "email")
+	@Email
 	private String email;
 
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@DateTimeFormat(pattern="yyyy/MM/dd hh:mm:ss")
-	
-	
-	
 	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
+	@JoinColumn(name = "designationid", nullable = false)
 	private Designation designation;
 
 	public Designation getDesignation() {
@@ -60,13 +62,6 @@ public class Employee implements Serializable {
 	}
 
 	// Getter and setter Method for all attributes
-	public String getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(String empId) {
-		this.empId = empId;
-	}
 
 	public String getName() {
 		return name;
@@ -82,6 +77,22 @@ public class Employee implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Long getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(Long empId) {
+		this.empId = empId;
+	}
+
+	public String getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(String employeeid) {
+		this.employeeid = employeeid;
 	}
 
 }

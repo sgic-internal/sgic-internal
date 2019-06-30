@@ -20,10 +20,11 @@ public class EmployeeConverter {
 		if (employee != null) {
 			logger.info("Employee to DTO Converter");
 			employeeDto.setEmpId(employee.getEmpId());
+			employeeDto.setEmployeeid(employee.getEmployeeid());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
-			employeeDto.setId(employee.getDesignation().getId());
-//			employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
+			employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
+			employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 			return employeeDto;
 		}
 		return null;
@@ -37,12 +38,13 @@ public class EmployeeConverter {
 		Employee employee = new Employee();
 		if (employeeDTO != null) {
 			employee.setEmpId(employeeDTO.getEmpId());
+			employee.setEmployeeid(employeeDTO.getEmployeeid());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
 //			Designation object converting 
 			Designation desi = new Designation();
-			desi.setId(employeeDTO.getId());
-//			desi.setDesignationname(employeeDTO.getDesignationname());
+			desi.setDesignationid(employeeDTO.getDesignationid());
+			desi.setDesignationname(employeeDTO.getDesignationname());
 			employee.setDesignation(desi);
 			return employee;
 		}
@@ -57,9 +59,10 @@ public class EmployeeConverter {
 			for (Employee employee : employeeList) {
 				EmployeeDTO employeeDto = new EmployeeDTO();
 				employeeDto.setEmpId(employee.getEmpId());
+				employeeDto.setEmployeeid(employee.getEmployeeid());
 				employeeDto.setName(employee.getName());
 				employeeDto.setEmail(employee.getEmail());
-				employeeDto.setId(employee.getDesignation().getId());
+				employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
 				employeeDto.setDesignationname(employee.getDesignation().getDesignationname());
 				listemployeeDto.add(employeeDto);
 			}

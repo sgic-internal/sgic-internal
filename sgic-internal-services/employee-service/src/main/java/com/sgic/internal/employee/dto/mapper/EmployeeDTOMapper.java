@@ -35,7 +35,7 @@ public class EmployeeDTOMapper {
 
 	@SuppressWarnings("static-access")
 	// List Method for EmployeeMapper
-	public List<EmployeeDTO> getAllSortEmployeeInfo(String empId){
+	public List<EmployeeDTO> getAllSortEmployeeInfo(Long empId){
 		logger.info(" Employee Successfully Get All Employee Details ");
 		List<Employee> sortEmployeeList = employeeService.findByEmployeeOrderByEmployeeIdDesc(empId);
 		return employeeConverter.EmployeeToEmployeeDTO(sortEmployeeList);
@@ -44,17 +44,17 @@ public class EmployeeDTOMapper {
 	
 	// getByID Method for EmployeeMapper
 	@SuppressWarnings("static-access")
-	public EmployeeDTO getById(String empId) {
+	public EmployeeDTO getById(Long empId) {
 		logger.info(" Employee Successfully Get By Id ");
-		Employee employee = employeeService.getById(empId);
+		Employee employee = employeeService.getByempId(empId);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
 
 	// Delete Method for EmployeeMapper
-	public EmployeeDTO deleteByEmployeeId(String empId) {
+	public EmployeeDTO deleteByEmployeeId(Long empId) {
 		logger.info(" successfully deleted ");
-		employeeService.deleteEmployeeById(empId);
+		employeeService.deleteEmployeeByempId(empId);
 		return null;
 
 	}

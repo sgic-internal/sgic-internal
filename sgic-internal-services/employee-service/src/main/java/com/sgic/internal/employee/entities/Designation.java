@@ -21,38 +21,45 @@ public class Designation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private int id;
+	private Long designationid;
 	private String designationname;
 	
 	
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@OneToMany(mappedBy="designation",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Employee> employees;
-	
+
+
+	public Long getDesignationid() {
+		return designationid;
+	}
+
+
+	public void setDesignationid(Long designationid) {
+		this.designationid = designationid;
+	}
+
+
+	public String getDesignationname() {
+		return designationname;
+	}
+
+
+	public void setDesignationname(String designationname) {
+		this.designationname = designationname;
+	}
+
 
 	public List<Employee> getEmployees() {
 		return employees;
 	}
+
+
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
 	
-	
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getDesignationname() {
-		return designationname;
-	}
-	public void setDesignationname(String designationname) {
-		this.designationname = designationname;
-	}
-	
-	
-	
+
 	
 }

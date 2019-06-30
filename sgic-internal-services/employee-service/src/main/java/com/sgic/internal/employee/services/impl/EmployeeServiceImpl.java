@@ -31,21 +31,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	// List Employee
-	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId) {
+	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(Long empId) {
 		logger.info("Get All Employee Details Methods");
 		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"empId"));
 	}
 
 	@Override
 	// Find By Employee Id
-	public Employee getById(String empId) {
+	public Employee getByempId(Long empId) {
 		logger.info("Get By Employee ID Methods");
 		return employeeRepository.findEmployeeByEmpId(empId);
 	}
 
 	@Override
 	// Delete Employee
-	public void deleteEmployeeById(String empId) {
+	public void deleteEmployeeByempId(Long empId) {
 		logger.info("Delete Employee Details Methods");
 		employeeRepository.deleteById(empId);
 
@@ -54,7 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	// Update Employee
 	public Employee updateEmployee(Employee employee) {
-		String empId = employee.getEmpId();
+		Long empId = employee.getEmpId();
 		boolean isExist = employeeRepository.findEmployeeByEmpId(empId) != null;
 		if (isExist) {
 			logger.info("Employee updates Successfully");

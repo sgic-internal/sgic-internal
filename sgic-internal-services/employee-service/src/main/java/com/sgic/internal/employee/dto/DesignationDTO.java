@@ -2,15 +2,15 @@ package com.sgic.internal.employee.dto;
 
 public class DesignationDTO {
 
-	private int id;
+	private Long designationid;
 	private String designationname;
 	
 	
-	public int getId() {
-		return id;
+	public Long getDesignationid() {
+		return designationid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDesignationid(Long designationid) {
+		this.designationid = designationid;
 	}
 	public String getDesignationname() {
 		return designationname;
@@ -18,7 +18,14 @@ public class DesignationDTO {
 	public void setDesignationname(String designationname) {
 		this.designationname = designationname;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	

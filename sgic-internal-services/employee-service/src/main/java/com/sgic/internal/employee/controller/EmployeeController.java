@@ -42,22 +42,23 @@ public class EmployeeController {
 
 	/* Author:KiishanthS 17-06-2019 */
 	@GetMapping(value = "/getallemployee") // List Employee
-	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(String empId){
+	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(Long empId){
 		logger.info("Employee Controller -> GetAllEmployeeInfo");
 		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);	
 	}
 	
 	/* Author:DalistaaA 17-06-2019 */
 	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
-	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
+	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") Long empid) {
 		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
 	}
 
 	/* Author:JothiM 17-06-2019 */
 	@DeleteMapping("/deletebyid/{empId}") // Delete Employee Using Employee ID
-	public ResponseEntity<String> deleteEmployeeById(@PathVariable("empId") String empId) {
+	public ResponseEntity<String> deleteEmployeeByempId(@PathVariable("empId") Long empId) {
 		logger.info("Employee Controller -> DeleteEmployeeById");
+//		employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
 		employeeDTOMapper.deleteByEmployeeId(empId);
 		return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
 	}

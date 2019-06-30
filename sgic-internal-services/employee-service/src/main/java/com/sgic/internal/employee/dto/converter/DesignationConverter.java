@@ -20,7 +20,7 @@ public class DesignationConverter {
 		DesignationDTO designationDTO = new DesignationDTO();
 		if (designation != null) {
 			logger.info("Designation to DTO Converter");
-			designationDTO.setId(designation.getId());
+			designationDTO.setDesignationid(designation.getDesignationid());
 			designationDTO.setDesignationname(designation.getDesignationname());
 			return designationDTO;
 		}
@@ -31,7 +31,7 @@ public class DesignationConverter {
 		Designation designation = new Designation();
 		if(designationDTO != null) {
 			logger.info("DTO To Entity Converter");
-			designation.setId(designationDTO.getId());
+			designation.setDesignationid(designation.getDesignationid());;
 			designation.setDesignationname(designationDTO.getDesignationname());
 			return designation;
 		}
@@ -47,7 +47,7 @@ public class DesignationConverter {
 			List<DesignationDTO> listdesignationDto = new ArrayList<>();
 			for (Designation designation : designationList) {
 				DesignationDTO designationDTO = new DesignationDTO();
-				designationDTO.setId(designation.getId());
+				designationDTO.setDesignationid(designation.getDesignationid());
 				designationDTO.setDesignationname(designation.getDesignationname());
 				listdesignationDto.add(designationDTO);
 			}
