@@ -1,1 +1,1 @@
-create schema if not exists project_service;
+create schema if not exists defectservices;

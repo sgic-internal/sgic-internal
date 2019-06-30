@@ -5,14 +5,16 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(schema = "project_service", name = "project")
+@Table(schema = "defectservices", name = "project")
 public class Project implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@NotBlank(message = "ProjectId is mandatory")
 	private String projectId;
 
 	private String projectName;

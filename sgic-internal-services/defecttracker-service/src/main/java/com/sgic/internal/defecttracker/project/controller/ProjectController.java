@@ -2,6 +2,8 @@ package com.sgic.internal.defecttracker.project.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class ProjectController {
 	// Author :: by Sajitha
 	// Post Mapping For Create a Project
 	@PostMapping(value = "/createproject")
-	public ResponseEntity<Object> createProject(@RequestBody ProjectDto projectDto) {
+	public ResponseEntity<Object> createProject(@Valid @RequestBody ProjectDto projectDto) {
 		projectDtoMapper.saveProjectforMapper(projectDto);
 		logger.info("Project created");
 		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
@@ -67,7 +69,7 @@ public class ProjectController {
 	// Author :: By Arany
 	// Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
-	public ResponseEntity<String> updateProject(@PathVariable(name = "projectid") String projectid,
+	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") String projectid,
 			@RequestBody ProjectDto projectDto) {
 		logger.info("Projectcontroller -> updatedproject");
 		if (projectDtoMapper.UpdateProject(projectid, projectDto) != null)
