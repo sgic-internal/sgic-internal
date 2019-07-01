@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.defect.controller.dto.mapper;
 
+
 import java.sql.Date;
 import java.util.List;
 
@@ -96,7 +97,7 @@ public class DefectDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefectByDate(String dateAndTime){
+	public List<DefectData> getAllDefectByDate(Date dateAndTime){
 		logger.info("DefectData Mapper -> Defect List by dateandTimeId ");
 		List<Defect> defectDateandTime=defectService.getDefectByDate(dateAndTime);
 		return defectDataConverter.defectEntityToDefectData(defectDateandTime);

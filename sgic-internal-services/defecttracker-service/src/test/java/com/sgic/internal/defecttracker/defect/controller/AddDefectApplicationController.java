@@ -1,6 +1,7 @@
 package com.sgic.internal.defecttracker.defect.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -49,7 +50,7 @@ public class AddDefectApplicationController extends DefectApplicationTest{
 		   defectData.setFixedBy("mathu");
 		   defectData.setCommentId(1);
 		   defectData.setAttachmentId(1);
-		   defectData.setDateAndTime("2017-05-05");
+		   defectData.setDateAndTime(Date.valueOf("2017-05-05"));
 		   
 		   
 		   HttpEntity<DefectData> request = new HttpEntity<DefectData>(defectData,httpHeaders);
