@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
 import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.data.ProjectData;
 
 
 public class UpdateByProject extends ProjectApplicationTest{
@@ -43,7 +43,7 @@ public class UpdateByProject extends ProjectApplicationTest{
 	private static final String UPDATE_DEFECT_TYPE = "{\"projectId\":\"1\",\"projectName\":\"nn\",\"type\":\"nn\",\"startDate\":\"2019-02-03\",\"endDate\":\"2019-02-03\",\"duration\":\"nn\",\"status\":\"nn\",\"configId\":\"nn\"}";
 	private static final String CHECK_UPDATE_DEFECT_TYPE ="{\"projectId\":\"1\",\"projectName\":\"mercy\",\"type\":\"mercy\",\"startDate\":\"2019-06-12\",\"endDate\":\"2019-06-17\",\"duration\":\"mercy\",\"status\":\"mercy\",\"configId\":\"mercy\"}";
 	
-	ProjectDto projectDto = new ProjectDto();
+	ProjectData projectData = new ProjectData();
 	
 	// Testing for get all project types
 	
@@ -53,16 +53,16 @@ public class UpdateByProject extends ProjectApplicationTest{
 		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/getProjectById/" + projectId, HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(UPDATE_DEFECT_TYPE, getResponse.getBody());
-		projectDto.setProjectId("1");
-		projectDto.setProjectName("mercy");
-		projectDto.setEndDate("2019-06-17");
-		projectDto.setConfigId("mercy");
-		projectDto.setDuration("mercy");
-		projectDto.setStartDate("2019-06-12");
-		projectDto.setStatus("mercy");
-		projectDto.setType("mercy");
+		projectData.setProjectId("1");
+		projectData.setProjectName("mercy");
+		projectData.setEndDate("2019-06-17");
+		projectData.setConfigId("mercy");
+		projectData.setDuration("mercy");
+		projectData.setStartDate("2019-06-12");
+		projectData.setStatus("mercy");
+		projectData.setType("mercy");
 		
-		HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectDto, httpHeaders);
+		HttpEntity<ProjectData> request = new HttpEntity<ProjectData>(projectData, httpHeaders);
 		testRestTemplate.exchange(BASE_URL + "/updateProject/" + projectId, HttpMethod.PUT,
 				request, String.class);
 		

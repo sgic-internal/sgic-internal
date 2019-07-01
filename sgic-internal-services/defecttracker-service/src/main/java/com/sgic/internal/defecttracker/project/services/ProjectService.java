@@ -13,9 +13,11 @@ public interface ProjectService {
 
 	public void deleteById(String projectid);
 
-	public Project updateProject(String projectid, Project project); // Update projectid
+    public Project updateProject(Long projectid, Project project); // Update projectid
 
-	Project getByprojectId(String projectid);
+	Project getByprojectId(Long projectid);
+	
+	public Project getByproId(String proId);
 
 	public List<Project> getByprojectName(String name);
 
@@ -23,8 +25,12 @@ public interface ProjectService {
 
 	public List<Project> getBystartDate(String date);
 
-	public List<Project> getByduration(String duration);
+	public List<Project> getByduration(Long duration);
 
 	public List<Project> getBystatus(String status);
+
+//	Project updateProject(String projectid, Project project);
+
+
 
 }

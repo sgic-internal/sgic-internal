@@ -1,32 +1,33 @@
-package com.sgic.internal.defecttracker.project.controller.dto;
+package com.sgic.internal.defecttracker.project.controller.data;
+
+import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectDto {
+public class ProjectData {
 	
-	private String projectId;
+	private Long projectId;
+	
+	private String proId;
 
 	private String projectName;
 
 	private String type;
 
-	private String startDate;
+	private Date startDate;
 
-	private String endDate;
+	private Date endDate ;
 
-	private String duration;
+	private Long duration;
 
 	private String status;
 
 	private String configId;
 
-	public String getProjectId() {
-		return projectId;
-	}
-
-	public ProjectDto(String projectId, String projectName, String type, String startDate, String endDate,
-			String duration, String status, String configId) {
+	
+	public ProjectData(Long projectId, String projectName, String type, Date startDate, Date endDate,
+			Long duration, String status, String configId) {
 		super();
 		this.projectId = projectId;
 		this.projectName = projectName;
@@ -38,14 +39,25 @@ public class ProjectDto {
 		this.configId = configId;
 	}
 
-	public ProjectDto() {
+	public ProjectData() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
+	public Long getProjectId() {
+		return projectId;
 	}
 
+	public void setProjectId(Long projectId) {
+		this.projectId = projectId;
+	}
+	
+	public String getProId() {
+		return proId;
+	}
+
+	public void setProId(String proId) {
+		this.proId = proId;
+	}
+	
 	public String getProjectName() {
 		return projectName;
 	}
@@ -62,27 +74,29 @@ public class ProjectDto {
 		this.type = type;
 	}
 
-	public String getStartDate() {
+
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
-	public String getDuration() {
+	
+	public Long getDuration() {
 		return duration;
 	}
 
-	public void setDuration(String duration) {
+	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
 
