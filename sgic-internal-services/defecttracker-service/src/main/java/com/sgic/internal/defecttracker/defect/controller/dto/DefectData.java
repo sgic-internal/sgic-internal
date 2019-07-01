@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.defect.controller.dto;
 
+import java.sql.Date;
+
 public class DefectData {
 	
 	private Long defectId;
@@ -17,7 +19,7 @@ public class DefectData {
 	private String fixedBy;
 	private int commentId;
 	private int attachmentId;
-	private String dateAndTime;
+	private Date dateAndTime;
 	
 	
 	
@@ -112,10 +114,10 @@ public class DefectData {
 	public void setAttachmentId(int attachmentId) {
 		this.attachmentId = attachmentId;
 	}
-	public String getDateAndTime() {
+	public Date getDateAndTime() {
 		return dateAndTime;
 	}
-	public void setDateAndTime(String dateAndTime) {
+	public void setDateAndTime(Date dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
 	

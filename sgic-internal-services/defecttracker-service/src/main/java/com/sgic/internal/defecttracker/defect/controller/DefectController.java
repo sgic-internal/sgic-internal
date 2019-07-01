@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 import javax.validation.Valid;
 
@@ -76,7 +77,7 @@ public class DefectController {
 	}
 	
 	@GetMapping(value = "/getAllDefectsByDate/{dateAndTime}")
-	public List<DefectData> getByDate(@PathVariable(name = "dateAndTime") String dateAndTime) {
+	public List<DefectData> getByDate(@PathVariable(name = "dateAndTime") Date dateAndTime) {
 		logger.info("Controller -> getByDate Successfull");
 		return defectDataMapper.getAllDefectByDate(dateAndTime);
 	}

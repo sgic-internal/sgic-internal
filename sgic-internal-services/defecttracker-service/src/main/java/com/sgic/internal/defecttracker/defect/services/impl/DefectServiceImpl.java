@@ -1,6 +1,6 @@
 package com.sgic.internal.defecttracker.defect.services.impl;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,7 +96,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public List<Defect> getDefectByDate(String dateAndTime) {
+	public List<Defect> getDefectByDate(Date dateAndTime) {
 		logger.info("DefectService started -> getDefectByDate");
 		return defectRepository.getByDefectDate(dateAndTime);
 	}

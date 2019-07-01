@@ -3,6 +3,7 @@ package com.sgic.internal.defecttracker.defect.controller;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import org.junit.Test;
 import org.springframework.http.HttpEntity;
@@ -48,7 +49,7 @@ public class DeleteDefectApplicationController extends DefectApplicationTest {
 		   defectData.setFixedBy("mathu");
 		   defectData.setCommentId(1);
 		   defectData.setAttachmentId(1);
-		   defectData.setDateAndTime("2017-05-05");
+		   defectData.setDateAndTime(Date.valueOf("2017-05-05"));
 		   
 
   

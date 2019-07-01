@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.defect.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +29,7 @@ public class Defect {
 	private String fixedBy;
 	private int commentId;
 	private int attachmentId;
-	private String dateAndTime;
+	private Date dateAndTime;
 	
 	
 	//Generate getters and Setters
@@ -116,10 +118,10 @@ public class Defect {
 	public void setAttachmentId(int attachmentId) {
 		this.attachmentId = attachmentId;
 	}
-	public String getDateAndTime() {
+	public Date getDateAndTime() {
 		return dateAndTime;
 	}
-	public void setDateAndTime(String dateAndTime) {
+	public void setDateAndTime(Date dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
 	public int getTypeId() {
