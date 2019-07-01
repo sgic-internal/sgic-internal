@@ -28,9 +28,13 @@ public class Defect {
 	private int commentId;
 	private int attachmentId;
 	private String dateAndTime;
+	private String availableIn;
+	private String foundIn;
+	private String fixedIn;
 	
 	
 	//Generate getters and Setters
+	
 	
 	public Long getDefectId() {
 		return defectId;
@@ -129,5 +133,22 @@ public class Defect {
 		this.typeId = typeId;
 	}
 	
-	
+	public String getAvailableIn() {
+		return availableIn;
+	}
+	public void setAvailableIn(String availableIn) {
+		this.availableIn = availableIn;
+	}
+	public String getFoundIn() {
+		return foundIn;
+	}
+	public void setFoundIn(String foundIn) {
+		this.foundIn = foundIn;
+	}
+	public String getFixedIn() {
+		return fixedIn;
+	}
+	public void setFixedIn(String fixedIn) {
+		this.fixedIn = fixedIn;
+	}
 }

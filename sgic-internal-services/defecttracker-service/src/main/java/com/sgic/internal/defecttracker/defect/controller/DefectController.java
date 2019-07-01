@@ -117,11 +117,17 @@ public class DefectController {
 		logger.info("Defect Controller -> Defect Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
-
+//	@GetMapping(value = "/getDefectsBy/{dateAndTime}")
+//	public List<DefectData> getByDate(@PathVariable(name = "dateAndTime") String dateAndTime) {
+//		logger.info("Controller -> getByDate Successfull");
+//		return defectDataMapper.getAllDefectByDate(dateAndTime);
+//	}
+	
 	@GetMapping(value = "/getMockDefect")
 	public DefectData getMockDefect() {
 		return new DefectData();
 	}
+	
 	
 
 // Mock --------------------------------------------------------------------------------------------

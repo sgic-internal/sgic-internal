@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
-@Table(schema="project_service",name="submodule")
+@Table(schema="defectservices",name="submodule")
 
 public class SubModule {
 	@Id

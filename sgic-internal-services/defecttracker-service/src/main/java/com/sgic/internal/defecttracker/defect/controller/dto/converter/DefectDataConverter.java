@@ -39,7 +39,10 @@ public class DefectDataConverter {
 				defectData.setCommentId(defect.getCommentId());
 				defectData.setAttachmentId(defect.getAttachmentId());
 				defectData.setDateAndTime(defect.getDateAndTime());
-
+				defectData.setAvailableIn(defect.getAvailableIn());
+				defectData.setFoundIn(defect.getFoundIn());
+				defectData.setFixedIn(defect.getFixedIn());
+				
 				listDefectData.add(defectData);
 
 			}
@@ -73,7 +76,10 @@ public class DefectDataConverter {
 			defectData.setCommentId(defect.getCommentId());
 			defectData.setAttachmentId(defect.getAttachmentId());
 			defectData.setDateAndTime(defect.getDateAndTime());
-
+			defectData.setAvailableIn(defect.getAvailableIn());
+			defectData.setFoundIn(defect.getFoundIn());
+			defectData.setFixedIn(defect.getFixedIn());
+			
 			return defectData;
 		}
 		return null;
@@ -103,7 +109,10 @@ public class DefectDataConverter {
 			defect.setCommentId(defectData.getCommentId());
 			defect.setAttachmentId(defectData.getAttachmentId());
 			defect.setDateAndTime(defectData.getDateAndTime());
-
+			defect.setAvailableIn(defectData.getAvailableIn());
+			defect.setFoundIn(defectData.getFoundIn());
+			defect.setFixedIn(defectData.getFixedIn());
+			
 			return defect;
 		}
 		return null;
