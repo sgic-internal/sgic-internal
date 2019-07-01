@@ -8,15 +8,15 @@ import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.defect.entities.Defect;
 
-public interface DefectRepository extends JpaRepository<Defect, String >{
+public interface DefectRepository extends JpaRepository<Defect, Long >{
 
-Defect getByDefectId(String defectId);
+Defect getByDefectId(Long defectId);
 
 @Query(value ="FROM Defect WHERE project_id =:projectId") 
-List<Defect>getByProjectId(@Param("projectId")String projectId); 
+List<Defect>getByProjectId(@Param("projectId")Long projectId); 
 
 @Query(value ="FROM Defect WHERE module_id =:moduleId") 
-List<Defect>getByModuleId(@Param("moduleId")String moduleId);
+List<Defect>getByModuleId(@Param("moduleId")Long moduleId);
 
 @Query(value ="FROM Defect WHERE severity_id =:severityId") 
 List<Defect>getBySeverityId(@Param("severityId")int severityId);

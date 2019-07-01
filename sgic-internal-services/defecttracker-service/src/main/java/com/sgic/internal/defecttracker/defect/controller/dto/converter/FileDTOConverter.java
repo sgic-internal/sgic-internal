@@ -43,7 +43,7 @@ public class FileDTOConverter {
 		return fileData;
 	}
 
-	public FileData FileToDTO(MultipartFile file, String defectId) throws IOException {
+	public FileData FileToDTO(MultipartFile file, Long defectId) throws IOException {
 		// String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		String fileName = fileStorageService.storeFile(file);
 		String fileurl = PATH + defectId;

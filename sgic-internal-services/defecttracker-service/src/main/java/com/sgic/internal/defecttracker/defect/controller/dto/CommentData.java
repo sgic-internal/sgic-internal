@@ -11,7 +11,7 @@ public class CommentData {
 
 	private Long commentId;
 	private String comments;
-	private String defectId;
+	private Long defectId;
 
 	private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -42,11 +42,11 @@ public class CommentData {
 		this.commentedDate = commentedDate;
 	}
 
-	public String getDefectId() {
+	public Long getDefectId() {
 		return defectId;
 	}
 
-	public void setDefectId(String defectId) {
+	public void setDefectId(Long defectId) {
 		this.defectId = defectId;
 	}
 

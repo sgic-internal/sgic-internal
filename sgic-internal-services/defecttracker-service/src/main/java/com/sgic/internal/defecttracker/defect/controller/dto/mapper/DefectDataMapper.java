@@ -37,7 +37,7 @@ public class DefectDataMapper {
 		
 	}
 	
-	public DefectData deleteDefect(String defectId) {
+	public DefectData deleteDefect(Long defectId) {
 		logger.info("DefectData Mapper -> Defect deleted");
 		defectService.deleteDefect(defectId);
 		return null;
@@ -45,7 +45,7 @@ public class DefectDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public DefectData getByDefectId(String defectId) {
+	public DefectData getByDefectId(Long defectId) {
 		logger.info("DefectData Mapper -> getByDefectId");
 		Defect defect= defectService.getByDefectId(defectId);
 		return defectDataConverter.defectEntityToDefectData(defect);
@@ -67,14 +67,14 @@ public class DefectDataMapper {
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefectByProjectById(String projectId){
+	public List<DefectData> getAllDefectByProjectById(Long projectId){
 		logger.info("DefectData Mapper -> Defect List by productId");
 		List<Defect> defectProject=defectService.getProjectById(projectId);
 		return defectDataConverter.defectEntityToDefectData(defectProject);
 	}
 	
 	@SuppressWarnings("static-access")
-	public List<DefectData> getAllDefectByModuleById(String moduleId){
+	public List<DefectData> getAllDefectByModuleById(Long moduleId){
 		logger.info("DefectData Mapper -> Defect List by moduleId");
 		List<Defect> defectModule=defectService.getModuleById(moduleId);
 		return defectDataConverter.defectEntityToDefectData(defectModule);

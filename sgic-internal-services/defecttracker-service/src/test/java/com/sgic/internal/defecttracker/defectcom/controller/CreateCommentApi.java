@@ -49,7 +49,7 @@ public class CreateCommentApi extends CommentTest {
 		comment.setCommentId(1L);
 		comment.setComments("aaa");
 		comment.setCommentedDate("2019/06/21 16:17:33");
-		comment.setDefectId("1");
+		comment.setDefectId((long) 1);
 		
 		HttpEntity<CommentData> request = new HttpEntity<CommentData>(comment, httpHeaders);
 		ResponseEntity<String> postResponse = testRestTemplate.exchange(BASE_URL + "/comments", HttpMethod.POST,

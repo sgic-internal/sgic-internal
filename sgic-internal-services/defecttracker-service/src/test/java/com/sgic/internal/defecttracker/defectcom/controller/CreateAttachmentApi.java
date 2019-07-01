@@ -63,7 +63,7 @@ public class CreateAttachmentApi extends CommentTest {
 //		ResponseEntity<String> postResponse = testRestTemplate.exchange(BASE_URL + "/uploadFile", HttpMethod.POST,
 //				request, String.class);
 		FileData fileData = new FileData();
-		fileData.setDefectId("2");
+		fileData.setDefectId((long) 1);
 		fileData.setFileDownloadUri("Users/Attachment/aerial_view_of.jpg");
 		fileData.setFileName("aerial_view_of.jpg");
 		fileData.setFileType("image/jpeg");

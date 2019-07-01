@@ -2,9 +2,9 @@ package com.sgic.internal.defecttracker.defect.controller.dto;
 
 public class DefectData {
 	
-	private String defectId;
-	private String projectId;
-	private String moduleId;
+	private Long defectId;
+	private Long projectId;
+	private Long moduleId;
 	private int severityId;
 	private int priorityId;
 	private int typeId;
@@ -19,22 +19,25 @@ public class DefectData {
 	private int attachmentId;
 	private String dateAndTime;
 	
-	public String getDefectId() {
+	
+	
+	public Long getDefectId() {
 		return defectId;
 	}
-	public void setDefectId(String defectId) {
+	public void setDefectId(Long defectId) {
 		this.defectId = defectId;
 	}
-	public String getProjectId() {
+	
+	public Long getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
-	public String getModuleId() {
+	public Long getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(String moduleId) {
+	public void setModuleId(Long moduleId) {
 		this.moduleId = moduleId;
 	}
 	public int getSeverityId() {

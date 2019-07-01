@@ -51,7 +51,7 @@ public class FileController {
 	/* Post Mapping - Defect Attachment API by Thanushan */
 	@PostMapping("/uploadFile")
 	public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file,
-			@RequestParam("defectId") String defectId) throws IOException {
+			@RequestParam("defectId") Long defectId) throws IOException {
 
 		String fileName = fileStorageService.storeFile(file);
 
@@ -66,7 +66,7 @@ public class FileController {
 	/* Post Mapping - Defect Attachment API by Thanushan */
 	@PostMapping("/uploadMultipleFiles")
 	public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files,
-			@RequestParam("defectId") String defectId) {
+			@RequestParam("defectId") Long defectId) {
 		return Arrays.asList(files).stream().map(file -> {
 			try {
 				return uploadFile(file, defectId);
@@ -79,7 +79,7 @@ public class FileController {
 
 	/* Get Mapping - Defect comment API by Piratheepan */
 	@GetMapping("/downloadFile/{defectId}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable String defectId, HttpServletRequest request) {
+	public ResponseEntity<Resource> downloadFile(@PathVariable Long defectId, HttpServletRequest request) {
 		List<DBFile> list = fileMapper.getAttachmentsById(defectId);
 		System.out.println(list);
 		// Try to determine file's content type
@@ -111,7 +111,7 @@ public class FileController {
 	}
 
 	@GetMapping("/listFile/{defectId}")
-	public List<DBFile> listFile(@PathVariable("defectId") String defectId) {
+	public List<DBFile> listFile(@PathVariable("defectId") Long defectId) {
 		List<DBFile> list = fileStorageService.getAttachmentById(defectId);
 		return list;
 	}

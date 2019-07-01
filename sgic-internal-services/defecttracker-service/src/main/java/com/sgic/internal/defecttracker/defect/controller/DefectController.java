@@ -39,7 +39,7 @@ public class DefectController {
 	}
 
 	@GetMapping(value = "/getDefectById/{defectId}")
-	public DefectData getByDefectId(@PathVariable(name = "defectId") String defectId) {
+	public DefectData getByDefectId(@PathVariable(name = "defectId") Long defectId) {
 		logger.info("Controller -> getByDefectId Successfull");
 		return defectDataMapper.getByDefectId(defectId);
 
@@ -52,13 +52,13 @@ public class DefectController {
 	}
 	
 	@GetMapping(value = "/getAllDefectsByProjectId/{projectId}")
-	public List<DefectData> getByProjectId(@PathVariable(name = "projectId") String projectId) {
+	public List<DefectData> getByProjectId(@PathVariable(name = "projectId") Long projectId) {
 		logger.info("Controller -> getByProjectId Successfull");
 		return defectDataMapper.getAllDefectByProjectById(projectId);
 	}
 
 	@GetMapping(value = "/getAllDefectsByModuleId/{moduleId}")
-	public List<DefectData> getByModuleId(@PathVariable(name = "moduleId") String moduleId) {
+	public List<DefectData> getByModuleId(@PathVariable(name = "moduleId") Long moduleId) {
 		logger.info("Controller -> getBymoduleId Successfull");
 		return defectDataMapper.getAllDefectByModuleById(moduleId);
 	}
@@ -103,7 +103,7 @@ public class DefectController {
 	}
 
 	@DeleteMapping("/deleteDefect/{defectId}")
-	public ResponseEntity<String> deleteCompany(@PathVariable(name = "defectId") String defectId) {
+	public ResponseEntity<String> deleteCompany(@PathVariable(name = "defectId") Long defectId) {
 		System.out.print(defectId);
 		if (defectDataMapper.getByDefectId(defectId) != null) {
 			if (defectDataMapper.deleteDefect(defectId) == null) {

@@ -11,9 +11,9 @@ import com.sgic.internal.defecttracker.defect.entities.Defect;
 public interface DefectService {
 
 	public Defect createDefect(Defect defect);   
-	public Defect getByDefectId(String defectId);
+	public Defect getByDefectId(Long defectId);
 	public Defect updateDefect(Defect defect);
-	public Defect deleteDefect(String defectId);   
+	public Defect deleteDefect(Long defectId);   
 	public List<Defect> getAllDefects(); 
 	
 	//Depended services
@@ -22,11 +22,11 @@ public interface DefectService {
 	public Defect updateDefectComment(int commentId); 
 	public Defect updateDefectAttachment(int attachmentId);
 	public List<Defect> getAllDefectByStatus (int statusId); 
-	public List<Defect> getProjectById (String projectId); 
-	public List<Defect> getModuleById (String moduleId); 
+	public List<Defect> getProjectById (Long projectId); 
+	public List<Defect> getModuleById (Long moduleId); 
 	public List<Defect> getAllSeverityById (int severityId); 
 	public List<Defect> getAllPriorityById (int priorityId);
 	public List<Defect> getDefectByDate (String dateAndTime);
-	public boolean isDefectAlreadyExist(String defectId);           
+	public boolean isDefectAlreadyExist(Long defectId);           
 	     	
 }

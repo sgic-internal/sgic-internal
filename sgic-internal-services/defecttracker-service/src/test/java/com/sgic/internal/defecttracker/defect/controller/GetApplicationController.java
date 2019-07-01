@@ -26,7 +26,7 @@ public class GetApplicationController extends DefectApplicationTest {
 	  private String BASE_URL ="http://localhost:8081/defectservices";
 	  private String GET_API_URL="/getAllDefects";
 	  
-	  private static final String GET_DEFECT_RESPONSE="[{\"defectId\":\"defect001\",\"projectId\":\"defect\",\"moduleId\":\"login\",\"severityId\":1,\"priorityId\":1,\"typeId\":1,\"statusId\":1,\"defectDescription\":\"login not work\",\"stepsToRecreate\":\"redo the application\",\"assignTo\":\"pinky\",\"reassignTo\":\"thanu\",\"enteredBy\":\"mathu\",\"fixedBy\":\"mathu\",\"commentId\":1,\"attachmentId\":1,\"dateAndTime\":\"2017-05-05\"}]";
+	  private static final String GET_DEFECT_RESPONSE="[{\"defectId\":1,\"projectId\":1,\"moduleId\":1,\"severityId\":1,\"priorityId\":1,\"typeId\":1,\"statusId\":1,\"defectDescription\":\"login not work\",\"stepsToRecreate\":\"redo the application\",\"assignTo\":\"pinky\",\"reassignTo\":\"thanu\",\"enteredBy\":\"mathu\",\"fixedBy\":\"mathu\",\"commentId\":1,\"attachmentId\":1,\"dateAndTime\":\"2017-05-05\"}]";
 	  
 	  @Test
 	  public void getDefectDetailSuccessfull() throws IOException, RestClientException {

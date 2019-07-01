@@ -22,10 +22,10 @@ public class DeleteDefectApplicationController extends DefectApplicationTest {
 	private String ADD_API_URL = "/saveDefect";
 	private String GET_API_URL="/getAllDefects";
 	private String DELETE_API_URL = "/deleteDefect/";
-	private String defectId ="defect001";
+	private Long defectId =1L;
 
 	
-	private static final String GET_DEFECT_RESPONSE="[{\"defectId\":\"defect001\",\"projectId\":\"defect\",\"moduleId\":\"login\",\"severityId\":1,\"priorityId\":1,\"typeId\":1,\"statusId\":1,\"defectDescription\":\"login not work\",\"stepsToRecreate\":\"redo the application\",\"assignTo\":\"pinky\",\"reassignTo\":\"thanu\",\"enteredBy\":\"mathu\",\"fixedBy\":\"mathu\",\"commentId\":1,\"attachmentId\":1,\"dateAndTime\":\"2017-05-05\"}]";
+	private static final String GET_DEFECT_RESPONSE="[{\"defectId\":1,\"projectId\":1,\"moduleId\":1,\"severityId\":1,\"priorityId\":1,\"typeId\":1,\"statusId\":1,\"defectDescription\":\"login not work\",\"stepsToRecreate\":\"redo the application\",\"assignTo\":\"pinky\",\"reassignTo\":\"thanu\",\"enteredBy\":\"mathu\",\"fixedBy\":\"mathu\",\"commentId\":1,\"attachmentId\":1,\"dateAndTime\":\"2017-05-05\"}]";
 	private static final String ADD_DEFECT_RESPONSE="{\\\"defectId\\\":\\\"defect001\\\",\\\"projectId\\\":\\\"defect\\\",\\\"moduleId\\\":\\\"login'\\\",\\\"severityId\\\":1,\\\"priorityId\\\":1,\\\"typeId\\\":1,\\\"statusId\\\":1,\\\"defectDescription\\\":\\\"login not work\\\",\\\"stepsToRecreate\\\":\\\"redo the application\\\",\\\"assignTo\\\":\\\"pinky\\\",\\\"reassignTo\\\":\\\"thanu\\\",\\\"enteredBy\\\":\\\"mathu\\\",\\\"fixedBy\\\":\\\"mathu\\\",\\\"commentId\\\":1,\\\"attachmentId\\\":1,\\\"dateAndTime\\\":\\\"2017-05-05\\\"}";  
 	private static final String DELETE_DEFECT_RESPONSE = "Deleted Successfully";
 	
@@ -33,9 +33,9 @@ public class DeleteDefectApplicationController extends DefectApplicationTest {
 	@Test
 	public void deleteDefect() throws IOException, RestClientException {
 		
-		defectData.setDefectId("defect001");
-		   defectData.setProjectId("defect");
-		   defectData.setModuleId("login");
+		//defectData.setDefectId(1L);
+		   defectData.setProjectId(1L);
+		   defectData.setModuleId(1L);
 		   defectData.setSeverityId(1);
 		   defectData.setPriorityId(1);
 		   defectData.setTypeId(1);

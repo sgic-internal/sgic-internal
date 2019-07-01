@@ -25,7 +25,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public Defect getByDefectId(String defectId) {
+	public Defect getByDefectId(Long defectId) {
 		logger.info("DefectService started -> GetAllDefectById");
 		return defectRepository.getByDefectId(defectId);
 	}
@@ -34,7 +34,7 @@ public class DefectServiceImpl implements DefectService {
 	public Defect updateDefect(Defect defect) {
 	
 		logger.info("DefectService started -> updateDefect");
-		String defectId=defect.getDefectId();
+		Long defectId=defect.getDefectId();
 		logger.info("DefectService started -> getDefectId");
 		boolean isExist = defectRepository.getByDefectId(defectId)!= null;
 		if (isExist) {
@@ -47,7 +47,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 	
 	@Override
-	public Defect deleteDefect(String defectId) {
+	public Defect deleteDefect(Long defectId) {
 	     logger.info("DefectService started -> DeleteDefectById");
 		 defectRepository.deleteById(defectId);
 		 return null;
@@ -66,13 +66,13 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public List<Defect> getProjectById(String projectId) {
+	public List<Defect> getProjectById(Long projectId) {
 		logger.info("DefectService started -> getProjectById");
 		return defectRepository.getByProjectId(projectId);
 	}
 
 	@Override
-	public List<Defect> getModuleById(String moduleId) {
+	public List<Defect> getModuleById(Long moduleId) {
 		logger.info("DefectService started -> getModuleById");
 		return defectRepository.getByModuleId(moduleId);
 	}
@@ -90,7 +90,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public boolean isDefectAlreadyExist(String defectId) {
+	public boolean isDefectAlreadyExist(Long defectId) {
 		logger.info("DefectService started -> isDefectAlreadyExist");
 		return defectRepository.existsById(defectId);
 	}

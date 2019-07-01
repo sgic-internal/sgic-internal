@@ -12,10 +12,9 @@ public class Defect {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int defId;
-	private String defectId;
-	private String projectId;
-	private String moduleId;
+	private Long defectId;
+	private Long projectId;
+	private Long moduleId;
 	private int severityId;
 	private int priorityId;
 	private int typeId;
@@ -33,29 +32,29 @@ public class Defect {
 	
 	//Generate getters and Setters
 	
-	public String getDefectId() {
+	public Long getDefectId() {
 		return defectId;
 	}
-	public void setDefectId(String defectId) {
+	public void setDefectId(Long defectId) {
 		this.defectId = defectId;
 	}
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
-	public String getModuleId() {
+	public Long getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(String moduleId) {
+	public void setModuleId(Long moduleId) {
 		this.moduleId = moduleId;
-	}
-	public int getSeverityId() {
-		return severityId;
 	}
 	public void setSeverityId(int severityId) {
 		this.severityId = severityId;
+	}
+	public int getSeverityId() {
+		return severityId;
 	}
 	public int getPriorityId() {
 		return priorityId;
@@ -128,12 +127,6 @@ public class Defect {
 	}
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
-	}
-	public int getDefId() {
-		return defId;
-	}
-	public void setDefId(int defId) {
-		this.defId = defId;
 	}
 	
 	
