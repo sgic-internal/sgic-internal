@@ -22,7 +22,7 @@ public class AddDefectApplicationController extends DefectApplicationTest{
 	  JdbcTemplate jdbcTemplate;
 	
 	  private DefectData defectData = new DefectData();
-	  private String BASE_URL ="http://localhost:8081/defectservices";
+	  private String BASE_URL ="http://localhost:8080/defectservices";
 	  private String ADD_API_URL="/saveDefect";
 	  private String GET_API_URL="/getAllDefects";
 	  

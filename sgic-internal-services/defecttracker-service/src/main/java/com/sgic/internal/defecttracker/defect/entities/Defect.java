@@ -1,6 +1,8 @@
 package com.sgic.internal.defecttracker.defect.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,13 +11,15 @@ import javax.persistence.Table;
 public class Defect {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int defId;
 	private String defectId;
 	private String projectId;
 	private String moduleId;
 	private int severityId;
 	private int priorityId;
 	private int typeId;
-	private int  statusId;
+	private int statusId;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
@@ -58,12 +62,6 @@ public class Defect {
 	}
 	public void setPriorityId(int priorityId) {
 		this.priorityId = priorityId;
-	}
-	public int getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
 	}
 	public int getStatusId() {
 		return statusId;
@@ -125,7 +123,18 @@ public class Defect {
 	public void setDateAndTime(String dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
-	
+	public int getTypeId() {
+		return typeId;
+	}
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+	public int getDefId() {
+		return defId;
+	}
+	public void setDefId(int defId) {
+		this.defId = defId;
+	}
 	
 	
 }

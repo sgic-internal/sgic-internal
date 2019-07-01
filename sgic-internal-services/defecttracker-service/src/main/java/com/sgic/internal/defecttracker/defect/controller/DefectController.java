@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.defect.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMapper;
 import com.sgic.internal.defecttracker.defect.entities.SampleConfig;
 import com.sgic.internal.defecttracker.defect.entities.SampleConfig2;
-
+@CrossOrigin
 @RestController
 public class DefectController {
 
@@ -85,7 +86,7 @@ public class DefectController {
 	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
 		if (defectDataMapper.createDefect(defectData) != null) {
 			logger.info("Defect Controller -> Defects Created Successful");
-			return new ResponseEntity<>("Company added succesfully", HttpStatus.OK);
+			return new ResponseEntity<>("Defect added succesfully", HttpStatus.OK);
 		}
 		logger.info("Defect Controller -> Defects creation FAILED!!!");
 		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
