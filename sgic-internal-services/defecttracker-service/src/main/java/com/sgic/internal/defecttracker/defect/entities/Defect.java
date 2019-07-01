@@ -29,15 +29,10 @@ public class Defect {
 	private String fixedBy;
 	private int commentId;
 	private int attachmentId;
-<<<<<<< HEAD
-	private String dateAndTime;
 	private String availableIn;
 	private String foundIn;
 	private String fixedIn;
-=======
 	private Date dateAndTime;
->>>>>>> 38fa92abd8b729da74fe71557de7640a37797693
-	
 	
 	//Generate getters and Setters
 	

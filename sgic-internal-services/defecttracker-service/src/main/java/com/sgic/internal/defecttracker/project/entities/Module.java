@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="module", schema="project_service")
+@Table(schema="defectservices",name="module")
 public class Module {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
