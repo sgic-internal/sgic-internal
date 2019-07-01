@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.sgic.internal.defecttracker.project.services;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public interface ModuleService {
 	public List<Module> getBymoduleName(String moduleName);
 
 }
-=======
+
 //package com.sgic.internal.defecttracker.project.services;
 //
 //import java.util.List;
@@ -39,4 +39,4 @@ public interface ModuleService {
 //	Module getBymoduleId(String id);
 //	Module getBymoduleName (String name);
 //}
->>>>>>> 2abd14002e2c632b7456f4e8d098e5f21d4b008f
+

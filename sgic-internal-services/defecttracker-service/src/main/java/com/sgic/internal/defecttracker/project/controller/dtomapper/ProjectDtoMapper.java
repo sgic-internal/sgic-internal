@@ -68,11 +68,4 @@ public ProjectDto deleteById(String projectId) {
 	return null;
 }
 
-
-public class ProjectDtoMapper {
-
-
-
-
 }
-

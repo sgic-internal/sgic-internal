@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.sgic.internal.defecttracker.project.repositories;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface ModuleRepository extends JpaRepository<Module, String> {
 	//boolean exists(String moduleId);
 
 }
-=======
+
 //package com.sgic.internal.defecttracker.project.repositories;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;
@@ -31,4 +31,3 @@ public interface ModuleRepository extends JpaRepository<Module, String> {
 //	Module getBymoduleId(String id);
 //	Module getBymoduleName(String name);
 //}
->>>>>>> 2abd14002e2c632b7456f4e8d098e5f21d4b008f
