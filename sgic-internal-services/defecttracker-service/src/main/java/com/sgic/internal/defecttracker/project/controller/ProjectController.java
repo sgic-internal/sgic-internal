@@ -60,10 +60,10 @@ public class ProjectController {
 	
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
-	@GetMapping("/getProjectByproId/{proId}")
-	public ResponseEntity<ProjectData> getByProId(@PathVariable String proId) {
+	@GetMapping("/getProjectByabbrivation/{abbrivation}")
+	public ResponseEntity<ProjectData> getByabbrivation(@PathVariable String abbrivation) {
 		logger.info("Projects are get by id ");
-		return new ResponseEntity<>(projectDtoMapper.getByProId(proId), HttpStatus.OK);
+		return new ResponseEntity<>(projectDtoMapper.getByabbrivation(abbrivation), HttpStatus.OK);
 	}
 
 

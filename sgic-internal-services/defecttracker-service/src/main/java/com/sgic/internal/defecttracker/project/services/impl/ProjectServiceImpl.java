@@ -76,8 +76,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project getByproId(String proId) {
-		return projectRepository.getByproId(proId);
+	public Project getByabbrivation(String abbrivation) {
+		return projectRepository.getByabbrivation(abbrivation);
 	}
 
 }
