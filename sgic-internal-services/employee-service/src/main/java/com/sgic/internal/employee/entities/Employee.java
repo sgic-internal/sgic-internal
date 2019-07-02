@@ -30,7 +30,7 @@ public class Employee implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long empId;
 
-	@Column(name = "employee_id")
+	@Column(name = "employee_id", unique= true)
 	@NotEmpty
 	private String employeeid;
 
@@ -47,7 +47,7 @@ public class Employee implements Serializable {
 //	@NotBlank(message = "{Employee.email.invalid}")
 //	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
 
-	@Column(name = "email")
+	@Column(name = "email", unique= true)
 	@Email
 	private String email;
 	

@@ -2,8 +2,6 @@ package com.sgic.internal.employee.entities;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,9 +22,9 @@ public class Designation implements Serializable {
 	private Long designationid;
 	private String designationname;
 	
-	
+//	cascade=CascadeType.ALL,
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@OneToMany(mappedBy="designation",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="designation", fetch=FetchType.EAGER)
 	private List<Employee> employees;
 
 
@@ -58,8 +56,11 @@ public class Designation implements Serializable {
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+
+
 	
 
+	
 
 	
 }

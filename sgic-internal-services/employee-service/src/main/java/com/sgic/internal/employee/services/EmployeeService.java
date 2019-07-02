@@ -24,7 +24,7 @@ public interface EmployeeService {
 	public void deleteEmployeeByempId(Long empId);
 
 	// Method for Getting One Employee Record by Email
-	public List<Employee> getByDesignation(String designation); 
+	public List<Employee> getByDesignation(Long designationid); 
 
 	// Method for Update Employee
 	public Employee updateEmployee(Employee employee);
