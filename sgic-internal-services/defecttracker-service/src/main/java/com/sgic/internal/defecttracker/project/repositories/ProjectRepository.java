@@ -1,5 +1,14 @@
 package com.sgic.internal.defecttracker.project.repositories;
 
-public interface ProjectRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sgic.internal.defecttracker.project.entities.Project;
+
+public interface ProjectRepository extends JpaRepository<Project, String> {
+	
+	Project getByprojectId(String pid);
+
+	
+
 
 }
