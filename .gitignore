@@ -1,7 +1,8 @@
 /.metadata/
 /Servers
 .classpath
-/target/
-/target
-/bin/
-/bin
+.factorypath
+.settings
+.project
+target
+bin
