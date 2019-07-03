@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
 import com.sgic.internal.defecttracker.defecttypes.DefectTypeAppTest;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
+import com.sgic.internal.defecttracker.project.controller.dto.DefectTypeDto;
 
 public class UpdateDefectTypeTest extends DefectTypeAppTest{
 	@Autowired

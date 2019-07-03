@@ -28,7 +28,7 @@ public class GetByName extends ProjectApplicationTest {
 
 	@Test
 	public void getByName() throws IOException, RestClientException {
-		projectDto.setProjectId("Pro1");
+		//projectDto.setProjectId("Pro1");
 		projectDto.setProjectName("DefectTracker");
 		projectDto.setEndDate("2019-06-17");
 		projectDto.setConfigId("configId");

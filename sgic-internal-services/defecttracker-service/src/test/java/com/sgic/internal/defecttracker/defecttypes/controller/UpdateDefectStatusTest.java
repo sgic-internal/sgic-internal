@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
 import com.sgic.internal.defecttracker.defecttypes.DefectStatusAppTest;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectStatusDto;
+import com.sgic.internal.defecttracker.project.controller.dto.DefectStatusDto;
 
 public class UpdateDefectStatusTest extends DefectStatusAppTest{
 	

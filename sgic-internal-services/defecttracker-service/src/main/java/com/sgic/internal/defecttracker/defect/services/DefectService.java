@@ -17,7 +17,6 @@ public interface DefectService {
 	public Defect deleteDefect(Long defectId);   
 	public List<Defect> getAllDefects(); 
 	
-	//Depended services
 	public Defect updateDefectStatus(int statusId); 
 	public Defect updateReassignTo(String reassignTo); 
 	public Defect updateDefectComment(int commentId); 

@@ -8,13 +8,14 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="module", schema="project_service")
+@Table( schema="defectservices",name="module")
 public class Module {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String moduleId;
 	private String moduleName;
-
+    private String abbr;
+	
 	public String getModuleId() {
 		return moduleId;
 	}
@@ -28,19 +29,31 @@ public class Module {
 		this.moduleName = moduleName;
 	}
 	
+	
 
-	// create relationship with project
+	public String getAbbr() {
+		return abbr;
+	}
+	public void setAbbr(String abbr) {
+		this.abbr = abbr;
+	}
+
+
+
+		// create relationship with project
 		@ManyToOne
 		@JoinColumn(name="projectId",nullable=false)
 		
-		private Module module;
+		private Project project;
 
-		public Module getModule() {
-			return module;
+		public Project getProject() {
+			return project;
 		}
-		public void setModule(Module module) {
-			this.module = module;
+		public void setProject(Project project) {
+			this.project = project;
 		}
+
+	
 
 		
 }

@@ -3,6 +3,8 @@ package com.sgic.internal.defecttracker.project.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +17,10 @@ public class Project implements Serializable {
 
 	@Id
 	@NotBlank(message = "ProjectId is mandatory")
-	private String projectId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long projectId;
+	
+	private String abbr;
 
 	private String projectName;
 
@@ -31,11 +36,11 @@ public class Project implements Serializable {
 
 	private String configId;
 
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
 
@@ -95,4 +100,17 @@ public class Project implements Serializable {
 		this.configId = configId;
 	}
 
+	public String getAbbre() {
+		return abbr;
+	}
+
+	public void setAbbre(String abbre) {
+		this.abbr = abbre;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 }

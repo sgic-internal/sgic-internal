@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.sgic.internal.defecttracker.defecttypes.DefectStatusAppTest;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectStatusDto;
+import com.sgic.internal.defecttracker.project.controller.dto.DefectStatusDto;
 
 public class CreateDefectStatusTest extends DefectStatusAppTest {
 	@Autowired

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProjectDto {
 	
-	private String projectId;
+	private Long projectId;
 
 	private String projectName;
 
@@ -21,11 +21,11 @@ public class ProjectDto {
 
 	private String configId;
 
-	public String getProjectId() {
+	public Long getProjectId() {
 		return projectId;
 	}
 
-	public ProjectDto(String projectId, String projectName, String type, String startDate, String endDate,
+	public ProjectDto(Long projectId, String projectName, String type, String startDate, String endDate,
 			String duration, String status, String configId) {
 		super();
 		this.projectId = projectId;
@@ -42,7 +42,7 @@ public class ProjectDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void setProjectId(String projectId) {
+	public void setProjectId(Long projectId) {
 		this.projectId = projectId;
 	}
 

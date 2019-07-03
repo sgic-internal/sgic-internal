@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 public interface ModuleRepository extends JpaRepository<Module, String> {
 	
@@ -18,6 +19,7 @@ public interface ModuleRepository extends JpaRepository<Module, String> {
 
 	//boolean exists(String moduleId);
 
+	List<Module> findModuleByProject(Project project);
 }
 
 //package com.sgic.internal.defecttracker.project.repositories;

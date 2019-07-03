@@ -53,7 +53,7 @@ public class UpdateByProject extends ProjectApplicationTest{
 		ResponseEntity<String> getResponse = testRestTemplate.exchange(BASE_URL + "/getProjectById/" + projectId, HttpMethod.GET,
 				new HttpEntity<>(httpHeaders), String.class);
 		assertEquals(UPDATE_DEFECT_TYPE, getResponse.getBody());
-		projectDto.setProjectId("1");
+		//projectDto.setProjectId("1");
 		projectDto.setProjectName("mercy");
 		projectDto.setEndDate("2019-06-17");
 		projectDto.setConfigId("mercy");

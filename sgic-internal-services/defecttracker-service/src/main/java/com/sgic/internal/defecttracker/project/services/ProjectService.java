@@ -7,15 +7,15 @@ import com.sgic.internal.defecttracker.project.entities.Project;
 public interface ProjectService {
 	public Project createProject(Project project);
 
-	public boolean isProjectAlreadyExists(String projectid);
+	public boolean isProjectAlreadyExists(Long projectid);
 
 	public List<Project> getallDetails();
 
-	public void deleteById(String projectid);
+	public void deleteById(Long projectid);
 
-	public Project updateProject(String projectid, Project project); // Update projectid
+	public Project updateProject(Long projectid, Project project); // Update projectid
 
-	Project getByprojectId(String projectid);
+	Project getByprojectId(Long projectid);
 
 	public List<Project> getByprojectName(String name);
 
@@ -26,5 +26,7 @@ public interface ProjectService {
 	public List<Project> getByduration(String duration);
 
 	public List<Project> getBystatus(String status);
+	
+	
 
 }

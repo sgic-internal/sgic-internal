@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
-import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 
 @CrossOrigin
@@ -51,7 +51,7 @@ public class ProjectController {
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
 	@GetMapping("/getProjectById/{id}")
-	public ResponseEntity<ProjectDto> getProjectById(@PathVariable String id) {
+	public ResponseEntity<ProjectDto> getProjectById(@PathVariable Long id) {
 		logger.info("Projects are get by id ");
 		return new ResponseEntity<>(projectDtoMapper.getByProjectId(id), HttpStatus.OK);
 	}
@@ -59,7 +59,7 @@ public class ProjectController {
 	// Author :: By thadsha
 	// Delete Mapping For Project
 	@DeleteMapping("deleteById/{projectId}")
-	public ResponseEntity<ProjectDto> deleteById(@PathVariable String projectId) {
+	public ResponseEntity<ProjectDto> deleteById(@PathVariable Long projectId) {
 		logger.info("Projects are delete by id ");
 		return new ResponseEntity<>(projectDtoMapper.deleteById(projectId), HttpStatus.OK);
 	}
@@ -67,7 +67,7 @@ public class ProjectController {
 	// Author :: By Arany
 	// Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
-	public ResponseEntity<String> updateProject(@PathVariable(name = "projectid") String projectid,
+	public ResponseEntity<String> updateProject(@PathVariable(name = "projectid") Long projectid,
 			@RequestBody ProjectDto projectDto) {
 		logger.info("Projectcontroller -> updatedproject");
 		if (projectDtoMapper.UpdateProject(projectid, projectDto) != null)

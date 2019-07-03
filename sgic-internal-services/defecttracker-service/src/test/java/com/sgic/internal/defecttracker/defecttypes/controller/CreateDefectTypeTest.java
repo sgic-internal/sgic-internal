@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.sgic.internal.defecttracker.defecttypes.DefectTypeAppTest;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
+import com.sgic.internal.defecttracker.project.controller.dto.DefectTypeDto;
 
 public class CreateDefectTypeTest extends DefectTypeAppTest{
 	@Autowired

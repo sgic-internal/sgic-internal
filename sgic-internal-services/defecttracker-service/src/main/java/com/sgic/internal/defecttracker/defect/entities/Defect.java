@@ -15,6 +15,7 @@ public class Defect {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long defectId;
+	private String abbre;
 	private Long projectId;
 	private Long moduleId;
 	private int severityId;
@@ -130,6 +131,13 @@ public class Defect {
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
+	public String getAbbre() {
+		return abbre;
+	}
+	public void setAbbre(String abbre) {
+		this.abbre = abbre;
+	}
+	
 	
 	
 }
