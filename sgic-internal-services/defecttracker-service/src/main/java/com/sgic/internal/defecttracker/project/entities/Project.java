@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -26,11 +25,10 @@ public class Project implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long pid;
 
-	@NotEmpty
+
 	@Size(min = 2, max = 50)
 	private String projectId;
 
-	@NotEmpty
 	@Size(min = 2, max = 50)
 	private String projectName;
 

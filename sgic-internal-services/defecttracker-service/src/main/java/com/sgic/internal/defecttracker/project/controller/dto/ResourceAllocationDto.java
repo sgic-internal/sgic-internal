@@ -3,7 +3,7 @@ package com.sgic.internal.defecttracker.project.controller.dto;
 public class ResourceAllocationDto {
 
 	private Long resourceId;
-	private String resourceName;
+//	private String resourceName;
 	private Long pid;
 	private String projectName;
 	private String projectId;
@@ -14,12 +14,12 @@ public class ResourceAllocationDto {
 	public void setResourceId(Long resourceId) {
 		this.resourceId = resourceId;
 	}
-	public String getResourceName() {
-		return resourceName;
-	}
-	public void setResourceName(String resourceName) {
-		this.resourceName = resourceName;
-	}
+//	public String getResourceName() {
+//		return resourceName;
+//	}
+//	public void setResourceName(String resourceName) {
+//		this.resourceName = resourceName;
+//	}
 	public Long getPid() {
 		return pid;
 	}

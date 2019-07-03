@@ -3,14 +3,19 @@ package com.sgic.internal.defecttracker.project.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
 import com.sgic.internal.defecttracker.project.controller.dto.ResourceAllocationDto;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.ResourceAllocationDtoMapper;
+import com.sgic.internal.defecttracker.project.entities.Employee;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 //import com.sgic.internal.employee.dto.EmployeeDTO;
 
@@ -32,5 +37,18 @@ public class ResourceAllocationController {
 		resourceAllocationDtoMapper.getAllResource();
 		return new ResponseEntity<List<ResourceAllocationDto>>(resourceAllocationDtoMapper.getAllResource(), HttpStatus.OK);	
 	}
+	
+	
+	
+	@GetMapping("/GetAllresources")
+    public List<Employee> getProductList() {
+     RestTemplate restTemplate = new RestTemplate();
+     ResponseEntity<List<Employee>> response = restTemplate.exchange(
+       "http://localhost:8084/employeeservice/getallemployee", HttpMethod.GET, null,
+       new ParameterizedTypeReference<List<Employee>>(){});
+     List<Employee> employee = response.getBody();
+     return employee;
+    }
+	
 	
 }

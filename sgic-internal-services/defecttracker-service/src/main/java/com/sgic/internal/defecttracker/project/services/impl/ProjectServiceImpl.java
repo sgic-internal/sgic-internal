@@ -20,11 +20,11 @@ public class ProjectServiceImpl implements ProjectService {
 		Project responseProject = projectRepository.save(project);
 		return responseProject;
 	}
-
-	@Override
-	public boolean isProjectAlreadyExists(String projectid) {
-		return projectRepository.existsById(projectid);
-	}
+//
+//	@Override
+//	public boolean isProjectAlreadyExists(String projectid) {
+//		return projectRepository.existsById(projectid);
+//	}
 
 	@Override
 	public List<Project> getallDetails() {

@@ -20,7 +20,7 @@ public class ResourceAllocation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long resourceId;
-	private String resourceName;
+//	private String resourceName;
 
 
 //    @Column(table = "Employee")
@@ -40,13 +40,13 @@ public class ResourceAllocation implements Serializable{
 		this.resourceId = resourceId;
 	}
 
-	public String getResourceName() {
-		return resourceName;
-	}
-
-	public void setResourceName(String resourceName) {
-		this.resourceName = resourceName;
-	}
+//	public String getResourceName() {
+//		return resourceName;
+//	}
+//
+//	public void setResourceName(String resourceName) {
+//		this.resourceName = resourceName;
+//	}
 
 	public Project getProject() {
 		return project;
