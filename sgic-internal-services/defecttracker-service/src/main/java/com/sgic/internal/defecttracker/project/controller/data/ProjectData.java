@@ -9,7 +9,7 @@ public class ProjectData {
 	
 	private Long projectId;
 	
-	private String abbrivation;
+	private String proId;
 
 	private String projectName;
 
@@ -26,10 +26,9 @@ public class ProjectData {
 	private String configId;
 
 	
-	public ProjectData(Long projectId,String abbrivation, String projectName, String type, Date startDate, Date endDate,
+	public ProjectData(Long projectId, String projectName, String type, Date startDate, Date endDate,
 			Long duration, String status, String configId) {
 		super();
-		this.abbrivation = abbrivation;
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.type = type;
@@ -51,15 +50,14 @@ public class ProjectData {
 		this.projectId = projectId;
 	}
 	
+	public String getProId() {
+		return proId;
+	}
+
+	public void setProId(String proId) {
+		this.proId = proId;
+	}
 	
-	public String getAbbrivation() {
-		return abbrivation;
-	}
-
-	public void setAbbrivation(String abbrivation) {
-		this.abbrivation = abbrivation;
-	}
-
 	public String getProjectName() {
 		return projectName;
 	}
