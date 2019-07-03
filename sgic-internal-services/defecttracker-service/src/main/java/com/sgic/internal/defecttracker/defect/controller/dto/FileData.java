@@ -11,14 +11,14 @@ public class FileData {
 	private String fileName;
 	private String fileDownloadUri;
 	private String fileType;
-	private Long defectId;
+	private String defectId;
 	private Long size;
 
 	public FileData() {
 
 	}
 
-	public FileData(String fileName, String fileDownloadUri, String fileType, long size, Long defectId) {
+	public FileData(String fileName, String fileDownloadUri, String fileType, long size, String defectId) {
 		this.fileName = fileName;
 		this.fileDownloadUri = fileDownloadUri;
 		this.fileType = fileType;
@@ -26,11 +26,11 @@ public class FileData {
 		this.defectId = defectId;
 	}
 
-	public Long getDefectId() {
+	public String getDefectId() {
 		return defectId;
 	}
 
-	public void setDefectId(Long defectId) {
+	public void setDefectId(String defectId) {
 		this.defectId = defectId;
 	}
 

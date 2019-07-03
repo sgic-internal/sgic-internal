@@ -25,7 +25,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public Defect getByDefectId(Long defectId) {
+	public Defect getByDefectId(String defectId) {
 		logger.info("DefectService started -> GetAllDefectById");
 		return defectRepository.getByDefectId(defectId);
 	}
@@ -34,7 +34,7 @@ public class DefectServiceImpl implements DefectService {
 	public Defect updateDefect(Defect defect) {
 	
 		logger.info("DefectService started -> updateDefect");
-		Long defectId=defect.getDefectId();
+		String defectId=defect.getDefectId();
 		logger.info("DefectService started -> getDefectId");
 		boolean isExist = defectRepository.getByDefectId(defectId)!= null;
 		if (isExist) {
@@ -47,7 +47,7 @@ public class DefectServiceImpl implements DefectService {
 	}
 	
 	@Override
-	public Defect deleteDefect(Long defectId) {
+	public Defect deleteDefect(String defectId) {
 	     logger.info("DefectService started -> DeleteDefectById");
 		 defectRepository.deleteById(defectId);
 		 return null;
@@ -60,37 +60,19 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
-	public List<Defect> getAllDefectByStatus(int statusId) {
-		logger.info("DefectService started -> getAllDefectByStatus");
-		return defectRepository.getByStatusId(statusId);
-	}
-
-	@Override
-	public List<Defect> getProjectById(Long projectId) {
+	public List<Defect> getProjectById(String projectId) {
 		logger.info("DefectService started -> getProjectById");
 		return defectRepository.getByProjectId(projectId);
 	}
 
 	@Override
-	public List<Defect> getModuleById(Long moduleId) {
+	public List<Defect> getModuleById(String moduleId) {
 		logger.info("DefectService started -> getModuleById");
 		return defectRepository.getByModuleId(moduleId);
 	}
 
 	@Override
-	public List<Defect> getAllSeverityById(int severityId) {
-		logger.info("DefectService started -> getAllSeverityById");
-		return defectRepository.getBySeverityId(severityId);
-	}
-
-	@Override
-	public List<Defect> getAllPriorityById(int priorityId) {
-		logger.info("DefectService started -> getAllPriorityById");
-		return defectRepository.getByPriorityId(priorityId);
-	}
-
-	@Override
-	public boolean isDefectAlreadyExist(Long defectId) {
+	public boolean isDefectAlreadyExist(String defectId) {
 		logger.info("DefectService started -> isDefectAlreadyExist");
 		return defectRepository.existsById(defectId);
 	}

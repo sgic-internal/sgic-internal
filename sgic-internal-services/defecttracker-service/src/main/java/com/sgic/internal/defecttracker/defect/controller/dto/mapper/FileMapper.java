@@ -26,7 +26,7 @@ public class FileMapper {
 		return responseFile;
 	}
 
-	public FileData fileToDTO(MultipartFile file, Long defectId) throws IOException {
+	public FileData fileToDTO(MultipartFile file, String defectId) throws IOException {
 		FileData fileData = fileDTOConverter.FileToDTO(file, defectId);
 		return fileData;
 	}

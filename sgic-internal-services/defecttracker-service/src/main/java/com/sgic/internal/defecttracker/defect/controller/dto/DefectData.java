@@ -4,13 +4,11 @@ import java.sql.Date;
 
 public class DefectData {
 	
-	private Long defectId;
-	private Long projectId;
-	private Long moduleId;
-	private int severityId;
-	private int priorityId;
-	private int typeId;
-	private int  statusId;
+	private String defectId;
+	private String abbre;
+	private String projectId;
+	private String moduleId;
+	private Long configId;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
@@ -23,70 +21,36 @@ public class DefectData {
 	private String foundIn;
 	private String fixedIn;
 	private Date dateAndTime;
-
 	
-	
-	
-	public String getAvailableIn() {
-		return availableIn;
-	}
-	public void setAvailableIn(String availableIn) {
-		this.availableIn = availableIn;
-	}
-	public String getFoundIn() {
-		return foundIn;
-	}
-	public void setFoundIn(String foundIn) {
-		this.foundIn = foundIn;
-	}
-	public String getFixedIn() {
-		return fixedIn;
-	}
-	public void setFixedIn(String fixedIn) {
-		this.fixedIn = fixedIn;
-	}
-	public Long getDefectId() {
+	public String getDefectId() {
 		return defectId;
 	}
-	public void setDefectId(Long defectId) {
+	public void setDefectId(String defectId) {
 		this.defectId = defectId;
 	}
-	
-	public Long getProjectId() {
+	public String getAbbre() {
+		return abbre;
+	}
+	public void setAbbre(String abbre) {
+		this.abbre = abbre;
+	}
+	public String getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(Long projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
-	public int getSeverityId() {
-		return severityId;
+	public Long getConfigId() {
+		return configId;
 	}
-	public void setSeverityId(int severityId) {
-		this.severityId = severityId;
-	}
-	public int getPriorityId() {
-		return priorityId;
-	}
-	public void setPriorityId(int priorityId) {
-		this.priorityId = priorityId;
-	}
-	public int getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
-	}
-	public int getStatusId() {
-		return statusId;
-	}
-	public void setStatusId(int statusId) {
-		this.statusId = statusId;
+	public void setConfigId(Long configId) {
+		this.configId = configId;
 	}
 	public String getDefectDescription() {
 		return defectDescription;
@@ -136,12 +100,31 @@ public class DefectData {
 	public void setAttachmentId(int attachmentId) {
 		this.attachmentId = attachmentId;
 	}
+	public String getAvailableIn() {
+		return availableIn;
+	}
+	public void setAvailableIn(String availableIn) {
+		this.availableIn = availableIn;
+	}
+	public String getFoundIn() {
+		return foundIn;
+	}
+	public void setFoundIn(String foundIn) {
+		this.foundIn = foundIn;
+	}
+	public String getFixedIn() {
+		return fixedIn;
+	}
+	public void setFixedIn(String fixedIn) {
+		this.fixedIn = fixedIn;
+	}
 	public Date getDateAndTime() {
 		return dateAndTime;
 	}
 	public void setDateAndTime(Date dateAndTime) {
 		this.dateAndTime = dateAndTime;
 	}
+	
 	
 	
 }

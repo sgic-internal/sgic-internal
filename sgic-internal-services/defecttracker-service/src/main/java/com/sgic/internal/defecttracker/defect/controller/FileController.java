@@ -51,7 +51,7 @@ public class FileController {
 	/* Post Mapping - Defect Attachment API by Thanushan */
 	@PostMapping("/uploadFile")
 	public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file,
-			@RequestParam("defectId") Long defectId) throws IOException {
+			@RequestParam("defectId") String defectId) throws IOException {
 
 		String fileName = fileStorageService.storeFile(file);
 
@@ -66,7 +66,7 @@ public class FileController {
 	/* Post Mapping - Defect Attachment API by Thanushan */
 	@PostMapping("/uploadMultipleFiles")
 	public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files,
-			@RequestParam("defectId") Long defectId) {
+			@RequestParam("defectId") String defectId) {
 		return Arrays.asList(files).stream().map(file -> {
 			try {
 				return uploadFile(file, defectId);

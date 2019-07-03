@@ -35,12 +35,8 @@ public class DeleteDefectApplicationController extends DefectApplicationTest {
 	public void deleteDefect() throws IOException, RestClientException {
 		
 		//defectData.setDefectId(1L);
-		   defectData.setProjectId(1L);
-		   defectData.setModuleId(1L);
-		   defectData.setSeverityId(1);
-		   defectData.setPriorityId(1);
-		   defectData.setTypeId(1);
-		   defectData.setStatusId(1);
+		   defectData.setProjectId("pro");
+		   defectData.setModuleId("mod");
 		   defectData.setDefectDescription("login not work");
 		   defectData.setStepsToRecreate("redo the application");
 		   defectData.setAssignTo("pinky");

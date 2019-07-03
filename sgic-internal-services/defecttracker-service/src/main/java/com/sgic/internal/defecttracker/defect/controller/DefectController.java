@@ -40,40 +40,23 @@ public class DefectController {
 	}
 
 	@GetMapping(value = "/getDefectById/{defectId}")
-	public DefectData getByDefectId(@PathVariable(name = "defectId") Long defectId) {
+	public DefectData getByDefectId(@PathVariable(name = "defectId") String defectId) {
 		logger.info("Controller -> getByDefectId Successfull");
 		return defectDataMapper.getByDefectId(defectId);
 
 	}
 
-	@GetMapping(value = "/getAllDefectsByStatusId/{statusId}")
-	public List<DefectData> getByStatusId(@PathVariable(name = "statusId") int statusId) {
-		logger.info("Controller -> getByStatusId Successfull");
-		return defectDataMapper.getAllDefectByStatus(statusId);
-	}
 	
 	@GetMapping(value = "/getAllDefectsByProjectId/{projectId}")
-	public List<DefectData> getByProjectId(@PathVariable(name = "projectId") Long projectId) {
+	public List<DefectData> getByProjectId(@PathVariable(name = "projectId") String projectId) {
 		logger.info("Controller -> getByProjectId Successfull");
 		return defectDataMapper.getAllDefectByProjectById(projectId);
 	}
 
 	@GetMapping(value = "/getAllDefectsByModuleId/{moduleId}")
-	public List<DefectData> getByModuleId(@PathVariable(name = "moduleId") Long moduleId) {
+	public List<DefectData> getByModuleId(@PathVariable(name = "moduleId") String moduleId) {
 		logger.info("Controller -> getBymoduleId Successfull");
 		return defectDataMapper.getAllDefectByModuleById(moduleId);
-	}
-	
-	@GetMapping(value = "/getAllDefectsBySeverityId/{severityId}")
-	public List<DefectData> getBySeverityId(@PathVariable(name = "severityId") int severityId) {
-		logger.info("Controller -> getBySeverityId Successfull");
-		return defectDataMapper.getAllDefectBySeverityById(severityId);
-	}
-	
-	@GetMapping(value = "/getAllDefectsByPriorityId/{priorityId}")
-	public List<DefectData> getByPriorityId(@PathVariable(name = "priorityId") int priorityId) {
-		logger.info("Controller -> getByPriorityId Successfull");
-		return defectDataMapper.getAllDefectByPriorityById(priorityId);
 	}
 	
 	@GetMapping(value = "/getAllDefectsByDate/{dateAndTime}")
@@ -104,7 +87,7 @@ public class DefectController {
 	}
 
 	@DeleteMapping("/deleteDefect/{defectId}")
-	public ResponseEntity<String> deleteCompany(@PathVariable(name = "defectId") Long defectId) {
+	public ResponseEntity<String> deleteCompany(@PathVariable(name = "defectId") String defectId) {
 		System.out.print(defectId);
 		if (defectDataMapper.getByDefectId(defectId) != null) {
 			if (defectDataMapper.deleteDefect(defectId) == null) {

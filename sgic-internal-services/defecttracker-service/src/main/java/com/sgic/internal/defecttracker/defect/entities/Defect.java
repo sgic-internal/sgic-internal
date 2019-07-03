@@ -14,14 +14,11 @@ public class Defect {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long defectId;
+	private String defectId;
 	private String abbre;
-	private Long projectId;
-	private Long moduleId;
-	private int severityId;
-	private int priorityId;
-	private int typeId;
-	private int statusId;
+	private String projectId;
+	private String moduleId;
+	private Long configId;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
@@ -36,43 +33,35 @@ public class Defect {
 	private Date dateAndTime;
 	
 	//Generate getters and Setters
-	
-	
-	public Long getDefectId() {
+	public String getDefectId() {
 		return defectId;
 	}
-	public void setDefectId(Long defectId) {
+	public void setDefectId(String defectId) {
 		this.defectId = defectId;
 	}
-	public Long getProjectId() {
+	public String getAbbre() {
+		return abbre;
+	}
+	public void setAbbre(String abbre) {
+		this.abbre = abbre;
+	}
+	public String getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(Long projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
-	public Long getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(Long moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
-	public void setSeverityId(int severityId) {
-		this.severityId = severityId;
+	public Long getConfigId() {
+		return configId;
 	}
-	public int getSeverityId() {
-		return severityId;
-	}
-	public int getPriorityId() {
-		return priorityId;
-	}
-	public void setPriorityId(int priorityId) {
-		this.priorityId = priorityId;
-	}
-	public int getStatusId() {
-		return statusId;
-	}
-	public void setStatusId(int statusId) {
-		this.statusId = statusId;
+	public void setConfigId(Long configId) {
+		this.configId = configId;
 	}
 	public String getDefectDescription() {
 		return defectDescription;
@@ -122,26 +111,6 @@ public class Defect {
 	public void setAttachmentId(int attachmentId) {
 		this.attachmentId = attachmentId;
 	}
-	public Date getDateAndTime() {
-		return dateAndTime;
-	}
-	public void setDateAndTime(Date dateAndTime) {
-		this.dateAndTime = dateAndTime;
-	}
-	public int getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
-	}
-	public String getAbbre() {
-		return abbre;
-	}
-	public void setAbbre(String abbre) {
-		this.abbre = abbre;
-	}
-	
-	
 	public String getAvailableIn() {
 		return availableIn;
 	}
@@ -160,4 +129,16 @@ public class Defect {
 	public void setFixedIn(String fixedIn) {
 		this.fixedIn = fixedIn;
 	}
+	public Date getDateAndTime() {
+		return dateAndTime;
+	}
+	public void setDateAndTime(Date dateAndTime) {
+		this.dateAndTime = dateAndTime;
+	}
+	
+	
+	
+	
+	
 }
+
