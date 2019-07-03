@@ -1,8 +1,13 @@
 package com.sgic.internal.defecttracker.project.controller.data;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ModuleData {
+	
 	private String moduleId;
 	private String moduleName;
+	
 	public String getModuleId() {
 		return moduleId;
 	}
