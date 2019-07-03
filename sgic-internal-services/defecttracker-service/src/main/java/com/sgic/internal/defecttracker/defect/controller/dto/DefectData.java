@@ -19,10 +19,32 @@ public class DefectData {
 	private String fixedBy;
 	private int commentId;
 	private int attachmentId;
+	private String availableIn;
+	private String foundIn;
+	private String fixedIn;
 	private Date dateAndTime;
+
 	
 	
 	
+	public String getAvailableIn() {
+		return availableIn;
+	}
+	public void setAvailableIn(String availableIn) {
+		this.availableIn = availableIn;
+	}
+	public String getFoundIn() {
+		return foundIn;
+	}
+	public void setFoundIn(String foundIn) {
+		this.foundIn = foundIn;
+	}
+	public String getFixedIn() {
+		return fixedIn;
+	}
+	public void setFixedIn(String fixedIn) {
+		this.fixedIn = fixedIn;
+	}
 	public Long getDefectId() {
 		return defectId;
 	}

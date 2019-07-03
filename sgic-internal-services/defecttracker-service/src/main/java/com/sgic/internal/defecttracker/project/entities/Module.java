@@ -8,7 +8,11 @@ import javax.persistence.Table;
 
 
 @Entity
+<<<<<<< HEAD
 @Table( schema="defectservices",name="module")
+=======
+@Table(schema="defectservices",name="module")
+>>>>>>> dae3333a1b004c53495f4ecccd8e679f4a454b8d
 public class Module {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -118,11 +118,28 @@ public class DefectController {
 		logger.info("Defect Controller -> Defect Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
-
+	@GetMapping(value = "/getDefectsByAvailableIn/{availableIn}")
+	public List<DefectData> getByAvailableIn(@PathVariable(name = "availableIn") String availableIn) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectByAvailableIn(availableIn);
+	}
+	@GetMapping(value = "/getDefectsByFoundIn/{foundIn}")
+	public List<DefectData> getByFoundIn(@PathVariable(name = "foundIn") String foundIn) {
+		logger.info("Controller -> getByfoundIn Successfull");
+		return defectDataMapper.getAllDefectByFoundIn(foundIn);
+	}
+	@GetMapping(value = "/getDefectsByFixedIn/{fixedIn}")
+	public List<DefectData> getByFixedIn(@PathVariable(name = "fixedIn") String fixedIn) {
+		logger.info("Controller -> getByfixedIn Successfull");
+		return defectDataMapper.getAllDefectByFixedIn(fixedIn);
+	}
+	
+	
 	@GetMapping(value = "/getMockDefect")
 	public DefectData getMockDefect() {
 		return new DefectData();
 	}
+	
 	
 
 // Mock --------------------------------------------------------------------------------------------

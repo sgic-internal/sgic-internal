@@ -103,4 +103,23 @@ public class DefectDataMapper {
 		return defectDataConverter.defectEntityToDefectData(defectDateandTime);
 	}
 	
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByAvailableIn(String availableIn){
+		List<Defect> defectAvailableIn=defectService.getDefectByAvailableIn(availableIn);
+		return defectDataConverter.defectEntityToDefectData(defectAvailableIn);
+		
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByFoundIn(String foundIn){
+		List<Defect> defectFoundIn=defectService.getDefectByFoundIn(foundIn);
+		return defectDataConverter.defectEntityToDefectData(defectFoundIn);
+		
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByFixedIn(String fixedIn){
+		List<Defect> defectFixedIn=defectService.getDefectByFixedIn(fixedIn);
+		return defectDataConverter.defectEntityToDefectData(defectFixedIn);
+		
+	}
+	
 }

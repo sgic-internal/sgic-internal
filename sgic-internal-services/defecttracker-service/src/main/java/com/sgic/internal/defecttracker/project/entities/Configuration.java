@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="configuration",schema="project_service")
+@Table(name="configuration",schema="defectservices")
 public class Configuration {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)

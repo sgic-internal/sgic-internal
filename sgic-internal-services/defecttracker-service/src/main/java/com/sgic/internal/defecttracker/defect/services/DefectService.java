@@ -26,7 +26,12 @@ public interface DefectService {
 	public List<Defect> getModuleById (Long moduleId); 
 	public List<Defect> getAllSeverityById (int severityId); 
 	public List<Defect> getAllPriorityById (int priorityId);
+	public List<Defect> getDefectByAvailableIn (String availableIn);
+	public List<Defect> getDefectByFoundIn (String foundIn);
+	public List<Defect> getDefectByFixedIn (String fixedIn);
+	
 	public List<Defect> getDefectByDate (Date dateAndTime);
 	public boolean isDefectAlreadyExist(Long defectId);           
+
 	     	
 }

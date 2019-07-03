@@ -31,8 +31,17 @@ List<Defect>getByStatusId(@Param("statusId")int statusId);
 @Query(value ="FROM Defect WHERE date_and_time =:dateAndTime") 
 List<Defect>getByDefectDate(@Param("dateAndTime")Date dateAndTime);
 
+
+@Query(value ="FROM Defect WHERE available_in =:availableIn") 
+List<Defect>getByAvailableIn(@Param("availableIn")String availableIn);
+
 //@Modifying
 //@Query("UPDATE Defect d SET d.statusId = :status_id WHERE d.defect_id = :defectId")
 //int updateStatusId(@Param("defectId") Long defectId, @Param("statusId") int statusId);
 
+@Query(value ="FROM Defect WHERE found_in =:foundIn") 
+List<Defect>getByFoundIn(@Param("foundIn")String foundIn);
+
+@Query(value ="FROM Defect WHERE fixed_in =:fixedIn") 
+List<Defect>getByFixedIn(@Param("fixedIn")String fixedIn);
 }

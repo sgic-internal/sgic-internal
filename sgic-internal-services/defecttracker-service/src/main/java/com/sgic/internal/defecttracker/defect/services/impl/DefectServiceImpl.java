@@ -124,6 +124,24 @@ public class DefectServiceImpl implements DefectService {
 		return null;
 	}
 
+	@Override
+	public List<Defect> getDefectByAvailableIn(String availableIn) {
+		logger.info("DefectService started -> getDefectByAvailableIn");
+		return defectRepository.getByAvailableIn(availableIn);
+	}
+
+	@Override
+	public List<Defect> getDefectByFoundIn(String foundIn) {
+		logger.info("DefectService started -> getDefectByFoundIn");
+		return defectRepository.getByFoundIn(foundIn);
+	}
+
+	@Override
+	public List<Defect> getDefectByFixedIn(String fixedIn) {
+		logger.info("DefectService started -> getDefectByfixedIn");
+		return defectRepository.getByFixedIn(fixedIn);
+	}
+
 
 	
 }
