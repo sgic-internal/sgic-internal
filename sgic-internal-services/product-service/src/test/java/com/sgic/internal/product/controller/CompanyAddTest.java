@@ -26,9 +26,9 @@ public class CompanyAddTest extends CompanyControllerTest{
 	private String GET_API = "/Companys";
 	private String GET_BY_ID_API = "/Company/";
 	private static final String GET_COMPANY_RESPONSE = "["
-			+ "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}"
+			+ "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":1,\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}"
 			+ "]";
-	private static final String GET_COMPANY_BY_ID_RESPONSE = "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":\"free\",\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}";
+	private static final String GET_COMPANY_BY_ID_RESPONSE = "{\"companyId\":1,\"companyName\":\"EFGH\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":1,\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-07-29\",\"companyDescription\":\"some desc\"}";
 	
 //	@Before
 //	public void setup() {
@@ -48,7 +48,7 @@ public class CompanyAddTest extends CompanyControllerTest{
 		companyData.setCompanyRegNo("reg-01");
 		companyData.setCompanyAdminName("Admin");
 		companyData.setCompanyAdminEmail("abc@gmail.com");
-		companyData.setCompanyLicenseType("free");
+		companyData.setCompanyLicenseTypeId(1L);
 		companyData.setCompanyLicensePeriod(1);
 		companyData.setLicenseStartDate(Date.valueOf("2019-06-29"));
 		companyData.setLicenseEndDate(Date.valueOf("2019-07-29"));
@@ -85,7 +85,7 @@ public class CompanyAddTest extends CompanyControllerTest{
 			companyData.setCompanyRegNo("reg-01");
 			companyData.setCompanyAdminName("Admin");
 			companyData.setCompanyAdminEmail("abc@gmail.com");	// duplicate e-mail
-			companyData.setCompanyLicenseType("free");
+			companyData.setCompanyLicenseTypeId(1L);
 			companyData.setCompanyLicensePeriod(1);
 			companyData.setLicenseStartDate(Date.valueOf("2019-06-29"));
 			companyData.setLicenseEndDate(Date.valueOf("2019-02-02"));
