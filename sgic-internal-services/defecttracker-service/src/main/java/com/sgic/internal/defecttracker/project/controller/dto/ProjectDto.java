@@ -1,11 +1,11 @@
-package com.sgic.internal.defecttracker.project.controller.data;
+package com.sgic.internal.defecttracker.project.controller.dto;
 
 import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectData {
+public class ProjectDto {
 	
 	private Long projectId;
 	
@@ -26,7 +26,7 @@ public class ProjectData {
 	private String configId;
 
 	
-	public ProjectData(Long projectId,String abbrivation, String projectName, String type, Date startDate, Date endDate,
+	public ProjectDto(Long projectId,String abbrivation, String projectName, String type, Date startDate, Date endDate,
 			Long duration, String status, String configId) {
 		super();
 		this.abbrivation = abbrivation;
@@ -40,7 +40,7 @@ public class ProjectData {
 		this.configId = configId;
 	}
 
-	public ProjectData() {
+	public ProjectDto() {
 		// TODO Auto-generated constructor stub
 	}
 	public Long getProjectId() {

@@ -16,7 +16,7 @@
 //import org.springframework.web.client.RestClientException;
 //
 //import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
-//import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
+//import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
 //
 //public class UpdateProject extends ProjectApplicationTest {
 //
@@ -24,28 +24,28 @@
 //	JdbcTemplate jdbcTemplate;
 //
 //	@Autowired
-//	ProjectData projectData;
+//	ProjectDto projectDto;
 //
 //	@Test
 //	public void updateProjetc() throws IOException, RestClientException {
-//		projectData.setProjectId("Pro1");
-//		projectData.setProjectName("DefectTracker");
-//		projectData.setEndDate("2019-06-17");
-//		projectData.setConfigId("configId");
-//		projectData.setDuration("duration");
-//		projectData.setStartDate("2019-06-12");
-//		projectData.setStatus("status");
-//		projectData.setType("Medium");
+//		projectDto.setProjectId("Pro1");
+//		projectDto.setProjectName("DefectTracker");
+//		projectDto.setEndDate("2019-06-17");
+//		projectDto.setConfigId("configId");
+//		projectDto.setDuration("duration");
+//		projectDto.setStartDate("2019-06-12");
+//		projectDto.setStatus("status");
+//		projectDto.setType("Medium");
 //
 //		HttpHeaders httpHeaders = new HttpHeaders();
-//		HttpEntity<ProjectData> request = new HttpEntity<ProjectData>(projectData, httpHeaders);
+//		HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectDto, httpHeaders);
 //
 //		ResponseEntity<String> response = testRestTemplate
 //				.postForEntity("http://localhost:8080/project_service" + "/createproject", request, String.class);
 //		assertEquals(200, response.getStatusCodeValue());
 //
-//		ProjectData projectData1=new ProjectData("Pro1","DefectTracker","2019-06-17","configId","duration","2019-06-12","status","Medium");
-//			HttpEntity<ProjectData> updaterequest = new HttpEntity<ProjectData>(projectData1, httpHeaders);
+//		ProjectDto projectData1=new ProjectDto("Pro1","DefectTracker","2019-06-17","configId","duration","2019-06-12","status","Medium");
+//			HttpEntity<ProjectDto> updaterequest = new HttpEntity<ProjectDto>(projectData1, httpHeaders);
 //			ResponseEntity<String> putResponse = testRestTemplate.exchange("http://localhost:8080/project_service" + "/updateProject"+"/Pro1" , HttpMethod.PUT, updaterequest,
 //					String.class);
 //			assertEquals(200, putResponse.getStatusCodeValue());
