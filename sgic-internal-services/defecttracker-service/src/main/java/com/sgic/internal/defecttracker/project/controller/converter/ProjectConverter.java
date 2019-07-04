@@ -17,7 +17,7 @@ public class ProjectConverter {
 		if (project != null) {
 
 			projectDto.setProjectId(project.getProjectId());
-			projectDto.setAbbr(project.getAbbr());
+//			projectDto.setAbbr(project.getAbbr());
 			projectDto.setProjectName(project.getProjectName());
 			projectDto.setType(project.getType());
 			projectDto.setStartDate(project.getStartDate());
@@ -27,7 +27,7 @@ public class ProjectConverter {
 			projectDto.setConfigId(project.getConfigId());
 
 			projectDto.setProjectId(project.getProjectId());
-			projectDto.setAbbr(project.getAbbr());
+//			projectDto.setAbbr(project.getAbbr());
 			projectDto.setProjectName(project.getProjectName());
 			projectDto.setType(project.getType());
 			projectDto.setStartDate(project.getStartDate());
@@ -47,7 +47,7 @@ public class ProjectConverter {
 
 
 		project.setProjectId(projectDto.getProjectId());
-		project.setAbbr(projectDto.getAbbr());
+//		project.setAbbr(projectDto.getAbbr());
 		project.setProjectName(projectDto.getProjectName());
 		project.setType(projectDto.getType());
 		project.setEndDate(projectDto.getEndDate());
@@ -56,8 +56,7 @@ public class ProjectConverter {
 		project.setConfigId(projectDto.getConfigId());
 
 		project.setProjectId(projectDto.getProjectId());
-//		project.setProId(projectDto.getProId());
-		project.setAbbr(projectDto.getAbbr());
+//		project.setAbbr(projectDto.getAbbr());
 		project.setProjectName(projectDto.getProjectName());
 		project.setType(projectDto.getType());
 		project.setEndDate(projectDto.getEndDate());
@@ -77,7 +76,7 @@ public class ProjectConverter {
 
 
 				projectDto.setProjectId(project.getProjectId());
-				projectDto.setAbbr(project.getAbbr());
+//				projectDto.setAbbr(project.getAbbr());
 				projectDto.setProjectName(project.getProjectName());
 				projectDto.setType(project.getType());
 				projectDto.setStartDate(project.getStartDate());
@@ -88,7 +87,7 @@ public class ProjectConverter {
 				lProjectData.add(projectDto);
 
 				projectDto.setProjectId(project.getProjectId());
-				projectDto.setAbbr(project.getAbbr());
+//				projectDto.setAbbr(project.getAbbr());
 				projectDto.setProjectName(project.getProjectName());
 				projectDto.setType(project.getType());
 				projectDto.setStartDate(project.getStartDate());

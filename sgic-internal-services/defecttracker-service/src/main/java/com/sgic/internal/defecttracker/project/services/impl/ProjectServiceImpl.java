@@ -32,7 +32,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project getByprojectId(Long projectid) {
+	public Project getByprojectId(String projectid) {
 		return projectRepository.getByprojectId(projectid);
 	}
 
@@ -57,7 +57,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project updateProject(Long projectid, Project project) {
+	public Project updateProject(String projectid, Project project) {
 		if (projectRepository.findAll() != null) {
 			project.setProjectId(projectid);
 			projectRepository.save(project);
@@ -76,9 +76,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 
-	@Override
-	public Project getByabbr(String abbr) {
-		return projectRepository.getByabbr(abbr);
-	}
+//	@Override
+//	public Project getByabbr(String abbr) {
+//		return projectRepository.getByabbr(abbr);
+//	}
 
 }

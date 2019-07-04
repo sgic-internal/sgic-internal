@@ -7,6 +7,7 @@ public class ModuleData {
 	
 	private String moduleId;
 	private String moduleName;
+	 private String abbr;
 	
 	public String getModuleId() {
 		return moduleId;
@@ -19,6 +20,14 @@ public class ModuleData {
 	}
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
+		
+	}public String getAbbr() {
+			return abbr;
+		}
+		public void setAbbr(String abbr) {
+			this.abbr = abbr;
+		}
 	}
+	
 
-}
+

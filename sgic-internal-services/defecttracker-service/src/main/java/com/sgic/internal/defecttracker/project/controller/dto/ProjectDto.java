@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProjectDto {
 	
-	private Long projectId;
+	private String projectId;
 	
-	private String abbr;
+//	private String abbr;
 
 	private String projectName;
 
@@ -27,14 +27,14 @@ public class ProjectDto {
 
 	
 
-	public ProjectDto(Long projectId,String abbr, String projectName, String type, Date startDate, Date endDate,
+	public ProjectDto(String projectId, String projectName, String type, Date startDate, Date endDate,
 
-//	public ProjectData(Long projectId, String projectName, String type, Date startDate, Date endDate,
+
 
 			Long duration, String status, String configId) {
 		super();
 		this.projectId = projectId;
-		this.abbr= abbr;
+//		this.abbr= abbr;
 		this.projectName = projectName;
 		this.type = type;
 		this.startDate = startDate;
@@ -47,21 +47,14 @@ public class ProjectDto {
 	public ProjectDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public Long getProjectId() {
+	public String getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(Long projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
 	
-	public String getAbbr() {
-		return abbr;
-	}
-
-	public void setAbbr(String abbr) {
-		this.abbr = abbr;
-	}
 	
 	public String getProjectName() {
 		return projectName;

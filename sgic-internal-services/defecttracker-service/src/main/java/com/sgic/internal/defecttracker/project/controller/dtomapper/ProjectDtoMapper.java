@@ -26,15 +26,15 @@ public class ProjectDtoMapper {
 		return projectService.createProject(project);
 	}
 
-	public ProjectDto getByProjectId(Long projectId) {
+	public ProjectDto getByProjectId(String projectId) {
 		Project project = projectService.getByprojectId(projectId);
 		return ProjectConverter.projectToProjectData(project);
 	}
 
-	public ProjectDto getByabbr(String abbr) {
-		Project project = projectService.getByabbr(abbr);
-		return ProjectConverter.projectToProjectData(project);
-	}
+//	public ProjectDto getByabbr(String abbr) {
+//		Project project = projectService.getByabbr(abbr);
+//		return ProjectConverter.projectToProjectData(project);
+//	}
 
 	public List<ProjectDto> getByprojectNameForMapper(String projectName) {
 		List<Project> project = projectService.getByprojectName(projectName);
@@ -61,7 +61,7 @@ public class ProjectDtoMapper {
 		return ProjectConverter.projectToProjectData(project);
 	}
 
-	public Project UpdateProject(Long projectid, ProjectDto projectDto) {
+	public Project UpdateProject(String projectid, ProjectDto projectDto) {
 		Project project = ProjectConverter.projectDataToProject(projectDto);
 		return projectService.updateProject(projectid, project);
 	}

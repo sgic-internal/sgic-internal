@@ -22,10 +22,9 @@ public class Project implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long projectId;
+	private String projectId;
 
-	private String abbr;
+	//private String abbr;
 
 	private String projectName;
 
@@ -43,20 +42,21 @@ public class Project implements Serializable {
 
 	private String configId;
 
-	public Long getProjectId() {
+	
+//	public String getAbbr() {
+//		return abbr;
+//	}
+//
+//	public void setAbbr(String abbr) {
+//		this.abbr = abbr;
+//	}
+
+	public String getProjectId() {
 		return projectId;
 	}
 
-	public void setProjectId(Long projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
-	}
-
-	public String getAbbr() {
-		return abbr;
-	}
-
-	public void setAbbr(String abbr) {
-		this.abbr = abbr;
 	}
 
 	public String getProjectName() {

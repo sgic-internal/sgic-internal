@@ -22,7 +22,12 @@ import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.ModuleDataMapper;
+import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
+import com.sgic.internal.defecttracker.project.services.ModuleService;
+import com.sgic.internal.defecttracker.project.services.ProjectService;
 
 @CrossOrigin
 @RestController
@@ -32,13 +37,25 @@ public class ModuleController {
 
 	@Autowired
 	public ModuleDataMapper moduleDataMapper;
+	
+	@Autowired
+	public ProjectDtoMapper projectDtoMapper;
+	
+	@Autowired
+	public ProjectService projectService;
+	
+	@Autowired
+	public ModuleRepository  moduleRepository;
+	
+	@Autowired
+	public ModuleService moduleService;
 
-	@PostMapping(value = "/createmodule")
-	public ResponseEntity<Object> createModule(@Valid @RequestBody ModuleData moduleData) {
-		moduleDataMapper.saveModuleforMapper(moduleData);
-		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
-
-	}
+//	@PostMapping(value = "/createmodule")
+//	public ResponseEntity<Object> createModule(@Valid @RequestBody ModuleData moduleData) {
+//		moduleDataMapper.saveModuleforMapper(moduleData);
+//		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
+//
+//	}
 
 	// Post Mapping For Create a Module
 	@GetMapping(value = "/GetAllmodule")
@@ -78,6 +95,26 @@ public class ModuleController {
 		{
 			return new ResponseEntity<>("ok", HttpStatus.OK);
 		}
+	}
+	
+	
+	//Abbrivation for module
+	@PutMapping("/module/project/{projectId}")
+	public Module createNewModule(@PathVariable(name = "projectId") String projectId,
+			@RequestBody ModuleData moduleData) {
+		Project project = projectService.getByprojectId(projectId);
+		List<Module> modules=moduleRepository.findModuleByProject(project);
+		int a=modules.size();
+		String moduleSerial=project.getProjectId() +"-"+moduleData.getAbbr()+"-"+ a;
+		
+		Module module=new Module();
+		module.setModuleId(moduleSerial);
+		module.setAbbr(moduleData.getAbbr());
+		module.setModuleName(moduleData.getModuleName());
+		module.setProject(project);
+		
+		return moduleRepository.save(module);
+		
 	}
 
 }

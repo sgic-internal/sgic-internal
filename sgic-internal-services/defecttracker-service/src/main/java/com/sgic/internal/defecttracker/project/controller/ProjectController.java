@@ -53,18 +53,18 @@ public class ProjectController {
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
 	@GetMapping("/getProjectById/{projectId}")
-	public ResponseEntity<ProjectDto> getProjectById(@PathVariable Long projectId) {
+	public ResponseEntity<ProjectDto> getProjectById(@PathVariable String projectId) {
 		logger.info("Projects are get by id ");
 		return new ResponseEntity<>(projectDtoMapper.getByProjectId(projectId), HttpStatus.OK);
 	}
 	
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
-	@GetMapping("/getProjectByabbr/{abbr}")
-	public ResponseEntity<ProjectDto> getByabbr(@PathVariable String abbr) {
-		logger.info("Projects are delete by id ");
-		return new ResponseEntity<>(projectDtoMapper.getByabbr(abbr), HttpStatus.OK);
-	}
+//	@GetMapping("/getProjectByabbr/{abbr}")
+//	public ResponseEntity<ProjectDto> getByabbr(@PathVariable String abbr) {
+//		logger.info("Projects are delete by id ");
+//		return new ResponseEntity<>(projectDtoMapper.getByabbr(abbr), HttpStatus.OK);
+//	}
 
 
 
@@ -79,7 +79,7 @@ public class ProjectController {
 //	 Author :: By Arany
 //	 Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
-	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") Long projectid,
+	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") String projectid,
 			@RequestBody ProjectDto projectDto) {
 		logger.info("Projectcontroller -> updatedproject");
 		if (projectDtoMapper.UpdateProject(projectid, projectDto) != null)

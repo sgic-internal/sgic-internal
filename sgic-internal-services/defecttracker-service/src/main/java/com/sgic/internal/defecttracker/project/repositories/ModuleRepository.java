@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 public interface ModuleRepository extends JpaRepository<Module, String> {
 	
@@ -14,6 +15,8 @@ public interface ModuleRepository extends JpaRepository<Module, String> {
 
 	@Query(value = "FROM Module WHERE module_name= :moduleName")
 	List<Module> getBymoduleName(@Param("moduleName") String moduleName);
+
+	List<Module> findModuleByProject(Project project);
 
 	
 
