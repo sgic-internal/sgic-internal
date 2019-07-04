@@ -106,8 +106,6 @@ public class CompanyData {
 		this.companyLicensePeriod = companyLicensePeriod;
 	}
 
-	
-
 	public Date getLicenseStartDate() {
 		return licenseStartDate;
 	}
