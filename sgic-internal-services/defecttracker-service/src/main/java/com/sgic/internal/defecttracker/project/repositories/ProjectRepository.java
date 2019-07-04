@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.sgic.internal.defecttracker.project.entities.Project;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-	Project getByprojectId(Long id);
+	Project getByprojectId(String projectid);
 
 	@Query(value = "FROM Project WHERE project_name= :projectName")
 	List<Project> getByprojectName(@Param("projectName") String projectName);
@@ -21,7 +21,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 	List<Project> getBystartDate(String date);
 
 	@Query(value = "FROM Project WHERE duration= :duration")
-	List<Project> getByduration(String duration);
+	List<Project> getByduration(Long duration);
 
 	@Query(value = "FROM Project WHERE status= :status")
 	List<Project> getBystatus(String status);

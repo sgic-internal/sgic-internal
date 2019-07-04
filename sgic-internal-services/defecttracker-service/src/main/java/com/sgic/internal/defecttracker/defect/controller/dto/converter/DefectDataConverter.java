@@ -10,7 +10,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.entities.Comments;
 import com.sgic.internal.defecttracker.defect.entities.DBFile;
 import com.sgic.internal.defecttracker.defect.entities.Defect;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.Project;
 

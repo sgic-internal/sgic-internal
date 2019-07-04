@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestClientException;
 
 import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 
 
 
@@ -25,7 +25,7 @@ public class GetByProjectId extends ProjectApplicationTest {
 JdbcTemplate jdbcTemplate;
 
 @SuppressWarnings("unused")
-private ProjectDto projectDto = new ProjectDto();
+private ProjectData projectData = new ProjectData();
 
 //	private ProjectData projectData2 = new ProjectData();
 private String projectId="1";
@@ -35,9 +35,9 @@ private static final String GET_BY_ID_RESPONSE ="{\"projectId\":\"pro1\",\"proje
 //@Test
 //public void GetByProjectId() throws IOException {
 //
-//	ProjectDto projectData = new ProjectDto("pro1","Timetracker","springboot","2018-07-17","2018-02-26","1year","open","021");
+//	ProjectData projectData = new ProjectData("pro1","Timetracker","springboot","2018-07-17","2018-02-26","1year","open","021");
 //HttpHeaders httpHeaders = new HttpHeaders();
-//HttpEntity<ProjectDto> request = new HttpEntity<ProjectDto>(projectData, httpHeaders);
+//HttpEntity<ProjectData> request = new HttpEntity<ProjectData>(projectData, httpHeaders);
 //ResponseEntity<String> postresponse =testRestTemplate.postForEntity("http://localhost:8080/project_service/" + "/createproject", request, String.class);
 //
 //ResponseEntity<String> getbyidresponse = testRestTemplate.exchange("http://localhost:8080/project_service" + "/getProjectById" + "/pro1" , HttpMethod.GET,
