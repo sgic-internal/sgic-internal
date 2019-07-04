@@ -3,33 +3,86 @@ package com.sgic.internal.defecttracker.defect.entities;
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 @Entity
 @Table(schema="defectservices",name="defect")
 public class Defect {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Size(min=2, max=50)
 	private String defectId;
+	
+	@NotEmpty
+	@Size(min=2, max=20)
 	private String abbre;
-	private String projectId;
-	private String moduleId;
-	private Long configId;
+	
+	@ManyToOne
+	@JoinColumn(name="projectId",nullable=false)
+	private Project project;
+
+	@ManyToOne
+	@JoinColumn(name="moduleId",nullable=false)
+	private Module module;
+	
+	@NotEmpty
+	@Size(min=2, max=500)
 	private String defectDescription;
+	
+	@NotEmpty
+	@Size(min=10, max=500)
 	private String stepsToRecreate;
+	
+	@NotEmpty
+	@Size(min=10, max=50)
 	private String assignTo;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String reassignTo;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String enteredBy;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String fixedBy;
-	private int commentId;
-	private int attachmentId;
+	
+	@OneToMany
+	@JoinColumn(name="commentId",nullable=false)
+	private Comments comments;
+	
+	@OneToMany
+	@JoinColumn(name="attachmentId",nullable=false)
+	private DBFile dbfile;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String availableIn;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String foundIn;
+	
+	@NotEmpty
+	@Size(min=2, max=50)
 	private String fixedIn;
+	
+	@NotEmpty
+	@DateTimeFormat(iso=ISO.DATE)
 	private Date dateAndTime;
 	
 	//Generate getters and Setters
@@ -45,24 +98,7 @@ public class Defect {
 	public void setAbbre(String abbre) {
 		this.abbre = abbre;
 	}
-	public String getProjectId() {
-		return projectId;
-	}
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
-	}
-	public String getModuleId() {
-		return moduleId;
-	}
-	public void setModuleId(String moduleId) {
-		this.moduleId = moduleId;
-	}
-	public Long getConfigId() {
-		return configId;
-	}
-	public void setConfigId(Long configId) {
-		this.configId = configId;
-	}
+	
 	public String getDefectDescription() {
 		return defectDescription;
 	}
@@ -99,18 +135,6 @@ public class Defect {
 	public void setFixedBy(String fixedBy) {
 		this.fixedBy = fixedBy;
 	}
-	public int getCommentId() {
-		return commentId;
-	}
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
-	}
-	public int getAttachmentId() {
-		return attachmentId;
-	}
-	public void setAttachmentId(int attachmentId) {
-		this.attachmentId = attachmentId;
-	}
 	public String getAvailableIn() {
 		return availableIn;
 	}
@@ -134,6 +158,31 @@ public class Defect {
 	}
 	public void setDateAndTime(Date dateAndTime) {
 		this.dateAndTime = dateAndTime;
+	}
+	
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
+	}
+	public Module getModule() {
+		return module;
+	}
+	public void setModule(Module module) {
+		this.module = module;
+	}
+	public Comments getComments() {
+		return comments;
+	}
+	public void setComments(Comments comments) {
+		this.comments = comments;
+	}
+	public DBFile getDbfile() {
+		return dbfile;
+	}
+	public void setDbfile(DBFile dbfile) {
+		this.dbfile = dbfile;
 	}
 	
 	
