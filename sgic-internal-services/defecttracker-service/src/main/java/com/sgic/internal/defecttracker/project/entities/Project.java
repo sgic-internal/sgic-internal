@@ -25,7 +25,7 @@ public class Project implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long projectId;
 
-	private String abbrivation;
+	private String proId;
 
 	private String projectName;
 
@@ -51,12 +51,12 @@ public class Project implements Serializable {
 		this.projectId = projectId;
 	}
 
-	public String getAbbrivation() {
-		return abbrivation;
+	public String getProId() {
+		return proId;
 	}
 
-	public void setAbbrivation(String abbrivation) {
-		this.abbrivation = abbrivation;
+	public void setProId(String proId) {
+		this.proId = proId;
 	}
 
 	public String getProjectName() {

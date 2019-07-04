@@ -17,7 +17,7 @@ public interface ProjectService {
 
 	Project getByprojectId(Long projectid);
 	
-	public Project getByabbrivation(String abbrivation);
+	public Project getByproId(String proId);
 
 	public List<Project> getByprojectName(String name);
 

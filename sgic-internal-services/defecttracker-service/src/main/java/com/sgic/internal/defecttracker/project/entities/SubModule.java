@@ -37,16 +37,16 @@ public class SubModule {
 	}
 
 	// creating relationship class with module
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@OneToMany(mappedBy = "subModule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<RoleAllocation> roleAllocation;
-
-	public List<RoleAllocation> getRoleAllocation() {
-		return roleAllocation;
-	}
-
-	public void setRoleAllocation(List<RoleAllocation> roleAllocation) {
-		this.roleAllocation = roleAllocation;
-	}
+//	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//	@OneToMany(mappedBy = "subModule", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<RoleAllocation> roleAllocation;
+//
+//	public List<RoleAllocation> getRoleAllocation() {
+//		return roleAllocation;
+//	}
+//
+//	public void setRoleAllocation(List<RoleAllocation> roleAllocation) {
+//		this.roleAllocation = roleAllocation;
+//	}
 
 }

@@ -9,7 +9,7 @@ public class ProjectDto {
 	
 	private Long projectId;
 	
-	private String abbrivation;
+	private String proId;
 
 	private String projectName;
 
@@ -26,10 +26,13 @@ public class ProjectDto {
 	private String configId;
 
 	
+<<<<<<< HEAD:sgic-internal-services/defecttracker-service/src/main/java/com/sgic/internal/defecttracker/project/controller/dto/ProjectDto.java
 	public ProjectDto(Long projectId,String abbrivation, String projectName, String type, Date startDate, Date endDate,
+=======
+	public ProjectData(Long projectId, String projectName, String type, Date startDate, Date endDate,
+>>>>>>> 1722263d35ed290770f31635785ba5317b961c1a:sgic-internal-services/defecttracker-service/src/main/java/com/sgic/internal/defecttracker/project/controller/data/ProjectData.java
 			Long duration, String status, String configId) {
 		super();
-		this.abbrivation = abbrivation;
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.type = type;
@@ -51,15 +54,14 @@ public class ProjectDto {
 		this.projectId = projectId;
 	}
 	
+	public String getProId() {
+		return proId;
+	}
+
+	public void setProId(String proId) {
+		this.proId = proId;
+	}
 	
-	public String getAbbrivation() {
-		return abbrivation;
-	}
-
-	public void setAbbrivation(String abbrivation) {
-		this.abbrivation = abbrivation;
-	}
-
 	public String getProjectName() {
 		return projectName;
 	}

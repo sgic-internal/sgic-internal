@@ -31,8 +31,13 @@ public ProjectDto getByProjectId(Long projectId) {
 	return ProjectConverter.projectToProjectData(project);
 }
 
+<<<<<<< HEAD
 public ProjectDto getByabbrivation(String abbrivation) {
 	Project project = projectService.getByabbrivation(abbrivation);
+=======
+public ProjectData getByProId(String proId) {
+	Project project = projectService.getByproId(proId);
+>>>>>>> 1722263d35ed290770f31635785ba5317b961c1a
 	return ProjectConverter.projectToProjectData(project);
 }
 
