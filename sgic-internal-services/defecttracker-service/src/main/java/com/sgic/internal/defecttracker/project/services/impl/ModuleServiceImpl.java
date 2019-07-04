@@ -1,56 +1,73 @@
-//package com.sgic.internal.defecttracker.project.services.impl;
-//
-//import java.util.List;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import com.sgic.internal.defecttracker.project.entities.Module;
-//import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
-//import com.sgic.internal.defecttracker.project.services.ModuleService;
-//
-//@Service
-//public class ModuleServiceImpl  implements ModuleService{
-//
-//	@Autowired
-//	private ModuleRepository moduleRepository;
-//	
-//	@Override
-//	public Module createProject(Module module) {
-//		Module responseModule = moduleRepository.save(module);
-//		return responseModule;
-//	}
-//
-//	@Override
-//	public boolean isModuleAlreadyExists(String id) {
-//		return moduleRepository.existsById(id);
-//	}
-//
-//	@Override
-//	public List<Module> getallDetails() {
-//		return moduleRepository.findAll();
-//	}
-//
-//	@Override
-//	public void delete(String id) {
-//		moduleRepository.deleteById(id);
-//		
-//	}
-//
-//	@Override
-//	public Module updateModule(Module module) {
-//		
-//		return moduleRepository.save(module);
-//	}
-//
-//	@Override
-//	public Module getBymoduleId(String id) {
-//		return moduleRepository.getBymoduleId(id);
-//	}
-//
-//	@Override
-//	public Module getBymoduleName(String name) {
-//		return moduleRepository.getBymoduleName(name);
-//	}
-//
-//}
+package com.sgic.internal.defecttracker.project.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
+import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
+import com.sgic.internal.defecttracker.project.services.ModuleService;
+
+@Service
+public class ModuleServiceImpl  implements ModuleService{
+
+	@Autowired
+	private ModuleRepository moduleRepository;
+	
+	@Autowired
+	private ProjectRepository projectRepositoy;
+
+	@Override
+	public Module createModule(Module module) {
+		// get the abbreviation of project
+		
+		// get the count of modules by project id
+		
+		// build the abbreviation string
+		
+		// set the datas
+		
+		// save the data
+		return moduleRepository.save(module);
+	}
+
+	@Override
+	public boolean isModuleAlreadyExists(String moduleId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Module> getallDetails() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(String moduleId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Module updateModule(String moduleId, Module module) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Module getByModuleId(String moduleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Module> getBymoduleName(String moduleName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}
