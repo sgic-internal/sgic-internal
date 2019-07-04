@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.converter.SubModuleConverter;
 
-import com.sgic.internal.defecttracker.project.controller.data.SubModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 import com.sgic.internal.defecttracker.project.services.SubModuleService;

@@ -20,7 +20,7 @@ import org.springframework.http.HttpStatus;
 
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
-import com.sgic.internal.defecttracker.project.controller.data.ModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.ModuleDataMapper;
 import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
 

@@ -60,16 +60,12 @@ public class ProjectController {
 	
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
-<<<<<<< HEAD
-	@GetMapping("/getProjectByabbrivation/{abbrivation}")
-	public ResponseEntity<ProjectDto> getByabbrivation(@PathVariable String abbrivation) {
-=======
-	@GetMapping("/getProjectByproId/{proId}")
-	public ResponseEntity<ProjectData> getByProId(@PathVariable String proId) {
->>>>>>> 1722263d35ed290770f31635785ba5317b961c1a
-		logger.info("Projects are get by id ");
-		return new ResponseEntity<>(projectDtoMapper.getByProId(proId), HttpStatus.OK);
+	@GetMapping("/getProjectByabbr/{abbr}")
+	public ResponseEntity<ProjectDto> getByabbr(@PathVariable String abbr) {
+		logger.info("Projects are delete by id ");
+		return new ResponseEntity<>(projectDtoMapper.getByabbr(abbr), HttpStatus.OK);
 	}
+
 
 
 	// Author :: By thadsha

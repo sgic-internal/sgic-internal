@@ -3,7 +3,7 @@ package com.sgic.internal.defecttracker.project.controller.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.internal.defecttracker.project.controller.data.ModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.entities.Module;
 
 public class ModuleConverter {

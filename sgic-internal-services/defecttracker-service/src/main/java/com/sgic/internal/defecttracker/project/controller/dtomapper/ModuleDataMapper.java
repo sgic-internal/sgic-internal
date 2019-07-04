@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.converter.ModuleConverter;
-import com.sgic.internal.defecttracker.project.controller.data.ModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
 

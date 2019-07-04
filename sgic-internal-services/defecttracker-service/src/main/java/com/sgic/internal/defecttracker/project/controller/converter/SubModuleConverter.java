@@ -4,8 +4,7 @@ package com.sgic.internal.defecttracker.project.controller.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.internal.defecttracker.project.controller.data.SubModuleData;
-
+import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public class SubModuleConverter {

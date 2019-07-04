@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
-import com.sgic.internal.defecttracker.project.controller.data.SubModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.controller.dtomapper.SubModuleDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 

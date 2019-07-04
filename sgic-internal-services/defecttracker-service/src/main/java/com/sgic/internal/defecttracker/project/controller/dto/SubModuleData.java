@@ -1,4 +1,4 @@
-package com.sgic.internal.defecttracker.project.controller.data;
+package com.sgic.internal.defecttracker.project.controller.dto;
 
 public class SubModuleData {
 	private String subModuleId;

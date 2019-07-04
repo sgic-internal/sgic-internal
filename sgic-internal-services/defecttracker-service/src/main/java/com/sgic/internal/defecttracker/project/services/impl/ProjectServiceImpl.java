@@ -75,9 +75,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.getBystartDate(date);
 	}
 
+
 	@Override
-	public Project getByproId(String proId) {
-		return projectRepository.getByproId(proId);
+	public Project getByabbr(String abbr) {
+		return projectRepository.getByabbr(abbr);
 	}
 
 }
