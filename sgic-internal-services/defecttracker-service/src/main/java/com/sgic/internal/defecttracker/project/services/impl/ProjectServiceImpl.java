@@ -67,7 +67,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void deleteById(String projectid) {
+	public void deleteById(Long projectid) {
 		projectRepository.deleteById(projectid);
 	}
 
@@ -75,6 +75,13 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<Project> getBystartDate(String date) {
 		return projectRepository.getBystartDate(date);
 	}
+
+	@Override
+	public void deleteById(String projectId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 }

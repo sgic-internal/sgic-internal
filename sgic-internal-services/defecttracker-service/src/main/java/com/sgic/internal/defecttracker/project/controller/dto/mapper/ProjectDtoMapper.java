@@ -31,11 +31,6 @@ public class ProjectDtoMapper {
 		return ProjectConverter.projectToProjectData(project);
 	}
 
-//	public ProjectDto getByabbr(String abbr) {
-//		Project project = projectService.getByabbr(abbr);
-//		return ProjectConverter.projectToProjectData(project);
-//	}
-
 	public List<ProjectData> getByprojectNameForMapper(String projectName) {
 		List<Project> project = projectService.getByprojectName(projectName);
 		return ProjectConverter.projectToProjectData(project);
