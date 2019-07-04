@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.defect.services.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.LogManager;
@@ -22,7 +24,12 @@ public class DefectStatusServiceImpl implements DefectStatusService {
 	private DefectStatusRepository defectStatusRepository;
 
 	private static Logger logger = LogManager.getLogger(DefectStatusServiceImpl.class);
-
+	public static<T> List<T> reverseList(List<T> list)
+	{
+			List<T> reverse = new ArrayList<>(list);
+			Collections.reverse(reverse);
+			return reverse;
+	}
 	// Create defect status implementation
 	@Override
 	public Object createDefectStatus(DefectStatus defectStatus) {
@@ -43,7 +50,8 @@ public class DefectStatusServiceImpl implements DefectStatusService {
 	public List<DefectStatus> findAllDefectStatus() {
 		List<DefectStatus> defectStatuses = defectStatusRepository.findAll();
 		logger.info("List All  Defect Status Service Implementation");
-		return defectStatuses;
+		//return defectStatuses;
+		return reverseList(defectStatuses);
 
 	}
 
