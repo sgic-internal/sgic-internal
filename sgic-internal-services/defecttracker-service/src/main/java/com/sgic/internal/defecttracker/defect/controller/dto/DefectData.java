@@ -8,15 +8,14 @@ public class DefectData {
 	private String abbre;
 	private String projectId;
 	private String moduleId;
-	private Long configId;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
 	private String reassignTo;
 	private String enteredBy;
 	private String fixedBy;
-	private int commentId;
-	private int attachmentId;
+	private Long commentId;
+	private Long attachmentId;
 	private String availableIn;
 	private String foundIn;
 	private String fixedIn;
@@ -45,12 +44,6 @@ public class DefectData {
 	}
 	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
-	}
-	public Long getConfigId() {
-		return configId;
-	}
-	public void setConfigId(Long configId) {
-		this.configId = configId;
 	}
 	public String getDefectDescription() {
 		return defectDescription;
@@ -88,16 +81,16 @@ public class DefectData {
 	public void setFixedBy(String fixedBy) {
 		this.fixedBy = fixedBy;
 	}
-	public int getCommentId() {
+	public Long getCommentId() {
 		return commentId;
 	}
-	public void setCommentId(int commentId) {
+	public void setCommentId(Long commentId) {
 		this.commentId = commentId;
 	}
-	public int getAttachmentId() {
+	public Long getAttachmentId() {
 		return attachmentId;
 	}
-	public void setAttachmentId(int attachmentId) {
+	public void setAttachmentId(Long attachmentId) {
 		this.attachmentId = attachmentId;
 	}
 	public String getAvailableIn() {

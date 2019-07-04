@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 public class Module {
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String moduleId;
 	private String moduleName;
     private String abbr;
