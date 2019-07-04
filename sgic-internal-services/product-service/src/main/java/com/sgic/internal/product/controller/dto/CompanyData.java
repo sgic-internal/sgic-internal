@@ -5,6 +5,7 @@ import java.sql.Date;
 //DTO for Company Entity 
 //Created By:Tyron,24.06.2019
 public class CompanyData {
+<<<<<<< HEAD
 	
 	//Id auto increment
 	private Long companyId;
@@ -18,11 +19,25 @@ public class CompanyData {
 	private Date licenseStartDate; 
 	private Date licenseEndDate; 
 	private String companyDescription; 
+=======
+	private Long companyId; // Id AUTO INCREMENT
+	private String companyName; // Company Name
+	private String companyAbbrivation; // Company Short Name
+	private String companyRegNo; // Company Registration No
+	private String companyAdminName; // Company Admin Name
+	private String companyAdminEmail; // Company admin Email
+	
+	private Long companyLicenseTypeId; // Company License Type ID from CompanyLicenseType Entity
+	private String companyLicenseTypeName; //  Company License Type Name from CompanyLicenseType Entity
+	
+	private int companyLicensePeriod; // Duration of the license Period
+	private Date licenseStartDate; // License Start Date
+	private Date licenseEndDate; // License End Date
+	private String companyDescription; // Description about the Company
+>>>>>>> 7671825595e2921facfc5f6f2f839efd4e6a67f5
 
-	public CompanyData() {
-		super();
-	}
 
+<<<<<<< HEAD
 	public CompanyData(String companyName, String companyAbbrivation, String companyRegNo,
 			String companyAdminName, String companyAdminEmail, String companyLicenseType, int companyLicensePeriod,
 			Date licenseStartDate, Date licenseEndDate, String companyDescription)
@@ -42,6 +57,9 @@ public class CompanyData {
 	
 	//Getter and Setter for DTO Attributes
 	
+=======
+
+>>>>>>> 7671825595e2921facfc5f6f2f839efd4e6a67f5
 	public Long getCompanyId() {
 		return companyId;
 	}
@@ -90,12 +108,23 @@ public class CompanyData {
 		this.companyAdminEmail = companyAdminEmail;
 	}
 
-	public String getCompanyLicenseType() {
-		return companyLicenseType;
+
+
+
+	public Long getCompanyLicenseTypeId() {
+		return companyLicenseTypeId;
 	}
 
-	public void setCompanyLicenseType(String companyLicenseType) {
-		this.companyLicenseType = companyLicenseType;
+	public void setCompanyLicenseTypeId(Long companyLicenseTypeId) {
+		this.companyLicenseTypeId = companyLicenseTypeId;
+	}
+
+	public String getCompanyLicenseTypeName() {
+		return companyLicenseTypeName;
+	}
+
+	public void setCompanyLicenseTypeName(String companyLicenseTypeName) {
+		this.companyLicenseTypeName = companyLicenseTypeName;
 	}
 
 	public int getCompanyLicensePeriod() {

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -29,7 +31,6 @@ public class Company implements Serializable {
 	 LocalDate todayDate = LocalDate.now();
 	 java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
 //	 Date currentDay = new java.sql.Date(calendar.getTime().getTime());
-	 
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,9 +55,10 @@ public class Company implements Serializable {
 	@Column(unique=true)
 	@Size(min=2, max=50)
 	private String adminEmail; // Company admin Email
-	@NotEmpty
-	@Size(min=2, max=20)
-	private String licenseType; // Free, Silver, Gold, Platinum
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "licenseId", nullable = false)
+	private CompanyLicenseType licenseTypeId; // Free, Silver, Gold, Platinum
 	@NotNull
 	@Positive
 	@Min(value = 1)
@@ -64,11 +66,10 @@ public class Company implements Serializable {
 	private int licensePeriod; // Duration of the license Period
 	@NotNull
 	@DateTimeFormat(iso=ISO.DATE)
-	private Date startDate = currentDay; // License Start Date
-	 
+	private Date startDate; // License Start Date
 	@NotNull
 	@DateTimeFormat(iso=ISO.DATE)
-	private Date endDate = currentDay ; // License End Date
+	private Date endDate; // License End Date
 	private String description; // Description about the Company
 
 	public Long getId() {
@@ -119,12 +120,12 @@ public class Company implements Serializable {
 		this.adminEmail = adminEmail;
 	}
 
-	public String getLicenseType() {
-		return licenseType;
+	public CompanyLicenseType getLicenseTypeId() {
+		return licenseTypeId;
 	}
 
-	public void setLicenseType(String licenseType) {
-		this.licenseType = licenseType;
+	public void setLicenseTypeId(CompanyLicenseType licenseTypeId) {
+		this.licenseTypeId = licenseTypeId;
 	}
 
 	public int getLicensePeriod() {

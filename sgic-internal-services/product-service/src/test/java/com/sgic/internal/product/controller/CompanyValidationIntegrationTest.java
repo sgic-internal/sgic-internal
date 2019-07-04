@@ -11,6 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import com.sgic.internal.product.controller.dto.CompanyData;
 import com.sgic.internal.product.entities.Company;
+import com.sgic.internal.product.entities.CompanyLicenseType;
 
 public class CompanyValidationIntegrationTest {
 
@@ -27,7 +28,7 @@ public class CompanyValidationIntegrationTest {
 		companyData.setCompanyRegNo("reg-01");
 		companyData.setCompanyAdminName("Admin");
 		companyData.setCompanyAdminEmail("abc@gmail.com");
-		companyData.setCompanyLicenseType("free");
+		companyData.setCompanyLicenseTypeId(1L);
 		companyData.setCompanyLicensePeriod(1);
 		companyData.setLicenseStartDate(Date.valueOf("2018-02-02"));
 		companyData.setLicenseEndDate(Date.valueOf("2019-02-02"));
@@ -37,13 +38,18 @@ public class CompanyValidationIntegrationTest {
 
 	@SuppressWarnings("unused")
 	private Company createCompany() {
+		CompanyLicenseType com = new CompanyLicenseType();
 		Company company = new Company();
 		company.setName("EFGH");
 		company.setAbbrivation("EFG");
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 //		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -60,7 +66,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");								//	1
 		company.setCompanyAdminName("Admin");					//	1
 		company.setAdminEmail("abc@gmail.com");					//	1
-		company.setLicenseType("free");							//	1
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);							//	1
 		company.setStartDate(Date.valueOf("2018-02-02"));		//	1
 		company.setEndDate(Date.valueOf("2019-02-02"));			//	1
@@ -69,7 +79,7 @@ public class CompanyValidationIntegrationTest {
 //		assertEquals(violations.isEmpty(), false);
 		 assertThat(violations.size()).isEqualTo(1); // Check the validated null value fields and counts. if there is no validated null value fields isEqualTo(0).
 	}
-	
+//	
 	@Test
 	public void ifCompanyAbbrivationIsNull_ValidationFails() {
 		validator.afterPropertiesSet();
@@ -79,7 +89,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -98,7 +112,11 @@ public class CompanyValidationIntegrationTest {
 //		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -117,7 +135,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 //		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -136,7 +158,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 //		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -154,7 +180,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(correct_email);
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -172,7 +202,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail(wrong_email);
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -191,7 +225,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-//		company.setLicenseType("free");
+//				
+//		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+//		companyLicenseType.setLicenseId(1L);							// 1
+//		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -210,7 +248,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 //		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
 //		company.setEndDate(Date.valueOf("2019-02-02"));
@@ -229,10 +271,14 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
-//		company.setEndDate(Date.valueOf("2019-02-02"));
+		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -247,10 +293,14 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 //		company.setStartDate(Date.valueOf("2018-02-02"));
-//		company.setEndDate(Date.valueOf("2019-02-02"));
+		company.setEndDate(Date.valueOf("2019-02-02"));
 		company.setDescription("some desc");
 		Set<ConstraintViolation<Company>> violations = validator.validate(company);
 		assertThat(violations.size()).isEqualTo(1);
@@ -265,7 +315,11 @@ public class CompanyValidationIntegrationTest {
 		company.setRegNo("reg-01");
 		company.setCompanyAdminName("Admin");
 		company.setAdminEmail("abc@gmail.com");
-		company.setLicenseType("free");
+		
+		CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+		companyLicenseType.setLicenseId(1L);							// 1
+		company.setLicenseTypeId(companyLicenseType);
+		
 		company.setLicensePeriod(1);
 		company.setStartDate(Date.valueOf("2018-02-02"));
 		company.setEndDate(Date.valueOf("2019-02-02"));

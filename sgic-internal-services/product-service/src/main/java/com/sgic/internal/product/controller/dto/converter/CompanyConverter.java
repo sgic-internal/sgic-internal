@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.internal.product.controller.dto.CompanyData;
 import com.sgic.internal.product.entities.Company;
+import com.sgic.internal.product.entities.CompanyLicenseType;
 
 @Service
 public class CompanyConverter {
@@ -27,7 +28,10 @@ public class CompanyConverter {
 				companyData.setCompanyRegNo(company.getRegNo());
 				companyData.setCompanyAdminName(company.getCompanyAdminName());
 				companyData.setCompanyAdminEmail(company.getAdminEmail());
-				companyData.setCompanyLicenseType(company.getLicenseType());
+				
+				companyData.setCompanyLicenseTypeId(company.getLicenseTypeId().getLicenseId());
+				companyData.setCompanyLicenseTypeName(company.getLicenseTypeId().getLicenseType());
+				
 				companyData.setCompanyLicensePeriod(company.getLicensePeriod());
 				companyData.setLicenseStartDate(company.getStartDate());
 				companyData.setLicenseEndDate(company.getEndDate());
@@ -51,7 +55,12 @@ public class CompanyConverter {
 				company.setRegNo(companyData.getCompanyRegNo());
 				company.setCompanyAdminName(companyData.getCompanyAdminName());
 				company.setAdminEmail(companyData.getCompanyAdminEmail());
-				company.setLicenseType(companyData.getCompanyLicenseType());
+				
+				CompanyLicenseType companyLicenseType = new CompanyLicenseType();
+				companyLicenseType.setLicenseId(companyData.getCompanyLicenseTypeId());
+				companyLicenseType.setLicenseType(companyData.getCompanyLicenseTypeName());
+				company.setLicenseTypeId(companyLicenseType);
+				
 				company.setLicensePeriod(companyData.getCompanyLicensePeriod());
 				company.setStartDate(companyData.getLicenseStartDate());
 				company.setEndDate(companyData.getLicenseEndDate());
@@ -72,7 +81,10 @@ public class CompanyConverter {
 				companyData.setCompanyRegNo(company.getRegNo());
 				companyData.setCompanyAdminName(company.getCompanyAdminName());
 				companyData.setCompanyAdminEmail(company.getAdminEmail());
-				companyData.setCompanyLicenseType(company.getLicenseType());
+				
+				companyData.setCompanyLicenseTypeId(company.getLicenseTypeId().getLicenseId());
+				companyData.setCompanyLicenseTypeName(company.getLicenseTypeId().getLicenseType());
+				
 				companyData.setCompanyLicensePeriod(company.getLicensePeriod());
 				companyData.setLicenseStartDate(company.getStartDate());
 				companyData.setLicenseEndDate(company.getEndDate());
