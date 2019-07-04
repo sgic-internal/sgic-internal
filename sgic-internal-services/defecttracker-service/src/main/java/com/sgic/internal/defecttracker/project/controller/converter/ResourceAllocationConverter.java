@@ -21,7 +21,7 @@ public class ResourceAllocationConverter {
 			resourceAllocationDto.setResourceId(resourceAllocation.getResourceId());
 //			resourceAllocationDto.setResourceName(resourceAllocation.getResourceName());
 //			resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
-			resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
+	//		resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
 			resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 			resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
 			
@@ -38,7 +38,7 @@ public class ResourceAllocationConverter {
 //			resourceAllocation.setResourceName(resourceAllocationDto.getResourceName());
 //			resourceAllocation.setEmpId(resourceAllocationDto.getEmpId());
 			Project project = new Project();
-			project.setPid(resourceAllocationDto.getPid());
+	//		project.setPid(resourceAllocationDto.getPid());
 			project.setProjectId(resourceAllocationDto.getProjectId());
 			project.setProjectName(resourceAllocationDto.getProjectName());
 			resourceAllocation.setProject(project);
@@ -61,7 +61,7 @@ public class ResourceAllocationConverter {
 				resourceAllocationDto.setResourceId(resourceAllocation.getResourceId());
 //				resourceAllocationDto.setResourceName(resourceAllocation.getResourceName());
 //				resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
-				resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
+//				resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
 				resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 				resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
 				ListresourceAllocationDto.add(resourceAllocationDto);

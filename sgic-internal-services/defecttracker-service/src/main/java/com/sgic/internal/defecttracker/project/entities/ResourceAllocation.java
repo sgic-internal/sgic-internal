@@ -29,7 +29,7 @@ public class ResourceAllocation implements Serializable{
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "pid", nullable = false)
+	@JoinColumn(name = "projectId", nullable = false)
 	private Project project;
 	
 	public Long getResourceId() {

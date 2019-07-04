@@ -1,4 +1,4 @@
-package com.sgic.internal.defecttracker.project.controller.dtomapper;
+package com.sgic.internal.defecttracker.project.controller.dto.mapper;
 
 import java.util.List;
 

@@ -29,5 +29,6 @@ public interface EmployeeService {
 	// Method for Update Employee
 	public Employee updateEmployee(Employee employee);
 	
+	public long count();
 	
 }

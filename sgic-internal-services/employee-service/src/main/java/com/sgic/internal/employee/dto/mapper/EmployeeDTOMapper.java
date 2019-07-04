@@ -90,6 +90,9 @@ public class EmployeeDTOMapper {
 		List<Employee> employee = employeeService.getByName(name);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);	
 	}
-
+	public long getByEmployeeCountforMapper() {
+		// TODO Auto-generated method stub
+		return employeeService.count();
+	}
 
 }

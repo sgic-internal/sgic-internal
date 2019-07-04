@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.sgic.internal.defecttracker.project.controller.dto.ResourceAllocationDto;
-import com.sgic.internal.defecttracker.project.controller.dtomapper.ResourceAllocationDtoMapper;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ResourceAllocationDtoMapper;
 import com.sgic.internal.defecttracker.project.entities.Employee;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 //import com.sgic.internal.employee.dto.EmployeeDTO;

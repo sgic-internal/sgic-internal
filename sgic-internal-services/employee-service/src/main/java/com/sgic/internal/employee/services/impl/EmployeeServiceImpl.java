@@ -87,7 +87,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		logger.info("Successfully Get Employee By Designation");
 		return employeeRepository.findByDesignation(designationid);
 	}
-
+	@Override
+	public long count() {
+		// TODO Auto-generated method stub
+		return employeeRepository.count();
+	}
 		
 
 }

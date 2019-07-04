@@ -100,6 +100,12 @@ public class EmployeeController {
 		return employeeDTOMapper.getEmployeeByName(name);
 
 	}
+	@GetMapping("/getcount")
+	public ResponseEntity<Long> getTotalCount() {
+		logger.info("Employee Controller -> getCount");
+
+		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeCountforMapper(), HttpStatus.OK);
+	}
 	
 	
 }

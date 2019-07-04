@@ -21,12 +21,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Table(schema = "defectservices", name = "project")
 public class Project implements Serializable {
 	
+	
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long pid;
+//
+//
+//	@Size(min = 2, max = 50)
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long pid;
-
-
-	@Size(min = 2, max = 50)
 	private String projectId;
 
 	@Size(min = 2, max = 50)
@@ -37,13 +39,7 @@ public class Project implements Serializable {
 	@OneToMany(mappedBy="project",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<ResourceAllocation> resourceAllocation;
 	
-	public Long getPid() {
-		return pid;
-	}
-
-	public void setPid(Long pid) {
-		this.pid = pid;
-	}
+	
 
 	public String getProjectId() {
 		return projectId;
