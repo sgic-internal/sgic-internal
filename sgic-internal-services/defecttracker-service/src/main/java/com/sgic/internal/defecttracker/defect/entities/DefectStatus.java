@@ -11,10 +11,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
-
 @SuppressWarnings("serial")
 
 @Entity
+
 @Table(schema = "defectservices", name = "defectstatus")
 public class DefectStatus implements Serializable {
 
@@ -26,7 +26,6 @@ public class DefectStatus implements Serializable {
 	private String name; // Defect Status name
 	@NotEmpty
 	private String value; // Defect Status value
-
 	public long getId() {
 		return id;
 	}
