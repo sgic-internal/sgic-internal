@@ -98,18 +98,20 @@ public class DefectDataConverter {
 			DBFile dbfile = new DBFile();
 			
 			module.setModuleId(defectData.getModuleId());
+		    comments.setCommentId(defectData.getCommentId()); 
+		    dbfile.setId(defectData.getAttachmentId());
 
 			defect.setDefectId(defectData.getDefectId());
 			//defect.setProjectId(defectData.getProjectId());
-			//defect.setModuleId(defectData.getModuleId());
+			defect.setModule(module);
 			defect.setDefectDescription(defectData.getDefectDescription());
 			defect.setStepsToRecreate(defectData.getStepsToRecreate());
 			defect.setAssignTo(defectData.getAssignTo());
 			defect.setReassignTo(defectData.getReassignTo());
 			defect.setEnteredBy(defectData.getEnteredBy());
 			defect.setFixedBy(defectData.getFixedBy());
-//			defect.setCommentId(defectData.getCommentId());
-//			defect.setAttachmentId(defectData.getAttachmentId());
+			defect.setComments(comments);
+			defect.setDbfile(dbfile);
 			defect.setDateAndTime(defectData.getDateAndTime());
 			defect.setAvailableIn(defectData.getAvailableIn());
 			defect.setFoundIn(defectData.getFoundIn());
