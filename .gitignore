@@ -7,4 +7,20 @@
 target
 bin
 /.recommenders/
+sgic-internal-services/defecttracker-service/target
+sgic-internal-services/defecttracker-service/.classpath
+sgic-internal-services/discovery-service/target
+sgic-internal-services/discovery-service/.classpath
+sgic-internal-services/edgee-service/target
+sgic-internal-services/edgee-service/.classpath
+sgic-internal-services/edge-service/target
+sgic-internal-services/edge-service/.classpath
+sgic-internal-services/employee-service/target
+sgic-internal-services/employee-service/.classpath
+sgic-internal-services/login-service/target
+sgic-internal-services/login-service/.classpath
+sgic-internal-services/product-service/target
+sgic-internal-services/product-service/.classpath
+sgic-internal-common/target
+sgic-internal-common/.classpath
 
