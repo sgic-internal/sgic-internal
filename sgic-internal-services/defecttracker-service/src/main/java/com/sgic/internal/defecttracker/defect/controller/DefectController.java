@@ -22,14 +22,37 @@ import org.apache.logging.log4j.Logger;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMapper;
-import com.sgic.internal.defecttracker.defect.entities.SampleConfig;
-import com.sgic.internal.defecttracker.defect.entities.SampleConfig2;
+import com.sgic.internal.defecttracker.defect.entities.Defect;
+import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
+import com.sgic.internal.defecttracker.defect.services.DefectService;
+import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
+import com.sgic.internal.defecttracker.project.services.ModuleService;
+import com.sgic.internal.defecttracker.project.services.ProjectService;
 @CrossOrigin
 @RestController
 public class DefectController {
 
 	@Autowired
 	private DefectDataMapper defectDataMapper;
+	
+	@Autowired
+	private ModuleDataMapper moduleDataMapper;
+	
+	@Autowired
+	private ModuleService moduleService;
+	
+	@Autowired
+	private DefectRepository defectRepository;
+	
+	@Autowired
+	private DefectService defectService;
+	
+	@Autowired
+	private ProjectService projectService;
+	
 
 	private static Logger logger = LogManager.getLogger(DefectDataMapper.class);
 
@@ -66,15 +89,15 @@ public class DefectController {
 	}
 
 
-	@PostMapping("/saveDefect")
-	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
-		if (defectDataMapper.createDefect(defectData) != null) {
-			logger.info("Defect Controller -> Defects Created Successful");
-			return new ResponseEntity<>("Defect added succesfully", HttpStatus.OK);
-		}
-		logger.info("Defect Controller -> Defects creation FAILED!!!");
-		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
-	}
+//	@PostMapping("/saveDefect")
+//	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
+//		if (defectDataMapper.createDefect(defectData) != null) {
+//			logger.info("Defect Controller -> Defects Created Successful");
+//			return new ResponseEntity<>("Defect added succesfully", HttpStatus.OK);
+//		}
+//		logger.info("Defect Controller -> Defects creation FAILED!!!");
+//		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
+//	}
 
 	@PutMapping("/updateDefect")
 	public ResponseEntity<String> updateDefect(@RequestBody DefectData defectData) {
@@ -123,71 +146,45 @@ public class DefectController {
 		return new DefectData();
 	}
 	
+	//Create defect service
+	@PutMapping("/defect/module/{moduleId}")
+	public Defect createNewDefect(@PathVariable(name = "moduleId") String moduleId,
+			@RequestBody DefectData defectData) {
+		
+		Module module = moduleService.getByModuleId(moduleId);
+		List<Defect> defect = defectRepository.findDefectByModule(module);
+		int def = defect.size();
+		String defectSerial = moduleId+"-"+def;
+		 
+		 Defect defects= new Defect();
+		 
+		 Project project = projectService.getByprojectId(defectData.getProjectId());
+		
+			
+		    defects.setDefectId(defectSerial);
+			
+			
+			defects.setProject(project);
+			defects.setModule(module);
+		    defects.setAbbre(defectData.getAbbre());
+		    defects.setDefectDescription(defectData.getDefectDescription());
+			defects.setStepsToRecreate(defectData.getStepsToRecreate());
+			defects.setAssignTo(defectData.getAssignTo());
+			defects.setReassignTo(defectData.getReassignTo());
+			defects.setEnteredBy(defectData.getEnteredBy());
+			defects.setFixedBy(defectData.getFixedBy());
+			defects.setDateAndTime(defectData.getDateAndTime());
+			defects.setAvailableIn(defectData.getAvailableIn());
+			defects.setFoundIn(defectData.getFoundIn());
+			defects.setFixedIn(defectData.getFixedIn());
+		 
+		 
+		 
+				return defectRepository.save(defects);
+	}
+	
+		
+	}
+	
 	
 
-// Mock --------------------------------------------------------------------------------------------
-	
-		// Priority Config
-		@GetMapping(value = "/getPriorityConfig")
-		public List getPriorityConfig() {
-		
-			List<SampleConfig> list = new ArrayList();
-			
-			list.add(new SampleConfig(1,"High"));
-			list.add(new SampleConfig(2,"Medium"));
-			list.add(new SampleConfig(3,"Low"));
-			
-			return list;
-		}
-		
-		@GetMapping(value = "/getSeverityConfig")
-		public List getSeverityConfig() {
-		
-			List<SampleConfig> list = new ArrayList();
-			
-			list.add(new SampleConfig(1,"High"));
-			list.add(new SampleConfig(2,"Medium"));
-			list.add(new SampleConfig(3,"Low"));
-			
-			return list;
-		}
-		
-		@GetMapping(value = "/getDefectStatuses")
-		public List getDefectStatuses() {
-		
-			List<SampleConfig> list = new ArrayList();
-			
-			list.add(new SampleConfig(1,"Opened"));
-			list.add(new SampleConfig(2,"Reopened"));
-			list.add(new SampleConfig(3,"Closed"));
-			list.add(new SampleConfig(4,"Out of scope"));
-			list.add(new SampleConfig(5,"Rejected"));
-			
-			return list;
-		}
-		
-		@GetMapping(value = "/getProjects")
-		public List getProjects() {
-		
-			List<SampleConfig> list = new ArrayList();
-			
-			list.add(new SampleConfig(1,"SCMS"));
-			list.add(new SampleConfig(2,"WeatherApp"));
-			
-			return list;
-		}
-		
-		@GetMapping(value = "/getModules")
-		public List getModules() {
-		
-			List<SampleConfig2> list = new ArrayList();
-			
-			list.add(new SampleConfig2(1, 1, "Patient Dashboard"));
-			list.add(new SampleConfig2(2, 1, "Setting"));
-			list.add(new SampleConfig2(3, 2, "Welcome Screen"));
-			list.add(new SampleConfig2(4, 2, "API"));
-			list.add(new SampleConfig2(5, 2, "Main Screen"));
-			
-			return list;
-		}
-}

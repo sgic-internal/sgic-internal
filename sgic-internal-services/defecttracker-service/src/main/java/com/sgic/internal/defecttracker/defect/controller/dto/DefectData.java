@@ -14,12 +14,12 @@ public class DefectData {
 	private String reassignTo;
 	private String enteredBy;
 	private String fixedBy;
-	private Long commentId;
-	private Long attachmentId;
 	private String availableIn;
 	private String foundIn;
 	private String fixedIn;
 	private Date dateAndTime;
+	
+	private String moduleName;
 	
 	public String getDefectId() {
 		return defectId;
@@ -81,18 +81,7 @@ public class DefectData {
 	public void setFixedBy(String fixedBy) {
 		this.fixedBy = fixedBy;
 	}
-	public Long getCommentId() {
-		return commentId;
-	}
-	public void setCommentId(Long commentId) {
-		this.commentId = commentId;
-	}
-	public Long getAttachmentId() {
-		return attachmentId;
-	}
-	public void setAttachmentId(Long attachmentId) {
-		this.attachmentId = attachmentId;
-	}
+	
 	public String getAvailableIn() {
 		return availableIn;
 	}
@@ -116,6 +105,12 @@ public class DefectData {
 	}
 	public void setDateAndTime(Date dateAndTime) {
 		this.dateAndTime = dateAndTime;
+	}
+	public String getModuleName() {
+		return moduleName;
+	}
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
 	}
 	
 	

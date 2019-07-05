@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,7 +26,7 @@ public class Defect {
 	@Size(min=2, max=50)
 	private String defectId;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=20)
 	private String abbre;
 	
@@ -37,51 +38,43 @@ public class Defect {
 	@JoinColumn(name="moduleId",nullable=false)
 	private Module module;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=500)
 	private String defectDescription;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=10, max=500)
 	private String stepsToRecreate;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=10, max=50)
 	private String assignTo;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String reassignTo;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String enteredBy;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String fixedBy;
 	
-	@OneToMany
-	@JoinColumn(name="commentId",nullable=false)
-	private Comments comments;
-	
-	@OneToMany
-	@JoinColumn(name="attachmentId",nullable=false)
-	private DBFile dbfile;
-	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String availableIn;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String foundIn;
 	
-	@NotEmpty
+	@NotNull
 	@Size(min=2, max=50)
 	private String fixedIn;
 	
-	@NotEmpty
+	@NotNull
 	@DateTimeFormat(iso=ISO.DATE)
 	private Date dateAndTime;
 	
@@ -171,18 +164,6 @@ public class Defect {
 	}
 	public void setModule(Module module) {
 		this.module = module;
-	}
-	public Comments getComments() {
-		return comments;
-	}
-	public void setComments(Comments comments) {
-		this.comments = comments;
-	}
-	public DBFile getDbfile() {
-		return dbfile;
-	}
-	public void setDbfile(DBFile dbfile) {
-		this.dbfile = dbfile;
 	}
 	
 	

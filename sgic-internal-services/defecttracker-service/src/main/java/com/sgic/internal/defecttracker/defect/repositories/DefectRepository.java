@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.defect.entities.Defect;
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 public interface DefectRepository extends JpaRepository<Defect, String >{
 
@@ -36,4 +38,8 @@ List<Defect>getByFoundIn(@Param("foundIn")String foundIn);
 
 @Query(value ="FROM Defect WHERE fixed_in =:fixedIn") 
 List<Defect>getByFixedIn(@Param("fixedIn")String fixedIn);
+
+
+List<Defect> findDefectByModule(Module module);
+
 }
