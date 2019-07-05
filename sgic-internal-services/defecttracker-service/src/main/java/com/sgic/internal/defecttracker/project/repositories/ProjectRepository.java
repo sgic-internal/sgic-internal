@@ -8,12 +8,15 @@ import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.project.entities.Project;
 
-public interface ProjectRepository extends JpaRepository<Project, Long> {
+public interface ProjectRepository extends JpaRepository<Project, String> {
 	Project getByprojectId(String projectid);
+	
+//	Project getByabbr(String abbr);
+//	Project geByProjectId(String projectId);
 
 	@Query(value = "FROM Project WHERE project_name= :projectName")
 	List<Project> getByprojectName(@Param("projectName") String projectName);
-
+	
 	@Query(value = "FROM Project WHERE type= :type")
 	List<Project> getBytype(String type);
 

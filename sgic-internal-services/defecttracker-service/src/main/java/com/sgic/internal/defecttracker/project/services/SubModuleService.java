@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.project.services;
 
 import java.util.List;
 
+import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public interface SubModuleService {

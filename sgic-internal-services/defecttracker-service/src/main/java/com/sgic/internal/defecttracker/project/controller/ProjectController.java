@@ -1,6 +1,5 @@
 package com.sgic.internal.defecttracker.project.controller;
 
-
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
-import com.sgic.internal.defecttracker.project.controller.dto.mapper.ProjectDtoMapper;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 
 @CrossOrigin
@@ -37,7 +36,7 @@ public class ProjectController {
 	// Author :: by Sajitha
 	// Post Mapping For Create a Project
 	@PostMapping(value = "/createproject")
-	public ResponseEntity<Object> createProject(@Valid @RequestBody ProjectData projectDto) {
+	public ResponseEntity<Object> createProject(@Valid @RequestBody ProjectDto projectDto) {
 		projectDtoMapper.saveProjectforMapper(projectDto);
 		logger.info("Project created");
 		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
@@ -46,7 +45,7 @@ public class ProjectController {
 	// Author :: by Mercy
 	// Post Mapping For Create a Project
 	@GetMapping(value = "/GetAllproject")
-	public ResponseEntity<List<ProjectData>> listProjectInfo() {
+	public ResponseEntity<List<ProjectDto>> listEmployeeInfo() {
 		logger.info("Project are listed ");
 		return new ResponseEntity<>(projectDtoMapper.getAllProjectForMapper(), HttpStatus.OK);
 	}
@@ -54,7 +53,7 @@ public class ProjectController {
 	// Author :: by jakki
 	// Get Mapping For Get Project By Id
 	@GetMapping("/getProjectById/{projectId}")
-	public ResponseEntity<ProjectData> getProjectById(@PathVariable String projectId) {
+	public ResponseEntity<ProjectDto> getProjectById(@PathVariable String projectId) {
 		logger.info("Projects are get by id ");
 		return new ResponseEntity<>(projectDtoMapper.getByProjectId(projectId), HttpStatus.OK);
 	}
@@ -72,7 +71,7 @@ public class ProjectController {
 	// Author :: By thadsha
 	// Delete Mapping For Project
 	@DeleteMapping("deleteById/{projectId}")
-	public ResponseEntity<ProjectData> deleteById(@PathVariable String projectId) {
+	public ResponseEntity<ProjectDto> deleteById(@PathVariable String projectId) {
 		logger.info("Projects are delete by id ");
 		return new ResponseEntity<>(projectDtoMapper.deleteById(projectId), HttpStatus.OK);
 	}
@@ -81,7 +80,7 @@ public class ProjectController {
 //	 Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
 	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") String projectid,
-			@RequestBody ProjectData projectDto) {
+			@RequestBody ProjectDto projectDto) {
 		logger.info("Projectcontroller -> updatedproject");
 		if (projectDtoMapper.UpdateProject(projectid, projectDto) != null)
 			;
@@ -93,7 +92,7 @@ public class ProjectController {
 	// Author :: By Sujanthan
 	// Get Mapping For Project Name
 	@GetMapping("/getName/{name}")
-	public List<ProjectData> getByprojectName(@PathVariable String name) {
+	public List<ProjectDto> getByprojectName(@PathVariable String name) {
 		logger.info("Projects are get by name ");
 		return projectDtoMapper.getByprojectNameForMapper(name);
 	}
@@ -101,7 +100,7 @@ public class ProjectController {
 	// Author :: By Sajitha
 	// Get Mapping For Project Type By Sajitha
 	@GetMapping("/gettype/{type}")
-	public List<ProjectData> getBytype(@PathVariable String type) {
+	public List<ProjectDto> getBytype(@PathVariable String type) {
 		logger.info("Projects are get by type");
 		return projectDtoMapper.getByProjecttype(type);
 	}
@@ -109,7 +108,7 @@ public class ProjectController {
 	// Author :: By thatsha
 	// Get Mapping For Project Start Date
 	@GetMapping("/getDate/{date}")
-	public List<ProjectData> getBystartDate(@PathVariable String date) {
+	public List<ProjectDto> getBystartDate(@PathVariable String date) {
 		logger.info("Projects are get by date ");
 		return projectDtoMapper.getBystartDateformapper(date);
 
@@ -118,7 +117,7 @@ public class ProjectController {
 	// Author :: By Aarany
 	// Get Mapping For Project duration
 	@GetMapping("/getduration/{duration}")
-	public List<ProjectData> getByduration(@PathVariable Long duration) {
+	public List<ProjectDto> getByduration(@PathVariable Long duration) {
 		logger.info("Projects are get by duration");
 		return projectDtoMapper.getBydurationformapper(duration);
 	}
@@ -126,7 +125,7 @@ public class ProjectController {
 	// Author ::By Mercy
 	// Get Mapping For Project Status
 	@GetMapping("/getstatus/{status}")
-	public List<ProjectData> getBystatus(@PathVariable String status) {
+	public List<ProjectDto> getBystatus(@PathVariable String status) {
 		logger.info("Projects are get by status");
 		return projectDtoMapper.getBystatusformapper(status);
 	}

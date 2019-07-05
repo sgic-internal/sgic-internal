@@ -1,4 +1,3 @@
-
 package com.sgic.internal.defecttracker.project.repositories;
 
 import java.util.List;

@@ -23,7 +23,7 @@ public class ModuleServiceImpl implements ModuleService {
 
 	@Override
 	public void deleteById(String moduleId) {
-		moduleRepository.deleteById(moduleId);
+		moduleRepository.getByModuleId(moduleId);
 
 	}
 
