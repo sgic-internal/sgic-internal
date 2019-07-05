@@ -20,10 +20,11 @@ public class ProjectServiceImpl implements ProjectService {
 		Project responseProject = projectRepository.save(project);
 		return responseProject;
 	}
-//	@Override
-//	public boolean isProjectAlreadyExists(String projectid) {
-//		return projectRepository.existsById(projectid);
-//	}
+
+	@Override
+	public boolean isProjectAlreadyExists(String projectid) {
+		return projectRepository.existsById(projectid);
+	}
 
 	@Override
 	public List<Project> getallDetails() {
@@ -65,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void deleteById(Long projectid) {
+	public void deleteById(String projectid) {
 		projectRepository.deleteById(projectid);
 	}
 
@@ -74,12 +75,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.getBystartDate(date);
 	}
 
-	@Override
-	public void deleteById(String projectId) {
-		// TODO Auto-generated method stub
-		
-	}
 
-
+//	@Override
+//	public Project getByabbr(String abbr) {
+//		return projectRepository.getByabbr(abbr);
+//	}
 
 }

@@ -1,24 +1,22 @@
 package com.sgic.internal.defecttracker.project.repositories;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-=======
-import org.springframework.data.jpa.repository.JpaRepository;
->>>>>>> rami-saji
 
 import com.sgic.internal.defecttracker.project.entities.Project;
 
-public interface ProjectRepository extends JpaRepository<Project, Long> {
-<<<<<<< HEAD
+public interface ProjectRepository extends JpaRepository<Project, String> {
 	Project getByprojectId(String projectid);
+	
+//	Project getByabbr(String abbr);
+//	Project geByProjectId(String projectId);
 
 	@Query(value = "FROM Project WHERE project_name= :projectName")
 	List<Project> getByprojectName(@Param("projectName") String projectName);
-
+	
 	@Query(value = "FROM Project WHERE type= :type")
 	List<Project> getBytype(String type);
 
@@ -30,13 +28,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
 	@Query(value = "FROM Project WHERE status= :status")
 	List<Project> getBystatus(String status);
-=======
-	
-	Project getByprojectId(Long pid);
-
-	
-
->>>>>>> rami-saji
 
 }
- 

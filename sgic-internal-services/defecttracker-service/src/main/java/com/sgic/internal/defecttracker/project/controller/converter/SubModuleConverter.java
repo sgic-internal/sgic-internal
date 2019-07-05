@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.converter;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class SubModuleConverter {
 	private SubModuleConverter() {
 	}
 
-	public static SubModuleData subModuleToSubModuleData(SubModule subModule) {
+	public static SubModuleData subModuleTosubModuleDto(SubModule subModule) {
 		SubModuleData subModuleData = new SubModuleData();
 
 		if (subModule != null) {
@@ -23,7 +24,7 @@ public class SubModuleConverter {
 	}
 		return null;
 	}
-		public static SubModule subModuleDataToSubModule(SubModuleData subModuleData) {
+		public static SubModule subModuleDtoToSubModule(SubModuleData subModuleData) {
 			SubModule subModule = new SubModule();
 			
 			subModule.setSubModuleId(subModuleData.getSubModuleId());;
@@ -31,16 +32,16 @@ public class SubModuleConverter {
 			return subModule;
 		}
 		
-		public static List<SubModuleData> subModuleToSubModuleData(List<SubModule> subModuleList) {
+		public static List<SubModuleData> subModuleToSubModuleDto(List<SubModule> subModuleList) {
 
 			if (subModuleList != null) {
 				List<SubModuleData> lSubModuleDto = new ArrayList<>();
-				for (SubModule subModule : subModuleList) {
-					SubModuleData subModuleData = new SubModuleData();
+				for (SubModule submodule : subModuleList) {
+					SubModuleData submoduleDto = new SubModuleData();
 					
-					subModuleData.setSubModuleId(subModule.getSubModuleId());
-					subModuleData.setSubModuleName(subModule.getSubModuleName());
-					lSubModuleDto.add(subModuleData);
+					submoduleDto.setSubModuleId(submodule.getSubModuleId());
+					submoduleDto.setSubModuleName(submodule.getSubModuleName());
+					lSubModuleDto.add(submoduleDto);
 				}
 
 				return lSubModuleDto;
@@ -50,3 +51,6 @@ public class SubModuleConverter {
 		}
 
 	}
+
+		
+
