@@ -34,7 +34,7 @@ public class SubModuleServiceImpl implements SubModuleService {
 
 	@Override
 	public void deleteById(String subModuleId) {
-		subModuleRepository.getBySubModuleId(subModuleId);
+		subModuleRepository.deleteById(subModuleId);
 
 	}
 

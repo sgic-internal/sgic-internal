@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 public class ProjectDto {
 	
 	private String projectId;
-	
-//	private String abbr;
 
 	private String projectName;
 

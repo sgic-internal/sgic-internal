@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.converter.SubModuleConverter;
 
-import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.SubModuleDto;
 
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 import com.sgic.internal.defecttracker.project.services.SubModuleService;
@@ -20,33 +20,33 @@ public class SubModuleDtoMapper {
 	@Autowired
 	public SubModuleService subModuleService; 
 	
-	public List<SubModuleData>getAllSubModuleForMapper(){
+	public List<SubModuleDto>getAllSubModuleForMapper(){
 		List<SubModule>subModuleList =subModuleService.getallDetails();
 		return SubModuleConverter.subModuleToSubModuleDto(subModuleList);
 	}
 	
-	public SubModule saveSubModuleforMapper(SubModuleData subModuleData) {
-		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleData);
+	public SubModule saveSubModuleforMapper(SubModuleDto subModuleDto) {
+		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleDto);
 		return subModuleService.createSubModule(subModule);
 	}
 	
-	public SubModuleData getBySubModuleId(String subModuleId) {
+	public SubModuleDto getBySubModuleId(String subModuleId) {
 		SubModule subModule = subModuleService.getBySubModuleId(subModuleId);
 		return SubModuleConverter.subModuleTosubModuleDto(subModule);
 	}
 	
-	public List<SubModuleData>getBysubModuleNameForMapper(String subModuleName){
+	public List<SubModuleDto>getBysubModuleNameForMapper(String subModuleName){
 		List <SubModule>subModule=subModuleService.getBysubModuleName(subModuleName);
 		return SubModuleConverter.subModuleToSubModuleDto(subModule);
 		
 	}
 
-	public SubModule UpdateSubModule(String subModuleId, SubModuleData subModuleData) {
-		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleData);
+	public SubModule UpdateSubModule(String subModuleId, SubModuleDto subModuleDto) {
+		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleDto);
 		return subModuleService.updateSubModule(subModuleId, subModule);
 		
 	}
-	public SubModuleData deleteById(String subModuleId) {
+	public SubModuleDto deleteById(String subModuleId) {
 		subModuleService.deleteById(subModuleId);
 		return null;
 	}

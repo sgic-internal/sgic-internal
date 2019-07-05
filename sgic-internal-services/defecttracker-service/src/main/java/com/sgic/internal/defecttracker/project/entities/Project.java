@@ -22,7 +22,7 @@ public class Project implements Serializable {
 	@Id
 	private String projectId;
 
-	//private String abbr;
+	private String abbr;
 
 	private String projectName;
 
@@ -41,13 +41,13 @@ public class Project implements Serializable {
 	private String configId;
 
 	
-//	public String getAbbr() {
-//		return abbr;
-//	}
-//
-//	public void setAbbr(String abbr) {
-//		this.abbr = abbr;
-//	}
+	public String getAbbr() {
+		return abbr;
+	}
+
+	public void setAbbr(String abbr) {
+		this.abbr = abbr;
+	}
 
 	public String getProjectId() {
 		return projectId;
@@ -116,5 +116,7 @@ public class Project implements Serializable {
 	public void setConfigId(String configId) {
 		this.configId = configId;
 	}
+
+
 
 }

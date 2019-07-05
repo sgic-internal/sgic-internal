@@ -9,6 +9,7 @@ import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 import com.sgic.internal.defecttracker.project.services.ProjectService;
 
+
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
@@ -21,10 +22,10 @@ public class ProjectServiceImpl implements ProjectService {
 		return responseProject;
 	}
 
-	@Override
-	public boolean isProjectAlreadyExists(String projectid) {
-		return projectRepository.existsById(projectid);
-	}
+//	@Override
+//	public boolean isProjectAlreadyExists(String projectid) {
+//		return projectRepository.existsById(projectid);
+//	}
 
 	@Override
 	public List<Project> getallDetails() {
@@ -66,7 +67,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void deleteById(String projectid) {
+	public void deleteById(Long projectid) {
 		projectRepository.deleteById(projectid);
 	}
 
@@ -75,10 +76,12 @@ public class ProjectServiceImpl implements ProjectService {
 		return projectRepository.getBystartDate(date);
 	}
 
+	@Override
+	public void deleteById(String projectId) {
+		// TODO Auto-generated method stub
+		
+	}
 
-//	@Override
-//	public Project getByabbr(String abbr) {
-//		return projectRepository.getByabbr(abbr);
-//	}
+
 
 }
