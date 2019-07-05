@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
+import java.sql.Date;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,11 +12,11 @@ public class ProjectDto {
 
 	private String type;
 
-	private String startDate;
+	private Date startDate;
 
-	private String endDate;
+	private Date endDate ;
 
-	private String duration;
+	private Long duration;
 
 	private String status;
 
@@ -23,23 +24,6 @@ public class ProjectDto {
 
 	public String getProjectId() {
 		return projectId;
-	}
-
-	public ProjectDto(String projectId, String projectName, String type, String startDate, String endDate,
-			String duration, String status, String configId) {
-		super();
-		this.projectId = projectId;
-		this.projectName = projectName;
-		this.type = type;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.duration = duration;
-		this.status = status;
-		this.configId = configId;
-	}
-
-	public ProjectDto() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public void setProjectId(String projectId) {
@@ -62,27 +46,27 @@ public class ProjectDto {
 		this.type = type;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
-	public String getDuration() {
+	public Long getDuration() {
 		return duration;
 	}
 
-	public void setDuration(String duration) {
+	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
 
@@ -101,4 +85,21 @@ public class ProjectDto {
 	public void setConfigId(String configId) {
 		this.configId = configId;
 	}
+
+
+
+//	public ProjectDto (String projectId, String projectName, String type, Date startDate, Date endDate,
+//				Long duration, String status, String configId) {
+//		super();
+//		this.projectId = projectId;
+//		this.projectName = projectName;
+//		this.type = type;
+//		this.startDate = startDate;
+//		this.endDate = endDate;
+//		this.duration = duration;
+//		this.status = status;
+//		this.configId = configId;
+//	}
+
+
 }

@@ -1,33 +1,53 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(schema = "project_service", name = "project")
-public class Project implements Serializable {
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+@Entity
+@Table(schema = "defectservices", name = "project")
+public class Project implements Serializable {
+	
+	LocalDate todayDate = LocalDate.now();
+	java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String projectId;
 
+	//private String abbr;
+
 	private String projectName;
 
 	private String type;
 
-	private String startDate;
+	@DateTimeFormat(iso=ISO.DATE)
+	private Date startDate = currentDay;
 
-	private String endDate;
+	@DateTimeFormat(iso=ISO.DATE)
+	private Date endDate = currentDay;
 
-	private String duration;
+	private Long duration;
 
 	private String status;
 
 	private String configId;
+
+	
+//	public String getAbbr() {
+//		return abbr;
+//	}
+//
+//	public void setAbbr(String abbr) {
+//		this.abbr = abbr;
+//	}
 
 	public String getProjectId() {
 		return projectId;
@@ -53,27 +73,31 @@ public class Project implements Serializable {
 		this.type = type;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = currentDay;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setEndDate(Date endDate) {
+//		LocalDate ld = currentDay.toLocalDate();
+//		LocalDate monthLater = ld.plusMonths(duration);
+//		java.sql.Date sqlEndDate = java.sql.Date.valueOf(monthLater);
+		this.endDate = currentDay;
 	}
 
-	public String getDuration() {
+
+	public Long getDuration() {
 		return duration;
 	}
 
-	public void setDuration(String duration) {
+	public void setDuration(Long duration) {
 		this.duration = duration;
 	}
 

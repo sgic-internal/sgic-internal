@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public List<Project> getByduration(String duration) {
+	public List<Project> getByduration(Long duration) {
 		return projectRepository.getByduration(duration);
 	}
 
@@ -58,7 +58,7 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public Project updateProject(String projectid, Project project) {
-		if (projectRepository.getOne(projectid) != null) {
+		if (projectRepository.findAll() != null) {
 			project.setProjectId(projectid);
 			projectRepository.save(project);
 		}
@@ -74,5 +74,11 @@ public class ProjectServiceImpl implements ProjectService {
 	public List<Project> getBystartDate(String date) {
 		return projectRepository.getBystartDate(date);
 	}
+
+
+//	@Override
+//	public Project getByabbr(String abbr) {
+//		return projectRepository.getByabbr(abbr);
+//	}
 
 }
