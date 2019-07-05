@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
-import com.sgic.internal.defecttracker.project.controller.dtomapper.SubModuleDtoMapper;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 
 
@@ -28,7 +28,7 @@ public class SubModuleController {
 	private static Logger logger = LogManager.getLogger(SubModuleRepository.class);
 	
 	@Autowired
-	public SubModuleDtoMapper subModuleDtoMapper;
+	public SubModuleDataMapper subModuleDtoMapper;
 	
 	@PostMapping(value="/createsubmodule")
 	public ResponseEntity<Object>createSubModule(@RequestBody SubModuleData subModuleData) {
@@ -44,11 +44,11 @@ public class SubModuleController {
 			
 		}
 	// Get Mapping For Get Sub Module By Id
-	@GetMapping("/getSubModuleById/{Id}")
-	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String Id) {
-		logger.info("Sub Moduleare get by Id ");
-	return new ResponseEntity<>(subModuleDtoMapper.getBySubModuleId(Id), HttpStatus.OK);
-	}
+//	@GetMapping("/getSubModuleById/{Id}")
+//	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String Id) {
+//		logger.info("Sub Moduleare get by Id ");
+//	//return new ResponseEntity<>(subModuleDtoMapper.getBySubModuleId(Id), HttpStatus.OK);
+//	}
 
 	// Delete Mapping For SubModule
 	@DeleteMapping("deleteById/{submoduleId}")

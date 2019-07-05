@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
-import com.sgic.internal.defecttracker.project.controller.dtomapper.ProjectDtoMapper;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 
 @CrossOrigin
