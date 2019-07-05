@@ -5,44 +5,43 @@ import java.util.List;
 
 import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.entities.Module;
+
 public class ModuleConverter {
 	private ModuleConverter() {
 	}
 
 	public static ModuleData moduleToModuleData(Module module) {
-		ModuleData moduleDto = new ModuleData();
+		ModuleData moduleData = new ModuleData();
 
 		if (module != null) {
-			moduleDto.setModuleId(module.getModuleId());
-			moduleDto.setModuleName(module.getModuleName());
-			moduleDto.setAbbr(module.getAbbr());
-			return moduleDto;
+			moduleData.setModuleId(module.getModuleId());
+			moduleData.setModuleName(module.getModuleName());
+			return moduleData;
 		}
 		return null;
 	}
-	public static Module moduleDataToModule(ModuleData moduleDto) {
+	
+	public static Module moduleDataToModule(ModuleData moduleData) {
 		Module module = new Module();  
 		
-		module.setModuleId(moduleDto.getModuleId());
-		module.setModuleName(moduleDto.getModuleName());
-		module.setAbbr(moduleDto.getAbbr());
+		module.setModuleId(moduleData.getModuleId());
+		module.setModuleName(moduleData.getModuleName());
 		return module;
 	}
 	
 	public static List<ModuleData> moduleToModuleData(List<Module> moduleList) {
 
 		if (moduleList != null) {
-			List<ModuleData> lModuleDto = new ArrayList<>();
+			List<ModuleData> lModuleData = new ArrayList<>();
 			for (Module module : moduleList) {
-				ModuleData moduleDto = new ModuleData();
+				ModuleData moduleData = new ModuleData();
 				
-				moduleDto.setModuleId(module.getModuleId());
-				moduleDto.setModuleName(module.getModuleName());
-				moduleDto.setAbbr(module.getAbbr());
-				lModuleDto.add(moduleDto);
+				moduleData.setModuleId(module.getModuleId());
+				moduleData.setModuleName(module.getModuleName());
+				lModuleData.add(moduleData);
 			}
 
-			return lModuleDto;
+			return lModuleData;
 		}
 		return null;
 

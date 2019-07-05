@@ -5,9 +5,11 @@ import java.sql.Date;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectData {
+public class ProjectDto {
 	
 	private String projectId;
+	
+//	private String abbr;
 
 	private String projectName;
 
@@ -25,7 +27,7 @@ public class ProjectData {
 
 	
 
-	public ProjectData(String projectId, String projectName, String type, Date startDate, Date endDate,
+	public ProjectDto(String projectId, String projectName, String type, Date startDate, Date endDate,
 
 
 
@@ -42,7 +44,7 @@ public class ProjectData {
 		this.configId = configId;
 	}
 
-	public ProjectData() {
+	public ProjectDto() {
 		// TODO Auto-generated constructor stub
 	}
 	public String getProjectId() {

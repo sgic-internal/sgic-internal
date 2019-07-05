@@ -20,27 +20,27 @@ public class SubModuleDataMapper {
 	
 	public List<SubModuleData>getAllSubModuleForMapper(){
 		List<SubModule>subModuleList =subModuleService.getallDetails();
-		return SubModuleConverter.subModuleToSubModuleData(subModuleList);
+		return SubModuleConverter.subModuleToSubModuleDto(subModuleList);
 	}
 	
 	public SubModule saveSubModuleforMapper(SubModuleData subModuleData) {
-		SubModule subModule = SubModuleConverter.subModuleDataToSubModule(subModuleData);
+		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleData);
 		return subModuleService.createSubModule(subModule);
 	}
 	
-	public SubModuleData getBySubModuleId(String subModuleId) {
-		SubModule subModule = subModuleService.getBySubModuleId(subModuleId);
-		return SubModuleConverter.subModuleToSubModuleData(subModule);
-	}
-	
+//	public SubModuleData getBySubModuleId(String subModuleId) {
+//		SubModule subModule = subModuleService.getBySubModuleId(subModuleId);
+//		return SubModuleConverter.subModuleDtoToSubModule(subModuleData);
+//	}
+//	
 	public List<SubModuleData>getBysubModuleNameForMapper(String subModuleName){
 		List <SubModule>subModule=subModuleService.getBysubModuleName(subModuleName);
-		return SubModuleConverter.subModuleToSubModuleData(subModule);
+		return SubModuleConverter.subModuleToSubModuleDto(subModule);
 		
 	}
 
 	public SubModule UpdateSubModule(String subModuleId, SubModuleData subModuleData) {
-		SubModule subModule = SubModuleConverter.subModuleDataToSubModule(subModuleData);
+		SubModule subModule = SubModuleConverter.subModuleDtoToSubModule(subModuleData);
 		return subModuleService.updateSubModule(subModuleId, subModule);
 		
 	}
