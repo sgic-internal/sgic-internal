@@ -1,3 +1,4 @@
+
 package com.sgic.internal.defecttracker.project.entities;
 
 import javax.persistence.Entity;
@@ -56,3 +57,4 @@ public class Module {
 	}
 
 }
+
