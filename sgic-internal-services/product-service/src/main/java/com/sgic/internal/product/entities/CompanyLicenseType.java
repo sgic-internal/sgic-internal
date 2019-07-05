@@ -18,8 +18,6 @@ public class CompanyLicenseType implements Serializable  {
 	private Long licenseId;
 	private String licenseType;
 	
-	
-	
 	public CompanyLicenseType() {
 		super();
 	}

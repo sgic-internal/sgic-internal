@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.sgic.internal.privileges.entities.Privilege;
 
-
 public interface PrivilegeService {
 	
 	// Get Privilege By Id
