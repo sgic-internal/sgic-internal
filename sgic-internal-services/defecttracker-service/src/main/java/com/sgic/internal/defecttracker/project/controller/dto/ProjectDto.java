@@ -1,5 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
+<<<<<<< HEAD
 import java.sql.Date;
 
 import org.springframework.stereotype.Component;
@@ -111,4 +112,32 @@ public class ProjectDto {
 	public void setConfigId(String configId) {
 		this.configId = configId;
 	}
+=======
+public class ProjectDto {
+
+	
+	private String projectId;
+	
+	private String projectName;
+	
+
+	public String getProjectId() {
+		return projectId;
+	}
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	
+
+
+
+
+
+>>>>>>> rami-saji
 }

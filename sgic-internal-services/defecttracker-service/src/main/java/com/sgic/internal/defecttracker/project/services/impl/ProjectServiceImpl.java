@@ -9,7 +9,6 @@ import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 import com.sgic.internal.defecttracker.project.services.ProjectService;
 
-
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
@@ -21,7 +20,6 @@ public class ProjectServiceImpl implements ProjectService {
 		Project responseProject = projectRepository.save(project);
 		return responseProject;
 	}
-
 //	@Override
 //	public boolean isProjectAlreadyExists(String projectid) {
 //		return projectRepository.existsById(projectid);

@@ -1,6 +1,5 @@
 package com.sgic.internal.defecttracker.project.controller;
 
-
 import java.util.List;
 
 import javax.validation.Valid;
