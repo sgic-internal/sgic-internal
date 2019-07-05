@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //package com.sgic.internal.defecttracker.project;
 //
 //import org.junit.runner.RunWith;
@@ -29,6 +30,16 @@
 //	GetDateProject.class
 //	
 //	
+=======
+package com.sgic.internal.defecttracker.project;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+//@RunWith(Suite.class)
+//@Suite.SuiteClasses({
+//	ProjectDevelopmentTest.class
+>>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
 //})
 //public class ProjectApplicationTestSuite {
 //

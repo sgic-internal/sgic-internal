@@ -48,6 +48,7 @@ public class ProjectConverter {
 		Project project = new Project();
 
 
+<<<<<<< HEAD
 		project.setProjectId(projectDto.getProjectId());
 //		project.setAbbr(projectDto.getAbbr());
 		project.setProjectName(projectDto.getProjectName());
@@ -57,6 +58,8 @@ public class ProjectConverter {
 		project.setStatus(projectDto.getStatus());
 		project.setConfigId(projectDto.getConfigId());
 
+=======
+>>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
 		project.setProjectId(projectDto.getProjectId());
 //		project.setAbbr(projectDto.getAbbr());
 		project.setProjectName(projectDto.getProjectName());
@@ -66,6 +69,18 @@ public class ProjectConverter {
 		project.setStatus(projectDto.getStatus());
 		project.setConfigId(projectDto.getConfigId());
 
+<<<<<<< HEAD
+=======
+		project.setProjectId(projectDto.getProjectId());
+//		project.setAbbr(projectDto.getAbbr());
+		project.setProjectName(projectDto.getProjectName());
+		project.setType(projectDto.getType());
+		project.setEndDate(projectDto.getEndDate());
+		project.setDuration(projectDto.getDuration());
+		project.setStatus(projectDto.getStatus());
+		project.setConfigId(projectDto.getConfigId());
+
+>>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
 		return project;
 	}
 
@@ -77,6 +92,8 @@ public class ProjectConverter {
 				ProjectDto projectDto = new ProjectDto();
 
 
+<<<<<<< HEAD
+=======
 				projectDto.setProjectId(project.getProjectId());
 //				projectDto.setAbbr(project.getAbbr());
 				projectDto.setProjectName(project.getProjectName());
@@ -86,6 +103,19 @@ public class ProjectConverter {
 				projectDto.setDuration(project.getDuration());
 				projectDto.setStatus(project.getStatus());
 				projectDto.setConfigId(project.getConfigId());
+				lProjectData.add(projectDto);
+
+>>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
+				projectDto.setProjectId(project.getProjectId());
+//				projectDto.setAbbr(project.getAbbr());
+				projectDto.setProjectName(project.getProjectName());
+				projectDto.setType(project.getType());
+				projectDto.setStartDate(project.getStartDate());
+				projectDto.setEndDate(project.getEndDate());
+				projectDto.setDuration(project.getDuration());
+				projectDto.setStatus(project.getStatus());
+				projectDto.setConfigId(project.getConfigId());
+<<<<<<< HEAD
 				lProjectDto.add(projectDto);
 
 				projectDto.setProjectId(project.getProjectId());
@@ -98,6 +128,9 @@ public class ProjectConverter {
 				projectDto.setStatus(project.getStatus());
 				projectDto.setConfigId(project.getConfigId());
 				lProjectDto.add(projectDto);
+=======
+				lProjectData.add(projectDto);
+>>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
 
 			}
 

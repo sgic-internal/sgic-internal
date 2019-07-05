@@ -1,5 +1,12 @@
 /.metadata/
 /Servers
+.classpath
+.factorypath
+.settings
+.project
+target
+bin
+/.recommenders/
 sgic-internal-services/defecttracker-service/target
 sgic-internal-services/defecttracker-service/.classpath
 sgic-internal-services/discovery-service/target
@@ -16,3 +23,4 @@ sgic-internal-services/product-service/target
 sgic-internal-services/product-service/.classpath
 sgic-internal-common/target
 sgic-internal-common/.classpath
+
