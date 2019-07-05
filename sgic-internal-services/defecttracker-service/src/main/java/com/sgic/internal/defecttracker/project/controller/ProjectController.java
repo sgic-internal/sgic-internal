@@ -19,7 +19,7 @@ import com.sgic.internal.defecttracker.project.controller.dto.mapper.ProjectDtoM
 
 @CrossOrigin
 @RestController
-class ProjectController {
+public class ProjectController {
 
 //	private static Logger logger = LogManager.getLogger(ProjectRepository.class);
 
