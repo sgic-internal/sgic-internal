@@ -4,7 +4,7 @@ package com.sgic.internal.defecttracker.project.controller.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 import com.sgic.internal.defecttracker.project.entities.Project;
 
 public class ProjectConverter {
@@ -12,10 +12,11 @@ public class ProjectConverter {
 	private ProjectConverter() {
 	}
 
-	public static ProjectDto projectToProjectData(Project project) {
-		ProjectDto projectDto = new ProjectDto();
+	public static ProjectData projectToProjectData(Project project) {
+		ProjectData projectDto = new ProjectData();
 
 		if (project != null) {
+
 			projectDto.setProjectId(project.getProjectId());
 			projectDto.setProjectName(project.getProjectName());
 			projectDto.setType(project.getType());
@@ -25,41 +26,73 @@ public class ProjectConverter {
 			projectDto.setStatus(project.getStatus());
 			projectDto.setConfigId(project.getConfigId());
 
+			projectDto.setProjectId(project.getProjectId());
+			projectDto.setProjectName(project.getProjectName());
+			projectDto.setType(project.getType());
+			projectDto.setStartDate(project.getStartDate());
+			projectDto.setEndDate(project.getEndDate());
+			projectDto.setDuration(project.getDuration());
+			projectDto.setStatus(project.getStatus());
+			projectDto.setConfigId(project.getConfigId());
+
+
 			return projectDto;
 		}
 		return null;
 	}
 
-	public static Project projectDataToProject(ProjectDto projectDto) {
+	public static Project projectDataToProject(ProjectData projectData) {
 		Project project = new Project();
 
-		project.setProjectId(projectDto.getProjectId());
-		project.setProjectName(projectDto.getProjectName());
-		project.setType(projectDto.getType());
-		project.setStartDate(projectDto.getStartDate());
-		project.setEndDate(projectDto.getEndDate());
-		project.setDuration(projectDto.getDuration());
-		project.setStatus(projectDto.getStatus());
-		project.setConfigId(projectDto.getConfigId());
+
+		project.setProjectId(projectData.getProjectId());
+		project.setProjectName(projectData.getProjectName());
+		project.setType(projectData.getType());
+		project.setEndDate(projectData.getEndDate());
+		project.setDuration(projectData.getDuration());
+		project.setStatus(projectData.getStatus());
+		project.setConfigId(projectData.getConfigId());
+
+		project.setProjectId(projectData.getProjectId());
+		project.setProjectName(projectData.getProjectName());
+		project.setType(projectData.getType());
+		project.setEndDate(projectData.getEndDate());
+		project.setDuration(projectData.getDuration());
+		project.setStatus(projectData.getStatus());
+		project.setConfigId(projectData.getConfigId());
+
 		return project;
 	}
 
-	public static List<ProjectDto> projectToProjectData(List<Project> projectList) {
+	public static List<ProjectData> projectToProjectData(List<Project> projectList) {
 
 		if (projectList != null) {
-			List<ProjectDto> lProjectData = new ArrayList<>();
+			List<ProjectData> lProjectData = new ArrayList<>();
 			for (Project project : projectList) {
-				ProjectDto projectDto = new ProjectDto();
+				ProjectData projectData = new ProjectData();
 
-				projectDto.setProjectId(project.getProjectId());
-				projectDto.setProjectName(project.getProjectName());
-				projectDto.setType(project.getType());
-				projectDto.setStartDate(project.getStartDate());
-				projectDto.setEndDate(project.getEndDate());
-				projectDto.setDuration(project.getDuration());
-				projectDto.setStatus(project.getStatus());
-				projectDto.setConfigId(project.getConfigId());
-				lProjectData.add(projectDto);
+
+				projectData.setProjectId(project.getProjectId());
+//				projectDto.setAbbr(project.getAbbr());
+				projectData.setProjectName(project.getProjectName());
+				projectData.setType(project.getType());
+				projectData.setStartDate(project.getStartDate());
+				projectData.setEndDate(project.getEndDate());
+				projectData.setDuration(project.getDuration());
+				projectData.setStatus(project.getStatus());
+				projectData.setConfigId(project.getConfigId());
+				lProjectData.add(projectData);
+
+				projectData.setProjectId(project.getProjectId());
+				projectData.setProjectName(project.getProjectName());
+				projectData.setType(project.getType());
+				projectData.setStartDate(project.getStartDate());
+				projectData.setEndDate(project.getEndDate());
+				projectData.setDuration(project.getDuration());
+				projectData.setStatus(project.getStatus());
+				projectData.setConfigId(project.getConfigId());
+				lProjectData.add(projectData);
+
 			}
 
 			return lProjectData;
@@ -69,8 +102,3 @@ public class ProjectConverter {
 	}
 
 }
-
-
-
-
-

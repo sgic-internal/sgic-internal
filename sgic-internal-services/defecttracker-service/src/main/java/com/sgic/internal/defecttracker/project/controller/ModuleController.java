@@ -87,12 +87,12 @@ public class ModuleController {
 
 	
 	@PutMapping("/module/project/{projectId}")
-	public Module createNewModule(@PathVariable(name = "projectId") Long projectId,
+	public Module createNewModule(@PathVariable(name = "projectId") String projectId,
 			@RequestBody ModuleData moduleData) {
 		Project project = projectService.getByprojectId(projectId);
 		List<Module> modules=moduleRepository.findModuleByProject(project);
 		int a=modules.size();
-		String moduleSerial=project.getAbbre() +"-"+moduleData.getAbbr()+"-"+ a;
+		String moduleSerial=project.getAbbr() +"-"+moduleData.getAbbr()+"-"+ a;
 		
 		Module module=new Module();
 		module.setModuleId(moduleSerial);

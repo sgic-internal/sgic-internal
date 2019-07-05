@@ -1,13 +1,12 @@
 package com.sgic.internal.defecttracker.project.controller.dto.mapper;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.converter.ProjectConverter;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.services.ProjectService;
 
@@ -15,57 +14,56 @@ import com.sgic.internal.defecttracker.project.services.ProjectService;
 public class ProjectDtoMapper {
 	@Autowired
 	public ProjectService projectService;
-	
 
-public List<ProjectDto> getAllProjectForMapper() { // List Method for ProjectMapper
-	List<Project> projectList = projectService.getallDetails();
-	return ProjectConverter.projectToProjectData(projectList);
-	
-}
-public Project saveProjectforMapper(ProjectDto projectDto) {
-	Project project = ProjectConverter.projectDataToProject(projectDto);
-	return projectService.createProject(project);
-}
+	public List<ProjectData> getAllProjectForMapper() { // List Method for ProjectMapper
+		List<Project> projectList = projectService.getallDetails();
+		return ProjectConverter.projectToProjectData(projectList);
 
-public ProjectDto getByProjectId(Long projectId) {
-	Project project = projectService.getByprojectId(projectId);
-	return ProjectConverter.projectToProjectData(project);
-}
+	}
 
-public List<ProjectDto> getByprojectNameForMapper(String projectName) {
-	List<Project> project = projectService.getByprojectName(projectName);
-	return ProjectConverter.projectToProjectData(project);
-}
+	public Project saveProjectforMapper(ProjectData projectDto) {
+		Project project = ProjectConverter.projectDataToProject(projectDto);
+		return projectService.createProject(project);
+	}
 
-public List<ProjectDto> getByProjecttype(String type) {
-	List<Project> project = projectService.getBytype(type);
-	return ProjectConverter.projectToProjectData(project);
-}
+	public ProjectData getByProjectId(String projectId) {
+		Project project = projectService.getByprojectId(projectId);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
-public List<ProjectDto> getBystartDateformapper(String date) {
-	List<Project> project = projectService.getBystartDate(date);
-	return ProjectConverter.projectToProjectData(project);
-}
+	public List<ProjectData> getByprojectNameForMapper(String projectName) {
+		List<Project> project = projectService.getByprojectName(projectName);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
-public List<ProjectDto> getBydurationformapper(String duration) {
-	List<Project> project = projectService.getByduration(duration);
-	return ProjectConverter.projectToProjectData(project);
-}
+	public List<ProjectData> getByProjecttype(String type) {
+		List<Project> project = projectService.getBytype(type);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
-public List<ProjectDto> getBystatusformapper(String status) {
-	List<Project> project = projectService.getBystatus(status);
-	return ProjectConverter.projectToProjectData(project);
-}
+	public List<ProjectData> getBystartDateformapper(String date) {
+		List<Project> project = projectService.getBystartDate(date);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
+	public List<ProjectData> getBydurationformapper(Long duration) {
+		List<Project> project = projectService.getByduration(duration);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
-public Project UpdateProject(Long projectid, ProjectDto projectDto) {
-	Project project = ProjectConverter.projectDataToProject(projectDto);
-	return projectService.updateProject(projectid, project);
-}
+	public List<ProjectData> getBystatusformapper(String status) {
+		List<Project> project = projectService.getBystatus(status);
+		return ProjectConverter.projectToProjectData(project);
+	}
 
-public ProjectDto deleteById(Long projectId) {
-	projectService.deleteById(projectId);
-	return null;
-}
+	public Project UpdateProject(String projectid, ProjectData projectDto) {
+		Project project = ProjectConverter.projectDataToProject(projectDto);
+		return projectService.updateProject(projectid, project);
+	}
+
+	public ProjectData deleteById(String projectId) {
+		projectService.deleteById(projectId);
+		return null;
+	}
 
 }

@@ -11,12 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClientException;
 
 import com.sgic.internal.defecttracker.project.ProjectApplicationTest;
-import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
+import com.sgic.internal.defecttracker.project.controller.dto.ProjectData;
 
 public class DeleteProject  extends  ProjectApplicationTest {
 
 @SuppressWarnings("unused")
-private ProjectDto projectDto = new ProjectDto();
+private ProjectData projectData = new ProjectData();
 
 private String BASE_URL = "http://localhost:8080/project_service";
 private String ADD_API_URL = "/createprojec";
@@ -32,8 +32,8 @@ private static final String DELETE_PROJECT_RESPONSE = "Deleted Successfully";
 //@Test
 //public void deleteProject() throws IOException, RestClientException {
 //
-//ProjectDto projectDto =new ProjectDto ("1","DefectTracker","Sweet 1","2017-05-06","2017-05-05","week 7month","New","03");
-//HttpEntity<ProjectDto> request  = new HttpEntity<ProjectDto>(projectDto,httpHeaders);
+//ProjectData projectData =new ProjectData ("1","DefectTracker","Sweet 1","2017-05-06","2017-05-05","week 7month","New","03");
+//HttpEntity<ProjectData> request  = new HttpEntity<ProjectData>(projectData,httpHeaders);
 //ResponseEntity<String> postResponse = testRestTemplate.postForEntity(BASE_URL+ ADD_API_URL , request,String.class);
 //assertEquals(200,postResponse.getStatusCodeValue());
 //
