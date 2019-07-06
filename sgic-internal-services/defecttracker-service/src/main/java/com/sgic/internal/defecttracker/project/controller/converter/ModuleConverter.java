@@ -5,17 +5,19 @@ import java.util.List;
 
 import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 public class ModuleConverter {
-	private ModuleConverter() {
-	}
-
+	
 	public static ModuleData moduleToModuleData(Module module) {
 		ModuleData moduleData = new ModuleData();
 
 		if (module != null) {
 			moduleData.setModuleId(module.getModuleId());
 			moduleData.setModuleName(module.getModuleName());
+			Module module1=new Module();
+			moduleData.setProjectid(module.getProject().getProjectId());
+			moduleData.setAbbr(module.getAbbr());
 			return moduleData;
 		}
 		return null;
@@ -23,9 +25,13 @@ public class ModuleConverter {
 	
 	public static Module moduleDataToModule(ModuleData moduleData) {
 		Module module = new Module();  
+		Project project = new Project();
 		
 		module.setModuleId(moduleData.getModuleId());
 		module.setModuleName(moduleData.getModuleName());
+		module.setAbbr(moduleData.getAbbr());
+		project.setProjectId(moduleData.getProjectid());
+		module.setProject(project);
 		return module;
 	}
 	
@@ -38,6 +44,8 @@ public class ModuleConverter {
 				
 				moduleData.setModuleId(module.getModuleId());
 				moduleData.setModuleName(module.getModuleName());
+				moduleData.setAbbr(module.getAbbr());
+				moduleData.setProjectid(module.getProject().getProjectId());
 				lModuleData.add(moduleData);
 			}
 
