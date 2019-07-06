@@ -79,7 +79,7 @@ public class FileController {
 
 	/* Get Mapping - Defect comment API by Piratheepan */
 	@GetMapping("/downloadFile/{defectId}")
-	public ResponseEntity<Resource> downloadFile(@PathVariable Long defectId, HttpServletRequest request) {
+	public ResponseEntity<Resource> downloadFile(@PathVariable String defectId, HttpServletRequest request) {
 		List<DBFile> list = fileMapper.getAttachmentsById(defectId);
 		System.out.println(list);
 		// Try to determine file's content type
@@ -109,9 +109,32 @@ public class FileController {
 		}
 		return null;
 	}
+    @GetMapping("/downloadFiles/{fileName:.+}")
+    public ResponseEntity<Resource> downloadFiles(@PathVariable String fileName, HttpServletRequest request) {
+        // Load file as Resource
+        Resource resource = fileStorageService.loadFileAsResource(fileName);
+
+        // Try to determine file's content type
+        String contentType = null;
+        try {
+            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+        } catch (IOException ex) {
+            logger.info("Could not determine file type.");
+        }
+
+        // Fallback to the default content type if type could not be determined
+        if(contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
+    }
 
 	@GetMapping("/listFile/{defectId}")
-	public List<DBFile> listFile(@PathVariable("defectId") Long defectId) {
+	public List<DBFile> listFile(@PathVariable("defectId") String defectId) {
 		List<DBFile> list = fileStorageService.getAttachmentById(defectId);
 		return list;
 	}
