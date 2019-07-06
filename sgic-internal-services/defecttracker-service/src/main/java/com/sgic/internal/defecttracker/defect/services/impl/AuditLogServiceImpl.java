@@ -21,23 +21,23 @@ public class AuditLogServiceImpl implements AuditLogService{
 		return responseAuditLog;
 	}
 
-//	@Override
-//	public List<AuditLog> getAuditLogById(String defectId) {
-//		// TODO Auto-generated method stub
-//		return auditLogRepository.findAudilLogByDefectId(defectId);
-//	}
+	@Override
+	public List<AuditLog> getAuditLogById(String defectId) {
+		// TODO Auto-generated method stub
+		return auditLogRepository.findAudilLogByDefectId(defectId);
+	}
 
 	@Override
 	public List<AuditLog> getAllAuditLogs() {
 		// TODO Auto-generated method stub
 		return auditLogRepository.findAll();
 	}
-
-	@Override
-	public List<AuditLog> getAuditLogById(String defectId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//
+//	@Override
+//	public List<AuditLog> getAuditLogById(String defectId) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	
 }

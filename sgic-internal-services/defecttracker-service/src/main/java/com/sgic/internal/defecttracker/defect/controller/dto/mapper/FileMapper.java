@@ -31,7 +31,7 @@ public class FileMapper {
 		return fileData;
 	}
 
-	public List<DBFile> getAttachmentsById(Long defectId) {
+	public List<DBFile> getAttachmentsById(String defectId) {
 		return fileStorageService.getAttachmentById(defectId);
 	}
 	
