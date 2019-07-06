@@ -21,63 +21,77 @@ import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 
-
 @RestController
 public class SubModuleController {
-	
+
 	private static Logger logger = LogManager.getLogger(SubModuleRepository.class);
-	
+
 	@Autowired
-	public SubModuleDataMapper subModuleDtoMapper;
-	
-	@PostMapping(value="/createsubmodule")
-	public ResponseEntity<Object>createSubModule(@RequestBody SubModuleData subModuleData) {
-	subModuleDtoMapper.saveSubModuleforMapper(subModuleData);
-	return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK),HttpStatus.OK);
+	public SubModuleDataMapper subModuleDataMapper;
+
+	@PostMapping(value = "/createsubmodule")
+	public ResponseEntity<Object> createSubModule(@RequestBody SubModuleData subModuleData) {
+		subModuleDataMapper.saveSubModuleforMapper(subModuleData);
+		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 	}
-	
+
 	// Post Mapping For Create a Module
-		@GetMapping(value = "/GetAllsubmodule")
-		public ResponseEntity<List<SubModuleData>> listSubModuleInfo() {
-//		logger.info("Module are listed ");
-			return new ResponseEntity<>(subModuleDtoMapper.getAllSubModuleForMapper(), HttpStatus.OK);
-			
-		}
+	@GetMapping(value = "/GetAllsubmodule")
+	public ResponseEntity<List<SubModuleData>> listSubModuleInfo() {
+		logger.info("Module are listed ");
+		return new ResponseEntity<>(subModuleDataMapper.getAllSubModuleForMapper(), HttpStatus.OK);
+
+	}
+
 	// Get Mapping For Get Sub Module By Id
-//	@GetMapping("/getSubModuleById/{Id}")
-//	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String Id) {
-//		logger.info("Sub Moduleare get by Id ");
-//	//return new ResponseEntity<>(subModuleDtoMapper.getBySubModuleId(Id), HttpStatus.OK);
-//	}
+	@GetMapping("/getSubModuleById/{Id}")
+	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String subModuleId) {
+		logger.info("Sub Moduleare get by Id ");
+		return new ResponseEntity<>(subModuleDataMapper.getBySubModuleId(subModuleId), HttpStatus.OK);
+	}
 
 	// Delete Mapping For SubModule
 	@DeleteMapping("deleteById/{submoduleId}")
 	public ResponseEntity<SubModuleData> deleteById(@PathVariable String Id) {
 		logger.info("SubModule are delete by Id ");
-	return new ResponseEntity<>(subModuleDtoMapper.deleteById(Id), HttpStatus.OK);
+		return new ResponseEntity<>(subModuleDataMapper.deleteById(Id), HttpStatus.OK);
 	}
 
 	// Put Mapping For SubModule
 	@PutMapping("/updateSubModule/{submoduleId}")
 	public ResponseEntity<String> updateSubModule(@PathVariable(name = "submoduleId") String submoduleId,
-	@RequestBody SubModuleData submoduleDto) {
+			@RequestBody SubModuleData submoduleDto) {
 		logger.info("SubModulecontroller -> updatedmodule");
-	if (subModuleDtoMapper.UpdateSubModule(submoduleId, submoduleDto) != null)
-	;
-	{
-	return new ResponseEntity<>("ok", HttpStatus.OK);
-	}
+		if (subModuleDataMapper.UpdateSubModule(submoduleId, submoduleDto) != null)
+			;
+		{
+			return new ResponseEntity<>("ok", HttpStatus.OK);
+		}
 	}
 
-
-//		// Get Mapping For SubmoduleS Name
+//		// Get Mapping For Submodule Name
 	@GetMapping("/getSubModuleName/{submoduleName}")
 	public List<SubModuleData> getByprojectName(@PathVariable String submoduleName) {
 		logger.info("SubModule are get by name ");
-	return subModuleDtoMapper.getBysubModuleNameForMapper(submoduleName);
+		return subModuleDataMapper.getBysubModuleNameForMapper(submoduleName);
 	}
-	
-}
 
-	
-	
+	// Abbrivation for module
+//		@PutMapping("/module/project/{projectId}")
+//		public Module createNewModule(@PathVariable(name = "projectId") String projectId,
+//				@RequestBody ModuleData moduleData) {
+//			Project project = projectService.getByprojectId(projectId);
+//			List<Module> modules=moduleRepository.findModuleByProject(project);
+//			int a=modules.size();
+//			String moduleSerial=project.getProjectId() +"-"+moduleData.getAbbr()+"-"+ a;
+//			
+//			Module module=new Module();
+//			module.setModuleId(moduleSerial);
+//			module.setAbbr(moduleData.getAbbr());
+//			module.setModuleName(moduleData.getModuleName());
+//			module.setProject(project);
+//			
+//			return moduleRepository.save(module);
+//			
+//		}
+}

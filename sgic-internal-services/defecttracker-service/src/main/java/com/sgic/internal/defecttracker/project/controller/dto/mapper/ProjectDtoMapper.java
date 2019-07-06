@@ -18,47 +18,47 @@ public class ProjectDtoMapper {
 
 	public List<ProjectDto> getAllProjectForMapper() { // List Method for ProjectMapper
 		List<Project> projectList = projectService.getallDetails();
-		return ProjectConverter.projectToProjectData(projectList);
+		return ProjectConverter.projectToProjectDto(projectList);
 
 	}
 
 	public Project saveProjectforMapper(ProjectDto projectDto) {
-		Project project = ProjectConverter.projectDataToProject(projectDto);
+		Project project = ProjectConverter.projectDtoToProject(projectDto);
 		return projectService.createProject(project);
 	}
 
 	public ProjectDto getByProjectId(String projectId) {
 		Project project = projectService.getByprojectId(projectId);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public List<ProjectDto> getByprojectNameForMapper(String projectName) {
 		List<Project> project = projectService.getByprojectName(projectName);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public List<ProjectDto> getByProjecttype(String type) {
 		List<Project> project = projectService.getBytype(type);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public List<ProjectDto> getBystartDateformapper(String date) {
 		List<Project> project = projectService.getBystartDate(date);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public List<ProjectDto> getBydurationformapper(Long duration) {
 		List<Project> project = projectService.getByduration(duration);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public List<ProjectDto> getBystatusformapper(String status) {
 		List<Project> project = projectService.getBystatus(status);
-		return ProjectConverter.projectToProjectData(project);
+		return ProjectConverter.projectToProjectDto(project);
 	}
 
 	public Project UpdateProject(String projectid, ProjectDto projectDto) {
-		Project project = ProjectConverter.projectDataToProject(projectDto);
+		Project project = ProjectConverter.projectDtoToProject(projectDto);
 		return projectService.updateProject(projectid, project);
 	}
 

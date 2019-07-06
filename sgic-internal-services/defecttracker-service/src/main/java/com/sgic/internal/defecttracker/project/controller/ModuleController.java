@@ -57,7 +57,7 @@ public class ModuleController {
 //
 //	}
 
-	// Post Mapping For Create a Module
+	// Get Mapping For Get All Module
 	@GetMapping(value = "/GetAllmodule")
 	public ResponseEntity<List<ModuleData>> listModuleInfo() {
 		logger.info("Module are listed ");
