@@ -1,15 +1,12 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
 import java.sql.Date;
-
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProjectDto {
 	
 	private String projectId;
-	
-//	private String abbr;
 
 	private String projectName;
 
@@ -25,28 +22,6 @@ public class ProjectDto {
 
 	private String configId;
 
-	
-
-	public ProjectDto(String projectId, String projectName, String type, Date startDate, Date endDate,
-
-
-
-			Long duration, String status, String configId) {
-		super();
-		this.projectId = projectId;
-//		this.abbr= abbr;
-		this.projectName = projectName;
-		this.type = type;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.duration = duration;
-		this.status = status;
-		this.configId = configId;
-	}
-
-	public ProjectDto() {
-		// TODO Auto-generated constructor stub
-	}
 	public String getProjectId() {
 		return projectId;
 	}
@@ -54,8 +29,7 @@ public class ProjectDto {
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
-	
-	
+
 	public String getProjectName() {
 		return projectName;
 	}
@@ -71,7 +45,6 @@ public class ProjectDto {
 	public void setType(String type) {
 		this.type = type;
 	}
-
 
 	public Date getStartDate() {
 		return startDate;
@@ -89,7 +62,6 @@ public class ProjectDto {
 		this.endDate = endDate;
 	}
 
-	
 	public Long getDuration() {
 		return duration;
 	}
@@ -113,4 +85,21 @@ public class ProjectDto {
 	public void setConfigId(String configId) {
 		this.configId = configId;
 	}
+
+
+
+//	public ProjectDto (String projectId, String projectName, String type, Date startDate, Date endDate,
+//				Long duration, String status, String configId) {
+//		super();
+//		this.projectId = projectId;
+//		this.projectName = projectName;
+//		this.type = type;
+//		this.startDate = startDate;
+//		this.endDate = endDate;
+//		this.duration = duration;
+//		this.status = status;
+//		this.configId = configId;
+//	}
+
+
 }
