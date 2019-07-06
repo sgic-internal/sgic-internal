@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
 
@@ -54,6 +55,11 @@ public class ModuleServiceImpl implements ModuleService {
 	@Override
 	public boolean isModuleAlreadyExists(String moduleId) {
 		return moduleRepository.existsById(moduleId);
+	}
+
+	@Override
+	public List<Module> getByprojectId(String projectid) {
+		return moduleRepository.getByProjectId(projectid);
 	}
 
 

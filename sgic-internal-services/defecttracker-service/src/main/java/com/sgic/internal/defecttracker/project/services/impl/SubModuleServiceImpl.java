@@ -1,12 +1,9 @@
 package com.sgic.internal.defecttracker.project.services.impl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.internal.defecttracker.project.entities.SubModule;
-
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 import com.sgic.internal.defecttracker.project.services.SubModuleService;
 
@@ -56,5 +53,16 @@ public class SubModuleServiceImpl implements SubModuleService {
 	public List<SubModule> getBysubModuleName(String subModuleName) {
 		return subModuleRepository.getBysubModuleName(subModuleName);
 	}
+
+	@Override
+	public List<SubModule> getByabbr(String abbr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@Override
+//	public List<SubModule> getByabbr(String abbr) {
+//		return subModuleRepository.getBysubModuleAbbr(abbr);
+//	}
 
 }

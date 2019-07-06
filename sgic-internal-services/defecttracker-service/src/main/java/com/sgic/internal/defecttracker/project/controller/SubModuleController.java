@@ -18,13 +18,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
+
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
+
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
+import com.sgic.internal.defecttracker.project.services.ModuleService;
 
 @RestController
 public class SubModuleController {
 
 	private static Logger logger = LogManager.getLogger(SubModuleRepository.class);
+
+	@Autowired
+	public ModuleDataMapper moduleDataMapper;
+
+	@Autowired
+	public ModuleService moduleService;
+
+	@Autowired
+	public SubModuleRepository subModuleRepository;
 
 	@Autowired
 	public SubModuleDataMapper subModuleDataMapper;

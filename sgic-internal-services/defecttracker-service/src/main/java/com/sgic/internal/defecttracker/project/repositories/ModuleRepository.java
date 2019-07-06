@@ -15,6 +15,10 @@ public interface ModuleRepository extends JpaRepository<Module, String> {
 
 	@Query(value = "FROM Module WHERE module_name= :moduleName")
 	List<Module> getBymoduleName(@Param("moduleName") String moduleName);
+	
+	@Query("SELECT m FROM Module m WHERE m.project.id =:projectid")
+	List<Module>getByProjectId(@Param("projectid")String projectid);
+	
 
 	List<Module> findModuleByProject(Project project);
 

@@ -40,18 +40,22 @@ public class SubModule {
 		this.abbr = abbr;
 	}
 	
-	// create relationship with project
-		@ManyToOne
-		@JoinColumn(name = "projectId", nullable = false)
+	// create relationship with module
+	
+//		@ManyToOne
+//		@JoinColumn(name = "moduleid", nullable = false)
+//
+//		private Module module;
+//
+//		public Module getModule() {
+//			return module;
+//		}
+//
+//		public void setModule(Module module) {
+//			this.module = module;
+//		}
+		
+		
 
-		private Project project;
-
-		public Project getProject() {
-			return project;
-		}
-
-		public void setProject(Project project) {
-			this.project = project;
-		}
 
 }

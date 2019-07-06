@@ -3,6 +3,7 @@ package com.sgic.internal.defecttracker.project.services;
 import java.util.List;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 
 public interface ModuleService {
 	
@@ -14,10 +15,12 @@ public interface ModuleService {
 
 	public void deleteById(String moduleId);
 
-	public Module updateModule(String moduleId, Module module); // Update moduleid
+	public Module updateModule(String moduleId, Module module);
 
 	Module getByModuleId(String moduleId);
 
 	public List<Module> getBymoduleName(String moduleName);
+	
+   public List<Module> getByprojectId(String projectid);
 
 }
