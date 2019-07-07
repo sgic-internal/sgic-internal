@@ -42,18 +42,17 @@ public class SubModule {
 	
 	// create relationship with module
 	
-//		@ManyToOne
-//		@JoinColumn(name = "moduleid", nullable = false)
-//
-//		private Module module;
-//
-//		public Module getModule() {
-//			return module;
-//		}
-//
-//		public void setModule(Module module) {
-//			this.module = module;
-//		}
+		@ManyToOne
+		@JoinColumn(name = "moduleId", nullable = false)
+		private Module module;
+
+		public Module getModule() {
+			return module;
+		}
+
+		public void setModule(Module module) {
+			this.module = module;
+		}
 		
 		
 

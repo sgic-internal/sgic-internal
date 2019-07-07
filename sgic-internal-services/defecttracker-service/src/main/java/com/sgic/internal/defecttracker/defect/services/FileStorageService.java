@@ -86,7 +86,7 @@ public class FileStorageService {
 		}
 	}
 
-	public List<DBFile> getAttachmentById(Long defectId) {
+	public List<DBFile> getAttachmentById(String defectId) {
 		return dBFileRepository.findDBFileByDefectId(defectId);
 	}
 	

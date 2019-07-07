@@ -16,5 +16,5 @@ public interface DBFileRepository extends JpaRepository<DBFile,Long> {
 
 
 	@Query("SELECT d FROM DBFile d WHERE d.defect.defectId= :defectId")
-	List<DBFile> findDBFileByDefectId(@Param("defectId") Long defectId);
+	List<DBFile> findDBFileByDefectId(@Param("defectId") String defectId);
 }

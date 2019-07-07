@@ -1,8 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
-
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class ModuleData {
@@ -11,8 +9,15 @@ public class ModuleData {
 	private String moduleName;
 	private String abbr;
 	private String projectid;
-		
-	
+	private String subModuleId;
+
+	public String getSubModuleId() {
+		return subModuleId;
+	}
+
+	public void setSubModuleId(String subModuleId) {
+		this.subModuleId = subModuleId;
+	}
 
 	public String getProjectid() {
 		return projectid;
@@ -46,7 +51,5 @@ public class ModuleData {
 	public void setAbbr(String abbr) {
 		this.abbr = abbr;
 	}
-	
-	
-	
+
 }

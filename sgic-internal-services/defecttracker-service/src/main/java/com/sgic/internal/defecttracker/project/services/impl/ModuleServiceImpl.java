@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
-import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.repositories.ModuleRepository;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
 
@@ -63,4 +62,9 @@ public class ModuleServiceImpl implements ModuleService {
 	}
 
 
-}
+
+	@Override
+	public List<Object> getSubmodule(String projectid) {
+		// TODO Auto-generated method stub
+		return moduleRepository.getSubmodule(projectid);
+	}}

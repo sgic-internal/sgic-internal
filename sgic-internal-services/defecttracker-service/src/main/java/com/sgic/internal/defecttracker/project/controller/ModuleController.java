@@ -69,6 +69,11 @@ public class ModuleController {
 		logger.info("Module are listed ");
 		return moduleService.getByprojectId(projectid);
 	}
+	@GetMapping(value = "/GetAllmodulesubmodule/{projectid}")
+	public ResponseEntity<List<Object>> getModuleBySubModuleId(@PathVariable String projectid) {
+		logger.info("Module are listed ");
+		return new ResponseEntity<>(moduleService.getSubmodule(projectid), HttpStatus.OK);
+	}
 
 	// Get Mapping For Get Module By Id
 	@GetMapping("/GetmoduleById/{moduleId}")
