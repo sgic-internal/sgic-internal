@@ -41,7 +41,7 @@ public class Module {
 
 	// create relationship with project
 	@ManyToOne
-	@JoinColumn(name = "projectId", nullable = false)
+	@JoinColumn(name = "projectid", nullable = false)
 
 	private Project project;
 
@@ -52,5 +52,20 @@ public class Module {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+	
+//	@ManyToOne
+//	@JoinColumn(name = "sub_module_id", nullable = false)
+//
+//	private SubModule submodule;
+//
+//	public SubModule getSubmodule() {
+//		return submodule;
+//	}
+//
+//	public void setSubmodule(SubModule submodule) {
+//		this.submodule = submodule;
+//	}
+	
+	
 
 }

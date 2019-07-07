@@ -17,6 +17,8 @@ public interface SubModuleService {
 	public SubModule updateSubModule(String subModuleId, SubModule subModule);
 
 	public SubModule getBySubModuleId(String subModuleId);
+	
+	public List<SubModule> getByabbr(String abbr);
 
 	public List<SubModule> getBysubModuleName(String subModuleName);
 

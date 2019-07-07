@@ -4,9 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ModuleData {
-	
+
 	private String moduleId;
 	private String moduleName;
+<<<<<<< HEAD
 	 private String abbr;
 	
 	
@@ -19,25 +20,51 @@ public class ModuleData {
 	public ModuleData() {
 		// TODO Auto-generated constructor stub
 	}
+=======
+	private String abbr;
+	private String projectid;
+	private String subModuleId;
+
+	public String getSubModuleId() {
+		return subModuleId;
+	}
+
+	public void setSubModuleId(String subModuleId) {
+		this.subModuleId = subModuleId;
+	}
+
+	public String getProjectid() {
+		return projectid;
+	}
+
+	public void setProjectid(String projectid) {
+		this.projectid = projectid;
+	}
+
+>>>>>>> 320412900ab4de36599d32a71542aab0c6fee141
 	public String getModuleId() {
 		return moduleId;
 	}
+
 	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
+
 	public String getModuleName() {
 		return moduleName;
 	}
+
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
-		
-	}public String getAbbr() {
-			return abbr;
-		}
-		public void setAbbr(String abbr) {
-			this.abbr = abbr;
-		}
+
 	}
-	
 
+	public String getAbbr() {
+		return abbr;
+	}
 
+	public void setAbbr(String abbr) {
+		this.abbr = abbr;
+	}
+
+}

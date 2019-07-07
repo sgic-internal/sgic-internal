@@ -18,7 +18,7 @@ import com.sgic.internal.defecttracker.defect.services.FileStorageService;
 public class FileDTOConverter {
 	@Autowired
 	private FileStorageService fileStorageService;
-	private static final String PATH = "//localhost:8081/defectservices/downloadFile/";
+	private static final String PATH = "//localhost:8081/defectservices/downloadFiles/";
 
 	public DBFile DTOToEntity(FileData fileData) {
 		DBFile dbFile = new DBFile();
@@ -46,7 +46,7 @@ public class FileDTOConverter {
 	public FileData FileToDTO(MultipartFile file, String defectId) throws IOException {
 		// String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		String fileName = fileStorageService.storeFile(file);
-		String fileurl = PATH + defectId;
+		String fileurl = PATH + fileName;
 		FileData fileData = new FileData();
 		fileData.setFileName(fileName);
 		fileData.setFileType(file.getContentType());

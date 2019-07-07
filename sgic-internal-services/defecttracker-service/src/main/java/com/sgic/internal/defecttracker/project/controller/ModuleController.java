@@ -50,18 +50,29 @@ public class ModuleController {
 	@Autowired
 	public ModuleService moduleService;
 
-//	@PostMapping(value = "/createmodule")
-//	public ResponseEntity<Object> createModule(@Valid @RequestBody ModuleData moduleData) {
-//		moduleDataMapper.saveModuleforMapper(moduleData);
-//		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
-//
-//	}
+	@PostMapping(value = "/createmodule")
+	public ResponseEntity<Object> createModule(@Valid @RequestBody ModuleData moduleData) {
+		moduleDataMapper.saveModuleforMapper(moduleData);
+		return new ResponseEntity<Object>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
+
+	}
 
 	// Get Mapping For Get All Module
 	@GetMapping(value = "/GetAllmodule")
 	public ResponseEntity<List<ModuleData>> listModuleInfo() {
 		logger.info("Module are listed ");
 		return new ResponseEntity<>(moduleDataMapper.getAllModuleForMapper(), HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/GetAllmodule/{projectid}")
+	public List<Module> getModuleByProjectId(@PathVariable String projectid) {
+		logger.info("Module are listed ");
+		return moduleService.getByprojectId(projectid);
+	}
+	@GetMapping(value = "/GetAllmodulesubmodule/{projectid}")
+	public ResponseEntity<List<Object>> getModuleBySubModuleId(@PathVariable String projectid) {
+		logger.info("Module are listed ");
+		return new ResponseEntity<>(moduleService.getSubmodule(projectid), HttpStatus.OK);
 	}
 
 	// Get Mapping For Get Module By Id
@@ -116,5 +127,5 @@ public class ModuleController {
 		return moduleRepository.save(module);
 		
 	}
-
+	
 }

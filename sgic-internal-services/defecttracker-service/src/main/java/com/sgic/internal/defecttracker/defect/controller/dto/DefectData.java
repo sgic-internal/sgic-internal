@@ -21,6 +21,10 @@ public class DefectData {
 	
 	private String moduleName;
 	
+	private Long configId;
+	private String name;
+	private String value;
+	
 	public String getDefectId() {
 		return defectId;
 	}
@@ -111,6 +115,24 @@ public class DefectData {
 	}
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
+	}
+	public Long getConfigId() {
+		return configId;
+	}
+	public void setConfigId(Long configId) {
+		this.configId = configId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
 	}
 	
 	
