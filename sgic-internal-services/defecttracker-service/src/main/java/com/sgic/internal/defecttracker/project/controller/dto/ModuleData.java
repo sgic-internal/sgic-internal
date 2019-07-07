@@ -9,6 +9,16 @@ public class ModuleData {
 	private String moduleName;
 	 private String abbr;
 	
+	
+	public ModuleData(String moduleId, String moduleName) {
+		super();
+		this.moduleId = moduleId;
+		this.moduleName = moduleName;
+		
+	}
+	public ModuleData() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getModuleId() {
 		return moduleId;
 	}
