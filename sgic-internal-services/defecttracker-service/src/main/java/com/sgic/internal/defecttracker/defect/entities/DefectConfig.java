@@ -1,12 +1,16 @@
 package com.sgic.internal.defecttracker.defect.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(schema="defectservices",name="defectconfig")
 public class DefectConfig {
 	
+	@Id
+	@GeneratedValue
 	private Long configId;
 	private String projectId;
 	private String name;
