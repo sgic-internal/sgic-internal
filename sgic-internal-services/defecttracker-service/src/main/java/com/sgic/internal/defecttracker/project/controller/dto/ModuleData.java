@@ -7,6 +7,20 @@ public class ModuleData {
 
 	private String moduleId;
 	private String moduleName;
+<<<<<<< HEAD
+	 private String abbr;
+	
+	
+	public ModuleData(String moduleId, String moduleName) {
+		super();
+		this.moduleId = moduleId;
+		this.moduleName = moduleName;
+		
+	}
+	public ModuleData() {
+		// TODO Auto-generated constructor stub
+	}
+=======
 	private String abbr;
 	private String projectid;
 	private String subModuleId;
@@ -27,6 +41,7 @@ public class ModuleData {
 		this.projectid = projectid;
 	}
 
+>>>>>>> 320412900ab4de36599d32a71542aab0c6fee141
 	public String getModuleId() {
 		return moduleId;
 	}

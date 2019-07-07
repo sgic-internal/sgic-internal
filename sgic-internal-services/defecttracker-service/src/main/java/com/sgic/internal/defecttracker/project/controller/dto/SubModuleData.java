@@ -9,6 +9,17 @@ public class SubModuleData {
 	private String abbre;
 	private String subModuleName;
 
+	
+	public SubModuleData(String subModuleId, String subModuleName) {
+		super();
+		this.subModuleId = subModuleId;
+		this.subModuleName = subModuleName;
+	}
+
+	public SubModuleData() {
+		// TODO Auto-generated constructor stub
+	}
+
 	// Getters and Setters for Sub Module
 	public String getSubModuleId() {
 		return subModuleId;
