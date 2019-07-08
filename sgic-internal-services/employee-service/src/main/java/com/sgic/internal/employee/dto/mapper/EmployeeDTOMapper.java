@@ -35,26 +35,26 @@ public class EmployeeDTOMapper {
 
 	@SuppressWarnings("static-access")
 	// List Method for EmployeeMapper
-	public List<EmployeeDTO> getAllEmployeeForMapper() {
-		logger.info(" Employee Successfully Listed ");
-		List<Employee> empList = employeeService.listEmployeeInfo();
-		return employeeConverter.EmployeeToEmployeeDTO(empList);
-
+	public List<EmployeeDTO> getAllSortEmployeeInfo(Long empId){
+		logger.info(" Employee Successfully Get All Employee Details ");
+		List<Employee> sortEmployeeList = employeeService.findByEmployeeOrderByEmployeeIdDesc(empId);
+		return employeeConverter.EmployeeToEmployeeDTO(sortEmployeeList);
+		
 	}
 	
 	// getByID Method for EmployeeMapper
 	@SuppressWarnings("static-access")
-	public EmployeeDTO getById(String empId) {
+	public EmployeeDTO getById(Long empId) {
 		logger.info(" Employee Successfully Get By Id ");
-		Employee employee = employeeService.getById(empId);
+		Employee employee = employeeService.getByempId(empId);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
 
 	// Delete Method for EmployeeMapper
-	public EmployeeDTO deleteByEmployeeId(String empId) {
+	public EmployeeDTO deleteByEmployeeId(Long empId) {
 		logger.info(" successfully deleted ");
-		employeeService.deleteEmployeeById(empId);
+		employeeService.deleteEmployeeByempId(empId);
 		return null;
 
 	}
@@ -76,9 +76,9 @@ public class EmployeeDTOMapper {
 	
 	@SuppressWarnings("static-access")
 	//Find Employee By Designation
-	public List<EmployeeDTO> getEmployeeByDesignation(String designation){
+	public List<EmployeeDTO> getEmployeeByDesignation(Long designationid){
 		logger.info("Successfully Get Employee By Designation");
-		List<Employee> employee= employeeService.getByDesignation(designation);
+		List<Employee> employee= employeeService.getByDesignation(designationid);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
@@ -88,8 +88,11 @@ public class EmployeeDTOMapper {
 	public List<EmployeeDTO> getEmployeeByName(String name){
 		logger.info("Successfully Get Employee By Name");
 		List<Employee> employee = employeeService.getByName(name);
-		return employeeConverter.EmployeeToEmployeeDTO(employee);
-		
+		return employeeConverter.EmployeeToEmployeeDTO(employee);	
+	}
+	public long getByEmployeeCountforMapper() {
+		// TODO Auto-generated method stub
+		return employeeService.count();
 	}
 
 }

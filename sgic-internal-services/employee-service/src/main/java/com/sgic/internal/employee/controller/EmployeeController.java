@@ -1,7 +1,6 @@
 package com.sgic.internal.employee.controller;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import com.sgic.internal.employee.entities.Employee;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins="*", allowedHeaders="*")
 public class EmployeeController {
 
 	@Autowired
@@ -33,27 +32,33 @@ public class EmployeeController {
 	@PostMapping(value = "/createemployee") // Save Employee
 	public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> CreateEmployee");
-		return employeeDTOMapper.saveEmployee(employeeDTO);
+		if(employeeDTOMapper.getById(employeeDTO.getEmpId())!=null) {
+			
+		}else {
+			employeeDTOMapper.saveEmployee(employeeDTO);
+		}
+		return null;
 	}
 
 	/* Author:KiishanthS 17-06-2019 */
 	@GetMapping(value = "/getallemployee") // List Employee
-	public ResponseEntity<List<EmployeeDTO>> listEmployeeInfo() {
-		logger.info("Employee Controller -> GetEmployee");
-		return new ResponseEntity<>(employeeDTOMapper.getAllEmployeeForMapper(), HttpStatus.OK);
+	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(Long empId){
+		logger.info("Employee Controller -> GetAllEmployeeInfo");
+		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);	
 	}
-
+	
 	/* Author:DalistaaA 17-06-2019 */
 	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
-	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") String empid) {
+	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") Long empid) {
 		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
 	}
 
 	/* Author:JothiM 17-06-2019 */
 	@DeleteMapping("/deletebyid/{empId}") // Delete Employee Using Employee ID
-	public ResponseEntity<String> deleteEmployeeById(@PathVariable("empId") String empId) {
+	public ResponseEntity<String> deleteEmployeeByempId(@PathVariable("empId") Long empId) {
 		logger.info("Employee Controller -> DeleteEmployeeById");
+//		employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
 		employeeDTOMapper.deleteByEmployeeId(empId);
 		return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
 	}
@@ -63,6 +68,8 @@ public class EmployeeController {
 	// Get Employee By Email
 	public ResponseEntity<EmployeeDTO> getEmployeeByEmail(@PathVariable(name = "email") String email) {
 		logger.info("Employee Controller -> GetEmail");
+
+		
 		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeEmailforMapper(email), HttpStatus.OK);
 	}
 
@@ -80,10 +87,10 @@ public class EmployeeController {
 	}
 
 	/* Author:DalistaaA 19-06-2019 */
-	@GetMapping("/getdesignation/{designation}") // Get Employee By Designation
-	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designation") String designation) {
+	@GetMapping("/getdesignation/{designationid}") // Get Employee By Designation
+	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designationid") Long designationid) {
 		logger.info("Employee Controller -> GetDesignation");
-		return employeeDTOMapper.getEmployeeByDesignation(designation);
+		return employeeDTOMapper.getEmployeeByDesignation(designationid);
 	}
 
 	/* Author:KeerthanaR 23-06-2019 */
@@ -93,4 +100,12 @@ public class EmployeeController {
 		return employeeDTOMapper.getEmployeeByName(name);
 
 	}
+	@GetMapping("/getcount")
+	public ResponseEntity<Long> getTotalCount() {
+		logger.info("Employee Controller -> getCount");
+
+		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeCountforMapper(), HttpStatus.OK);
+	}
+	
+	
 }

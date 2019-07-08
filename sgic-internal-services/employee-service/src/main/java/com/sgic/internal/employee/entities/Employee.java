@@ -4,35 +4,87 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.lang.Nullable;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema = "employeeservice", name = "employee")
+@Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "employee_id", "email" }) })
 public class Employee implements Serializable {
 
+	// Initialize Variable for Attribute of Employee
+
 	@Id
-	// Initialize Variable for Attribute of Employee 
-	@Column(name= "emp_id")
-	private String empId;
-	
-	@Column(name= "name")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long empId;
+
+	@Column(name = "employee_id", unique= true)
+	@NotEmpty
+	private String employeeid;
+
+	@NotEmpty
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name= "email")
+
+	@NotEmpty
+	@Size(min = 2, max = 50)
+//	@Email(message = "{Employee.email.invalid}")
+	@Email
+//	@NotBlank(message = "{Employee.email.invalid}")
+//	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
+
+	@Column(name = "email", unique= true)
+	@Email
 	private String email;
 	
-	@Column(name= "designation")
-	private String designation;
+	@Nullable
+	private int availability;
+	
+	@Nullable
+	private boolean bench = false;
+	
+	
 
-	// Getter and setter Method for all attributes
-	public String getEmpId() {
+	@ManyToOne
+	@JoinColumn(name = "designationid", nullable = false)
+	private Designation designation;
+
+	public Designation getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
+
+	public Long getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
+	}
+
+	public String getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(String employeeid) {
+		this.employeeid = employeeid;
 	}
 
 	public String getName() {
@@ -51,12 +103,23 @@ public class Employee implements Serializable {
 		this.email = email;
 	}
 
-	public String getDesignation() {
-		return designation;
+	public int getAvailability() {
+		return availability;
 	}
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public void setAvailability(int availability) {
+		this.availability = availability;
 	}
 
+	public boolean isBench() {
+		return bench;
+	}
+
+	public void setBench(boolean bench) {
+		this.bench = bench;
+	}
+
+	// Getter and setter Method for all attributes
+
+	
 }
