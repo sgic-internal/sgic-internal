@@ -7,24 +7,11 @@ public class ModuleData {
 
 	private String moduleId;
 	private String moduleName;
-<<<<<<< HEAD
-	 private String abbr;
-	
-	
-	public ModuleData(String moduleId, String moduleName) {
-		super();
-		this.moduleId = moduleId;
-		this.moduleName = moduleName;
-		
-	}
-	public ModuleData() {
-		// TODO Auto-generated constructor stub
-	}
-=======
 	private String abbr;
 	private String projectid;
 	private String subModuleId;
 
+	// getter setter for submodule id
 	public String getSubModuleId() {
 		return subModuleId;
 	}
@@ -33,6 +20,7 @@ public class ModuleData {
 		this.subModuleId = subModuleId;
 	}
 
+	// getters setters for project id
 	public String getProjectid() {
 		return projectid;
 	}
@@ -41,7 +29,6 @@ public class ModuleData {
 		this.projectid = projectid;
 	}
 
->>>>>>> 320412900ab4de36599d32a71542aab0c6fee141
 	public String getModuleId() {
 		return moduleId;
 	}
@@ -66,5 +53,12 @@ public class ModuleData {
 	public void setAbbr(String abbr) {
 		this.abbr = abbr;
 	}
+
+//	public ModuleData(String moduleId, String moduleName) {
+//		super();
+//		this.moduleId = moduleId;
+//		this.moduleName = moduleName;
+//
+//	}
 
 }

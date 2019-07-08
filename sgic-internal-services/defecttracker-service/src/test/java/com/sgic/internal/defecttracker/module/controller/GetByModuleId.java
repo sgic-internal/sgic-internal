@@ -23,8 +23,8 @@ public class GetByModuleId extends ModuleTest {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	@SuppressWarnings("unused")
-	private ModuleData moduleData = new ModuleData();
+//	@SuppressWarnings("unused")
+//	private ModuleData moduleData = new ModuleData();
 	
 	private String moduleId ="1";
 	

@@ -61,10 +61,13 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleRepository.getByProjectId(projectid);
 	}
 
-
-
 	@Override
-	public List<Object> getSubmodule(String projectid) {
-		// TODO Auto-generated method stub
-		return moduleRepository.getSubmodule(projectid);
-	}}
+	public List<Object> getSubmodule(String subModuleId) {
+		return moduleRepository.getSubmodule(subModuleId);
+	}
+
+//	@Override
+//	public List<Module> getBySubModuleId(String subModuleId) {
+//		return moduleRepository.getBySubModuleId(subModuleId);
+//	}
+}
