@@ -1,5 +1,14 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
+<<<<<<< HEAD
+public class ProjectDto {
+
+	
+	private String projectId;
+	
+	private String projectName;
+	
+=======
 import java.sql.Date;
 import org.springframework.stereotype.Component;
 
@@ -21,10 +30,29 @@ public class ProjectDto {
 	private String status;
 
 	private String configId;
+>>>>>>> mathu
 
 	public String getProjectId() {
 		return projectId;
 	}
+<<<<<<< HEAD
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	
+
+
+
+
+
+}
+=======
 
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
@@ -103,3 +131,4 @@ public class ProjectDto {
 
 
 }
+>>>>>>> mathu

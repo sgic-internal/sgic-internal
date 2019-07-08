@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.converter.ProjectConverter;
-
 import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.services.ProjectService;

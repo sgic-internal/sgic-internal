@@ -30,4 +30,9 @@ public interface ProjectService {
 
 
 
+	public Project createProject(Project project);
+
+//	public boolean isProjectAlreadyExists(String pid);
+
+	public List<Project> getallDetails();
 }
