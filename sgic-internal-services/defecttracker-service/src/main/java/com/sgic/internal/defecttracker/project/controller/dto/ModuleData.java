@@ -11,6 +11,21 @@ public class ModuleData {
 	private String projectid;
 	private String subModuleId;
 
+	
+	
+	public ModuleData(String moduleId, String moduleName) {
+		super();
+		this.moduleId = moduleId;
+		this.moduleName = moduleName;
+		
+	}
+	public ModuleData() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	
+
 	// getter setter for submodule id
 	public String getSubModuleId() {
 		return subModuleId;
