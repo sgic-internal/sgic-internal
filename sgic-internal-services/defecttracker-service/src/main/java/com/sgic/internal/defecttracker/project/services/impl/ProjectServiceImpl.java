@@ -20,16 +20,66 @@ public class ProjectServiceImpl implements ProjectService {
 		Project responseProject = projectRepository.save(project);
 		return responseProject;
 	}
-//
-//	@Override
-//	public boolean isProjectAlreadyExists(String projectid) {
-//		return projectRepository.existsById(projectid);
-//	}
+
+
+	@Override
+	public boolean isProjectAlreadyExists(String projectid) {
+		return projectRepository.existsById(projectid);
+	}
 
 	@Override
 	public List<Project> getallDetails() {
 		return projectRepository.findAll();
 	}
 
+	@Override
+	public Project getByprojectId(String projectid) {
+		return projectRepository.getByprojectId(projectid);
+	}
+
+	@Override
+	public List<Project> getByprojectName(String name) {
+		return projectRepository.getByprojectName(name);
+	}
+
+	@Override
+	public List<Project> getBytype(String type) {
+		return projectRepository.getBytype(type);
+	}
+
+	@Override
+	public List<Project> getByduration(Long duration) {
+		return projectRepository.getByduration(duration);
+	}
+
+	@Override
+	public List<Project> getBystatus(String status) {
+		return projectRepository.getBystatus(status);
+	}
+
+	@Override
+	public Project updateProject(String projectid, Project project) {
+		if (projectRepository.findAll() != null) {
+			project.setProjectId(projectid);
+			projectRepository.save(project);
+		}
+		return project;
+	}
+
+	@Override
+	public void deleteById(String projectid) {
+		projectRepository.deleteById(projectid);
+	}
+
+	@Override
+	public List<Project> getBystartDate(String date) {
+		return projectRepository.getBystartDate(date);
+	}
+
+
+//	@Override
+//	public Project getByabbr(String abbr) {
+//		return projectRepository.getByabbr(abbr);
+//	}
 
 }
