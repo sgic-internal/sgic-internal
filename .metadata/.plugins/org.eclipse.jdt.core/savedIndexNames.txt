@@ -1,5 +1,4 @@
 INDEX VERSION 1.131+D:\Keerthi\sgic-internal\.metadata\.plugins\org.eclipse.jdt.core
-1979675648.index
 3768066055.index
 224196589.index
 710797068.index
@@ -51,7 +50,6 @@ INDEX VERSION 1.131+D:\Keerthi\sgic-internal\.metadata\.plugins\org.eclipse.jdt.
 1305378147.index
 977906754.index
 2394814330.index
-2317501585.index
 1697327701.index
 587247876.index
 4005860872.index
