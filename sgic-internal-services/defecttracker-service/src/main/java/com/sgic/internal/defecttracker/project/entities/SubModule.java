@@ -14,7 +14,7 @@ public class SubModule {
 	@Id
 	private String subModuleId;
 	private String subModuleName;
-	private String abbr;
+	private String abbre;
 
 	public String getSubModuleId() {
 		return subModuleId;
@@ -32,28 +32,29 @@ public class SubModule {
 		this.subModuleName = subModuleName;
 	}
 
-	public String getAbbr() {
-		return abbr;
-	}
-
-	public void setAbbr(String abbr) {
-		this.abbr = abbr;
-	}
 	
 	// create relationship with module
 	
-//		@ManyToOne
-//		@JoinColumn(name = "moduleid", nullable = false)
-//
-//		private Module module;
-//
-//		public Module getModule() {
-//			return module;
-//		}
-//
-//		public void setModule(Module module) {
-//			this.module = module;
-//		}
+		public String getAbbre() {
+		return abbre;
+	}
+
+	public void setAbbre(String abbre) {
+		this.abbre = abbre;
+	}
+
+
+		@ManyToOne
+		@JoinColumn(name = "moduleId", nullable = false)
+		private Module module;
+
+		public Module getModule() {
+			return module;
+		}
+
+		public void setModule(Module module) {
+			this.module = module;
+		}
 		
 		
 

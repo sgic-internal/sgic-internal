@@ -19,6 +19,7 @@ public class SubModuleConverter {
 			
 			subModuleData.setSubModuleId(subModule.getSubModuleId());
 			subModuleData.setSubModuleName(subModule.getSubModuleName());
+			subModuleData.setAbbre(subModule.getAbbre());
 			
 			return subModuleData;
 	}
@@ -29,6 +30,7 @@ public class SubModuleConverter {
 			
 			subModule.setSubModuleId(subModuleData.getSubModuleId());;
 			subModule.setSubModuleName(subModuleData.getSubModuleName());
+			subModule.setAbbre(subModuleData.getAbbre());
 			return subModule;
 		}
 		
@@ -41,6 +43,7 @@ public class SubModuleConverter {
 					
 					submoduleData.setSubModuleId(submodule.getSubModuleId());
 					submoduleData.setSubModuleName(submodule.getSubModuleName());
+					submoduleData.setAbbre(submodule.getAbbre());
 					lSubModuleData.add(submoduleData);
 				}
 

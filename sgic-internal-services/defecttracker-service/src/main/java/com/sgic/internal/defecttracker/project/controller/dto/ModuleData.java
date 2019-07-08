@@ -1,8 +1,6 @@
 package com.sgic.internal.defecttracker.project.controller.dto;
 
-
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class ModuleData {
@@ -11,9 +9,33 @@ public class ModuleData {
 	private String moduleName;
 	private String abbr;
 	private String projectid;
+	private String subModuleId;
+
+	
+	
+	public ModuleData(String moduleId, String moduleName) {
+		super();
+		this.moduleId = moduleId;
+		this.moduleName = moduleName;
 		
+	}
+	public ModuleData() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 
+	// getter setter for submodule id
+	public String getSubModuleId() {
+		return subModuleId;
+	}
+
+	public void setSubModuleId(String subModuleId) {
+		this.subModuleId = subModuleId;
+	}
+
+	// getters setters for project id
 	public String getProjectid() {
 		return projectid;
 	}
@@ -46,7 +68,12 @@ public class ModuleData {
 	public void setAbbr(String abbr) {
 		this.abbr = abbr;
 	}
-	
-	
-	
+
+//	public ModuleData(String moduleId, String moduleName) {
+//		super();
+//		this.moduleId = moduleId;
+//		this.moduleName = moduleName;
+//
+//	}
+
 }

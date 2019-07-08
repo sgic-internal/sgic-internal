@@ -21,7 +21,8 @@ import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
 
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
-
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.SubModule;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
 
@@ -57,7 +58,7 @@ public class SubModuleController {
 	}
 
 	// Get Mapping For Get Sub Module By Id
-	@GetMapping("/getSubModuleById/{Id}")
+	@GetMapping("/getSubModuleById/{subModuleId}")
 	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String subModuleId) {
 		logger.info("Sub Moduleare get by Id ");
 		return new ResponseEntity<>(subModuleDataMapper.getBySubModuleId(subModuleId), HttpStatus.OK);
@@ -88,23 +89,23 @@ public class SubModuleController {
 		logger.info("SubModule are get by name ");
 		return subModuleDataMapper.getBysubModuleNameForMapper(submoduleName);
 	}
-
-	// Abbrivation for module
-//		@PutMapping("/module/project/{projectId}")
-//		public Module createNewModule(@PathVariable(name = "projectId") String projectId,
-//				@RequestBody ModuleData moduleData) {
-//			Project project = projectService.getByprojectId(projectId);
-//			List<Module> modules=moduleRepository.findModuleByProject(project);
-//			int a=modules.size();
-//			String moduleSerial=project.getProjectId() +"-"+moduleData.getAbbr()+"-"+ a;
-//			
-//			Module module=new Module();
-//			module.setModuleId(moduleSerial);
-//			module.setAbbr(moduleData.getAbbr());
-//			module.setModuleName(moduleData.getModuleName());
-//			module.setProject(project);
-//			
-//			return moduleRepository.save(module);
-//			
-//		}
+	
+	//Abbrivation for module
+		@PutMapping("/submodule/module/{moduleId}")
+		public SubModule createNewSubModule(@PathVariable(name = "moduleId") String moduleId,
+				@RequestBody SubModuleData subModuleData) {
+			Module module = moduleService.getByModuleId(moduleId);
+			List<SubModule> submodules=subModuleRepository.findSubModuleByModule(module);
+			int a=submodules.size();
+			String submoduleSerial=module.getModuleId() +"-"+subModuleData.getSubModuleId()+"-"+ a;
+			
+			SubModule submodule=new SubModule();
+			submodule.setSubModuleId(submoduleSerial);
+			submodule.setAbbre(subModuleData.getAbbre());
+			submodule.setSubModuleName(subModuleData.getSubModuleName());
+			submodule.setModule(module);
+			
+			return subModuleRepository.save(submodule);
+		
+		}
 }
