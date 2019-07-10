@@ -26,8 +26,7 @@ public class DefectConfig implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "projectId", nullable = false)
 	private Project project;
-
-
+	
 	private String name;
 	private String value;
 	private String color;

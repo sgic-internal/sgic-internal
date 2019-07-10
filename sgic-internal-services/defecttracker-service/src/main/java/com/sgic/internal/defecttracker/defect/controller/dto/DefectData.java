@@ -8,6 +8,10 @@ public class DefectData {
 	private String abbre;
 	private String projectId;
 	private String moduleId;
+	private String priority;
+	private String severity;
+	private String type;
+	private String status;
 	private String defectDescription;
 	private String stepsToRecreate;
 	private String assignTo;
@@ -18,12 +22,9 @@ public class DefectData {
 	private String foundIn;
 	private String fixedIn;
 	private Date dateAndTime;
-	
 	private String moduleName;
-	
-	private Long configId;
-	private String name;
-	private String value;
+	private String projectName;
+
 	
 	public String getDefectId() {
 		return defectId;
@@ -116,23 +117,36 @@ public class DefectData {
 	public void setModuleName(String moduleName) {
 		this.moduleName = moduleName;
 	}
-	public Long getConfigId() {
-		return configId;
+	
+	public String getProjectName() {
+		return projectName;
 	}
-	public void setConfigId(Long configId) {
-		this.configId = configId;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
-	public String getName() {
-		return name;
+	public String getPriority() {
+		return priority;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setPriority(String priority) {
+		this.priority = priority;
 	}
-	public String getValue() {
-		return value;
+	public String getSeverity() {
+		return severity;
 	}
-	public void setValue(String value) {
-		this.value = value;
+	public void setSeverity(String severity) {
+		this.severity = severity;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

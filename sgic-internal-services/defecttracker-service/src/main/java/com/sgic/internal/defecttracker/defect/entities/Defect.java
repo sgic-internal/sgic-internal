@@ -37,16 +37,21 @@ public class Defect {
 	@JoinColumn(name="moduleId",nullable=false)
 	private Module module;
 	
-	@OneToOne
-	@JoinColumn(name="configId",nullable=false)
-	private DefectConfig defectConfig;
+//	@OneToOne
+//	@JoinColumn(name="configId",nullable=false)
+//	private DefectConfig defectConfig;
+//	
+//	public DefectConfig getDefectConfig() {
+//		return defectConfig;
+//	}
+//	public void setDefectConfig(DefectConfig defectConfig) {
+//		this.defectConfig = defectConfig;
+//	}
+	private String priority;
+	private String severity;
+	private String type;
+	private String status;
 	
-	public DefectConfig getDefectConfig() {
-		return defectConfig;
-	}
-	public void setDefectConfig(DefectConfig defectConfig) {
-		this.defectConfig = defectConfig;
-	}
 	@NotNull
 	@Size(min=2, max=500)
 	private String defectDescription;
@@ -173,6 +178,30 @@ public class Defect {
 	}
 	public void setModule(Module module) {
 		this.module = module;
+	}
+	public String getPriority() {
+		return priority;
+	}
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+	public String getSeverity() {
+		return severity;
+	}
+	public void setSeverity(String severity) {
+		this.severity = severity;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

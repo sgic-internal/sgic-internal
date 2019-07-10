@@ -31,6 +31,7 @@ public class DefectDataConverter {
 				defectData.setDefectId(defect.getDefectId());
 							
 				defectData.setProjectId(defect.getProject().getProjectId());
+				defectData.setProjectName(defect.getProject().getProjectName());
 				defectData.setModuleId(defect.getModule().getModuleId());
 				defectData.setModuleName(defect.getModule().getModuleName());
 				defectData.setDefectDescription(defect.getDefectDescription());
@@ -44,8 +45,11 @@ public class DefectDataConverter {
 				defectData.setAvailableIn(defect.getAvailableIn());
 				defectData.setFoundIn(defect.getFoundIn());
 				defectData.setFixedIn(defect.getFixedIn());
-				defectData.setConfigId(defect.getDefectConfig().getConfigId());
-				defectData.setName(defect.getDefectConfig().getName());
+				 defectData.setSeverity(defect.getSeverity());
+				 defectData.setPriority(defect.getPriority());
+				 defectData.setType(defect.getType());
+				 defectData.setStatus(defect.getStatus());
+				//defectData.setName(defect.getDefectConfig().getName());
 				
 				listDefectData.add(defectData);
 
@@ -66,6 +70,7 @@ public class DefectDataConverter {
 
 			defectData.setDefectId(defect.getDefectId());
 			defectData.setProjectId(defect.getProject().getProjectId());
+			defectData.setProjectName(defect.getProject().getProjectName());
 			defectData.setModuleId(defect.getModule().getModuleId());
 			defectData.setModuleName(defect.getModule().getModuleName());
 			defectData.setDefectDescription(defect.getDefectDescription());
@@ -79,8 +84,11 @@ public class DefectDataConverter {
 			defectData.setFoundIn(defect.getFoundIn());
 			defectData.setFixedIn(defect.getFixedIn());
 			 defectData.setAbbre(defect.getAbbre());
-			 defectData.setConfigId(defect.getDefectConfig().getConfigId());
-				defectData.setName(defect.getDefectConfig().getName());
+			 defectData.setSeverity(defect.getSeverity());
+			 defectData.setPriority(defect.getPriority());
+			 defectData.setType(defect.getType());
+			 defectData.setStatus(defect.getStatus());
+				//defectData.setName(defect.getDefectConfig().getName());
 			return defectData;
 		}
 		return null;
@@ -113,6 +121,10 @@ public class DefectDataConverter {
 			defect.setFoundIn(defectData.getFoundIn());
 			defect.setFixedIn(defectData.getFixedIn());
 			 defect.setAbbre(defectData.getAbbre());
+			 defect.setSeverity(defectData.getSeverity());
+			 defect.setPriority(defectData.getPriority());
+			 defect.setType(defectData.getType());
+			 defect.setStatus(defectData.getStatus());
 			return defect;
 		}
 		return null;
