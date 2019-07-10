@@ -1,8 +1,11 @@
 package com.sgic.internal.defecttracker.project.entities;
 
-public class Employee {
+public class ResourceAllocationList {
 
+	
+	private Long resourceId;
 	private Long empId;
+//	private Employee employeeObj;
 	private String employeeid;
 	private String name;
 	private String firstname;
@@ -11,15 +14,20 @@ public class Employee {
 	private boolean bench = false;
 	private Long designationid;
 	private String designationname;
-
+	private String projectId;
+	private String projectName;
+//	private Project projectObj;
 	
-	
-	public Long getEmpId() {
-		return empId;
-	}
+//	public Project getProjectObj() {
+//		return projectObj;
+//	}
+//
+//	public void setProjectObj(Project projectObj) {
+//		this.projectObj = projectObj;
+//	}
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
+	public Long getResourceId() {
+		return resourceId;
 	}
 
 	public String getEmployeeid() {
@@ -36,6 +44,14 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public String getEmail() {
@@ -78,13 +94,45 @@ public class Employee {
 		this.designationname = designationname;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public void setResourceId(Long resourceId) {
+		this.resourceId = resourceId;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public Long getEmpId() {
+		return empId;
 	}
 
+	public void setEmpId(Long empId) {
+		this.empId = empId;
+	}
+
+//	public Employee getEmployeeObj() {
+//		return employeeObj;
+//	}
+//
+//	public void setEmployeeObj(Employee employeeObj) {
+//		this.employeeObj = employeeObj;
+//	}
+
+	public String getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+
+	
+	
+	
 	
 }

@@ -40,6 +40,13 @@ public class Employee implements Serializable {
 	@Column(name = "name")
 	private String name;
 
+	
+	@NotEmpty
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
+	@Column(name = "firstname")
+	private String firstname;
+	
 	@NotEmpty
 	@Size(min = 2, max = 50)
 //	@Email(message = "{Employee.email.invalid}")
@@ -117,6 +124,14 @@ public class Employee implements Serializable {
 
 	public void setBench(boolean bench) {
 		this.bench = bench;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 	// Getter and setter Method for all attributes

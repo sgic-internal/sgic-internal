@@ -39,7 +39,6 @@ public class Project implements Serializable {
 	@OneToMany(mappedBy="project",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<ResourceAllocation> resourceAllocation;
 	
-	
 
 	public String getProjectId() {
 		return projectId;
@@ -56,6 +55,7 @@ public class Project implements Serializable {
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
+
 
 	
 	

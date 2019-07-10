@@ -23,6 +23,7 @@ public class EmployeeConverter {
 			employeeDto.setEmployeeid(employee.getEmployeeid());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
+			employeeDto.setFirstname(employee.getFirstname());
 			employeeDto.setAvailability(employee.getAvailability());
 			employeeDto.setBench(employee.isBench());
 			employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
@@ -43,6 +44,7 @@ public class EmployeeConverter {
 			employee.setEmployeeid(employeeDTO.getEmployeeid());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
+			employee.setFirstname(employeeDTO.getFirstname());
 			employee.setAvailability(employeeDTO.getAvailability());
 			employee.setBench(employeeDTO.isBench());
 //			Designation object converting 
@@ -65,6 +67,7 @@ public class EmployeeConverter {
 				employeeDto.setEmpId(employee.getEmpId());
 				employeeDto.setEmployeeid(employee.getEmployeeid());
 				employeeDto.setName(employee.getName());
+				employeeDto.setFirstname(employee.getFirstname());
 				employeeDto.setEmail(employee.getEmail());
 				employeeDto.setAvailability(employee.getAvailability());
 				employeeDto.setBench(employee.isBench());
