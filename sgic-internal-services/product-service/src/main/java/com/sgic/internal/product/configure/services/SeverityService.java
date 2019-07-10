@@ -5,11 +5,15 @@ import java.util.List;
 import com.sgic.internal.product.configure.entities.DefectSeverity;
 
 public interface SeverityService {
-	
-	public DefectSeverity createSeverity(DefectSeverity severity);
-	public DefectSeverity updateSeverity(DefectSeverity severity);
-	public DefectSeverity getSeverityById(Long severeId);
-	public List<DefectSeverity> getAllSeverity();
-	public DefectSeverity deleteSeverityById(Long severeId);
+	// Create DefectSeverity
+	public DefectSeverity createDefectSeverity(DefectSeverity severity);
+	// Update DefectSeverity
+	public DefectSeverity updateDefectSeverity(DefectSeverity severity);
+	// Get DefectSeverity By Id
+	public DefectSeverity getDefectSeverityById(Long severityId);
+	// Get All DefectSeverity 
+	public List<DefectSeverity> getAllDefectSeverity();
+	// Delete DefectSeverity Id
+	public DefectSeverity deleteDefectSeverityById(Long severityId);
 
 }
