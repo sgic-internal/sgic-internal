@@ -28,6 +28,7 @@ public class CompanyUpdateTest extends CompanyControllerTest {
 	private Long companyId = 1L;
 
 	private static final String PUT_COMPANY_RESPONSE = "{\"companyId\":1,\"companyName\":\"Samuel Gnanam IT Center\",\"companyAbbrivation\":\"EFG\",\"companyRegNo\":\"reg-01\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"efg@gmail.com\",\"companyLicenseType\":1,\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-02-02\",\"companyDescription\":\"some desc\"}";
+	@SuppressWarnings("unused")
 	private static final String PUT_COMPANY_RESPONSE1 = "{\"companyId\":2,\"companyName\":\"ABCD\",\"companyAbbrivation\":\"ABC\",\"companyRegNo\":\"reg-02\",\"companyAdminName\":\"Admin\",\"companyAdminEmail\":\"abc@gmail.com\",\"companyLicenseType\":1,\"companyLicensePeriod\":1,\"licenseStartDate\":\"2019-06-29\",\"licenseEndDate\":\"2019-02-02\",\"companyDescription\":\"some desc\"}";
 
 //	void setup() {

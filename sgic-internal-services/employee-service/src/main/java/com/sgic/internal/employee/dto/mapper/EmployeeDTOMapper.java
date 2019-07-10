@@ -22,7 +22,6 @@ public class EmployeeDTOMapper {
 	@Autowired
 	private EmployeeConverter employeeConverter;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 	
 

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.internal.product.controller.dto.CompanyData;
 import com.sgic.internal.product.controller.dto.mapper.CompanyMapper;
 import com.sgic.internal.product.entities.CompanyLicenseType;
 import com.sgic.internal.product.services.CompanyLicenseTypeService;

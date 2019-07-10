@@ -19,7 +19,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	@Override
