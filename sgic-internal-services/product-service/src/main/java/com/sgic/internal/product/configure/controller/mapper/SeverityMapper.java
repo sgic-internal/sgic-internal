@@ -40,7 +40,7 @@ public class SeverityMapper {
 	@SuppressWarnings("static-access")
 	public DefectSeverity updateDefectSeverity(SeverityDto severityDto) {
 		logger.info("Severity Mapper -> Severity Updated ");
-		return severityService.updateDefectSeverity(severityConverter.DtoToEntity(severityDto));
+		return severityService.updateDefectSeverity(severityConverter.DtoToEntityUpdate(severityDto));
 	}
 
 	// Delete Severity

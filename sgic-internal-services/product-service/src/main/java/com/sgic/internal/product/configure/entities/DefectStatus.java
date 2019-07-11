@@ -20,7 +20,6 @@ public class DefectStatus implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; // Defect Status Id
-	@Column(unique = true)
 	@NotEmpty
 	private String name; // Defect Status name
 	@NotEmpty

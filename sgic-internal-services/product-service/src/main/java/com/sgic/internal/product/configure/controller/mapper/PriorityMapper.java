@@ -40,7 +40,7 @@ public class PriorityMapper {
 	@SuppressWarnings("static-access")
 	public DefectPriority updateDefectPriority(PriorityDto priorityDto) {
 		logger.info("Priority Mapper -> Priority Updated ");
-		return priorityService.updateDefectPriority(priorityConverter.DtoToEntity(priorityDto));
+		return priorityService.updateDefectPriority(priorityConverter.DtoToEntityUpdate(priorityDto));
 	}
 
 	// Delete Priority

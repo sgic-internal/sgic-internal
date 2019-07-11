@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class DefectPriority implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id; // Defect priority id
+	private Long id; // Defect priority id
 
 	@Column(nullable = false)
 	private String name; // Defect priority name
@@ -29,11 +29,12 @@ public class DefectPriority implements Serializable {
 	@Column(nullable = false)
 	private String color; // Defect priority color
 
-	public long getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

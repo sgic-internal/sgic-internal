@@ -34,22 +34,38 @@ public class PriorityConverter {
 	}
 
 	// Convert Data To Entity
-		public static DefectPriority DtoToEntity(PriorityDto priorityDto) {
-			DefectPriority defectPriority = new DefectPriority();
-			if (priorityDto != null) {
-				logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
-				defectPriority.setId(priorityDto.getPriorityId());
-				defectPriority.setName(priorityDto.getPriorityName());
-				defectPriority.setValue(priorityDto.getPriorityValue());
-				defectPriority.setIcon(priorityDto.getPriorityIcon());
-				defectPriority.setColor(priorityDto.getPriorityColor());
-				
-				return defectPriority;
+			public static DefectPriority DtoToEntityUpdate(PriorityDto priorityDto) {
+				DefectPriority defectPriority = new DefectPriority();
+				if (priorityDto != null) {
+					logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
+					defectPriority.setId(priorityDto.getPriorityId());
+					defectPriority.setName(priorityDto.getPriorityName());
+					defectPriority.setValue(priorityDto.getPriorityValue());
+					defectPriority.setIcon(priorityDto.getPriorityIcon());
+					defectPriority.setColor(priorityDto.getPriorityColor());
+					
+					return defectPriority;
+				}
+				return null;
 			}
-			return null;
-		}
 
-		// Convert Entity To Data
+			// Convert Data To Entity
+			public static DefectPriority DtoToEntity(PriorityDto priorityDto) {
+				DefectPriority defectPriority = new DefectPriority();
+				if (priorityDto != null) {
+					logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
+//					defectPriority.setId(priorityDto.getPriorityId());
+					defectPriority.setName(priorityDto.getPriorityName());
+					defectPriority.setValue(priorityDto.getPriorityValue());
+					defectPriority.setIcon(priorityDto.getPriorityIcon());
+					defectPriority.setColor(priorityDto.getPriorityColor());
+					
+					return defectPriority;
+				}
+				return null;
+			}
+
+			// Convert Entity To Data
 		public static PriorityDto EntityToDto(DefectPriority defectPriority) {
 			PriorityDto priorityDto = new PriorityDto();
 			if (defectPriority != null) {

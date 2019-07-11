@@ -42,7 +42,6 @@ public class SeverityController {
 		return severityMapper.getDefectSeverityById(severityId);
 	}
 	
-
 	// Save All Severity
 	@PostMapping("/Severity")
 	public ResponseEntity<String> saveSeverity(@Valid @RequestBody SeverityDto severityDto) {
@@ -66,7 +65,7 @@ public class SeverityController {
 	}
 
 	// Delete Severity
-	@DeleteMapping("/Priority/{severityId}")
+	@DeleteMapping("/Severity/{severityId}")
 	public ResponseEntity<String> deleteSeverity(@PathVariable(name = "severityId") Long severityId) {
 		System.out.print(severityId);
 		if (severityMapper.getDefectSeverityById(severityId) != null) {

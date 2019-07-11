@@ -34,22 +34,37 @@ public class SeverityConverter {
 	}
 
 	// Convert Data To Entity
-		public static DefectSeverity DtoToEntity(SeverityDto severityDto) {
-			DefectSeverity defectSeverity = new DefectSeverity();
-			if (severityDto != null) {
-				logger.info("Defect Severity Converter -> Convert Object DTO to Entity");
-				defectSeverity.setId(severityDto.getSeverityId());
-				defectSeverity.setName(severityDto.getSeverityName());
-				defectSeverity.setValue(severityDto.getSeverityValue());
-				defectSeverity.setIcon(severityDto.getSeverityIcon());
-				defectSeverity.setColor(severityDto.getSeverityColor());
-				
-				return defectSeverity;
+			public static DefectSeverity DtoToEntity(SeverityDto severityDto) {
+				DefectSeverity defectSeverity = new DefectSeverity();
+				if (severityDto != null) {
+					logger.info("Defect Severity Converter -> Convert Object DTO to Entity");
+					defectSeverity.setName(severityDto.getSeverityName());
+					defectSeverity.setValue(severityDto.getSeverityValue());
+					defectSeverity.setIcon(severityDto.getSeverityIcon());
+					defectSeverity.setColor(severityDto.getSeverityColor());
+					
+					return defectSeverity;
+				}
+				return null;
 			}
-			return null;
-		}
 
-		// Convert Entity To Data
+			// Convert Data To Entity
+			public static DefectSeverity DtoToEntityUpdate(SeverityDto severityDto) {
+				DefectSeverity defectSeverity = new DefectSeverity();
+				if (severityDto != null) {
+					logger.info("Defect Severity Converter -> Convert Object DTO to Entity");
+					defectSeverity.setId(severityDto.getSeverityId());
+					defectSeverity.setName(severityDto.getSeverityName());
+					defectSeverity.setValue(severityDto.getSeverityValue());
+					defectSeverity.setIcon(severityDto.getSeverityIcon());
+					defectSeverity.setColor(severityDto.getSeverityColor());
+					
+					return defectSeverity;
+				}
+				return null;
+			}
+
+			// Convert Entity To Data
 		public static SeverityDto EntityToDto(DefectSeverity defectSeverity) {
 			SeverityDto severityDto = new SeverityDto();
 			if (defectSeverity != null) {

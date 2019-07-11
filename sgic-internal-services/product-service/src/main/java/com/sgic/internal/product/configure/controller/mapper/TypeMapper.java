@@ -41,7 +41,7 @@ public class TypeMapper {
 	@SuppressWarnings("static-access")
 	public DefectType updateDefectType(TypeDto typeDto) {
 		logger.info("Priority Mapper -> Priority Updated ");
-		return typeService.updateDefectType(typeConverter.DtoToEntity(typeDto));
+		return typeService.updateDefectType(typeConverter.DtoToEntityUpdate(typeDto));
 	}
 
 	// Delete Status

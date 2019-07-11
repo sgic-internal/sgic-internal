@@ -33,19 +33,31 @@ public class StatusConverter {
 	}
 
 	// Convert Data To Entity
-		public static DefectStatus DtoToEntity(StatusDto statusDto) {
-			DefectStatus defectStatus = new DefectStatus();
-			if (statusDto != null) {
-				logger.info("Defect Status Converter -> Convert Object DTO to Entity");
-				defectStatus.setId(statusDto.getStatusId());
-				defectStatus.setName(statusDto.getStatusName());
-				defectStatus.setValue(statusDto.getStatusName());
-				return defectStatus;
+			public static DefectStatus DtoToEntity(StatusDto statusDto) {
+				DefectStatus defectStatus = new DefectStatus();
+				if (statusDto != null) {
+					logger.info("Defect Status Converter -> Convert Object DTO to Entity");
+					defectStatus.setName(statusDto.getStatusName());
+					defectStatus.setValue(statusDto.getStatusValue());
+					return defectStatus;
+				}
+				return null;
 			}
-			return null;
-		}
 
-		// Convert Entity To Data
+			// Convert Data To Entity
+			public static DefectStatus DtoToEntityUpdate(StatusDto statusDto) {
+				DefectStatus defectStatus = new DefectStatus();
+				if (statusDto != null) {
+					logger.info("Defect Status Converter -> Convert Object DTO to Entity");
+					defectStatus.setId(statusDto.getStatusId());
+					defectStatus.setName(statusDto.getStatusName());
+					defectStatus.setValue(statusDto.getStatusValue());
+					return defectStatus;
+				}
+				return null;
+			}
+
+			// Convert Entity To Data
 		public static StatusDto EntityToDto(DefectStatus defectStatus) {
 			StatusDto statusDto = new StatusDto();
 			if (defectStatus != null) {

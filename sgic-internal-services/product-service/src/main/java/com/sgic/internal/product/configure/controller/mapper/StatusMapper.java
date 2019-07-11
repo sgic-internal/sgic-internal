@@ -41,7 +41,7 @@ public class StatusMapper {
 	@SuppressWarnings("static-access")
 	public DefectStatus updateDefectStatus(StatusDto statusDto) {
 		logger.info("Status Mapper -> Status Updated ");
-		return statusService.updateDefectStatus(statusConverter.DtoToEntity(statusDto));
+		return statusService.updateDefectStatus(statusConverter.DtoToEntityUpdate(statusDto));
 	}
 
 	// Delete Status
