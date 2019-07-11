@@ -1,5 +1,6 @@
 package com.sgic.internal.employee.services.impl;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -7,9 +8,13 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.sgic.internal.employee.entities.Employee;
+import com.sgic.internal.employee.repositories.EmpRepository;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
+import com.sgic.internal.employee.util.ExcelUtils;
 
 
 @Service
@@ -18,6 +23,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
+	@Autowired
+	EmpRepository empRepository;
 
 	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
@@ -92,6 +99,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// TODO Auto-generated method stub
 		return employeeRepository.count();
 	}
-		
+
+	@Override
+	public void store(MultipartFile file){
+		try {
+			List<Employee> lstCustomers = ExcelUtils.parseExcelFile(file.getInputStream());
+    		// Save Customers to DataBase
+			empRepository.saveAll(lstCustomers);
+        } catch (IOException e) {
+        	throw new RuntimeException("FAIL! -> message = " + e.getMessage());
+        }
+	}
 
 }
