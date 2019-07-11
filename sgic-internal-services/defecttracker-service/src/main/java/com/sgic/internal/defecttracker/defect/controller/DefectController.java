@@ -89,15 +89,15 @@ public class DefectController {
 	}
 
 
-//	@PostMapping("/saveDefect")
-//	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
-//		if (defectDataMapper.createDefect(defectData) != null) {
-//			logger.info("Defect Controller -> Defects Created Successful");
-//			return new ResponseEntity<>("Defect added succesfully", HttpStatus.OK);
-//		}
-//		logger.info("Defect Controller -> Defects creation FAILED!!!");
-//		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
-//	}
+	@PostMapping("/saveDefect")
+	public ResponseEntity<String> saveDefect(@Valid @RequestBody DefectData defectData) {
+		if (defectDataMapper.createDefect(defectData) != null) {
+			logger.info("Defect Controller -> Defects Created Successful");
+			return new ResponseEntity<>("Defect added succesfully", HttpStatus.OK);
+		}
+		logger.info("Defect Controller -> Defects creation FAILED!!!");
+		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
+	}
 
 	@PutMapping("/updateDefect")
 	public ResponseEntity<String> updateDefect(@RequestBody DefectData defectData) {
