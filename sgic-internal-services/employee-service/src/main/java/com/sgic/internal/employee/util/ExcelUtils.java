@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.sgic.internal.employee.dto.EmployeeDTO;
 import com.sgic.internal.employee.entities.Designation;
 import com.sgic.internal.employee.entities.Employee;
-import com.sgic.internal.employee.repositories.EmpRepository;
+
 
 
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sgic.internal.employee.entities.Employee;
-import com.sgic.internal.employee.repositories.EmpRepository;
+
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
 import com.sgic.internal.employee.util.ExcelUtils;
@@ -23,8 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
-	@Autowired
-	EmpRepository empRepository;
+
 
 	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
@@ -105,7 +104,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		try {
 			List<Employee> lstCustomers = ExcelUtils.parseExcelFile(file.getInputStream());
     		// Save Customers to DataBase
-			empRepository.saveAll(lstCustomers);
+			employeeRepository.saveAll(lstCustomers);
         } catch (IOException e) {
         	throw new RuntimeException("FAIL! -> message = " + e.getMessage());
         }
