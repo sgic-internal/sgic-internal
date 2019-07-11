@@ -15,19 +15,17 @@ public class PriorityConverter {
 	private static Logger logger = LogManager.getLogger(DefectPriority.class);
 
 	// Convert All List<Entity> to List<DTO>
-	public static List<PriorityDto> CompanyEntityTOCompanyDataList(List<DefectPriority> defectPriorityList) {
+	public static List<PriorityDto> EntityListTODtoList(List<DefectPriority> defectPriorityList) {
 		if (defectPriorityList != null) {
-			logger.info("Defect Status Converter -> Convert Lists Entity to DTO");
+			logger.info("Defect Priority Converter -> Convert Lists Entity to DTO");
 			List<PriorityDto> listPriorityDto = new ArrayList<>();
 			for (DefectPriority defectPriority : defectPriorityList) {
 				PriorityDto priorityDto = new PriorityDto();
-				
 				priorityDto.setPriorityId(defectPriority.getId());
 				priorityDto.setPriorityName(defectPriority.getName());
 				priorityDto.setPriorityValue(defectPriority.getValue());
 				priorityDto.setPriorityIcon(defectPriority.getIcon());
 				priorityDto.setPriorityColor(defectPriority.getColor());
-				
 				listPriorityDto.add(priorityDto);
 			}
 			return listPriorityDto;
@@ -36,11 +34,10 @@ public class PriorityConverter {
 	}
 
 	// Convert Data To Entity
-		public static DefectPriority companyDataToCompanyEntity(PriorityDto priorityDto) {
+		public static DefectPriority DtoToEntity(PriorityDto priorityDto) {
 			DefectPriority defectPriority = new DefectPriority();
 			if (priorityDto != null) {
 				logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
-				
 				defectPriority.setId(priorityDto.getPriorityId());
 				defectPriority.setName(priorityDto.getPriorityName());
 				defectPriority.setValue(priorityDto.getPriorityValue());
@@ -53,7 +50,7 @@ public class PriorityConverter {
 		}
 
 		// Convert Entity To Data
-		public static PriorityDto CompanyEntityToCompanyData(DefectPriority defectPriority) {
+		public static PriorityDto EntityToDto(DefectPriority defectPriority) {
 			PriorityDto priorityDto = new PriorityDto();
 			if (defectPriority != null) {
 				logger.info("Defect Priority Converter -> Convert Object Entity to DTO");
@@ -62,7 +59,6 @@ public class PriorityConverter {
 				priorityDto.setPriorityValue(defectPriority.getValue());
 				priorityDto.setPriorityIcon(defectPriority.getIcon());
 				priorityDto.setPriorityColor(defectPriority.getColor());
-				
 				return priorityDto;
 			}
 			return null;
