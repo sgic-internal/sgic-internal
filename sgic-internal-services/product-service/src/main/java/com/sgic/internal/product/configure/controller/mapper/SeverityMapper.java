@@ -12,8 +12,6 @@ import com.sgic.internal.product.configure.controller.dto.converter.SeverityConv
 import com.sgic.internal.product.configure.entities.DefectSeverity;
 import com.sgic.internal.product.configure.services.SeverityService;
 
-
-
 @Service
 public class SeverityMapper {
 	@Autowired
@@ -26,36 +24,36 @@ public class SeverityMapper {
 	// Get All Priority
 	@SuppressWarnings("static-access")
 	public List<SeverityDto> getAllSeverity() {
-		logger.info("Priority Mapper -> All Priority Data Retrieved");
+		logger.info("Severity Mapper -> All Severity Data Retrieved");
 		List<DefectSeverity> defectSeverityList = severityService.getAllDefectSeverity();
 		return severityConverter.EntityListTODtoList(defectSeverityList);
 	}
 
 	// Save Severity
 	@SuppressWarnings("static-access")
-	public DefectSeverity saveDefectPriority(SeverityDto severityDto) {
-		logger.info("Priority Mapper -> Priority Saved");
+	public DefectSeverity saveDefectSeverity(SeverityDto severityDto) {
+		logger.info("Severity Mapper -> Severity Saved");
 		return severityService.createDefectSeverity(severityConverter.DtoToEntity(severityDto));
 	}
 
 	// Update Severity
 	@SuppressWarnings("static-access")
-	public DefectSeverity updateDefectPriority(SeverityDto severityDto) {
-		logger.info("Priority Mapper -> Priority Updated ");
+	public DefectSeverity updateDefectSeverity(SeverityDto severityDto) {
+		logger.info("Severity Mapper -> Severity Updated ");
 		return severityService.updateDefectSeverity(severityConverter.DtoToEntity(severityDto));
 	}
 
 	// Delete Severity
-	public SeverityDto deleteDefectPriorityById(Long severityId) {
-		logger.info("Priority Mapper -> Priority Deleted");
+	public SeverityDto deleteDefectSeverityById(Long severityId) {
+		logger.info("Severity Mapper -> Severity Deleted");
 		severityService.deleteDefectSeverityById(severityId);
 		return null;
 	}
 
 	// Get Severity By Id
 	@SuppressWarnings("static-access")
-	public SeverityDto getDefectPriorityById(Long severityId) {
-		logger.info("Priority Mapper -> Priority Id Found");
+	public SeverityDto getDefectSeverityById(Long severityId) {
+		logger.info("Severity Mapper -> Severity Id Found");
 		DefectSeverity defectSeverity = severityService.getDefectSeverityById(severityId);
 		return severityConverter.EntityToDto(defectSeverity);
 	}

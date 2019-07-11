@@ -9,72 +9,76 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.internal.product.configure.controller.dto.PriorityDto;
-import com.sgic.internal.product.configure.controller.mapper.PriorityMapper;
+import com.sgic.internal.product.configure.controller.dto.SeverityDto;
+import com.sgic.internal.product.configure.controller.mapper.SeverityMapper;
 
+@CrossOrigin(origins = "*",allowedHeaders = "*")
+@RestController
 public class SeverityController {
 	@Autowired
-	private PriorityMapper priorityMapper;
-	private static Logger logger = LogManager.getLogger(PriorityMapper.class);
+	private SeverityMapper severityMapper;
+	private static Logger logger = LogManager.getLogger(SeverityMapper.class);
 
-	// Get All Priority
-	@GetMapping("/Prioritys")
-	public List<PriorityDto> getAllCompany() {
+	// Get All Severity
+	@GetMapping("/Severitys")
+	public List<SeverityDto> getAllSeverity() {
 		logger.info("Controller -> Data Retrieved Successfull");
-		return priorityMapper.getAllPriority();
+		return severityMapper.getAllSeverity();
 	}
 
-	 //Get Priority By Id
-	@GetMapping("/Priority/{priorityId}")
-	public PriorityDto getCompanyById(@PathVariable(name = "priorityId") Long priorityId) {
+	 //Get Severity By Id
+	@GetMapping("/Severity/{severityId}")
+	public SeverityDto getSeverityById(@PathVariable(name = "severityId") Long severityId) {
 		logger.info("Controller -> Data Retrieved Successfull");
-		return priorityMapper.getDefectPriorityById(priorityId);
+		return severityMapper.getDefectSeverityById(severityId);
 	}
 	
 
-	// Save All Priority
-	@PostMapping("/Priority")
-	public ResponseEntity<String> saveCompany(@Valid @RequestBody PriorityDto priorityDto) {
-		if (priorityMapper.saveDefectPriority(priorityDto) != null) {
-			logger.info("Priority Controller -> Priority Created Successful");
-			return new ResponseEntity<>("Priority added succesfully", HttpStatus.OK);
+	// Save All Severity
+	@PostMapping("/Severity")
+	public ResponseEntity<String> saveSeverity(@Valid @RequestBody SeverityDto severityDto) {
+		if (severityMapper.saveDefectSeverity(severityDto) != null) {
+			logger.info("Severity Controller -> Severity Created Successful");
+			return new ResponseEntity<>("Severity added succesfully", HttpStatus.OK);
 		}
-		logger.info("Priority Controller -> Priority creation FAILED!!!");
+		logger.info("Severity Controller -> Severity creation FAILED!!!");
 		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 	}
 
-	// Update Priority
-	@PutMapping("/Priority")
-	public ResponseEntity<String> updateCompany(@RequestBody PriorityDto priorityDto) {
-		logger.info("Priority Controller -> Priority Updated Successful");
-		if (priorityMapper.updateDefectPriority(priorityDto) != null) {
+	// Update Severity
+	@PutMapping("/Severity")
+	public ResponseEntity<String> updateSeverity(@RequestBody SeverityDto severityDto) {
+		logger.info("Severity Controller -> Severity Updated Successful");
+		if (severityMapper.updateDefectSeverity(severityDto) != null) {
 			return new ResponseEntity<>("Sucessfully Updateed Company", HttpStatus.OK);
 		}
-		logger.info("Priority Controller -> Priority Updated Failed!!!");
+		logger.info("Severity Controller -> Severity Updated Failed!!!");
 		return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 
-	// Delete Company
-	@DeleteMapping("/Priority/{priorityId}")
-	public ResponseEntity<String> deleteCompany(@PathVariable(name = "priorityId") Long priorityId) {
-		System.out.print(priorityId);
-		if (priorityMapper.getDefectPriorityById(priorityId) != null) {
-			if (priorityMapper.deleteDefectPriorityById(priorityId) == null) {
-				logger.info("Priority Controller -> Priority Deleted Successful");
-				return new ResponseEntity<>("Priority Sucessfully deleted", HttpStatus.OK);
+	// Delete Severity
+	@DeleteMapping("/Priority/{severityId}")
+	public ResponseEntity<String> deleteSeverity(@PathVariable(name = "severityId") Long severityId) {
+		System.out.print(severityId);
+		if (severityMapper.getDefectSeverityById(severityId) != null) {
+			if (severityMapper.deleteDefectSeverityById(severityId) == null) {
+				logger.info("Severity Controller -> Severity Deleted Successful");
+				return new ResponseEntity<>("Severity Sucessfully deleted", HttpStatus.OK);
 			}
 		} else {
-			logger.info("Priority Controller -> Priority Id Not Found");
-			return new ResponseEntity<>("Company Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
+			logger.info("Severity Controller -> Severity Id Not Found");
+			return new ResponseEntity<>("Severity Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
 		}
-		logger.info("Priority Controller -> Priority Deleted Failed!!!");
+		logger.info("Severity Controller -> Severity Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 }

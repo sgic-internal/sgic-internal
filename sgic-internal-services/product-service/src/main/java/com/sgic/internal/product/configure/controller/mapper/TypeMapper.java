@@ -32,20 +32,20 @@ public class TypeMapper {
 
 	// Save Status
 	@SuppressWarnings("static-access")
-	public DefectType saveDefectStatus(TypeDto typeDto) {
+	public DefectType saveDefectType(TypeDto typeDto) {
 		logger.info("Priority Mapper -> Priority Saved");
 		return typeService.createDefectType(typeConverter.DtoToEntity(typeDto));
 	}
 
 	// Update Status
 	@SuppressWarnings("static-access")
-	public DefectType updateDefectStatus(TypeDto typeDto) {
+	public DefectType updateDefectType(TypeDto typeDto) {
 		logger.info("Priority Mapper -> Priority Updated ");
 		return typeService.updateDefectType(typeConverter.DtoToEntity(typeDto));
 	}
 
 	// Delete Status
-	public TypeDto deleteDefectStatusById(Long typeId) {
+	public TypeDto deleteDefectTypeById(Long typeId) {
 		logger.info("Priority Mapper -> Priority Deleted");
 		typeService.deleteDefectTypeById(typeId);
 		return null;
@@ -53,7 +53,7 @@ public class TypeMapper {
 
 	// Get Status By Id
 	@SuppressWarnings("static-access")
-	public TypeDto getDefectStatusById(Long typeId) {
+	public TypeDto getDefectTypeById(Long typeId) {
 		logger.info("Priority Mapper -> Priority Id Found");
 		DefectType defectType = typeService.getDefectTypeById(typeId);
 		return typeConverter.EntityToDto(defectType);

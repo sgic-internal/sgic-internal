@@ -30,14 +30,14 @@ public class PriorityController {
 
 	// Get All Priority
 	@GetMapping("/Prioritys")
-	public List<PriorityDto> getAllCompany() {
+	public List<PriorityDto> getAllPriority() {
 		logger.info("Controller -> Data Retrieved Successfull");
 		return priorityMapper.getAllPriority();
 	}
 
 	 //Get Priority By Id
 	@GetMapping("/Priority/{priorityId}")
-	public PriorityDto getCompanyById(@PathVariable(name = "priorityId") Long priorityId) {
+	public PriorityDto getPriorityById(@PathVariable(name = "priorityId") Long priorityId) {
 		logger.info("Controller -> Data Retrieved Successfull");
 		return priorityMapper.getDefectPriorityById(priorityId);
 	}
@@ -45,7 +45,7 @@ public class PriorityController {
 
 	// Save All Priority
 	@PostMapping("/Priority")
-	public ResponseEntity<String> saveCompany(@Valid @RequestBody PriorityDto priorityDto) {
+	public ResponseEntity<String> savePriority(@Valid @RequestBody PriorityDto priorityDto) {
 		if (priorityMapper.saveDefectPriority(priorityDto) != null) {
 			logger.info("Priority Controller -> Priority Created Successful");
 			return new ResponseEntity<>("Priority added succesfully", HttpStatus.OK);
@@ -56,7 +56,7 @@ public class PriorityController {
 
 	// Update Priority
 	@PutMapping("/Priority")
-	public ResponseEntity<String> updateCompany(@RequestBody PriorityDto priorityDto) {
+	public ResponseEntity<String> updatePriority(@RequestBody PriorityDto priorityDto) {
 		logger.info("Priority Controller -> Priority Updated Successful");
 		if (priorityMapper.updateDefectPriority(priorityDto) != null) {
 			return new ResponseEntity<>("Sucessfully Updateed Company", HttpStatus.OK);
@@ -67,7 +67,7 @@ public class PriorityController {
 
 	// Delete Company
 	@DeleteMapping("/Priority/{priorityId}")
-	public ResponseEntity<String> deleteCompany(@PathVariable(name = "priorityId") Long priorityId) {
+	public ResponseEntity<String> deletePriority(@PathVariable(name = "priorityId") Long priorityId) {
 		System.out.print(priorityId);
 		if (priorityMapper.getDefectPriorityById(priorityId) != null) {
 			if (priorityMapper.deleteDefectPriorityById(priorityId) == null) {
