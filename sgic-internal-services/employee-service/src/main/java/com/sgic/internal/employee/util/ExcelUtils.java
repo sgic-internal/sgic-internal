@@ -111,11 +111,15 @@ public class ExcelUtils {
 						cust.setEmployeeid(cell.getStringCellValue());
 					} else if (cellIndex == 1) { // Name
 						System.out.print(cell + "\t");
+						cust.setFirstname(cell.getStringCellValue());
+					}else if (cellIndex == 2) { // Name
+						System.out.print(cell + "\t");
 						cust.setName(cell.getStringCellValue());
-					} else if (cellIndex == 2) { // Address
+					}  
+					else if (cellIndex == 3) { // Address
 						System.out.print(cell + "\t");
 						cust.setEmail(cell.getStringCellValue());
-					}else if (cellIndex == 3) { // Address
+					}else if (cellIndex == 4) { // Address
 						System.out.print(cell + "\t");
 						desi.setDesignationid( (long) cell.getNumericCellValue());
 						// employeeDto.setDesignationid(employee.getDesignation().getDesignationid());
