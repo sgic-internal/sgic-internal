@@ -18,82 +18,94 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
-<<<<<<< HEAD
-import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
-=======
-import com.sgic.internal.defecttracker.project.controller.dtomapper.SubModuleDtoMapper;
->>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
-import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
 
+import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.SubModule;
+import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
+import com.sgic.internal.defecttracker.project.services.ModuleService;
 
 @RestController
 public class SubModuleController {
-	
+
 	private static Logger logger = LogManager.getLogger(SubModuleRepository.class);
-	
+
 	@Autowired
-<<<<<<< HEAD
-	public SubModuleDataMapper subModuleDtoMapper;
-=======
-	public SubModuleDtoMapper subModuleDtoMapper;
->>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
-	
-	@PostMapping(value="/createsubmodule")
-	public ResponseEntity<Object>createSubModule(@RequestBody SubModuleData subModuleData) {
-	subModuleDtoMapper.saveSubModuleforMapper(subModuleData);
-	return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK),HttpStatus.OK);
+	public ModuleDataMapper moduleDataMapper;
+
+	@Autowired
+	public ModuleService moduleService;
+
+	@Autowired
+	public SubModuleRepository subModuleRepository;
+
+	@Autowired
+	public SubModuleDataMapper subModuleDataMapper;
+
+	@PostMapping(value = "/createsubmodule")
+	public ResponseEntity<Object> createSubModule(@RequestBody SubModuleData subModuleData) {
+		subModuleDataMapper.saveSubModuleforMapper(subModuleData);
+		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 	}
-	
+
 	// Post Mapping For Create a Module
-		@GetMapping(value = "/GetAllsubmodule")
-		public ResponseEntity<List<SubModuleData>> listSubModuleInfo() {
-//		logger.info("Module are listed ");
-			return new ResponseEntity<>(subModuleDtoMapper.getAllSubModuleForMapper(), HttpStatus.OK);
-			
-		}
-	// Get Mapping For Get Sub Module By Id
-<<<<<<< HEAD
-//	@GetMapping("/getSubModuleById/{Id}")
-//	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String Id) {
-//		logger.info("Sub Moduleare get by Id ");
-//	//return new ResponseEntity<>(subModuleDtoMapper.getBySubModuleId(Id), HttpStatus.OK);
-//	}
-=======
-	@GetMapping("/getSubModuleById/{Id}")
-	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String Id) {
-		logger.info("Sub Moduleare get by Id ");
-	return new ResponseEntity<>(subModuleDtoMapper.getBySubModuleId(Id), HttpStatus.OK);
+	@GetMapping(value = "/GetAllsubmodule")
+	public ResponseEntity<List<SubModuleData>> listSubModuleInfo() {
+		logger.info("Module are listed ");
+		return new ResponseEntity<>(subModuleDataMapper.getAllSubModuleForMapper(), HttpStatus.OK);
+
 	}
->>>>>>> f1bb3f266238a45ba97d2ec2eb6348085a0c1f87
+
+	// Get Mapping For Get Sub Module By Id
+	@GetMapping("/getSubModuleById/{subModuleId}")
+	public ResponseEntity<SubModuleData> getSubModuleById(@PathVariable String subModuleId) {
+		logger.info("Sub Moduleare get by Id ");
+		return new ResponseEntity<>(subModuleDataMapper.getBySubModuleId(subModuleId), HttpStatus.OK);
+	}
 
 	// Delete Mapping For SubModule
 	@DeleteMapping("deleteById/{submoduleId}")
 	public ResponseEntity<SubModuleData> deleteById(@PathVariable String Id) {
 		logger.info("SubModule are delete by Id ");
-	return new ResponseEntity<>(subModuleDtoMapper.deleteById(Id), HttpStatus.OK);
+		return new ResponseEntity<>(subModuleDataMapper.deleteById(Id), HttpStatus.OK);
 	}
 
 	// Put Mapping For SubModule
 	@PutMapping("/updateSubModule/{submoduleId}")
 	public ResponseEntity<String> updateSubModule(@PathVariable(name = "submoduleId") String submoduleId,
-	@RequestBody SubModuleData submoduleDto) {
+			@RequestBody SubModuleData submoduleDto) {
 		logger.info("SubModulecontroller -> updatedmodule");
-	if (subModuleDtoMapper.UpdateSubModule(submoduleId, submoduleDto) != null)
-	;
-	{
-	return new ResponseEntity<>("ok", HttpStatus.OK);
-	}
+		if (subModuleDataMapper.UpdateSubModule(submoduleId, submoduleDto) != null)
+			;
+		{
+			return new ResponseEntity<>("ok", HttpStatus.OK);
+		}
 	}
 
-
-//		// Get Mapping For SubmoduleS Name
+//		// Get Mapping For Submodule Name
 	@GetMapping("/getSubModuleName/{submoduleName}")
 	public List<SubModuleData> getByprojectName(@PathVariable String submoduleName) {
 		logger.info("SubModule are get by name ");
-	return subModuleDtoMapper.getBysubModuleNameForMapper(submoduleName);
+		return subModuleDataMapper.getBysubModuleNameForMapper(submoduleName);
 	}
 	
+	//Abbrivation for module
+		@PutMapping("/submodule/module/{moduleId}")
+		public SubModule createNewSubModule(@PathVariable(name = "moduleId") String moduleId,
+				@RequestBody SubModuleData subModuleData) {
+			Module module = moduleService.getByModuleId(moduleId);
+			List<SubModule> submodules=subModuleRepository.findSubModuleByModule(module);
+			int a=submodules.size();
+			String submoduleSerial=module.getModuleId() +"-"+subModuleData.getSubModuleId()+"-"+ a;
+			
+			SubModule submodule=new SubModule();
+			submodule.setSubModuleId(submoduleSerial);
+			submodule.setAbbre(subModuleData.getAbbre());
+			submodule.setSubModuleName(subModuleData.getSubModuleName());
+			submodule.setModule(module);
+			
+			return subModuleRepository.save(submodule);
+		
+		}
 }
-
-	
-	

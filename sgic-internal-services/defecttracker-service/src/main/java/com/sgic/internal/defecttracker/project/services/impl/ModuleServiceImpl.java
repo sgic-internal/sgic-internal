@@ -56,5 +56,18 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleRepository.existsById(moduleId);
 	}
 
+	@Override
+	public List<Module> getByprojectId(String projectid) {
+		return moduleRepository.getByProjectId(projectid);
+	}
 
+	@Override
+	public List<Object> getSubmodule(String subModuleId) {
+		return moduleRepository.getSubmodule(subModuleId);
+	}
+
+//	@Override
+//	public List<Module> getBySubModuleId(String subModuleId) {
+//		return moduleRepository.getBySubModuleId(subModuleId);
+//	}
 }

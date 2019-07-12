@@ -16,8 +16,6 @@ public interface ProjectService {
     public Project updateProject(String projectid, Project project); // Update projectid
 
 	public Project getByprojectId(String projectid);
-	
-//	public Project getByabbr(String abbr);
 
 	public List<Project> getByprojectName(String name);
 
@@ -32,4 +30,9 @@ public interface ProjectService {
 
 
 
+//	public Project createProject(Project project);
+//
+////	public boolean isProjectAlreadyExists(String pid);
+//
+//	public List<Project> getallDetails();
 }

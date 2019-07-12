@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Entity
 @Table(schema = "defectservices", name = "project")
 public class Project implements Serializable {
-	
+
 	LocalDate todayDate = LocalDate.now();
 	java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
 	private static final long serialVersionUID = 1L;
@@ -22,16 +22,14 @@ public class Project implements Serializable {
 	@Id
 	private String projectId;
 
-	//private String abbr;
-
 	private String projectName;
 
 	private String type;
 
-	@DateTimeFormat(iso=ISO.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date startDate = currentDay;
 
-	@DateTimeFormat(iso=ISO.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date endDate = currentDay;
 
 	private Long duration;
@@ -39,15 +37,6 @@ public class Project implements Serializable {
 	private String status;
 
 	private String configId;
-
-	
-//	public String getAbbr() {
-//		return abbr;
-//	}
-//
-//	public void setAbbr(String abbr) {
-//		this.abbr = abbr;
-//	}
 
 	public String getProjectId() {
 		return projectId;
@@ -91,7 +80,6 @@ public class Project implements Serializable {
 //		java.sql.Date sqlEndDate = java.sql.Date.valueOf(monthLater);
 		this.endDate = currentDay;
 	}
-
 
 	public Long getDuration() {
 		return duration;

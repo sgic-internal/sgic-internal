@@ -24,7 +24,10 @@ public class ModuleDataMapper {
 		Module module = ModuleConverter.moduleDataToModule(moduleData);
 		return moduleService.createModule(module);
 	}
-
+//	public List<ModuleData> getAllSubmoduleForMapper(String projectid){
+//		List<Module>moduleList =moduleService.getSubmodule(projectid);
+//		return ModuleConverter.moduleToModuleData(moduleList);
+//	}
 	public ModuleData getByModuleId(String moduleId) {
 		Module module = moduleService.getByModuleId(moduleId);
 		return ModuleConverter.moduleToModuleData(module);

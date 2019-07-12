@@ -12,39 +12,42 @@ public class SubModuleConverter {
 	private SubModuleConverter() {
 	}
 
-	public static SubModuleData subModuleTosubModuleDto(SubModule subModule) {
+	public static SubModuleData subModuleToSubModuleData(SubModule subModule) {
 		SubModuleData subModuleData = new SubModuleData();
 
 		if (subModule != null) {
 			
 			subModuleData.setSubModuleId(subModule.getSubModuleId());
 			subModuleData.setSubModuleName(subModule.getSubModuleName());
+			subModuleData.setAbbre(subModule.getAbbre());
 			
 			return subModuleData;
 	}
 		return null;
 	}
-		public static SubModule subModuleDtoToSubModule(SubModuleData subModuleData) {
+		public static SubModule subModuleDataToSubModule(SubModuleData subModuleData) {
 			SubModule subModule = new SubModule();
 			
 			subModule.setSubModuleId(subModuleData.getSubModuleId());;
 			subModule.setSubModuleName(subModuleData.getSubModuleName());
+			subModule.setAbbre(subModuleData.getAbbre());
 			return subModule;
 		}
 		
-		public static List<SubModuleData> subModuleToSubModuleDto(List<SubModule> subModuleList) {
+		public static List<SubModuleData>subModuleToSubModuleData(List<SubModule> subModuleList) {
 
 			if (subModuleList != null) {
-				List<SubModuleData> lSubModuleDto = new ArrayList<>();
+				List<SubModuleData> lSubModuleData = new ArrayList<>();
 				for (SubModule submodule : subModuleList) {
-					SubModuleData submoduleDto = new SubModuleData();
+					SubModuleData submoduleData = new SubModuleData();
 					
-					submoduleDto.setSubModuleId(submodule.getSubModuleId());
-					submoduleDto.setSubModuleName(submodule.getSubModuleName());
-					lSubModuleDto.add(submoduleDto);
+					submoduleData.setSubModuleId(submodule.getSubModuleId());
+					submoduleData.setSubModuleName(submodule.getSubModuleName());
+					submoduleData.setAbbre(submodule.getAbbre());
+					lSubModuleData.add(submoduleData);
 				}
 
-				return lSubModuleDto;
+				return lSubModuleData;
 			}
 			return null;
 

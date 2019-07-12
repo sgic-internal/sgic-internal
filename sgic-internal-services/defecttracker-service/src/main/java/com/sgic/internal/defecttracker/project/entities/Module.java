@@ -1,24 +1,26 @@
 package com.sgic.internal.defecttracker.project.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 
 @Entity
 @Table(schema = "defectservices", name = "module")
 public class Module {
 
 	@Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private String moduleId;
 	private String moduleName;
 	private String abbr;
 
+	
+//getters and setters for module
 	public String getModuleId() {
 		return moduleId;
 	}
@@ -45,7 +47,7 @@ public class Module {
 
 	// create relationship with project
 	@ManyToOne
-	@JoinColumn(name = "projectId", nullable = false)
+	@JoinColumn(name = "projectid", nullable = false)
 
 	private Project project;
 
@@ -56,5 +58,25 @@ public class Module {
 	public void setProject(Project project) {
 		this.project = project;
 	}
+
+	
+	
+//	@ManyToOne
+//	@JoinColumn(name = "subModuleId", nullable = false)
+//
+//	private List<SubModule> submodule;
+//
+//
+//	public List<SubModule> getSubmodule() {
+//		return submodule;
+//	}
+//
+//	public void setSubmodule(List<SubModule> submodule) {
+//		this.submodule = submodule;
+//	}
+
+	
+	
+	
 
 }
