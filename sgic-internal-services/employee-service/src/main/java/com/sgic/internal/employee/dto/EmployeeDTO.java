@@ -6,6 +6,7 @@ public class EmployeeDTO {
 	private Long empId;
 	private String employeeid;
 	private String name;
+	private String firstname;
 	private String email;
 	private Long designationid;
 	private String designationname;
@@ -60,6 +61,12 @@ public class EmployeeDTO {
 	}
 	public void setBench(boolean bench) {
 		this.bench = bench;
+	}
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 	
 	
