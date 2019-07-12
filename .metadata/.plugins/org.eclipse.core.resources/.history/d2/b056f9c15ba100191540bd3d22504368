@@ -1,0 +1,34 @@
+spring.application.name=defecttracker-service
+server.servlet.context-path=/defectservices
+server.port=8081
+spring.datasource.url = jdbc:mysql://localhost:3306/defectservices?useSSL=false
+spring.datasource.username = root
+spring.datasource.password = root
+#server.servlet.context-path=/employeeservice
+#For 1st time data creation set to -> create
+spring.jpa.hibernate.ddl-auto = create
+#spring.jpa.hibernate.ddl-auto =none
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.properties.hibernate.default.schema=defectservices
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+#for the unit test config application.properties
+## MULTIPART (MultipartProperties)
+# Enable multipart uploads
+spring.servlet.multipart.enabled=true
+# Threshold after which files are written to disk.
+spring.servlet.multipart.file-size-threshold=2KB
+# Max file size.
+spring.servlet.multipart.max-file-size=200MB
+# Max Request Size
+spring.servlet.multipart.max-request-size=215MB
+### File Storage Properties
+## All files uploaded through the REST API will be stored in this directory
+files.upload-dir=/Users/Attachment
+
+logging.file=app.log
+logging.pattern.file= "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+logging.pattern.console=%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n

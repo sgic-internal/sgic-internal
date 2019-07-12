@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.Project;
 
-
 public interface ModuleRepository extends JpaRepository<Module, String> {
 
 	Module getByModuleId(String moduleId);

@@ -20,13 +20,10 @@ public class ResourceAllocation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long resourceId;
-//	private String resourceName;
-
-
-//    @Column(table = "Employee")
-//	private Long empId;
+	private Long empId;
 
 	
+
 	
 	@ManyToOne
 	@JoinColumn(name = "projectId", nullable = false)
@@ -56,13 +53,15 @@ public class ResourceAllocation implements Serializable{
 		this.project = project;
 	}
 
-//	public Long getEmpId() {
-//		return empId;
-//	}
-//
-//	public void setEmpId(Long empId) {
-//		this.empId = empId;
-//	}
+	public Long getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(Long empId) {
+		this.empId = empId;
+	}
+
+
 	
     
     
