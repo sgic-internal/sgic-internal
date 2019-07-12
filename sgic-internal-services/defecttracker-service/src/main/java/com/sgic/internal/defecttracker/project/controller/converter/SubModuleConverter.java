@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
+import com.sgic.internal.defecttracker.project.entities.Module;
+import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public class SubModuleConverter {
@@ -19,8 +21,10 @@ public class SubModuleConverter {
 			
 			subModuleData.setSubModuleId(subModule.getSubModuleId());
 			subModuleData.setSubModuleName(subModule.getSubModuleName());
-			subModuleData.setAbbre(subModule.getAbbre());
-			
+//			subModuleData.setAbbre(subModule.getAbbre());
+			//get module  id
+			SubModule subModule1=new SubModule();
+			subModuleData.setModuleId(subModule.getModule().getModuleId());
 			return subModuleData;
 	}
 		return null;
@@ -28,9 +32,18 @@ public class SubModuleConverter {
 		public static SubModule subModuleDataToSubModule(SubModuleData subModuleData) {
 			SubModule subModule = new SubModule();
 			
+			// module constructor
+			Module module = new Module();
+			
 			subModule.setSubModuleId(subModuleData.getSubModuleId());;
 			subModule.setSubModuleName(subModuleData.getSubModuleName());
-			subModule.setAbbre(subModuleData.getAbbre());
+			// get by module id
+			module.setModuleId(subModuleData.getModuleId());
+			subModule.setModule(module);
+//			project.setProjectId(moduleData.getProjectid());
+//			module.setProject(project);
+			
+//			subModule.setAbbre(subModuleData.getAbbre());
 			return subModule;
 		}
 		
@@ -43,7 +56,10 @@ public class SubModuleConverter {
 					
 					submoduleData.setSubModuleId(submodule.getSubModuleId());
 					submoduleData.setSubModuleName(submodule.getSubModuleName());
-					submoduleData.setAbbre(submodule.getAbbre());
+//					submoduleData.setAbbre(submodule.getAbbre());
+					
+					
+					submoduleData.setModuleId(submodule.getModule().getModuleId());
 					lSubModuleData.add(submoduleData);
 				}
 

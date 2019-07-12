@@ -2,7 +2,6 @@ package com.sgic.internal.defecttracker.project.services;
 
 import java.util.List;
 
-import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public interface SubModuleService {
@@ -13,7 +12,7 @@ public interface SubModuleService {
 
 	public List<SubModule> getallDetails();
 
-	public void deleteById(String subModuleId);
+	public void deleteSubModuleById(String subModuleId);
 
 	public SubModule updateSubModule(String subModuleId, SubModule subModule);
 

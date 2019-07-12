@@ -3,12 +3,12 @@ package com.sgic.internal.defecttracker.project.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
 
 @Entity
 @Table(schema = "defectservices", name = "module")
@@ -17,7 +17,7 @@ public class Module {
 	@Id
 	private String moduleId;
 	private String moduleName;
-	private String abbr;
+//	private String abbr;
 
 	
 //getters and setters for module
@@ -37,18 +37,17 @@ public class Module {
 		this.moduleName = moduleName;
 	}
 
-	public String getAbbr() {
-		return abbr;
-	}
-
-	public void setAbbr(String abbr) {
-		this.abbr = abbr;
-	}
+//	public String getAbbr() {
+//		return abbr;
+//	}
+//
+//	public void setAbbr(String abbr) {
+//		this.abbr = abbr;
+//	}
 
 	// create relationship with project
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "projectid", nullable = false)
-
 	private Project project;
 
 	public Project getProject() {

@@ -61,9 +61,9 @@ public class ProjectDtoMapper {
 		return projectService.updateProject(projectid, project);
 	}
 
-	public ProjectDto deleteById(String projectId) {
-		projectService.deleteById(projectId);
-		return null;
+	public void deleteById(String projectId) {
+		
+		 projectService.deleteById(projectId);
 	}
 
 }
