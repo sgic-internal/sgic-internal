@@ -7,9 +7,9 @@ public class ModuleData {
 
 	private String moduleId;
 	private String moduleName;
-	private String abbr;
+//	private String abbr;
 	private String projectid;
-	private String subModuleId;
+//	private String subModuleId;
 
 	
 	
@@ -27,13 +27,13 @@ public class ModuleData {
 	
 
 	// getter setter for submodule id
-	public String getSubModuleId() {
-		return subModuleId;
-	}
-
-	public void setSubModuleId(String subModuleId) {
-		this.subModuleId = subModuleId;
-	}
+//	public String getSubModuleId() {
+//		return subModuleId;
+//	}
+//
+//	public void setSubModuleId(String subModuleId) {
+//		this.subModuleId = subModuleId;
+//	}
 
 	// getters setters for project id
 	public String getProjectid() {
@@ -61,13 +61,13 @@ public class ModuleData {
 
 	}
 
-	public String getAbbr() {
-		return abbr;
-	}
-
-	public void setAbbr(String abbr) {
-		this.abbr = abbr;
-	}
+//	public String getAbbr() {
+//		return abbr;
+//	}
+//
+//	public void setAbbr(String abbr) {
+//		this.abbr = abbr;
+//	}
 
 //	public ModuleData(String moduleId, String moduleName) {
 //		super();

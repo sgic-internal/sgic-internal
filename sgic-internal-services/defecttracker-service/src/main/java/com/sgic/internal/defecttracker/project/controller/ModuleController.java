@@ -74,6 +74,8 @@ public class ModuleController {
 		logger.info("Module are listed ");
 		return new ResponseEntity<>(moduleService.getSubmodule(projectid), HttpStatus.OK);
 	}
+	
+	
 
 	// Get Mapping For Get Module By Id
 	@GetMapping("/GetmoduleById/{moduleId}")
@@ -91,10 +93,11 @@ public class ModuleController {
 
 	// Delete Mapping For Module
 	@DeleteMapping("deleteModuleById/{moduleId}")
-	public ResponseEntity<ModuleData> deleteById(@PathVariable String moduleId) {
+	public void deleteById(@PathVariable String moduleId) {
 		logger.info("Module are delete by id ");
-		return new ResponseEntity<>(moduleDataMapper.deleteById(moduleId), HttpStatus.OK);
+		moduleDataMapper.deleteById(moduleId);
 	}
+
 
 	// Put Mapping For Module
 	@PutMapping("/updateModule/{moduleId}")
@@ -112,15 +115,15 @@ public class ModuleController {
 	//Abbrivation for module
 	@PutMapping("/module/project/{projectId}")
 	public Module createNewModule(@PathVariable(name = "projectId") String projectId,
-			@RequestBody ModuleData moduleData) {
+			@RequestBody ModuleData moduleData) { 
 		Project project = projectService.getByprojectId(projectId);
 		List<Module> modules=moduleRepository.findModuleByProject(project);
 		int a=modules.size();
-		String moduleSerial=project.getProjectId() +"-"+moduleData.getAbbr()+"-"+ a;
+		String moduleSerial=project.getProjectId() +"-"+moduleData.getModuleId()+"-"+ a;
 		
 		Module module=new Module();
 		module.setModuleId(moduleSerial);
-		module.setAbbr(moduleData.getAbbr());
+//		module.setAbbr(moduleData.getAbbr());
 		module.setModuleName(moduleData.getModuleName());
 		module.setProject(project);
 		

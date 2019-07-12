@@ -42,9 +42,10 @@ public class SubModuleDataMapper {
 
 	}
 
-	public SubModuleData deleteById(String subModuleId) {
-		subModuleService.deleteById(subModuleId);
-		return null;
+	public void deleteSubModuleById(String subModuleId) {
+		subModuleService.deleteSubModuleById(subModuleId);
+		
 	}
+	
 
 }

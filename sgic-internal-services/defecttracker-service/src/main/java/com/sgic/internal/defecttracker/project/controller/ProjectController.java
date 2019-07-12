@@ -57,27 +57,17 @@ public class ProjectController {
 		logger.info("Projects are get by id ");
 		return new ResponseEntity<>(projectDtoMapper.getByProjectId(projectId), HttpStatus.OK);
 	}
-	
-	// Author :: by jakki
-	// Get Mapping For Get Project By Id
-//	@GetMapping("/getProjectByabbr/{abbr}")
-//	public ResponseEntity<ProjectDto> getByabbr(@PathVariable String abbr) {
-//		logger.info("Projects are delete by id ");
-//		return new ResponseEntity<>(projectDtoMapper.getByabbr(abbr), HttpStatus.OK);
-//	}
-
-
 
 	// Author :: By thadsha
 	// Delete Mapping For Project
 	@DeleteMapping("deleteById/{projectId}")
-	public ResponseEntity<ProjectDto> deleteById(@PathVariable String projectId) {
+	public void deleteById(@PathVariable String projectId) {
 		logger.info("Projects are delete by id ");
-		return new ResponseEntity<>(projectDtoMapper.deleteById(projectId), HttpStatus.OK);
+		projectDtoMapper.deleteById(projectId);
 	}
 
-//	 Author :: By Arany
-//	 Put Mapping For Project
+	//	 Author :: By Arany
+	//	 Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
 	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") String projectid,
 			@RequestBody ProjectDto projectDto) {
@@ -130,5 +120,4 @@ public class ProjectController {
 		return projectDtoMapper.getBystatusformapper(status);
 	}
 
-	
 }

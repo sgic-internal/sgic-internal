@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 public class SubModuleData {
 
 	private String subModuleId;
-	private String abbre;
 	private String subModuleName;
+	private String moduleId;
 
 	
 	public SubModuleData(String subModuleId, String subModuleName) {
@@ -19,6 +19,16 @@ public class SubModuleData {
 	public SubModuleData() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public String getModuleId() {
+		return moduleId;
+	}
+
+	public void setModuleId(String moduleId) {
+		this.moduleId = moduleId;
+	}
 
 	// Getters and Setters for Sub Module
 	public String getSubModuleId() {
@@ -29,13 +39,6 @@ public class SubModuleData {
 		this.subModuleId = subModuleId;
 	}
 
-	public String getAbbre() {
-		return abbre;
-	}
-
-	public void setAbbre(String abbre) {
-		this.abbre = abbre;
-	}
 
 	public String getSubModuleName() {
 		return subModuleName;
@@ -45,9 +48,5 @@ public class SubModuleData {
 		this.subModuleName = subModuleName;
 	}
 
-//	public Object getSubAbbre() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 }

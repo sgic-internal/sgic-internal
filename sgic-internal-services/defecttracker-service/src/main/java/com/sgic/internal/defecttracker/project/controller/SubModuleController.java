@@ -2,11 +2,14 @@ package com.sgic.internal.defecttracker.project.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +28,7 @@ import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
-
+@CrossOrigin
 @RestController
 public class SubModuleController {
 
@@ -43,8 +46,8 @@ public class SubModuleController {
 	@Autowired
 	public SubModuleDataMapper subModuleDataMapper;
 
-	@PostMapping(value = "/createsubmodule")
-	public ResponseEntity<Object> createSubModule(@RequestBody SubModuleData subModuleData) {
+	@PostMapping(value = "/createSubModule")
+	public ResponseEntity<Object> createSubModule(@Valid @RequestBody SubModuleData subModuleData) {
 		subModuleDataMapper.saveSubModuleforMapper(subModuleData);
 		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 	}
@@ -65,11 +68,12 @@ public class SubModuleController {
 	}
 
 	// Delete Mapping For SubModule
-	@DeleteMapping("deleteById/{submoduleId}")
-	public ResponseEntity<SubModuleData> deleteById(@PathVariable String Id) {
+	@DeleteMapping("deleteSubModuleById/{subModuleId}")
+	public void  deleteSubModuleById(@PathVariable String subModuleId) {
 		logger.info("SubModule are delete by Id ");
-		return new ResponseEntity<>(subModuleDataMapper.deleteById(Id), HttpStatus.OK);
+		  subModuleDataMapper.deleteSubModuleById(subModuleId);
 	}
+
 
 	// Put Mapping For SubModule
 	@PutMapping("/updateSubModule/{submoduleId}")
@@ -101,7 +105,7 @@ public class SubModuleController {
 			
 			SubModule submodule=new SubModule();
 			submodule.setSubModuleId(submoduleSerial);
-			submodule.setAbbre(subModuleData.getAbbre());
+//			submodule.setAbbre(subModuleData.getAbbre());
 			submodule.setSubModuleName(subModuleData.getSubModuleName());
 			submodule.setModule(module);
 			

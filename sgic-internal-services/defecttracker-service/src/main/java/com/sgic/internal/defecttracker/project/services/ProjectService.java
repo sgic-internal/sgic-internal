@@ -27,9 +27,6 @@ public interface ProjectService {
 
 	public List<Project> getBystatus(String status);
 
-
-
-
 //	public Project createProject(Project project);
 //
 ////	public boolean isProjectAlreadyExists(String pid);

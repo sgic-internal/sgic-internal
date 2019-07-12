@@ -23,7 +23,7 @@ public class ModuleConverter {
 //			Module module2=new Module();
 //			moduleData.setSubModuleId(module.getSubmodule().getSubModuleId());
 			
-			moduleData.setAbbr(module.getAbbr());
+//			moduleData.setAbbr(module.getAbbr());
 			return moduleData;
 		}
 		return null;
@@ -39,7 +39,7 @@ public class ModuleConverter {
 		
 		module.setModuleId(moduleData.getModuleId());
 		module.setModuleName(moduleData.getModuleName());
-		module.setAbbr(moduleData.getAbbr());
+//		module.setAbbr(moduleData.getAbbr());
 		
 		// get by project id
 		project.setProjectId(moduleData.getProjectid());
@@ -61,7 +61,7 @@ public class ModuleConverter {
 				
 				moduleData.setModuleId(module.getModuleId());
 				moduleData.setModuleName(module.getModuleName());
-				moduleData.setAbbr(module.getAbbr());
+//				moduleData.setAbbr(module.getAbbr());
 				// get project id
 				moduleData.setProjectid(module.getProject().getProjectId());
 				
