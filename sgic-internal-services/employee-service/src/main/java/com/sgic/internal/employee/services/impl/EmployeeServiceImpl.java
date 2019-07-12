@@ -2,20 +2,16 @@ package com.sgic.internal.employee.services.impl;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.sgic.internal.employee.entities.Employee;
-import com.sgic.internal.employee.repositories.EmpRepository;
 import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
 import com.sgic.internal.employee.util.ExcelUtils;
-
 
 @Service
 //Implement from Employee Service
@@ -23,10 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
-	@Autowired
-	EmpRepository empRepository;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	@Override
@@ -40,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	// List Employee
 	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(Long empId) {
 		logger.info("Get All Employee Details Methods");
-		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC,"empId"));
+		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "empId"));
 	}
 
 	@Override
@@ -80,35 +73,35 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeRepository.findEmployeeByEmail(email);
 	}
 
-
 	@Override
 	// Find By Employee Name
 	public List<Employee> getByName(String name) {
 		logger.info("Successfully Get Employee By Name");
 		return employeeRepository.findByName(name);
 	}
-	
+
 	@Override
 	// Find By Employee Designation
 	public List<Employee> getByDesignation(Long designationid) {
 		logger.info("Successfully Get Employee By Designation");
 		return employeeRepository.findByDesignation(designationid);
 	}
+
 	@Override
+//	Employee Table Count method
 	public long count() {
-		// TODO Auto-generated method stub
 		return employeeRepository.count();
 	}
 
 	@Override
-	public void store(MultipartFile file){
+	// Save Customers to DataBase
+	public void store(MultipartFile file) {
 		try {
 			List<Employee> lstCustomers = ExcelUtils.parseExcelFile(file.getInputStream());
-    		// Save Customers to DataBase
-			empRepository.saveAll(lstCustomers);
-        } catch (IOException e) {
-        	throw new RuntimeException("FAIL! -> message = " + e.getMessage());
-        }
+			employeeRepository.saveAll(lstCustomers);
+		} catch (IOException e) {
+			throw new RuntimeException("FAIL! -> message = " + e.getMessage());
+		}
 	}
 
 }

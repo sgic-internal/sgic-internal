@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.sgic.internal.employee.dto.EmployeeDTO;
 import com.sgic.internal.employee.dto.mapper.EmployeeDTOMapper;
 import com.sgic.internal.employee.entities.Employee;
@@ -33,7 +32,7 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeservice;
-	
+
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	/* Author:KeerthanaR 17-06-2019 */
@@ -109,6 +108,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/getcount")
+// <----	Employee DataBase Employee Table Row Count Method --->
 	public ResponseEntity<Long> getTotalCount() {
 		logger.info("Employee Controller -> getCount");
 
@@ -116,6 +116,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/database")
+//	<----Import Excel File For Employee Service Employee Table---> 
 	public String uploadMultipartFile(@RequestParam("uploadfile") MultipartFile file, Model model) {
 		try {
 			System.out.println("controller");
@@ -124,7 +125,7 @@ public class EmployeeController {
 		} catch (Exception e) {
 			model.addAttribute("message", "Fail! -> uploaded filename: " + file.getOriginalFilename());
 		}
-		return "OKKK";
+		return "File uploaded successfully";
 	}
 
 }

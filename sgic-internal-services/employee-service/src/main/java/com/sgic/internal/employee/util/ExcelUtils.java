@@ -1,7 +1,5 @@
 package com.sgic.internal.employee.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,21 +7,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.sgic.internal.employee.dto.EmployeeDTO;
 import com.sgic.internal.employee.entities.Designation;
 import com.sgic.internal.employee.entities.Employee;
-import com.sgic.internal.employee.repositories.EmpRepository;
 
 
 

@@ -21,16 +21,15 @@ import org.springframework.lang.Nullable;
 @SuppressWarnings("serial")
 @Entity
 @Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "employee_id", "email" }) })
+@UniqueConstraint(columnNames = { "employee_id", "email" }) })
 public class Employee implements Serializable {
 
 	// Initialize Variable for Attribute of Employee
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long empId;
 
-	@Column(name = "employee_id", unique= true)
+	@Column(name = "employee_id", unique = true)
 	@NotEmpty
 	private String employeeid;
 
@@ -40,13 +39,12 @@ public class Employee implements Serializable {
 	@Column(name = "name")
 	private String name;
 
-	
 	@NotEmpty
 	@Size(min = 2, max = 30)
 	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
 	@Column(name = "firstname")
 	private String firstname;
-	
+
 	@NotEmpty
 	@Size(min = 2, max = 50)
 //	@Email(message = "{Employee.email.invalid}")
@@ -54,22 +52,22 @@ public class Employee implements Serializable {
 //	@NotBlank(message = "{Employee.email.invalid}")
 //	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
 
-	@Column(name = "email", unique= true)
+	@Column(name = "email", unique = true)
 	@Email
 	private String email;
-	
+
 	@Nullable
 	private int availability;
-	
+
 	@Nullable
 	private boolean bench = false;
-	
-	
 
+//	Designation with Designation Entity Relationship
 	@ManyToOne
 	@JoinColumn(name = "designationid", nullable = false)
 	private Designation designation;
 
+//	Designation Object Getter Setter
 	public Designation getDesignation() {
 		return designation;
 	}
@@ -78,6 +76,7 @@ public class Employee implements Serializable {
 		this.designation = designation;
 	}
 
+//	Employee Entity's Getter Setter
 	public Long getEmpId() {
 		return empId;
 	}
@@ -134,7 +133,4 @@ public class Employee implements Serializable {
 		this.firstname = firstname;
 	}
 
-	// Getter and setter Method for all attributes
-
-	
 }

@@ -2,10 +2,9 @@ package com.sgic.internal.defecttracker.project.entities;
 
 public class ResourceAllocationList {
 
-	
+//<---Initialize Resource Allocation List for send API From Defect Service Database to Employee Database(ResourceAllocation+Employee+Project)--->
 	private Long resourceId;
 	private Long empId;
-//	private Employee employeeObj;
 	private String employeeid;
 	private String name;
 	private String firstname;
@@ -16,15 +15,6 @@ public class ResourceAllocationList {
 	private String designationname;
 	private String projectId;
 	private String projectName;
-//	private Project projectObj;
-	
-//	public Project getProjectObj() {
-//		return projectObj;
-//	}
-//
-//	public void setProjectObj(Project projectObj) {
-//		this.projectObj = projectObj;
-//	}
 
 	public Long getResourceId() {
 		return resourceId;
@@ -130,9 +120,4 @@ public class ResourceAllocationList {
 		this.projectName = projectName;
 	}
 
-
-	
-	
-	
-	
 }
