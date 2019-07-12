@@ -26,7 +26,6 @@ public class DefectSeverity implements Serializable {
 	@Column(nullable = false)
 	private String icon; // Defect severity icon
 
-	@Column(nullable = false)
 	private String color; // Defect severity color
 
 	public long getId() {
@@ -42,7 +41,7 @@ public class DefectSeverity implements Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = "Severity";
 	}
 
 	public String getValue() {

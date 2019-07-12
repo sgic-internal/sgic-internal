@@ -2,7 +2,6 @@ package com.sgic.internal.product.configure.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +33,7 @@ public class DefectStatus implements Serializable {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = "Status";
 	}
 	public String getValue() {
 		return value;

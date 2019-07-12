@@ -26,7 +26,6 @@ public class DefectPriority implements Serializable {
 	@Column(nullable = false)
 	private String icon; // Defect priority icon
 
-	@Column(nullable = false)
 	private String color; // Defect priority color
 
 
