@@ -5,13 +5,14 @@ public class Employee {
 	private Long empId;
 	private String employeeid;
 	private String name;
+	private String firstname;
 	private String email;
 	private int availability;
 	private boolean bench = false;
 	private Long designationid;
 	private String designationname;
 
-		
+	
 	
 	public Long getEmpId() {
 		return empId;
@@ -77,4 +78,13 @@ public class Employee {
 		this.designationname = designationname;
 	}
 
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	
 }

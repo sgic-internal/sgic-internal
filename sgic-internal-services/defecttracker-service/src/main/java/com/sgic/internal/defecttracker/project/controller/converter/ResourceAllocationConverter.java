@@ -13,17 +13,18 @@ import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 @Service
 public class ResourceAllocationConverter {
 
+	
 	public static ResourceAllocationDto ResourceAllocationToResourceAllocationDto(
 			ResourceAllocation resourceAllocation) {
 		ResourceAllocationDto resourceAllocationDto = new ResourceAllocationDto();
 
 		if (resourceAllocation != null) {
 			resourceAllocationDto.setResourceId(resourceAllocation.getResourceId());
-//			resourceAllocationDto.setResourceName(resourceAllocation.getResourceName());
 //			resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
-	//		resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
 			resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 			resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
+		
+			
 			
 			return resourceAllocationDto;
 		}
@@ -35,13 +36,13 @@ public class ResourceAllocationConverter {
 		ResourceAllocation resourceAllocation = new ResourceAllocation();
 		if (resourceAllocationDto !=null) {
 			resourceAllocation.setResourceId(resourceAllocationDto.getResourceId());
-//			resourceAllocation.setResourceName(resourceAllocationDto.getResourceName());
-//			resourceAllocation.setEmpId(resourceAllocationDto.getEmpId());
+			resourceAllocation.setEmpId(resourceAllocationDto.getEmpId());
 			Project project = new Project();
 	//		project.setPid(resourceAllocationDto.getPid());
 			project.setProjectId(resourceAllocationDto.getProjectId());
 			project.setProjectName(resourceAllocationDto.getProjectName());
 			resourceAllocation.setProject(project);
+			
 			return resourceAllocation;
 		}
 		
@@ -59,11 +60,10 @@ public class ResourceAllocationConverter {
 			for (ResourceAllocation resourceAllocation : resourceAllocationList) {
 				ResourceAllocationDto resourceAllocationDto = new ResourceAllocationDto();
 				resourceAllocationDto.setResourceId(resourceAllocation.getResourceId());
-//				resourceAllocationDto.setResourceName(resourceAllocation.getResourceName());
-//				resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
-//				resourceAllocationDto.setPid(resourceAllocation.getProject().getPid());
+				resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
 				resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 				resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
+				
 				ListresourceAllocationDto.add(resourceAllocationDto);
 			
 			}

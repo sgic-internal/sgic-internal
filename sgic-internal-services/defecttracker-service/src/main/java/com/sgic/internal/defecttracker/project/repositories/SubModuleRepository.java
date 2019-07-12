@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sgic.internal.defecttracker.project.entities.Module;
-
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public interface SubModuleRepository extends JpaRepository<SubModule, String> {

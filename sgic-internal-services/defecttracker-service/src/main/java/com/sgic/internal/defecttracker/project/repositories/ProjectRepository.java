@@ -11,7 +11,6 @@ import com.sgic.internal.defecttracker.project.entities.Project;
 public interface ProjectRepository extends JpaRepository<Project, String> {
 	Project getByprojectId(String projectid);
 
-
 	@Query(value = "FROM Project WHERE project_name= :projectName")
 	List<Project> getByprojectName(@Param("projectName") String projectName);
 	
