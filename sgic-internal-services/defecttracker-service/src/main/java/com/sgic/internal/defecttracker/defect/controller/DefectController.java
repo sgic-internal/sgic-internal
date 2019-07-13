@@ -124,6 +124,26 @@ public class DefectController {
 		logger.info("Defect Controller -> Defect Deleted Failed!!!");
 		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
+	@GetMapping(value = "/getDefectsByStatus/{status}")
+	public List<DefectData> getByStatus(@PathVariable(name = "status") String status) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectByStatus(status);
+	}
+	@GetMapping(value = "/getDefectsByPriority/{priority}")
+	public List<DefectData> getByPriority(@PathVariable(name = "priority") String priority) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectByPriority(priority);
+	}
+	@GetMapping(value = "/getDefectsBySeverity/{severity}")
+	public List<DefectData> getBySeverity(@PathVariable(name = "severity") String severity) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectBySeverity(severity);
+	}
+	@GetMapping(value = "/getDefectsByType/{type}")
+	public List<DefectData> getByType(@PathVariable(name = "type") String type) {
+		logger.info("Controller -> getByDate Successfull");
+		return defectDataMapper.getAllDefectByType(type);
+	}
 	@GetMapping(value = "/getDefectsByAvailableIn/{availableIn}")
 	public List<DefectData> getByAvailableIn(@PathVariable(name = "availableIn") String availableIn) {
 		logger.info("Controller -> getByDate Successfull");

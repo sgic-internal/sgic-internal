@@ -21,7 +21,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.mapper.CommentMappe
 import com.sgic.internal.defecttracker.defect.entities.Comments;
 import com.sgic.internal.defecttracker.defect.services.impl.CommentServiceImp;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 public class CommentController {
 
