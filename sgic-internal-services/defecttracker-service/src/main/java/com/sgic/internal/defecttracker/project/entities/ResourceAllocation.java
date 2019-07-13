@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(schema = "defectservices", name = "resource_Allocation")
@@ -20,6 +22,8 @@ public class ResourceAllocation implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	<---Initialize Variable for Attribute of Resource Allocation--->
 	private Long resourceId;
+	
+	@NonNull
 	private Long empId;
 
 //	<---Project With Resource Allocation Relationship --->
