@@ -32,7 +32,7 @@ public class ResourceAllocationDtoMapper {
 	}
 
 	@SuppressWarnings("static-access")
-//	<--- SaveAll Method's Mapped --- Balk Object -->
+//	<--- SaveAll Method's Mapped --- Bulk Object -->
 	public void saveResourceTable(List<ResourceAllocationDto> resourceAllocationDto) {
 		logger.info("Resource Allaction Mapper --- Successfully Saved Resource Allocation --- Balk Data");
 		resourceAllocationService.saveResourceTable(
@@ -63,6 +63,12 @@ public class ResourceAllocationDtoMapper {
 		@SuppressWarnings("unused")
 		List<ResourceAllocation> resourceAllocation;
 		return resourceAllocationService.getresourceById();
+	}
+	
+//	<--- Delete Resource  Method's Mapped  -->
+	public void deleteResourceByresourceId(Long resourceId) {
+		logger.info("Resource Allaction Mapper --- Successfully Resource Deleted --- ");
+		resourceAllocationService.deleteResourceById(resourceId);
 	}
 
 }

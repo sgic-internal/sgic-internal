@@ -2,8 +2,6 @@ package com.sgic.internal.defecttracker.project.entities;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -32,7 +30,7 @@ public class Project implements Serializable {
 
 
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
 	private List<ResourceAllocation> resourceAllocation;
 
 	public String getProjectId() {
