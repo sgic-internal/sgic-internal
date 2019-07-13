@@ -9,11 +9,9 @@ import com.sgic.internal.defecttracker.project.controller.dto.ResourceAllocation
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 
-
 @Service
 public class ResourceAllocationConverter {
 
-	
 	public static ResourceAllocationDto ResourceAllocationToResourceAllocationDto(
 			ResourceAllocation resourceAllocation) {
 		ResourceAllocationDto resourceAllocationDto = new ResourceAllocationDto();
@@ -23,37 +21,33 @@ public class ResourceAllocationConverter {
 //			resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
 			resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 			resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
-		
-			
-			
+
 			return resourceAllocationDto;
 		}
 		return resourceAllocationDto;
 	}
 
-	
-	public static ResourceAllocation ResourceAllocationDtoToResourceAllocation(ResourceAllocationDto resourceAllocationDto) {
+	public static ResourceAllocation ResourceAllocationDtoToResourceAllocation(
+			ResourceAllocationDto resourceAllocationDto) {
 		ResourceAllocation resourceAllocation = new ResourceAllocation();
-		if (resourceAllocationDto !=null) {
+		if (resourceAllocationDto != null) {
 			resourceAllocation.setResourceId(resourceAllocationDto.getResourceId());
 			resourceAllocation.setEmpId(resourceAllocationDto.getEmpId());
 			Project project = new Project();
-	//		project.setPid(resourceAllocationDto.getPid());
+			// project.setPid(resourceAllocationDto.getPid());
 			project.setProjectId(resourceAllocationDto.getProjectId());
 			project.setProjectName(resourceAllocationDto.getProjectName());
 			resourceAllocation.setProject(project);
-			
+
 			return resourceAllocation;
 		}
-		
-		
-		
+
 		return null;
-		
+
 	}
-	
-	
-	public static List<ResourceAllocationDto> ResourceAllocationToResourceAllocationDtoList(List<ResourceAllocation> resourceAllocationList) {
+
+	public static List<ResourceAllocationDto> ResourceAllocationToResourceAllocationDtoList(
+			List<ResourceAllocation> resourceAllocationList) {
 
 		if (resourceAllocationList != null) {
 			List<ResourceAllocationDto> ListresourceAllocationDto = new ArrayList<>();
@@ -63,12 +57,35 @@ public class ResourceAllocationConverter {
 				resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
 				resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 				resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
-				
+
 				ListresourceAllocationDto.add(resourceAllocationDto);
-			
+
 			}
 
 			return ListresourceAllocationDto;
+		}
+		return null;
+
+	}
+
+	public static List<ResourceAllocation> ResourceAllocationDtoToResourceAllocationList(
+			List<ResourceAllocationDto> resourceAllocationDtolist) {
+
+		if (resourceAllocationDtolist != null) {
+			List<ResourceAllocation> ListresourceAllocation = new ArrayList<>();
+			for (ResourceAllocationDto resourceAllocationDto : resourceAllocationDtolist) {
+
+				ResourceAllocation resourceAllocation = new ResourceAllocation();
+				resourceAllocation.setResourceId(resourceAllocationDto.getResourceId());
+				resourceAllocation.setEmpId(resourceAllocationDto.getEmpId());
+				Project project = new Project();
+				project.setProjectId(resourceAllocationDto.getProjectId());
+				resourceAllocation.setProject(project);
+				ListresourceAllocation.add(resourceAllocation);
+
+			}
+
+			return ListresourceAllocation;
 		}
 		return null;
 

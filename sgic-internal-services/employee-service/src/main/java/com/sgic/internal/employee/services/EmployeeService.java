@@ -16,8 +16,8 @@ public interface EmployeeService {
 
 	// Method for Getting One Employee Record by ID
 	public Employee getByempId(Long empId);
-	
-	//Method for Getting One Employee Record by Name
+
+	// Method for Getting One Employee Record by Name
 	public List<Employee> getByName(String name);
 
 	// Method for Getting One Employee Record by Email
@@ -27,12 +27,15 @@ public interface EmployeeService {
 	public void deleteEmployeeByempId(Long empId);
 
 	// Method for Getting One Employee Record by Email
-	public List<Employee> getByDesignation(Long designationid); 
+	public List<Employee> getByDesignation(Long designationid);
 
 	// Method for Update Employee
 	public Employee updateEmployee(Employee employee);
-	
+
+//	Count method for counting database Employee 
 	public long count();
+
+//	Excel import method
 	public void store(MultipartFile file);
-	
+
 }
