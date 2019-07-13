@@ -3,12 +3,15 @@ package com.sgic.internal.defecttracker.project.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +25,7 @@ import com.sgic.internal.defecttracker.project.entities.Employee;
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocationList;
+import com.sgic.internal.defecttracker.project.repositories.ResourceAllocationRepository;
 import com.sgic.internal.defecttracker.project.services.ResourceAllocationService;
 
 @SuppressWarnings("unused")
@@ -35,14 +39,17 @@ public class ResourceAllocationController {
 	@Autowired
 	private ResourceAllocationService resourceAllocationService;
 
+	private static Logger logger = LogManager.getLogger(ResourceAllocationDtoMapper.class);
+
 //	<----This APIs Is -- Save Single Object--->
 	@PostMapping(value = "/saveresource")
 	public ResourceAllocation createResource(@RequestBody ResourceAllocationDto resourceAllocationDto) {
+		logger.info("");
 		return resourceAllocationDtoMapper.saveResource(resourceAllocationDto);
 
 	}
 
-//	<----This APIs Is --- Save List -- Use To Save Balk Resource  --->
+//	<----This APIs Is --- Save List -- Use To Save Bulk Resource  --->
 	@PostMapping(value = "/saveresourceTable")
 	public void createResourceTable(@RequestBody List<ResourceAllocationDto> resourceAllocationDto) {
 //		resourceAllocationService.saveResourceTable(resourceAllocation);
@@ -132,6 +139,15 @@ public class ResourceAllocationController {
 			System.out.println(employee.getEmployeeid());
 		}
 		return retrievedresource;
+	}
+
+//	<----This APIs Is --- Delete --->
+	@DeleteMapping("/resource/{resourceId}")
+	public ResponseEntity<String> deleteResourceByResourceId(@PathVariable("resourceId") Long resourceId) {
+		logger.info("Resource Allocation Controller -> Deleted");
+		System.out.println(resourceId);
+		resourceAllocationDtoMapper.deleteResourceByresourceId(resourceId);
+		return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
 	}
 
 }

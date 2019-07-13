@@ -68,4 +68,13 @@ public class ResourceAllocationServiceImpl implements ResourceAllocationService 
 		}
 	}
 
+	@Override
+//	<---Resource Allocation Delete  method's implementation--->
+	public ResourceAllocation deleteResourceById(Long resourceId) {
+		logger.info("ResourceAllocationServiceImpl-->successfully Deleted");
+		resourceAllocationRepository.deleteById(resourceId);
+		return null;
+
+	}
+
 }

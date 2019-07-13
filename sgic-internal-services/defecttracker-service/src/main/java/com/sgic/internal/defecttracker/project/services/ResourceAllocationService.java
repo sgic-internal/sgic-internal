@@ -18,7 +18,10 @@ public interface ResourceAllocationService {
 //	<---List Resource Allocation By Resource Allocation By Id--->
 	public List<ResourceAllocation> getresourceById();
 
-//    <---save Resource Allocation Balk Date--->
+//    <---save Resource Allocation Bulk Date--->
 	void saveResourceTable(List<ResourceAllocation> resourceAllocation);
+	
+//  <--- Resource Allocation Delete  Method--->
+	public ResourceAllocation deleteResourceById(Long resourceId);
 
 }

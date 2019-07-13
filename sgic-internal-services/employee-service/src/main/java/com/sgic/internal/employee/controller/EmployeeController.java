@@ -20,7 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.sgic.internal.employee.dto.EmployeeDTO;
 import com.sgic.internal.employee.dto.mapper.EmployeeDTOMapper;
 import com.sgic.internal.employee.entities.Employee;
-import com.sgic.internal.employee.repositories.EmployeeRepository;
 import com.sgic.internal.employee.services.EmployeeService;
 
 @RestController
@@ -33,12 +32,13 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeservice;
 
-	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
+	private static Logger logger = LogManager.getLogger(EmployeeDTOMapper.class);
 
 	/* Author:KeerthanaR 17-06-2019 */
 	@PostMapping(value = "/createemployee") // Save Employee
 	public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> CreateEmployee");
+//		employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
 		if (employeeDTOMapper.getById(employeeDTO.getEmpId()) != null) {
 
 		} else {

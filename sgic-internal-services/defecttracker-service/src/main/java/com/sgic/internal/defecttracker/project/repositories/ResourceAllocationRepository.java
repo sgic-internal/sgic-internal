@@ -17,7 +17,7 @@ public interface ResourceAllocationRepository extends JpaRepository<ResourceAllo
 	@Query(value = fetchAllresourceId, nativeQuery = true)
 	<T> List<T> getAllresourceId();
 
-//	<---save Balk Method  --->
+//	<---save Bulk Method  --->
 	List<ResourceAllocation> save(List<ResourceAllocation> resourceAllocation);
 
 }
