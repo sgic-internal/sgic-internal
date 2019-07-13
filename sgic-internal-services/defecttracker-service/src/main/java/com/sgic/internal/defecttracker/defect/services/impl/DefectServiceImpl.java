@@ -124,6 +124,30 @@ public class DefectServiceImpl implements DefectService {
 		return defectRepository.getByFixedIn(fixedIn);
 	}
 
+	@Override
+	public List<Defect> getDefectByStatus(String status) {
+		logger.info("DefectService started -> getDefectByStatus");
+		return defectRepository.getByStatus(status);
+	}
+
+	@Override
+	public List<Defect> getDefectByPriority(String priority) {
+		logger.info("DefectService started -> getDefectByPriority");
+		return defectRepository.getByPriority(priority);
+	}
+
+	@Override
+	public List<Defect> getDefectBySeverity(String severity) {
+		logger.info("DefectService started -> getDefectBySeverity");
+		return defectRepository.getBySeverity(severity);
+	}
+
+	@Override
+	public List<Defect> getDefectByType(String type) {
+		logger.info("DefectService started -> getDefectByType");
+		return defectRepository.getByType(type);
+	}
+
 
 	
 }

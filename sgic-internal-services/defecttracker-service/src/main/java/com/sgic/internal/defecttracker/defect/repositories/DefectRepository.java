@@ -42,4 +42,16 @@ List<Defect>getByFixedIn(@Param("fixedIn")String fixedIn);
 
 List<Defect> findDefectByModule(Module module);
 
+@Query(value ="SELECT d FROM Defect d WHERE status =:status")
+List<Defect> getByStatus(@Param("status")String status);
+
+@Query(value ="SELECT d FROM Defect d WHERE priority =:priority")
+List<Defect> getByPriority(@Param("priority")String priority);
+
+@Query(value ="SELECT d FROM Defect d WHERE severity =:severity")
+List<Defect> getBySeverity(@Param("severity")String severity);
+
+@Query(value ="SELECT d FROM Defect d WHERE type =:type")
+List<Defect> getByType(@Param("type")String type);
+
 }

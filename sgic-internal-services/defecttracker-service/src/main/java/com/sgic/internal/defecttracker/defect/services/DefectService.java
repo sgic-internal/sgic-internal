@@ -28,7 +28,11 @@ public interface DefectService {
 	public List<Defect> getDefectByFixedIn (String fixedIn);
 	
 	public List<Defect> getDefectByDate (Date dateAndTime);
-	public boolean isDefectAlreadyExist(String defectId);           
+	public boolean isDefectAlreadyExist(String defectId);
+	public List<Defect> getDefectByStatus(String status); 
+	public List<Defect> getDefectByPriority(String priority);
+	public List<Defect> getDefectBySeverity(String severity);
+	public List<Defect> getDefectByType(String type);
 
 	     	
 }

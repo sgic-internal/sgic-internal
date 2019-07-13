@@ -102,5 +102,25 @@ public class DefectDataMapper {
 		return defectDataConverter.defectEntityToDefectData(defectFixedIn);
 		
 	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByStatus(String status) {
+		List<Defect> defectStatus=defectService.getDefectByStatus(status);
+		return defectDataConverter.defectEntityToDefectData(defectStatus);
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByPriority(String priority) {
+		List<Defect> defectPriority=defectService.getDefectByPriority(priority);
+		return defectDataConverter.defectEntityToDefectData(defectPriority);
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectBySeverity(String severity) {
+		List<Defect> defectSeverity=defectService.getDefectBySeverity(severity);
+		return defectDataConverter.defectEntityToDefectData(defectSeverity);
+	}
+	@SuppressWarnings("static-access")
+	public List<DefectData> getAllDefectByType(String type) {
+		List<Defect> defectType=defectService.getDefectByType(type);
+		return defectDataConverter.defectEntityToDefectData(defectType);
+	}
 	
 }

@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Romipraveen
+=======
+Built-By: Pratheepan
+>>>>>>> 2cad448841a1d0a739bf7b8c9a6e0747473a788e
 Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse
 
