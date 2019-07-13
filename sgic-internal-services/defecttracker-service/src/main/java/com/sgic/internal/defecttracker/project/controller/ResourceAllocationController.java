@@ -26,7 +26,7 @@ import com.sgic.internal.defecttracker.project.services.ResourceAllocationServic
 
 @SuppressWarnings("unused")
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*") // <-- Integration With FrondEnd (React)-->
 public class ResourceAllocationController {
 
 	@Autowired
@@ -34,8 +34,6 @@ public class ResourceAllocationController {
 
 	@Autowired
 	private ResourceAllocationService resourceAllocationService;
-	
-	
 
 //	<----This APIs Is -- Save Single Object--->
 	@PostMapping(value = "/saveresource")
@@ -70,11 +68,9 @@ public class ResourceAllocationController {
 //		logger.info("Employee Controller -> GetEmployeeById");
 		return new ResponseEntity<>(resourceAllocationDtoMapper.findResourceAllocationByresourceId(resourceId),
 				HttpStatus.OK);
-
 	}
 
 //	<----This APIs Is -- Get Resource Object By Resource Id --->
-
 	@RequestMapping("/resourceObj/{resourceId}")
 	public ResourceAllocationList getResourceAllocationObj(@PathVariable("resourceId") Long resourceId) {
 		ResourceAllocationList resourceAllocationList = new ResourceAllocationList();
@@ -83,6 +79,7 @@ public class ResourceAllocationController {
 		resourceAllocationList.setResourceId(resourceAllocation.getResourceId());
 		resourceAllocationList.setEmpId(resourceAllocation.getEmpId());
 
+//		<--- Used Rest Template For Get EMPLOYEE SERVICE EMPLOYEE API-->
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Employee> response = restTemplate.exchange(
 				"http://localhost:8084/employeeservice/getempolyeebyid/" + resourceAllocation.getEmpId(),
@@ -90,8 +87,6 @@ public class ResourceAllocationController {
 				});
 
 		Employee employee = response.getBody();
-//		resourceAllocationList.setEmployeeObj(employee);
-
 		return resourceAllocationList;
 
 	}
@@ -103,6 +98,7 @@ public class ResourceAllocationController {
 		List<ResourceAllocation> resourceList = resourceAllocationService.getresourceById();
 		int length = resourceList.size();
 		System.out.println(length);
+//		<---Used To Check ResorceAllocation Table's EmployeeId List + Employee Service EMPLOYEE List And Save Another List (resourceAllocationList)-->
 		List<ResourceAllocationList> retrievedresource = new ArrayList<ResourceAllocationList>();
 		for (int i = 0; i < length; i++) {
 			ResourceAllocationList resourceAllocationList = new ResourceAllocationList();
@@ -115,12 +111,14 @@ public class ResourceAllocationController {
 			resourceAllocationList.setProjectName(resourceallocation.getProject().getProjectName());
 
 			ResponseEntity<Employee> response = restTemplate.exchange(
+//					<--Get EMPLOYEE SERVICE EMPLOYEE LIST BY EMPLOYEE ID-->
 					"http://localhost:8084/employeeservice/getempolyeebyid/" + resourceallocation.getEmpId(),
 					HttpMethod.GET, null, new ParameterizedTypeReference<Employee>() {
 					});
 
 			Employee employee = response.getBody();
 //			resourceAllocationList.setEmployeeObj(employee);
+//			<--Saved Employee Variable In resourceAllocationList and Get All EmployeeList in responceBody -->
 			resourceAllocationList.setEmpId(employee.getEmpId());
 			resourceAllocationList.setEmployeeid(employee.getEmployeeid());
 			resourceAllocationList.setFirstname(employee.getFirstname());
