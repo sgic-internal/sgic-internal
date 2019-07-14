@@ -12,7 +12,6 @@ import com.sgic.internal.product.configure.controller.dto.converter.StatusConver
 import com.sgic.internal.product.configure.entities.DefectStatus;
 import com.sgic.internal.product.configure.services.StatusService;
 
-
 @Service
 public class StatusMapper {
 	@Autowired
@@ -25,37 +24,57 @@ public class StatusMapper {
 	// Get All Status
 	@SuppressWarnings("static-access")
 	public List<StatusDto> getAllStatus() {
-		logger.info("Status Mapper -> All Status Data Retrieved");
-		List<DefectStatus> defectStatusList = statusService.getAllDefectStatus();
-		return statusConverter.EntityListTODtoList(defectStatusList);
+		logger.info("Defect Status Mapper INFO -> Get All Defect Status Method Started");
+		try {
+			List<DefectStatus> defectStatusList = statusService.getAllDefectStatus();
+			return statusConverter.EntityListTODtoList(defectStatusList);
+		} finally {
+			logger.info("Defect Status Mapper INFO -> Get All Defect Status Method Finished");
+		}
 	}
 
 	// Save Status
 	@SuppressWarnings("static-access")
 	public DefectStatus saveDefectStatus(StatusDto statusDto) {
-		logger.info("Status Mapper -> Status Saved");
-		return statusService.createDefectStatus(statusConverter.DtoToEntity(statusDto));
+		logger.info("Defect Status Mapper INFO -> Save Defect Status Method Started");
+		try {
+			return statusService.createDefectStatus(statusConverter.DtoToEntity(statusDto));
+		} finally {
+			logger.info("Defect Status Controller INFO -> Save Defect Status Method Finished");
+		}
 	}
 
 	// Update Status
 	@SuppressWarnings("static-access")
 	public DefectStatus updateDefectStatus(StatusDto statusDto) {
-		logger.info("Status Mapper -> Status Updated ");
-		return statusService.updateDefectStatus(statusConverter.DtoToEntityUpdate(statusDto));
+		logger.info("Defect Status Mapper INFO -> Update Defect Status Method Started");
+		try {
+			return statusService.updateDefectStatus(statusConverter.DtoToEntityUpdate(statusDto));
+		} finally {
+			logger.info("Defect Status Mapper INFO -> Update Defect Status Method Finished");
+		}
 	}
 
 	// Delete Status
 	public StatusDto deleteDefectStatusById(Long statusId) {
-		logger.info("Status Mapper -> Status Deleted");
-		statusService.deleteDefectStatusById(statusId);
+		logger.info("Defect Status Mapper INFO -> Delete Defect Status Method Started");
+		try {
+			statusService.deleteDefectStatusById(statusId);
+		} finally {
+			logger.info("Defect Status Mapper INFO -> Delete Defect Status Method Finished");
+		}
 		return null;
 	}
 
 	// Get Status By Id
 	@SuppressWarnings("static-access")
 	public StatusDto getDefectStatusById(Long statusId) {
-		logger.info("Status Mapper -> Status Id Found");
-		DefectStatus defectSeverity = statusService.getDefectStatusById(statusId);
-		return statusConverter.EntityToDto(defectSeverity);
+		logger.info("Defect Status Mapper INFO -> Get Defect Status By Id Method Started");
+		try {
+			DefectStatus defectSeverity = statusService.getDefectStatusById(statusId);
+			return statusConverter.EntityToDto(defectSeverity);
+		} finally {
+			logger.info("Defect Status Mapper INFO -> Get Defect Status By Id Method Finished");
+		}
 	}
 }

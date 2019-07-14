@@ -36,7 +36,7 @@ public class StatusConverter {
 			public static DefectStatus DtoToEntity(StatusDto statusDto) {
 				DefectStatus defectStatus = new DefectStatus();
 				if (statusDto != null) {
-					logger.info("Defect Status Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Status Converter -> Convert Object DTO to Entity For Save");
 					defectStatus.setName(statusDto.getStatusName());
 					defectStatus.setValue(statusDto.getStatusValue());
 					return defectStatus;
@@ -48,7 +48,7 @@ public class StatusConverter {
 			public static DefectStatus DtoToEntityUpdate(StatusDto statusDto) {
 				DefectStatus defectStatus = new DefectStatus();
 				if (statusDto != null) {
-					logger.info("Defect Status Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Status Converter -> Convert Object DTO to Entity For Update");
 					defectStatus.setId(statusDto.getStatusId());
 					defectStatus.setName(statusDto.getStatusName());
 					defectStatus.setValue(statusDto.getStatusValue());

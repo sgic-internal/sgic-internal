@@ -37,7 +37,7 @@ public class PriorityConverter {
 			public static DefectPriority DtoToEntityUpdate(PriorityDto priorityDto) {
 				DefectPriority defectPriority = new DefectPriority();
 				if (priorityDto != null) {
-					logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Priority Converter -> Convert Object DTO to Entity For Save");
 					defectPriority.setId(priorityDto.getPriorityId());
 					defectPriority.setName(priorityDto.getPriorityName());
 					defectPriority.setValue(priorityDto.getPriorityValue());
@@ -53,7 +53,7 @@ public class PriorityConverter {
 			public static DefectPriority DtoToEntity(PriorityDto priorityDto) {
 				DefectPriority defectPriority = new DefectPriority();
 				if (priorityDto != null) {
-					logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Priority Converter -> Convert Object DTO to Entity For Update");
 //					defectPriority.setId(priorityDto.getPriorityId());
 					defectPriority.setName(priorityDto.getPriorityName());
 					defectPriority.setValue(priorityDto.getPriorityValue());

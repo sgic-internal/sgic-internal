@@ -24,38 +24,72 @@ public class PriorityMapper {
 	// Get All Priority
 	@SuppressWarnings("static-access")
 	public List<PriorityDto> getAllPriority() {
-		logger.info("Priority Mapper -> All Priority Data Retrieved");
-		List<DefectPriority> defectPriorityList = priorityService.getAllDefectPriority();
-		return priorityConverter.EntityListTODtoList(defectPriorityList);
+		try {
+			logger.info("Priority Mapper -> Get All Defect Priority Method Started");
+			List<DefectPriority> defectPriorityList = priorityService.getAllDefectPriority();
+			return priorityConverter.EntityListTODtoList(defectPriorityList);
+		} catch (Exception ex) {
+			logger.error("Priority Mapper ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Priority Mapper INFO -> Get All Defect Priority Method Finished");
+		}
+		return null;
 	}
 
 	// Save Priority
 	@SuppressWarnings("static-access")
 	public DefectPriority saveDefectPriority(PriorityDto priorityDto) {
-		logger.info("Priority Mapper -> Priority Saved");
-		return priorityService.createDefectPriority(priorityConverter.DtoToEntity(priorityDto));
+		try {
+			logger.info("Priority Mapper -> Save Defect Priority Method Started");
+			return priorityService.createDefectPriority(priorityConverter.DtoToEntity(priorityDto));
+		} catch (Exception ex) {
+			logger.error("Priority Mapper ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Priority Mapper INFO -> Save Defect Priority Method Finished");
+		}
+		return null;
 	}
 
 	// Update Priority
 	@SuppressWarnings("static-access")
 	public DefectPriority updateDefectPriority(PriorityDto priorityDto) {
-		logger.info("Priority Mapper -> Priority Updated ");
-		return priorityService.updateDefectPriority(priorityConverter.DtoToEntityUpdate(priorityDto));
+		logger.info("Priority Mapper INFO -> Update Priority Method Started");
+		try {
+				return priorityService.updateDefectPriority(priorityConverter.DtoToEntityUpdate(priorityDto));
+		} catch (Exception ex) {
+			logger.error("Priority Mapper ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Priority Mapper INFO -> Update Defect Priority Method Finished");
+		}
+		return null;
 	}
 
 	// Delete Priority
 	public PriorityDto deleteDefectPriorityById(Long priorityId) {
-		logger.info("Priority Mapper -> Priority Deleted");
-		priorityService.deleteDefectPriorityById(priorityId);
+		try {
+			logger.info("Priority Mapper -> Delete Defect Priority Method Started");
+			priorityService.deleteDefectPriorityById(priorityId);
+		} catch (Exception ex) {
+			logger.error("Priority Mapper ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Priority Mapper INFO -> Delete Defect Priority Method Finished");
+		}
 		return null;
 	}
 
 	// Get Priority By Id
 	@SuppressWarnings("static-access")
 	public PriorityDto getDefectPriorityById(Long priorityId) {
-		logger.info("Priority Mapper -> Priority Id Found");
-		DefectPriority defectPriority = priorityService.getDefectPriorityById(priorityId);
-		return priorityConverter.EntityToDto(defectPriority);
+		logger.info("Priority Mapper -> gET Defect Priority By Id Method Started");
+		try {
+				DefectPriority defectPriority = priorityService.getDefectPriorityById(priorityId);
+				return priorityConverter.EntityToDto(defectPriority);
+		} catch (Exception ex) {
+			logger.error("Priority Mapper ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Priority Mapper INFO -> Get Defect Priority By Id Method Finished");
+		}
+		return null;
 	}
 
 }

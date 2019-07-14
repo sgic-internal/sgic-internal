@@ -1,11 +1,15 @@
 package com.sgic.internal.product.configure.controller.dto;
 
 public class SeverityDto {
-	
+	// Severity Entity -> id
 	private Long severityId;
+	// Severity Entity -> name
 	private String severityName;
+	// Severity Entity -> value
 	private String severityValue;
+	// Severity Entity -> color
 	private String severityColor;
+	// Severity Entity -> icon
 	private String severityIcon;
 	
 	public Long getSeverityId() {

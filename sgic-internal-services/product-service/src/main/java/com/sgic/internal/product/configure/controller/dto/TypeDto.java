@@ -1,8 +1,11 @@
 package com.sgic.internal.product.configure.controller.dto;
 
 public class TypeDto {
+	// Type Entity -> id
 	private long typeId;
+	// Type Entity -> name
 	private String typeName;
+	// Type Entity -> value
 	private String typeValue;
 	
 	public long getTypeId() {

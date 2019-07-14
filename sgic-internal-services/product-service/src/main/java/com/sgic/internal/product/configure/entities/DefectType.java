@@ -13,15 +13,18 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(schema = "productservice", name = "defecttype")
 public class DefectType implements Serializable {
+	// Defect type id AUTO_INCREMENT
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id; // Defect type id
+	private long id; 
 
+	// Defect type name NOT_NULL
 	@NotEmpty
-	private String name; // Defect type name
+	private String name; 
 
+	// Defect type value NOT_NULL
 	@NotEmpty
-	private String value; // Defect type value
+	private String value; 
 
 	public long getId() {
 		return id;

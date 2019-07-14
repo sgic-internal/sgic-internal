@@ -1,8 +1,11 @@
 package com.sgic.internal.product.configure.controller.dto;
 
 public class StatusDto {
+	// Status Entity -> id
 	private long statusId;
+	// Status Entity -> name
 	private String statusName;
+	// Status Entity -> value
 	private String statusValue;
 	
 	public long getStatusId() {

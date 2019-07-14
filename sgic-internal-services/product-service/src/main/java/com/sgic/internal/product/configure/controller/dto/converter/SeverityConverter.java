@@ -37,7 +37,7 @@ public class SeverityConverter {
 			public static DefectSeverity DtoToEntity(SeverityDto severityDto) {
 				DefectSeverity defectSeverity = new DefectSeverity();
 				if (severityDto != null) {
-					logger.info("Defect Severity Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Severity Converter -> Convert Object DTO to Entity For Save");
 					defectSeverity.setName(severityDto.getSeverityName());
 					defectSeverity.setValue(severityDto.getSeverityValue());
 					defectSeverity.setIcon(severityDto.getSeverityIcon());
@@ -52,7 +52,7 @@ public class SeverityConverter {
 			public static DefectSeverity DtoToEntityUpdate(SeverityDto severityDto) {
 				DefectSeverity defectSeverity = new DefectSeverity();
 				if (severityDto != null) {
-					logger.info("Defect Severity Converter -> Convert Object DTO to Entity");
+					logger.info("Defect Severity Converter -> Convert Object DTO to Entity For Update");
 					defectSeverity.setId(severityDto.getSeverityId());
 					defectSeverity.setName(severityDto.getSeverityName());
 					defectSeverity.setValue(severityDto.getSeverityValue());
