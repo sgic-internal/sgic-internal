@@ -25,42 +25,70 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	// Save Employee
 	public Employee saveEmployee(Employee employee) {
-		logger.info("Save Employee Details methods");
-		return employeeRepository.save(employee);
+
+		try {
+			logger.info("Employee Service Imp:--> Save Employee Details methods");
+			return employeeRepository.save(employee);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 	// List Employee
 	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(Long empId) {
-		logger.info("Get All Employee Details Methods");
-		return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "empId"));
+		try {
+			logger.info("Employee Service Imp:--> Get All Employee Details Methods");
+			return employeeRepository.findAll(Sort.by(Sort.Direction.DESC, "empId"));
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 	// Find By Employee Id
 	public Employee getByempId(Long empId) {
-		logger.info("Get By Employee ID Methods");
-		return employeeRepository.findEmployeeByEmpId(empId);
+		try {
+			logger.info("Employee Service Imp:-->Get By Employee ID Methods");
+			return employeeRepository.findEmployeeByEmpId(empId);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 	// Delete Employee
 	public void deleteEmployeeByempId(Long empId) {
-		logger.info("Delete Employee Details Methods");
-		employeeRepository.deleteById(empId);
+		try {
+			logger.info("Delete Employee Details Methods");
+			employeeRepository.deleteById(empId);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
 
 	}
 
 	@Override
 	// Update Employee
 	public Employee updateEmployee(Employee employee) {
-		Long empId = employee.getEmpId();
-		boolean isExist = employeeRepository.findEmployeeByEmpId(empId) != null;
-		if (isExist) {
-			logger.info("Employee updates Successfully");
-			return employeeRepository.save(employee);
-		} else {
-			logger.info("Employee Id is Not Found");
+		try {
+			Long empId = employee.getEmpId();
+			boolean isExist = employeeRepository.findEmployeeByEmpId(empId) != null;
+			if (isExist) {
+				logger.info("Employee updates Successfully");
+				return employeeRepository.save(employee);
+			} else {
+				logger.info("Employee Id is Not Found");
+			}
+
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
 		}
 
 		return null;
@@ -69,28 +97,52 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	// Find By Employee Email
 	public Employee getByEmail(String email) {
-		logger.info("Successfully Get Employee By Email");
-		return employeeRepository.findEmployeeByEmail(email);
+		try {
+			logger.info("Successfully Get Employee By Email");
+			return employeeRepository.findEmployeeByEmail(email);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 	// Find By Employee Name
 	public List<Employee> getByName(String name) {
-		logger.info("Successfully Get Employee By Name");
-		return employeeRepository.findByName(name);
+		try {
+			logger.info("Successfully Get Employee By Name");
+			return employeeRepository.findByName(name);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 	// Find By Employee Designation
 	public List<Employee> getByDesignation(Long designationid) {
-		logger.info("Successfully Get Employee By Designation");
-		return employeeRepository.findByDesignation(designationid);
+		try {
+			logger.info("Successfully Get Employee By Designation");
+			return employeeRepository.findByDesignation(designationid);
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 //	Employee Table Count method
 	public long count() {
-		return employeeRepository.count();
+		try {
+			return employeeRepository.count();
+		} catch (Exception ex) {
+			logger.error("Employee Service Imp:--> Error" + ex.getMessage());
+		}
+		return 0;
+
 	}
 
 	@Override
@@ -103,5 +155,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 			throw new RuntimeException("FAIL! -> message = " + e.getMessage());
 		}
 	}
+
 
 }

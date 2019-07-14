@@ -20,7 +20,7 @@ public class EmployeeConverter {
 		if (employee != null) {
 			logger.info("Employee Converter-->Employee to DTO Converter");
 			employeeDto.setEmpId(employee.getEmpId());
-			employeeDto.setEmployeeid(employee.getEmployeeid());
+			employeeDto.setEmployeeid(employee.getEmployeeid().toUpperCase());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
 			employeeDto.setFirstname(employee.getFirstname());
@@ -40,7 +40,7 @@ public class EmployeeConverter {
 		if (employeeDTO != null) {
 			logger.info("Employee Converter---> Employee DTO To Employee Entity Converte ");
 			employee.setEmpId(employeeDTO.getEmpId());
-			employee.setEmployeeid(employeeDTO.getEmployeeid());
+			employee.setEmployeeid(employeeDTO.getEmployeeid().toUpperCase());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
 			employee.setFirstname(employeeDTO.getFirstname());
@@ -66,7 +66,7 @@ public class EmployeeConverter {
 				logger.info("Employee Converter---> Employee List Converte");
 				EmployeeDTO employeeDto = new EmployeeDTO();
 				employeeDto.setEmpId(employee.getEmpId());
-				employeeDto.setEmployeeid(employee.getEmployeeid());
+				employeeDto.setEmployeeid(employee.getEmployeeid().toUpperCase());
 				employeeDto.setName(employee.getName());
 				employeeDto.setFirstname(employee.getFirstname());
 				employeeDto.setEmail(employee.getEmail());

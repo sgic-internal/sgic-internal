@@ -38,81 +38,130 @@ public class EmployeeController {
 	@PostMapping(value = "/createemployee") // Save Employee
 	public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
 		logger.info("Employee Controller -> CreateEmployee");
-//		employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
-		if (employeeDTOMapper.getById(employeeDTO.getEmpId()) != null) {
+		try {
+			if (employeeDTOMapper.getById(employeeDTO.getEmpId()) != null) {
+				logger.info("Successfully Saved");
+				System.out.println("Successfully Saved");
+			} else {
+				employeeDTOMapper.saveEmployee(employeeDTO);
+			}
 
-		} else {
-			employeeDTOMapper.saveEmployee(employeeDTO);
+		} catch (Exception ex) {
+			logger.error("Check Your Error");
+			System.out.println("Something went Wrong" + ex.getMessage());
 		}
+
 		return null;
 	}
 
 	/* Author:KiishanthS 17-06-2019 */
 	@GetMapping(value = "/getallemployee") // List Employee
 	public ResponseEntity<List<EmployeeDTO>> sortListEmployeeInfo(Long empId) {
-		logger.info("Employee Controller -> GetAllEmployeeInfo");
-		return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);
+		try {
+			logger.info("Employee Controller : --> GetAllEmployeeInfo");
+			return new ResponseEntity<>(employeeDTOMapper.getAllSortEmployeeInfo(empId), HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Employee Controller Error :-> " + ex.getMessage());
+		}
+
+		return null;
 	}
 
 	/* Author:DalistaaA 17-06-2019 */
 	@GetMapping("/getempolyeebyid/{empid}") // Get Employee By Employee ID
 	public ResponseEntity<EmployeeDTO> getEmployeeById(@PathVariable(name = "empid") Long empid) {
-		logger.info("Employee Controller -> GetEmployeeById");
-		return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
+		try {
+			logger.info("Employee Controller :-> GetEmployeeById");
+			return new ResponseEntity<>(employeeDTOMapper.getById(empid), HttpStatus.OK);
+
+		} catch (Exception ex) {
+			logger.error("Employee Controller :->" + ex.getMessage());
+
+		}
+		return null;
+
 	}
 
 	/* Author:JothiM 17-06-2019 */
 	@DeleteMapping("/deletebyid/{empId}") // Delete Employee Using Employee ID
 	public ResponseEntity<String> deleteEmployeeByempId(@PathVariable("empId") Long empId) {
-		logger.info("Employee Controller -> DeleteEmployeeById");
-//		employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
-		employeeDTOMapper.deleteByEmployeeId(empId);
-		return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
+		try {
+			logger.info("Employee Controller :-> DeleteEmployeeById");
+//			employeeDTOMapper.deleteByEmployeeId(empid.toUpperCase());
+			employeeDTOMapper.deleteByEmployeeId(empId);
+			return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Employee Controller :-> Error" + ex.getMessage());
+		}
+		return null;
 	}
 
 	/* Author:ThuvarakanT 17-06-2019 */
 	@GetMapping("/getemail/{email}")
 	// Get Employee By Email
 	public ResponseEntity<EmployeeDTO> getEmployeeByEmail(@PathVariable(name = "email") String email) {
-		logger.info("Employee Controller -> GetEmail");
-
-		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeEmailforMapper(email), HttpStatus.OK);
+		try {
+			logger.info("Employee Controller:: -> GetEmail");
+			return new ResponseEntity<>(employeeDTOMapper.getByEmployeeEmailforMapper(email), HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Employee Controller:: -> Error" + ex.getMessage());
+		}
+		return null;
 	}
 
 	/* Author:RammiyaN 19-06-2019 */
 	@PutMapping("update/{empId}") // update Employee Using Employee ID
 	public ResponseEntity<String> updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
-		logger.info("Employee Controller -> Update");
-
-		if (employeeDTOMapper.UpdateEmployee(employeeDTO) != null) {
-			return new ResponseEntity<>("Successfully Updated", HttpStatus.OK);
+		try {
+			logger.info("Employee Controller :-> Update");
+			if (employeeDTOMapper.UpdateEmployee(employeeDTO) != null) {
+				return new ResponseEntity<>("Successfully Updated", HttpStatus.OK);
+			}
+			return new ResponseEntity<>("Failed To Update", HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Employee Controller :-> Error" + ex.getMessage());
 		}
 
-		return new ResponseEntity<>("Failed To Update", HttpStatus.OK);
-
+		return null;
 	}
 
 	/* Author:DalistaaA 19-06-2019 */
 	@GetMapping("/getdesignation/{designationid}") // Get Employee By Designation
 	public List<EmployeeDTO> getByDesignation(@PathVariable(name = "designationid") Long designationid) {
-		logger.info("Employee Controller -> GetDesignation");
-		return employeeDTOMapper.getEmployeeByDesignation(designationid);
+		try {
+			logger.info("Employee Controller :-> GetDesignation");
+			return employeeDTOMapper.getEmployeeByDesignation(designationid);
+		} catch (Exception ex) {
+			logger.error("Employee Controller :-> Error" + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	/* Author:KeerthanaR 23-06-2019 */
 	@GetMapping("/getname/{name}") // Get Employee By Name
 	public List<EmployeeDTO> getByName(@PathVariable(name = "name") String name) {
-		logger.info("Employee Controller -> GetName");
-		return employeeDTOMapper.getEmployeeByName(name);
+		try {
+			logger.info("Employee Controller -> GetName");
+			return employeeDTOMapper.getEmployeeByName(name);
+		} catch (Exception ex) {
+			logger.error("Employee Controller -> error" + ex.getMessage());
+		}
+		return null;
 
 	}
 
 	@GetMapping("/getcount")
 // <----	Employee DataBase Employee Table Row Count Method --->
 	public ResponseEntity<Long> getTotalCount() {
-		logger.info("Employee Controller -> getCount");
+		try {
+			logger.info("Employee Controller :-> getCount");
+			return new ResponseEntity<>(employeeDTOMapper.getByEmployeeCountforMapper(), HttpStatus.OK);
+		} catch (Exception ex) {
+			logger.error("Employee Controller :-> Error" + ex.getMessage());
+		}
+		return null;
 
-		return new ResponseEntity<>(employeeDTOMapper.getByEmployeeCountforMapper(), HttpStatus.OK);
 	}
 
 	@PostMapping("/database")
