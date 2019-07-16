@@ -1,7 +1,9 @@
 package com.sgic.internal.defecttracker.project.entities;
 
-public class ModuleAllocation {
+import javax.persistence.Id;
 
+public class ModuleAllocation {
+	@Id
 	private Long moduleAllocationId;
 	private String moduleAllocationName;
 	private String name;

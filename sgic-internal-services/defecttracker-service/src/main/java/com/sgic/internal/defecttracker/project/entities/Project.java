@@ -4,9 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -20,10 +24,20 @@ public class Project implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name = "project_id", unique = true)
+	@NotEmpty
 	private String projectId;
 
+	@NotEmpty
+	@Size(min = 2, max = 50)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Project Name can not contain invalid characters")
+	@Column(name = "project_name")
 	private String projectName;
 
+	@NotEmpty
+	@Size(min = 2, max = 20)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Project Type can not contain invalid characters")
+	@Column(name = "type")
 	private String type;
 
 	@DateTimeFormat(iso = ISO.DATE)
@@ -32,11 +46,16 @@ public class Project implements Serializable {
 	@DateTimeFormat(iso = ISO.DATE)
 	private Date endDate = currentDay;
 
+	@Column(name = "duration")
 	private Long duration;
 
+	@NotEmpty
+	@Size(min = 2, max = 10)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Project Status can not contain invalid characters")
+	@Column(name = "status")
 	private String status;
 
-//	private String configId;
+//	Getters and setters for project 
 
 	public String getProjectId() {
 		return projectId;
@@ -75,9 +94,6 @@ public class Project implements Serializable {
 	}
 
 	public void setEndDate(Date endDate) {
-//		LocalDate ld = currentDay.toLocalDate();
-//		LocalDate monthLater = ld.plusMonths(duration);
-//		java.sql.Date sqlEndDate = java.sql.Date.valueOf(monthLater);
 		this.endDate = currentDay;
 	}
 
@@ -96,13 +112,5 @@ public class Project implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-//	public String getConfigId() {
-//		return configId;
-//	}
-//
-//	public void setConfigId(String configId) {
-//		this.configId = configId;
-//	}
 
 }
