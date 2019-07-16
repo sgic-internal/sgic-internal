@@ -36,7 +36,7 @@ public class Project implements Serializable {
 
 	private String status;
 
-	private String configId;
+//	private String configId;
 
 	public String getProjectId() {
 		return projectId;
@@ -97,12 +97,12 @@ public class Project implements Serializable {
 		this.status = status;
 	}
 
-	public String getConfigId() {
-		return configId;
-	}
-
-	public void setConfigId(String configId) {
-		this.configId = configId;
-	}
+//	public String getConfigId() {
+//		return configId;
+//	}
+//
+//	public void setConfigId(String configId) {
+//		this.configId = configId;
+//	}
 
 }

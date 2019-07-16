@@ -7,43 +7,20 @@ public class ModuleData {
 
 	private String moduleId;
 	private String moduleName;
-//	private String abbr;
-	private String projectid;
+//	private String projectid;
 //	private String subModuleId;
+//	private String subModuleName;
 
-	
-	
 	public ModuleData(String moduleId, String moduleName) {
 		super();
 		this.moduleId = moduleId;
 		this.moduleName = moduleName;
-		
 	}
+
 	public ModuleData() {
-		// TODO Auto-generated constructor stub
 	}
 
-
-	
-
-	// getter setter for submodule id
-//	public String getSubModuleId() {
-//		return subModuleId;
-//	}
-//
-//	public void setSubModuleId(String subModuleId) {
-//		this.subModuleId = subModuleId;
-//	}
-
-	// getters setters for project id
-	public String getProjectid() {
-		return projectid;
-	}
-
-	public void setProjectid(String projectid) {
-		this.projectid = projectid;
-	}
-
+	// getters setters for module DTO
 	public String getModuleId() {
 		return moduleId;
 	}
@@ -61,19 +38,30 @@ public class ModuleData {
 
 	}
 
-//	public String getAbbr() {
-//		return abbr;
+	// getter setter for submodule id
+//	public String getSubModuleId() {
+//		return subModuleId;
 //	}
 //
-//	public void setAbbr(String abbr) {
-//		this.abbr = abbr;
+//	public void setSubModuleId(String subModuleId) {
+//		this.subModuleId = subModuleId;
 //	}
-
-//	public ModuleData(String moduleId, String moduleName) {
-//		super();
-//		this.moduleId = moduleId;
-//		this.moduleName = moduleName;
 //
+//	public String getSubModuleName() {
+//		return subModuleName;
+//	}
+//
+//	public void setSubModuleName(String subModuleName) {
+//		this.subModuleName = subModuleName;
+//	}
+//
+//	// getters setters for project id
+//	public String getProjectid() {
+//		return projectid;
+//	}
+//
+//	public void setProjectid(String projectid) {
+//		this.projectid = projectid;
 //	}
 
 }
