@@ -16,7 +16,7 @@ public class DesignationServiceImpl implements DesignationService {
 
 	@Autowired
 	private DesignationRepository designationRepository;
-	
+
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	@Override
@@ -27,7 +27,21 @@ public class DesignationServiceImpl implements DesignationService {
 
 	@Override
 	public List<Designation> getAllDesignation() {
+		logger.info("Successfully Get Designation Details");
 		return designationRepository.findAll();
+	}
+
+	@Override
+	public Designation getBydesignationid(Long designationid) {
+		logger.info("Successfully Get Designation By DesignationId");
+		return designationRepository.findBydesignationid(designationid);
+	}
+
+	@Override
+	public void deleteDesignationBydesignationid(Long designationid) {
+		logger.info("Designation Service Impl --> Deleted Successfully");
+		designationRepository.deleteDesignationBydesignationid(designationid);
+
 	}
 
 }

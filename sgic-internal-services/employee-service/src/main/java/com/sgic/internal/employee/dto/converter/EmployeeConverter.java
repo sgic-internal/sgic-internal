@@ -18,9 +18,9 @@ public class EmployeeConverter {
 	public static EmployeeDTO EmployeeToEmployeeDTO(Employee employee) {
 		EmployeeDTO employeeDto = new EmployeeDTO();
 		if (employee != null) {
-			logger.info("Employee to DTO Converter");
+			logger.info("Employee Converter-->Employee to DTO Converter");
 			employeeDto.setEmpId(employee.getEmpId());
-			employeeDto.setEmployeeid(employee.getEmployeeid());
+			employeeDto.setEmployeeid(employee.getEmployeeid().toUpperCase());
 			employeeDto.setEmail(employee.getEmail());
 			employeeDto.setName(employee.getName());
 			employeeDto.setFirstname(employee.getFirstname());
@@ -33,20 +33,20 @@ public class EmployeeConverter {
 		return null;
 
 	}
-	
-
 
 //	Employee DTO To Employee Entity Converter
 	public static Employee EmployeeDTOToEmployee(EmployeeDTO employeeDTO) {
 		Employee employee = new Employee();
 		if (employeeDTO != null) {
+			logger.info("Employee Converter---> Employee DTO To Employee Entity Converte ");
 			employee.setEmpId(employeeDTO.getEmpId());
-			employee.setEmployeeid(employeeDTO.getEmployeeid());
+			employee.setEmployeeid(employeeDTO.getEmployeeid().toUpperCase());
 			employee.setEmail(employeeDTO.getEmail());
 			employee.setName(employeeDTO.getName());
 			employee.setFirstname(employeeDTO.getFirstname());
 			employee.setAvailability(employeeDTO.getAvailability());
 			employee.setBench(employeeDTO.isBench());
+
 //			Designation object converting 
 			Designation desi = new Designation();
 			desi.setDesignationid(employeeDTO.getDesignationid());
@@ -60,12 +60,13 @@ public class EmployeeConverter {
 	public static List<EmployeeDTO> EmployeeToEmployeeDTO(List<Employee> employeeList) {
 
 		if (employeeList != null) {
-			logger.info("Employee to DTO Converter");
+			logger.info("Employee Converter---> Employee to DTO Converter");
 			List<EmployeeDTO> listemployeeDto = new ArrayList<>();
 			for (Employee employee : employeeList) {
+				logger.info("Employee Converter---> Employee List Converte");
 				EmployeeDTO employeeDto = new EmployeeDTO();
 				employeeDto.setEmpId(employee.getEmpId());
-				employeeDto.setEmployeeid(employee.getEmployeeid());
+				employeeDto.setEmployeeid(employee.getEmployeeid().toUpperCase());
 				employeeDto.setName(employee.getName());
 				employeeDto.setFirstname(employee.getFirstname());
 				employeeDto.setEmail(employee.getEmail());

@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.project.entities;
 
 public class Employee {
 
+//	 Employee Service Employee Entity 
 	private Long empId;
 	private String employeeid;
 	private String name;
@@ -12,8 +13,6 @@ public class Employee {
 	private Long designationid;
 	private String designationname;
 
-	
-	
 	public Long getEmpId() {
 		return empId;
 	}
@@ -86,5 +85,4 @@ public class Employee {
 		this.firstname = firstname;
 	}
 
-	
 }
