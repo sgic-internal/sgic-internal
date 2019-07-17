@@ -1,5 +1,7 @@
 package com.sgic.internal.defecttracker.dashBoard.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,23 +16,38 @@ public class DashboardController {
 
 	@Autowired
 	private DashboardService dashboardService;
-//	DefectRepository defectRepo;
+
+	@Autowired
+	DefectRepository defectRepo;
+
+	private static Logger logger = LogManager.getLogger(DashboardService.class);
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Integer> getTotalCount() {
-		return new ResponseEntity<>(dashboardService.count(), HttpStatus.OK);
+		try {
+			return new ResponseEntity<>(dashboardService.count(), HttpStatus.OK);
+		} catch (Exception e) {
+			logger.error(" Dashboard Controller :-->their was an error" + e.getMessage());
+		}
+		return null;
 
 	}
 
-	@GetMapping("/getlowcountmudium")
+	@GetMapping("/getcountmudium")
 	public ResponseEntity<Integer> getTotalCountmedium() {
 		return new ResponseEntity<>(dashboardService.countmudium(), HttpStatus.OK);
 
 	}
-	
-	@GetMapping("/getlowcounthigh")
+
+	@GetMapping("/getcounthigh")
 	public ResponseEntity<Integer> getTotalCounthigh() {
-		return new ResponseEntity<>(dashboardService.countHigh(),HttpStatus.OK);
+		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
+
+	}
+
+	@GetMapping("/getallcount")
+	public ResponseEntity<Long> getTotalCountAll() {
+		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
 
 	}
 }
