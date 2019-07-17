@@ -46,7 +46,7 @@ public interface DefectRepository extends JpaRepository<Defect, String> {
 	@Query(value = "SELECT d FROM Defect d WHERE type =:type")
 	List<Defect> getByType(@Param("type") String type);
 
-	@Query("SELECT COUNT(severity) FROM Defect WHERE severity='low'")
+	@Query("SELECT COUNT(severity) FROM Defect WHERE severity='Low'")
 	int countBySeverity();
 	
 	@Query("SELECT COUNT(severity) FROM Defect WHERE severity='Medium'")
