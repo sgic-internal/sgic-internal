@@ -1,20 +1,10 @@
-package com.sgic.internal.defecttracker.project.entities;
+package com.sgic.internal.defecttracker.project.controller.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Table(schema = "defectservices", name = "roleallocation")
-public class RoleAllocation {
+@Component
+public class RoleAllocationDto {
 
-	@Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long roleId;
 	private String rId;
 	private String role;
@@ -25,6 +15,18 @@ public class RoleAllocation {
 	
 	
 	
+	
+//    private String subModuleId;
+
+	// getterSetter for subModuleId
+//	public String getSubModuleId() {
+//		return subModuleId;
+//	}
+//
+//	public void setSubModuleId(String subModuleId) {
+//		this.subModuleId = subModuleId;
+//	}
+
 	public Long getEmpId() {
 		return empId;
 	}
@@ -66,6 +68,7 @@ public class RoleAllocation {
 	}
 
 	
+
 	public String getRole() {
 		return role;
 	}
@@ -81,20 +84,5 @@ public class RoleAllocation {
 	public void setAvailability(int availability) {
 		this.availability = availability;
 	}
-
-	// creating relationship class with add_project
-//	@ManyToOne  //(fetch=FetchType.LAZY)
-//	@JoinColumn(name = "subModuleId", nullable = false)
-//	private SubModule subModule;
-//
-//	public SubModule getSubModule() {
-//		return subModule;
-//	}
-//
-//	public void setSubModule(SubModule subModule) {
-//		this.subModule = subModule;
-//	}
-//	
-//	
 
 }
