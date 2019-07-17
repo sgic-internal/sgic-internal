@@ -3,7 +3,6 @@ package com.sgic.internal.defecttracker.project.services;
 import java.util.List;
 
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
-import com.sgic.internal.defecttracker.project.entities.ResourceAllocationList;
 
 public interface ResourceAllocationService {
 	

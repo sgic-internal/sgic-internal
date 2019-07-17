@@ -15,12 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.defect.controller.dto.AuditLogData;
-import com.sgic.internal.defecttracker.defect.controller.dto.CommentData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.AuditLogMapper;
 import com.sgic.internal.defecttracker.defect.entities.AuditLog;
-import com.sgic.internal.defecttracker.defect.entities.Comments;
 import com.sgic.internal.defecttracker.defect.services.impl.AuditLogServiceImpl;
-import com.sgic.internal.defecttracker.defect.services.impl.CommentServiceImp;
 
 @CrossOrigin
 @RestController
@@ -40,8 +37,7 @@ public class AuditLogController {
 		return new ResponseEntity<>( new ApiResponse (RestApiResponseStatus.OK), HttpStatus.OK);
 	}
 	
-	 @SuppressWarnings("null")
-		@GetMapping(value = "/auditLog/{defectId}")
+	 @GetMapping(value = "/auditLog/{defectId}")
 		  public List<AuditLog> getListAuditLog(@PathVariable String defectId) {
 			
 		  LOG.info("auditlog getting"  );

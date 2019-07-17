@@ -12,7 +12,6 @@ import com.sgic.internal.defecttracker.defect.controller.dto.converter.DefectPri
 import com.sgic.internal.defecttracker.defect.entities.DefectPriority;
 import com.sgic.internal.defecttracker.defect.services.DefectPriorityService;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectPriorityServiceImpl;
-import com.sgic.internal.defecttracker.defect.services.impl.DefectSeverityServiceImpl;
 
 @Service
 public class DefectPriorityMapper {
@@ -27,13 +26,14 @@ public class DefectPriorityMapper {
 	// Mapper for creating defect priority
 	public Boolean createDefectPriority(DefectPriorityDto defectPriorityDto) {
 		// BasicConfigurator.configure();
-		DefectPriority defectPriority = defectPriorityConverter.defectPriorityDtoToDefectPriority(defectPriorityDto);
+		DefectPriority defectPriority = DefectPriorityConverter.defectPriorityDtoToDefectPriority(defectPriorityDto);
 		defectPriorityService.createDefectPriority(defectPriority);
 		logger.info("Defect Priority Create Mapper");
 		return true;
 	}
 	
 	// Mapper for listing all defect priorities
+		@SuppressWarnings("static-access")
 		public List<DefectPriorityDto> getAllDefectPriority(){
 			//BasicConfigurator.configure();
 			List<DefectPriority> defectPriorityList = defectPriorityService.findAllDefectPriority();
@@ -53,7 +53,7 @@ public class DefectPriorityMapper {
 			DefectPriority defectPriorityList =defectPriorityService.findDefecPriorityById(id);
 		    if (defectPriorityList != null) {
 		    	logger.info("Defect Priority Get By Id Mapper");
-		    	return defectPriorityConverter.defectPriorityToDefectPriorityDto(defectPriorityList);
+		    	return DefectPriorityConverter.defectPriorityToDefectPriorityDto(defectPriorityList);
 		    }
 		    else {
 		    	logger.warn("No Defect Priority By Id");
@@ -77,7 +77,7 @@ public class DefectPriorityMapper {
 		// Mapper for update defect priority
 		public Boolean updateDefectPriority(Long id, DefectPriorityDto defectPriorityDto) {
 			//BasicConfigurator.configure();
-			DefectPriority defectPriority = defectPriorityConverter.defectPriorityDtoToDefectPriority(defectPriorityDto);
+			DefectPriority defectPriority = DefectPriorityConverter.defectPriorityDtoToDefectPriority(defectPriorityDto);
 			DefectPriority defectPriorityList =defectPriorityService.findDefecPriorityById(id);
 			if(defectPriorityList == null) {
 				logger.warn("No Defect Priority By Id");

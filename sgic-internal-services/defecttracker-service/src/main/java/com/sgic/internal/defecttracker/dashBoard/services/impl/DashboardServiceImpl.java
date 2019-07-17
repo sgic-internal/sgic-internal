@@ -7,20 +7,27 @@ import com.sgic.internal.defecttracker.dashBoard.repository.DashboardRepository;
 import com.sgic.internal.defecttracker.dashBoard.service.DashboardService;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
 
-
 @Service
 public class DashboardServiceImpl implements DashboardService {
-	
-	@SuppressWarnings("unused")
-	@Autowired
-	private DashboardRepository dashboardRepository;
 
+	@Autowired
 	private DefectRepository defectRepository;
 
+	@SuppressWarnings("unused")
+	private DashboardRepository dashboardRepository;
+
 	@Override
-	public long count() {
-		String low = null;
-		defectRepository.countlow(low);
-		return 0;
+	public Integer count() {
+		return defectRepository.countBySeverity();
+	}
+
+	@Override
+	public Integer countmudium() {
+		return defectRepository.countBySeverityMedium();
+	}
+
+	@Override
+	public Integer countHigh() {
+		return defectRepository.countBySeverityhigh();
 	}
 }

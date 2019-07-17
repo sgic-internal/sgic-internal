@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
 import com.sgic.internal.defecttracker.project.controller.dto.ResourceAllocationDto;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.ResourceAllocationDtoMapper;
 import com.sgic.internal.defecttracker.project.entities.Employee;
-import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocationList;
 import com.sgic.internal.defecttracker.project.services.ResourceAllocationService;
@@ -69,6 +67,7 @@ public class ResourceAllocationController {
 
 	}
 
+	@SuppressWarnings("unused")
 	@RequestMapping("/resourceObj/{resourceId}")
 	public ResourceAllocationList getResourceAllocationObj(@PathVariable("resourceId") Long resourceId) {
 		ResourceAllocationList resourceAllocationList = new ResourceAllocationList();

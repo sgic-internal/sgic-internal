@@ -4,11 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.sgic.internal.defecttracker.defect.entities.Defect;
-
 public class AuditLogData {
 	
 	private Long auditId;

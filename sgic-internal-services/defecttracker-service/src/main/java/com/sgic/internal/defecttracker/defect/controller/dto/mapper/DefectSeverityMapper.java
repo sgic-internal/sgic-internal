@@ -20,6 +20,7 @@ public class DefectSeverityMapper {
 	@Autowired
 	private DefectSeverityService defectSeverityService;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private DefectSeverityConverter defectSeverityConverter;
 	
@@ -27,7 +28,7 @@ public class DefectSeverityMapper {
 	
 	public Boolean createDefectSeverity(DefectSeverityDto defectSeverityDto) {
 		BasicConfigurator.configure();
-		DefectSeverity defectSeverity = defectSeverityConverter.defectSeverityDtoToDefectSeverity(defectSeverityDto);
+		DefectSeverity defectSeverity = DefectSeverityConverter.defectSeverityDtoToDefectSeverity(defectSeverityDto);
 		defectSeverityService.createDefectSeverity(defectSeverity);
 		logger.info("Defect Severity Create Mapper");
 		return true;
@@ -38,7 +39,7 @@ public class DefectSeverityMapper {
 		List<DefectSeverity> defectSeverityList = defectSeverityService.findAllDefectSeverities();
 		if(defectSeverityList != null) {
 			logger.info("Defect Severities List Mapper");
-			return defectSeverityConverter.defectSeverityToDefectSeverityDto(defectSeverityList);
+			return DefectSeverityConverter.defectSeverityToDefectSeverityDto(defectSeverityList);
 		}
 		else {
 			logger.warn("No Defect Severities");
@@ -51,7 +52,7 @@ public class DefectSeverityMapper {
 		DefectSeverity defectSeverity = defectSeverityService.findDefectSeverityById(id);
 		if(defectSeverity != null) {
 			logger.info("Defect Severity Get By Id Mapper");
-			return defectSeverityConverter.defectSeverityToDefectSeverityDto(defectSeverity);
+			return DefectSeverityConverter.defectSeverityToDefectSeverityDto(defectSeverity);
 		}
 		else {
 			logger.warn("No Defect Severity By Id");
@@ -73,7 +74,7 @@ public class DefectSeverityMapper {
 	
 	public Boolean updateDefectSeverity(Long id, DefectSeverityDto defectSeverityDto) {
 		BasicConfigurator.configure();
-		DefectSeverity defectSeverity = defectSeverityConverter.defectSeverityDtoToDefectSeverity(defectSeverityDto);
+		DefectSeverity defectSeverity = DefectSeverityConverter.defectSeverityDtoToDefectSeverity(defectSeverityDto);
 		DefectSeverity defectSeveritylist = defectSeverityService.findDefectSeverityById(id);
 		if(defectSeveritylist == null) {
 			logger.warn("No Defect Severity By Id");

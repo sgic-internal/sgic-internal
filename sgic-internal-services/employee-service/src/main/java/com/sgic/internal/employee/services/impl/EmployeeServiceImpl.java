@@ -26,7 +26,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
 
 	@Override
@@ -96,7 +95,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	@Override
 	public long count() {
-		// TODO Auto-generated method stub
+
 		return employeeRepository.count();
 	}
 
