@@ -20,4 +20,5 @@ public interface ProductPrivilegeService {
 
 	// Update ProductPrivilege
 	public ProductPrivilege updateProductPrivilege(ProductPrivilege productPrivilege);
+	
 }

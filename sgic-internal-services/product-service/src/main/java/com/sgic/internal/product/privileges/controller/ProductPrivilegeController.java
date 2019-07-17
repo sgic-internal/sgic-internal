@@ -20,10 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.internal.product.privileges.controller.dto.ProductPrivilegeDto;
 import com.sgic.internal.product.privileges.controller.dto.mapper.ProductPrivilegeMapper;
+import com.sgic.internal.product.privileges.services.ProductPrivilegeService;
 
-@CrossOrigin(origins = "*",allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ProductPrivilegeController {
+	@Autowired
+	ProductPrivilegeService repo;
 	@Autowired
 	private ProductPrivilegeMapper productPrivilegeMapper;
 	private static Logger logger = LogManager.getLogger(ProductPrivilegeMapper.class);
@@ -31,55 +34,90 @@ public class ProductPrivilegeController {
 	// Get All ProductPrivilege
 	@GetMapping("/ProductPrivileges")
 	public List<ProductPrivilegeDto> getAllProductPrivilege() {
-		logger.info("Controller -> Data Retrieved Successfull");
-		return productPrivilegeMapper.getAllProductPrivilege();
+		logger.info("Product Privilege Controller INFO -> Get All Product Privilege Method Started");
+		try {
+			return productPrivilegeMapper.getAllProductPrivilege();
+		} finally {
+			logger.info("Product Privilege Controller INFO -> Get All Product Privilege Method Finished");
+		}
 	}
 
-	 //Get ProductPrivilege By Id
+	// Get ProductPrivilege By Id
 	@GetMapping("/ProductPrivilege/{productPrivilegeId}")
-	public ProductPrivilegeDto getProductPrivilegeById(@PathVariable(name = "productPrivilegeId") Long productPrivilegeId) {
-		logger.info("Controller -> Data Retrieved Successfull");
-		return productPrivilegeMapper.getProductPrivilegeById(productPrivilegeId);
+	public Object getProductPrivilegeById(@PathVariable(name = "productPrivilegeId") Long productPrivilegeId) {
+		logger.info("Product Privilege Controller INFO -> Get Product Privilege By Id Method Started");
+		try {
+			if (productPrivilegeMapper.getProductPrivilegeById(productPrivilegeId) != null) {
+				logger.info("Product Privilege Controller INFO -> Product Privilege Id Found -> Product Privilege Id : "
+						+ productPrivilegeId);
+				return productPrivilegeMapper.getProductPrivilegeById(productPrivilegeId);
+			} else {
+				logger.warn(
+						"Product Privilege Controller WARNING! -> Product Privilege Id Not Found! -> Product Privilege Id : "
+								+ productPrivilegeId);
+				return "Product Privilege Id : "+productPrivilegeId+" Not Found ";
+			}
+		} finally {
+			logger.info("Product Privilege Controller INFO -> Get Product Privilege By Id Method Finished");
+		}
 	}
-	
 
 	// Save ProductPrivilege
 	@PostMapping("/ProductPrivilege")
 	public ResponseEntity<String> saveProductPrivilege(@Valid @RequestBody ProductPrivilegeDto productPrivilegeDto) {
-		if (productPrivilegeMapper.saveProductPrivilege(productPrivilegeDto) != null) {
-			logger.info("ProductPrivilege Controller -> ProductPrivilege Created Successful");
-			return new ResponseEntity<>("ProductPrivilege added succesfully", HttpStatus.OK);
+		logger.info("Product Privilege Controller INFO -Save Product Privilege Method Started");
+		try {
+			if (productPrivilegeMapper.saveProductPrivilege(productPrivilegeDto) != null) {
+				logger.info("Product Privilege Controller -> ProductPrivilege Created Successful");
+				return new ResponseEntity<>("ProductPrivilege added succesfully", HttpStatus.OK);
+			}
+			logger.warn("Product Privilege Controller -> Product Privilege creation FAILED!!!");
+			return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
+		} finally {
+			logger.info("Product Privilege Controller INFO -> Save Product Privilege Method Finished");
 		}
-		logger.info("ProductPrivilege Controller -> ProductPrivilege creation FAILED!!!");
-		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 	}
 
 	// Update ProductPrivilege
 	@PutMapping("/ProductPrivilege")
 	public ResponseEntity<String> updateProductPrivilege(@RequestBody ProductPrivilegeDto productPrivilegeDto) {
-		logger.info("ProductPrivilege Controller -> ProductPrivilege Updated Successful");
-		if (productPrivilegeMapper.updateProductPrivilege(productPrivilegeDto) != null) {
-			return new ResponseEntity<>("Sucessfully Updated ProductPrivilege", HttpStatus.OK);
+		logger.info("Product Privilege Controller INFO -> Update Product Privilege Method Started");
+		try {
+			if (productPrivilegeMapper.updateProductPrivilege(productPrivilegeDto) != null) {
+				return new ResponseEntity<>("Sucessfully Updated ProductPrivilege", HttpStatus.OK);
+			}
+			logger.warn("Product Privilege Controller WARNINIG! -> Product Privilege Updated Failed!");
+			return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
+		} finally {
+			logger.info("Product Privilege Controller INFO -> Update Product Privilege Method Finished");
 		}
-		logger.info("ProductPrivilege Controller -> ProductPrivilege Updated Failed!!!");
-		return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 
 	// Delete ProductPrivilege
 	@DeleteMapping("/ProductPrivilege/{productPrivilegeId}")
-	public ResponseEntity<String> deleteProductPrivilege(@PathVariable(name = "productPrivilegeId") Long productPrivilegeId) {
+	public ResponseEntity<String> deleteProductPrivilege(
+			@PathVariable(name = "productPrivilegeId") Long productPrivilegeId) {
 		System.out.print(productPrivilegeId);
-		if (productPrivilegeMapper.getProductPrivilegeById(productPrivilegeId) != null) {
-			if (productPrivilegeMapper.deleteProductPrivilegeById(productPrivilegeId) == null) {
-				logger.info("ProductPrivilege Controller -> ProductPrivilege Deleted Successful");
-				return new ResponseEntity<>("ProductPrivilege Sucessfully deleted", HttpStatus.OK);
+		logger.info("Product Privilege Controller INFO -> Delete Product Privilege Method Started");
+		try {
+			if (productPrivilegeMapper.getProductPrivilegeById(productPrivilegeId) != null) {
+				if (productPrivilegeMapper.deleteProductPrivilegeById(productPrivilegeId) == null) {
+					logger.info(
+							"Product Privilege Controller INFO -> Product Privilege Id Found -> Product Privilege Id : "
+									+ productPrivilegeId);
+					return new ResponseEntity<>("ProductPrivilege Sucessfully deleted", HttpStatus.OK);
+				}
+			} else {
+				logger.warn(
+						"Product Privilege Controller WARNING! -> Product Privilege Id Not Found -> Product Privilege Id : "
+								+ productPrivilegeId);
+				return new ResponseEntity<>("Delete Failed! -> ProductPrivilege Id : "+productPrivilegeId+" Not Found!",
+						HttpStatus.BAD_REQUEST);
 			}
-		} else {
-			logger.info("ProductPrivilege Controller -> ProductPrivilege Id Not Found");
-			return new ResponseEntity<>("ProductPrivilege Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
+		} finally {
+			logger.info("Product Privilege Controller INFO -> Delete Product Privilege Method Finished");
 		}
-		logger.info("ProductPrivilege Controller -> ProductPrivilege Deleted Failed!!!");
-		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
+		return null;
 	}
 
 }

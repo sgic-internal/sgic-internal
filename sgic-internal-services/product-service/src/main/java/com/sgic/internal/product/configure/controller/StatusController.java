@@ -107,12 +107,11 @@ public class StatusController {
 				}
 			} else {
 				logger.warn("Defect Status Controller -> Defect Status Id Not Found -> Status Id : " + statusId);
-				return new ResponseEntity<>("Status Id Not FOUND, Status Id : " + statusId, HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<>("Delete Failed! -> Status Id Not FOUND, Status Id : " + statusId, HttpStatus.BAD_REQUEST);
 			}
-			logger.warn("Status Controller -> Status Deleted Failed!!!");
-			return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 		} finally {
 			logger.info("Defect Status Controller INFO -> Delete Defect Defect Status Method Finished");
 		}
+		return null;
 	}
 }

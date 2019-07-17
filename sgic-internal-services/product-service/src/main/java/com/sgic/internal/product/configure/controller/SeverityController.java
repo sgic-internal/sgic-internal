@@ -35,6 +35,7 @@ public class SeverityController {
 			logger.info("Severity Controller INFO -> Get All Severity Method Started");
 			return severityMapper.getAllSeverity();
 		} catch (Exception ex) {
+			logger.error("Severity Controller INFO -> Get All Severity Method Failed!");
 			logger.error("Severity Controller ERROR! :-> " + ex.getMessage());
 		} finally {
 			logger.info("Severity Controller INFO -> Get All Severity Method Finished");

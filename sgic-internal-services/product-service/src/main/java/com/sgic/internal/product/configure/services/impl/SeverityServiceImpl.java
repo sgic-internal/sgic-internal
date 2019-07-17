@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.sgic.internal.product.configure.entities.DefectSeverity;
 import com.sgic.internal.product.configure.repository.SeverityRepo;
 import com.sgic.internal.product.configure.services.SeverityService;
-import com.sgic.internal.product.repositories.CompanyRepository;
 
 @Service
 public class SeverityServiceImpl implements SeverityService {
@@ -18,7 +17,7 @@ public class SeverityServiceImpl implements SeverityService {
 	@Autowired
 	SeverityRepo severityRepo;
 
-	private static Logger logger = LogManager.getLogger(CompanyRepository.class);
+	private static Logger logger = LogManager.getLogger(SeverityRepo.class);
 
 	@Override
 	public DefectSeverity createDefectSeverity(DefectSeverity severity) {
