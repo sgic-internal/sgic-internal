@@ -148,6 +148,8 @@ public class DefectServiceImpl implements DefectService {
 		return defectRepository.getByType(type);
 	}
 
+	
+
 
 	
 }
