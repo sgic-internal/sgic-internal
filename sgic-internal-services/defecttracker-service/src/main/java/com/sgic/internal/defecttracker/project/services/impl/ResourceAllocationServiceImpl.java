@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
-import com.sgic.internal.defecttracker.project.entities.ResourceAllocationList;
 import com.sgic.internal.defecttracker.project.repositories.ResourceAllocationRepository;
 import com.sgic.internal.defecttracker.project.services.ResourceAllocationService;
 

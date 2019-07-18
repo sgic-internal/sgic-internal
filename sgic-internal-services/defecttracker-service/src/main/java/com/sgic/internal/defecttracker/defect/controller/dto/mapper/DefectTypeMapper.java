@@ -21,6 +21,7 @@ public class DefectTypeMapper {
 	@Autowired
 	private DefectTypeConverter defectTypeConverter;
 	
+	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 	
 	// Mapper for creating defect type

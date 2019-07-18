@@ -16,8 +16,7 @@ public class ModuleConverter {
 		if (module != null) {
 			moduleData.setModuleId(module.getModuleId());
 			moduleData.setModuleName(module.getModuleName());
-			//get project id
-			Module module1=new Module();
+			new Module();
 			moduleData.setProjectid(module.getProject().getProjectId());
 			//get sub module id
 //			Module module2=new Module();
@@ -34,8 +33,7 @@ public class ModuleConverter {
 		// project constructor
 		Project project = new Project();
 		
-		// submodule constructor
-		SubModule subModule = new SubModule();
+		new SubModule();
 		
 		module.setModuleId(moduleData.getModuleId());
 		module.setModuleName(moduleData.getModuleName());

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 import javax.validation.Valid;
@@ -24,9 +23,6 @@ import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMapper;
 import com.sgic.internal.defecttracker.defect.entities.Defect;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
-import com.sgic.internal.defecttracker.defect.services.DefectService;
-import com.sgic.internal.defecttracker.project.controller.dto.ModuleData;
-import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
@@ -39,16 +35,10 @@ public class DefectController {
 	private DefectDataMapper defectDataMapper;
 	
 	@Autowired
-	private ModuleDataMapper moduleDataMapper;
-	
-	@Autowired
 	private ModuleService moduleService;
 	
 	@Autowired
 	private DefectRepository defectRepository;
-	
-	@Autowired
-	private DefectService defectService;
 	
 	@Autowired
 	private ProjectService projectService;
@@ -205,8 +195,42 @@ public class DefectController {
 				return defectRepository.save(defects);
 	}
 	
-		
+	//Hari matrix
+	
+	@GetMapping(value = "/getStatusNew")
+	public Long getStatusNew() {
+		return defectService.getStatusNew();	
 	}
 	
+	@GetMapping(value = "/getStatusOpen")
+	public Long getStatusOpen() {
+		return defectService.getStatusOpen();	
+	}
 	
+	@GetMapping(value = "/getStatusClose")
+	public Long getStatusClose() {
+		return defectService.getStatusClose();
+	}
+	
+	@GetMapping(value = "/getStatusRejected")
+	public Long getStatusRejected() {
+		return defectService.getStatusRejected();
+	}
+	
+	@GetMapping(value = "/getStatusReOpen")
+	public Long getStatusReOpen() {
+		return defectService.getStatusReOpen();
+	}
+	
+	@GetMapping(value = "/getStatusFixed")
+	public Long getStatusFixed() {
+		return defectService.getStatusFixed();
+	}
+	
+	@GetMapping(value = "/getStatusDefered")
+	public Long getStatusDefered() {
+		return defectService.getStatusDefered();
+	}
+	
+}
 

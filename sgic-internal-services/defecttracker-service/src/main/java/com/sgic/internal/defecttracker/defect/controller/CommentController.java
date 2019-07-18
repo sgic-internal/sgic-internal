@@ -45,7 +45,6 @@ public class CommentController {
 	}
 
 	/* Get Mapping - Defect comment API by Piratheepan */
-	@SuppressWarnings("null")
 	@GetMapping(value = "/comments/{defectId}")
 	public List<Comments> getListComments(@PathVariable String defectId) {
 

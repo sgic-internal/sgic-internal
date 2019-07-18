@@ -1,7 +1,5 @@
 package com.sgic.internal.defecttracker.project.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
