@@ -93,24 +93,6 @@ public class DashboardServiceImpl implements DashboardService {
 	}
 	//For Severity Index End
 
-//	@Override
-//	public float CalculateLow(long count, int reject, int low, int rejectlow) {
-//	    count = (int) defectRepository.count();
-//	    System.out.println(count);
-//	    reject = defectRepository.countByStatusRejected();
-//	    System.out.println(reject);
-//	    low = defectRepository.countBySeverity();
-//	    System.out.println(low);
-//	    rejectlow = defectRepository.countByStatusRejectedlow();
-//	    System.out.println(rejectlow);
-//		int c =(int) (count - reject);
-//		 System.out.println(c);
-//		int d = (int)(low - rejectlow);
-//		 System.out.println(d);
-//		float LowSeverity = (d *100/c);
-//		 System.out.println(LowSeverity);
-//		return LowSeverity;
-//	}
 		
 	public float CalculateMedium(long count, int reject, int medium, int rejectmedium) {
 		// int count1 = (int)count;
@@ -140,7 +122,7 @@ public class DashboardServiceImpl implements DashboardService {
 	    reject = defectRepository.countByStatusRejected();
 	    System.out.println(reject);
 	    
-	    High = defectRepository.countBySeverity();
+	    High = defectRepository.countBySeverityhigh();
 	    System.out.println(High);
 	    
 	    rejectHigh = defectRepository.countByStatusRejectedHigh();

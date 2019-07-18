@@ -5,11 +5,13 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sgic.internal.defecttracker.dashBoard.service.DashboardService;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
 
+@CrossOrigin
 @SuppressWarnings("unused")
 @RestController
 public class DashboardController {
@@ -32,45 +34,24 @@ public class DashboardController {
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Float> getTotalCount() {
-
-		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
-//				countByStatusRejectedlow(),HttpStatus.OK);
+	 return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
 
 	}
 
 	@GetMapping("/gethightcount")
 	public ResponseEntity<Float> getTotalCounthighseverity() {
-		return new ResponseEntity<>(dashboardService.Calculatseverityhigh(count,reject, High, rejectHigh),HttpStatus.OK);
+		return new ResponseEntity<>(dashboardService.Calculatseverityhigh(count, reject, High, rejectHigh),
+				HttpStatus.OK);
 
-		
-		
 	}
 
 	@GetMapping("/getcountmedium")
 	public ResponseEntity<Float> getTotalCountmedium() {
-		return new ResponseEntity<>(dashboardService.CalculateMedium(count, rejectlow, medium, rejectmedium),HttpStatus.OK);
+		return new ResponseEntity<>(dashboardService.CalculateMedium(count, rejectlow, medium, rejectmedium),
+				HttpStatus.OK);
 
 	}
 
-//	@GetMapping("/getcounthigh")
-//	public ResponseEntity<Integer> getTotalCounthigh() {
-//		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
-//
-//	}
-//
-//	@GetMapping("/getallcount")
-//	public ResponseEntity<Long> getTotalCountAll() {
-//		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
-//
-//	}
-//
-//	@GetMapping("/getrejectedcount")
-//	public ResponseEntity<Integer> getRejectedCountAll() {
-//		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
-//
-//	}
-	
-	//For Severity Index Start
 	@GetMapping("/getseverityindex")
 	public ResponseEntity<Double> getSeverityIndex() {
 		return new ResponseEntity<>(dashboardService.calculateSeverityIndex(), HttpStatus.OK);
