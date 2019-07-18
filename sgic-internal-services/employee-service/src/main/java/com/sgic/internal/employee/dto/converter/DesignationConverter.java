@@ -16,10 +16,11 @@ public class DesignationConverter {
 
 	private static Logger logger = LogManager.getLogger(EmployeeDTO.class);
 
+	// Designation Entity To Designation DTO Converter
 	public static DesignationDTO DesignationToDesignationDTO(Designation designation) {
 		DesignationDTO designationDTO = new DesignationDTO();
 		if (designation != null) {
-			logger.info("Designation to DTO Converter");
+			logger.info("Designation Converter--->Designation to DTO Converter");
 			designationDTO.setDesignationid(designation.getDesignationid());
 			designationDTO.setDesignationname(designation.getDesignationname());
 			return designationDTO;
@@ -27,23 +28,26 @@ public class DesignationConverter {
 		return null;
 
 	}
+
+	// Designation DTO To Designation Entity Converter
 	public static Designation DesignationDTOToDesignation(DesignationDTO designationDTO) {
 		Designation designation = new Designation();
-		if(designationDTO != null) {
-			logger.info("DTO To Entity Converter");
-			designation.setDesignationid(designation.getDesignationid());;
+		if (designationDTO != null) {
+			logger.info("Designation Converter-->DTO To Entity Converter");
+			designation.setDesignationid(designation.getDesignationid());
+			;
 			designation.setDesignationname(designationDTO.getDesignationname());
 			return designation;
 		}
-	
-		return null;
-		
-	}
-	
-	public static List<DesignationDTO> DesignationToDesignationDTO(List<Designation> designationList) {
 
+		return null;
+
+	}
+
+	// Designation List Converter
+	public static List<DesignationDTO> DesignationToDesignationDTO(List<Designation> designationList) {
 		if (designationList != null) {
-			logger.info("Designation to DTO Converter");
+			logger.info(" Designation Converter-->Designation to DTO Converte");
 			List<DesignationDTO> listdesignationDto = new ArrayList<>();
 			for (Designation designation : designationList) {
 				DesignationDTO designationDTO = new DesignationDTO();

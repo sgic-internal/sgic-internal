@@ -1,11 +1,12 @@
 package com.sgic.internal.employee.dto;
 
 public class DesignationDTO {
-
+	
+//	Initialize Designation DTO 
 	private Long designationid;
 	private String designationname;
 	
-	
+//	Initialize DesignationDTO Getter Setter
 	public Long getDesignationid() {
 		return designationid;
 	}

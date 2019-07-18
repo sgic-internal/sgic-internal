@@ -21,7 +21,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.mapper.CommentMappe
 import com.sgic.internal.defecttracker.defect.entities.Comments;
 import com.sgic.internal.defecttracker.defect.services.impl.CommentServiceImp;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 public class CommentController {
 
@@ -45,7 +45,6 @@ public class CommentController {
 	}
 
 	/* Get Mapping - Defect comment API by Piratheepan */
-	@SuppressWarnings("null")
 	@GetMapping(value = "/comments/{defectId}")
 	public List<Comments> getListComments(@PathVariable String defectId) {
 

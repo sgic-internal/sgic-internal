@@ -1,8 +1,10 @@
 package com.sgic.internal.defecttracker.project.entities;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 
 import javax.persistence.Id;

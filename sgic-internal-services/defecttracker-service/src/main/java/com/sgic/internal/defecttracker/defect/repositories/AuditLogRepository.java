@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.sgic.internal.defecttracker.defect.entities.AuditLog;
-import com.sgic.internal.defecttracker.defect.entities.Defect;
 
 @Repository
 @Transactional
