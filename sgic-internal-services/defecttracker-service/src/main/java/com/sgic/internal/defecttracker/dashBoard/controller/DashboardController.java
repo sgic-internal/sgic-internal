@@ -58,4 +58,12 @@ public class DashboardController {
 //		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
 //
 //	}
+	
+
+	@GetMapping("/getseverityindex")
+	public ResponseEntity<Double> getSeverityIndex() {
+		return new ResponseEntity<>(dashboardService.calculateSeverityIndex(), HttpStatus.OK);
+
+	}
+
 }
