@@ -74,11 +74,5 @@ public class DefectStatusServiceImpl implements DefectStatusService {
 		return defectStatusRepository.findById(id).orElse(null);
 	}
 
-	//Count total defect statuses
-	@Override
-	public int getStatusCount() {
-		
-		return (int) defectStatusRepository.count();
-	}
-
+	
 }

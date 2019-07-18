@@ -16,6 +16,5 @@ public interface DefectStatusService {
 
 	Boolean deleteDefectStatusById(long id); // Delete defect status by id
 	
-	public int getStatusCount(); //Count total statuses
-
+	
 }

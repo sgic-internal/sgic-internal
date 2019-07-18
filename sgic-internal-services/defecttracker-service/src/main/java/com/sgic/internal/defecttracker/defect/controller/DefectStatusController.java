@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectStatusDto;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectStatusMapper;
+import com.sgic.internal.defecttracker.defect.services.DefectStatusService;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectStatusServiceImpl;
 
 @RestController
@@ -29,6 +30,9 @@ public class DefectStatusController {
 	@Autowired
 	private DefectStatusMapper defectStatusMapper;
 
+	@Autowired
+	private DefectStatusService defectStatusService;
+	
 	// Author : Shawmiya :: Create defect status
 	// Create defect status controller
 	@PostMapping(value = "/defectstatus")
@@ -82,11 +86,6 @@ public class DefectStatusController {
 		logger.info("Defect Status Updated");
 		return new ResponseEntity<>("Defect Status Updated Succesfully", HttpStatus.OK);
 	}
-	// Count defect status controller
-	@GetMapping(value = "/countdefectstatus")
-	public int getDefectStatucCount() {
-		logger.info("Defect Status Counted");
-		return defectStatusMapper.getStatusCount();
-	}
-
+	
+	
 }

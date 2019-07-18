@@ -90,9 +90,6 @@ public class DefectStatusMapper {
 		}
 	}
 	
-	//Mapper for count defect statuses
-	public int getStatusCount() {
-		return defectStatusService.getStatusCount();
-	}
+	
 
 }
