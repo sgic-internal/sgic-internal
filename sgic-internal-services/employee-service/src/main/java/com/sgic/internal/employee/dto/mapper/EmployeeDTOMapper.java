@@ -23,7 +23,6 @@ public class EmployeeDTOMapper {
 	private EmployeeConverter employeeConverter;
 
 	private static Logger logger = LogManager.getLogger(EmployeeRepository.class);
-	
 
 	@SuppressWarnings("static-access")
 	// save Method for EmployeeMapper
@@ -34,13 +33,13 @@ public class EmployeeDTOMapper {
 
 	@SuppressWarnings("static-access")
 	// List Method for EmployeeMapper
-	public List<EmployeeDTO> getAllSortEmployeeInfo(Long empId){
+	public List<EmployeeDTO> getAllSortEmployeeInfo(Long empId) {
 		logger.info(" Employee Successfully Get All Employee Details ");
 		List<Employee> sortEmployeeList = employeeService.findByEmployeeOrderByEmployeeIdDesc(empId);
 		return employeeConverter.EmployeeToEmployeeDTO(sortEmployeeList);
-		
+
 	}
-	
+
 	// getByID Method for EmployeeMapper
 	@SuppressWarnings("static-access")
 	public EmployeeDTO getById(Long empId) {
@@ -57,38 +56,40 @@ public class EmployeeDTOMapper {
 		return null;
 
 	}
-	//Find Employee By Email
+
+	// Find Employee By Email
 	public EmployeeDTO getByEmployeeEmailforMapper(String email) {
 		Employee employee = employeeService.getByEmail(email);
 		return EmployeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
-	
+
 	@SuppressWarnings({ "static-access", "unused" })
-	// Update Employee 
+	// Update Employee
 	public Employee UpdateEmployee(EmployeeDTO employeeDTO) {
-		logger.info("Employee is Updated",employeeDTO.getEmpId());
+		logger.info("Employee is Updated", employeeDTO.getEmpId());
 		Employee employee = EmployeeConverter.EmployeeDTOToEmployee(employeeDTO);
 		return employeeService.updateEmployee(employeeConverter.EmployeeDTOToEmployee(employeeDTO));
 
 	}
-	
+
 	@SuppressWarnings("static-access")
-	//Find Employee By Designation
-	public List<EmployeeDTO> getEmployeeByDesignation(Long designationid){
+	// Find Employee By Designation
+	public List<EmployeeDTO> getEmployeeByDesignation(Long designationid) {
 		logger.info("Successfully Get Employee By Designation");
-		List<Employee> employee= employeeService.getByDesignation(designationid);
+		List<Employee> employee = employeeService.getByDesignation(designationid);
 		return employeeConverter.EmployeeToEmployeeDTO(employee);
 
 	}
-	
+
 	@SuppressWarnings("static-access")
-	//Find Employee By Name 
-	public List<EmployeeDTO> getEmployeeByName(String name){
+	// Find Employee By Name
+	public List<EmployeeDTO> getEmployeeByName(String name) {
 		logger.info("Successfully Get Employee By Name");
 		List<Employee> employee = employeeService.getByName(name);
-		return employeeConverter.EmployeeToEmployeeDTO(employee);	
+		return employeeConverter.EmployeeToEmployeeDTO(employee);
 	}
+
 	public long getByEmployeeCountforMapper() {
 
 		return employeeService.count();

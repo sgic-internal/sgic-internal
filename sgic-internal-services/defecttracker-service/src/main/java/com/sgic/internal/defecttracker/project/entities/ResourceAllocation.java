@@ -10,25 +10,49 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.lang.NonNull;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema="defectservices" , name="resource_Allocation")
+@Table(schema = "defectservices", name = "resource_Allocation")
 //@SecondaryTable(name = "Employee")
-public class ResourceAllocation implements Serializable{
-	
+public class ResourceAllocation implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	<---Initialize Variable for Attribute of Resource Allocation--->
 	private Long resourceId;
+	
+	@NonNull
 	private Long empId;
 
-	
-
-	
+//	<---Project With Resource Allocation Relationship --->
 	@ManyToOne
 	@JoinColumn(name = "projectId", nullable = false)
 	private Project project;
-	
+
+	public ResourceAllocation(Long empId, Project project) {
+		super();
+		this.empId = empId;
+		this.project = project;
+	}
+
+	public ResourceAllocation(Project project) {
+		super();
+		this.project = project;
+	}
+
+	public ResourceAllocation() {
+		super();
+	}
+
+	public ResourceAllocation(Long resourceId, Long empId, Project project) {
+		super();
+		this.resourceId = resourceId;
+		this.empId = empId;
+		this.project = project;
+	}
+
 	public Long getResourceId() {
 		return resourceId;
 	}
@@ -36,14 +60,6 @@ public class ResourceAllocation implements Serializable{
 	public void setResourceId(Long resourceId) {
 		this.resourceId = resourceId;
 	}
-
-//	public String getResourceName() {
-//		return resourceName;
-//	}
-//
-//	public void setResourceName(String resourceName) {
-//		this.resourceName = resourceName;
-//	}
 
 	public Project getProject() {
 		return project;
@@ -61,8 +77,4 @@ public class ResourceAllocation implements Serializable{
 		this.empId = empId;
 	}
 
-
-	
-    
-    
 }
