@@ -11,6 +11,8 @@ public class DashboardServiceImpl implements DashboardService {
 
 	@Autowired
 	private DefectRepository defectRepository;
+	
+	
 
 	@Override
 	public Integer countLow() {
@@ -55,7 +57,7 @@ public class DashboardServiceImpl implements DashboardService {
 		int fetchHighWeight =fetchHighWeight();
 		int fetchMediumWeight =fetchMediumWeight();
 		int fetchLowWeight =fetchLowWeight();
-		long totalCount =TotalCount();
+		long totalCount =TotalCount()-countReject();
 		
 		int severityIndex1 = ((countHigh* fetchHighWeight)+(countMedium*fetchMediumWeight)+(countLow*fetchLowWeight));
 		double severityIndex1d = severityIndex1;
@@ -68,4 +70,27 @@ public class DashboardServiceImpl implements DashboardService {
 	}
 
 
+	public Integer countReject() {
+		return defectRepository.countByStatusRejected();
+	}
+
+	@Override
+	public float CalculateLow(long count, int reject, int low, int rejectlow) {
+	//	int count1 = (int)count;
+	    count = (int) defectRepository.count();
+	    System.out.println(count);
+	    reject = defectRepository.countByStatusRejected();
+	    System.out.println(reject);
+	    low = defectRepository.countBySeverity();
+	    System.out.println(low);
+	    rejectlow = defectRepository.countByStatusRejectedlow();
+	    System.out.println(rejectlow);
+		int c =(int) (count - reject);
+		 System.out.println(c);
+		int d = (int)(low - rejectlow);
+		 System.out.println(d);
+		float LowSeverity = (d *100/c);
+		 System.out.println(LowSeverity);
+		return LowSeverity;
+	}
 }

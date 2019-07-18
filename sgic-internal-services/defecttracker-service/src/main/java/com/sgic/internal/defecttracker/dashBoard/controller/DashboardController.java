@@ -21,57 +21,21 @@ public class DashboardController {
 	DefectRepository defectRepo;
 
 	private static Logger logger = LogManager.getLogger(DashboardService.class);
+	private long count;
+	private int reject;
+	private int low;
+	private int rejectlow;
 
 	@GetMapping("/getlowcount")
-	public ResponseEntity<Integer> getTotalCount() {
-		try {
-			return new ResponseEntity<>(dashboardService.countLow(), HttpStatus.OK);
-		} catch (Exception e) {
-			logger.error(" Dashboard Controller :-->their was an error" + e.getMessage());
-		}
-		return null;
+	public ResponseEntity<Float> getTotalCount() {
 
+		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
 	}
 
-	@GetMapping("/getcountmedium")
-	public ResponseEntity<Integer> getTotalCountmedium() {
-		return new ResponseEntity<>(dashboardService.countMedium(), HttpStatus.OK);
-
-	}
-
-	@GetMapping("/getcounthigh")
-	public ResponseEntity<Integer> getTotalCounthigh() {
-		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
-
-	}
-
-	@GetMapping("/getallcount")
-	public ResponseEntity<Long> getTotalCountAll() {
-		return new ResponseEntity<>(dashboardService.TotalCount(), HttpStatus.OK);
-
-	}
-	
-	@GetMapping("/gethighweight")
-	public ResponseEntity<Integer> getHighWeight() {
-		return new ResponseEntity<>(dashboardService.fetchHighWeight(), HttpStatus.OK);
-
-	}
-	
-	@GetMapping("/getmediumweight")
-	public ResponseEntity<Integer> getMediumWeight() {
-		return new ResponseEntity<>(dashboardService.fetchMediumWeight(), HttpStatus.OK);
-
-	}
-	
-	@GetMapping("/getlowweight")
-	public ResponseEntity<Integer> getLowWeight() {
-		return new ResponseEntity<>(dashboardService.fetchLowWeight(), HttpStatus.OK);
-
-	}
-	
 	@GetMapping("/getseverityindex")
 	public ResponseEntity<Double> getSeverityIndex() {
 		return new ResponseEntity<>(dashboardService.calculateSeverityIndex(), HttpStatus.OK);
 
 	}
+
 }
