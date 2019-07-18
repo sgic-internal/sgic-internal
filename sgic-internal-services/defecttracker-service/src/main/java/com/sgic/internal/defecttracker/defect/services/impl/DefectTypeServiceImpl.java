@@ -24,6 +24,7 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	@Autowired
 	private DefectTypeRepository defectTypeRepository;
 	
+	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 
 	public static<T> List<T> reverseList(List<T> list)

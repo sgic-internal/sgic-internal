@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import org.apache.logging.log4j.LogManager;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
-import com.sgic.internal.defecttracker.defect.entities.Comments;
-import com.sgic.internal.defecttracker.defect.entities.DBFile;
 import com.sgic.internal.defecttracker.defect.entities.Defect;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.Project;
