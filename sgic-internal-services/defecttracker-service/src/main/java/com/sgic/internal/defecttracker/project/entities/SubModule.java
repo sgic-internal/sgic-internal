@@ -1,43 +1,62 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-@Entity
-@Table(schema="project_service",name="submodule")
 
+
+@Entity
+@Table(schema = "defectservices", name = "submodule")
 public class SubModule {
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String subModuleId;
 	private String subModuleName;
+//	private String abbre;
+
 	public String getSubModuleId() {
 		return subModuleId;
 	}
+
 	public void setSubModuleId(String subModuleId) {
 		this.subModuleId = subModuleId;
 	}
+
 	public String getSubModuleName() {
 		return subModuleName;
 	}
+
 	public void setSubModuleName(String subModuleName) {
 		this.subModuleName = subModuleName;
 	}
+
 	
-	// create relationship with Module
-	@ManyToOne
-	@JoinColumn(name = "moduleId", nullable = false)
+	// create relationship with module
+	
+//		public String getAbbre() {
+//		return abbre;
+//	}
+//
+//	public void setAbbre(String abbre) {
+//		this.abbre = abbre;
+//	}
 
-	private SubModule subModule;
 
-	public SubModule getSubModule() {
-		return subModule;
-	}
+		@ManyToOne(fetch=FetchType.LAZY)
+		@JoinColumn(name = "moduleId", nullable = false)
+		private Module module;
 
-	public void setSubModule(SubModule subModule) {
-		this.subModule = subModule;
-	}
-			
+		public Module getModule() {
+			return module;
+		}
+
+		public void setModule(Module module) {
+			this.module = module;
+		}
+		
+		
+
+
 }

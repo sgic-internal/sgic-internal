@@ -35,7 +35,7 @@ public class TypeConverter {
 			public static DefectType DtoToEntity(TypeDto typeDto) {
 				DefectType defectType = new DefectType();
 				if (typeDto != null) {
-					logger.info("Defect Type Converter -> Convert Object DTO to Entity For Save");
+					logger.info("Defect Type Converter -> Convert Object DTO to Entity");
 					defectType.setName(typeDto.getTypeName());
 					defectType.setValue(typeDto.getTypeValue());
 					return defectType;
@@ -47,7 +47,7 @@ public class TypeConverter {
 			public static DefectType DtoToEntityUpdate(TypeDto typeDto) {
 				DefectType defectType = new DefectType();
 				if (typeDto != null) {
-					logger.info("Defect Type Converter -> Convert Object DTO to Entity For Update");
+					logger.info("Defect Type Converter -> Convert Object DTO to Entity");
 					defectType.setId(typeDto.getTypeId());
 					defectType.setName(typeDto.getTypeName());
 					defectType.setValue(typeDto.getTypeValue());

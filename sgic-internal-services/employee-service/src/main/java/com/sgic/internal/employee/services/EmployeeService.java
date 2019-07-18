@@ -1,6 +1,9 @@
 package com.sgic.internal.employee.services;
 
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import com.sgic.internal.employee.entities.Employee;
 
 public interface EmployeeService {
@@ -9,10 +12,10 @@ public interface EmployeeService {
 	public Employee saveEmployee(Employee employee);
 
 	// Method for Employee List
-	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(String empId);
+	public List<Employee> findByEmployeeOrderByEmployeeIdDesc(Long empId);
 
 	// Method for Getting One Employee Record by ID
-	public Employee getById(String empId);
+	public Employee getByempId(Long empId);
 	
 	//Method for Getting One Employee Record by Name
 	public List<Employee> getByName(String name);
@@ -21,13 +24,15 @@ public interface EmployeeService {
 	public Employee getByEmail(String email);
 
 	// Method for Getting One Employee Record by Email
-	public void deleteEmployeeById(String empId);
+	public void deleteEmployeeByempId(Long empId);
 
 	// Method for Getting One Employee Record by Email
-	public List<Employee> getByDesignation(String designation); 
+	public List<Employee> getByDesignation(Long designationid); 
 
 	// Method for Update Employee
 	public Employee updateEmployee(Employee employee);
 	
+	public long count();
+	public void store(MultipartFile file);
 	
 }

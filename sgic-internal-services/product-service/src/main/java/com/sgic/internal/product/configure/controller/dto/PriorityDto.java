@@ -1,15 +1,11 @@
 package com.sgic.internal.product.configure.controller.dto;
 
 public class PriorityDto {
-	// Priority Entity -> id
+
 	private Long priorityId;
-	// Priority Entity -> name
 	private String priorityName;
-	// Priority Entity -> value
 	private String priorityValue;
-	// Priority Entity -> color
 	private String priorityColor;
-	// Priority Entity -> icon
 	private String priorityIcon;
 	
 	public Long getPriorityId() {

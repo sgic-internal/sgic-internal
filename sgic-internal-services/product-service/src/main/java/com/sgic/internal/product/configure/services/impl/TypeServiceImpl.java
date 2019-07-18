@@ -22,73 +22,41 @@ public class TypeServiceImpl implements TypeService{
 		
 	@Override
 	public DefectType createDefectType(DefectType defectType) {
-		logger.info("Defect Type Service ->  Save Defect Type Method Started");
-		try {
+		logger.info("service started -> Get DefectType Id");
 		return typeRepo.save(defectType);
-		} catch (Exception ex) {
-			logger.error("Defect Type Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Type Service -> Save Defect Type Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public DefectType updateDefectType(DefectType defectType) {
-		logger.info("Defect Type Service ->  Save Defect Type Method Started");
-		try {
+		logger.info("service started -> Update DefectType");
 		Long id = defectType.getId();
+		logger.info("service started -> getDefectTypeId");
 		boolean isExist = typeRepo.findDefectTypeById(id) != null;
 		if (isExist) {
-			logger.info("Defect Severity Service  -> Defect Type Id Found, Type Id : "+id);
+			logger.info("service started -> Updated By DefectTypeId");
 			return typeRepo.save(defectType);
 		} else {
-			logger.info("Defect Severity Service  -> Defect Type Id Not Found, Type Id :"+id);
-		}
-		} catch (Exception ex) {
-			logger.error("Defect Type Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Type Service -> Save Defect Type Method Finished");
+			logger.info("service started -> DefectType Id Not Found");
 		}
 		return null;
 	}
 
 	@Override
 	public DefectType getDefectTypeById(Long typeId) {
-		logger.info("Defect Type Service ->  Get Defect Type By Id Method Started");
-		try {
+		logger.info("service started -> Get DefectType Id");
 		return typeRepo.findDefectTypeById(typeId);
-		} catch (Exception ex) {
-			logger.error("Defect Type Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Type Service -> Get Defect Type By Id Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public List<DefectType> getAllDefectType() {
-		logger.info("Defect Type Service ->  Get All Defect Type Method Started");
-		try {
+		logger.info("service started -> Get All DefectType");
 		return typeRepo.findAll();
-		} catch (Exception ex) {
-			logger.error("Defect Type Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Type Service -> Get All Defect Type Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public DefectType deleteDefectTypeById(Long typeId) {
-		logger.info("Defect Type Service ->  Delete Defect Type By Id Method Started");
-		try {
+		logger.info("service started -> Delete DefectType");
 		typeRepo.deleteById(typeId);
-		} catch (Exception ex) {
-			logger.error("Defect Type Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Type Service -> Delete Defect Type By Id Method Finished");
-		}
 		return null;
 	}
 

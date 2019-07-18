@@ -32,85 +32,55 @@ public class CompanyController {
 	// Get All Company
 	@GetMapping("/Companys")
 	public List<CompanyData> getAllCompany() {
-		logger.info("Company Controller INFO -> Get All Company Method Started");
-		try {
+		logger.info("Controller -> Data Retrieved Successfull");
 		return companyMapper.getAllCompany();
-		} finally {
-			logger.info("Company Controller INFO -> Get All Company Method Finished");
-		}
 	}
 
 	 //Get Company By Id
 	@GetMapping("/Company/{companyId}")
-	public Object getCompanyById(@PathVariable(name = "companyId") Long companyId) {
-		logger.info("Company Controller INFO -> Get Company By Id Method Started");
-		try {
-			// Check the Company Id
-			if(companyMapper.getCompanyById(companyId)!=null) {
-				logger.info("Company Controller INFO -> Company Id Found, Company Id : "+companyId);
+	public CompanyData getCompanyById(@PathVariable(name = "companyId") Long companyId) {
+		logger.info("Controller -> Data Retrieved Successfull");
 		return companyMapper.getCompanyById(companyId);
-			}
-			else {
-				logger.warn("Company Controller WARNING! -> Company Id Not Found, Company Id : "+companyId);
-				return "Company Id : "+ companyId+" Not Found ";
-			}
-		} finally {
-			logger.info("Company Controller INFO -> Get Company By Id Method Finished");
-		}
 	}
 	
 
 	// Save All Company
 	@PostMapping("/Company")
 	public ResponseEntity<String> saveCompany(@Valid @RequestBody CompanyData companyData) {
-		logger.info("Company Controller INFO -> Save Company Method Started");
-		try {
 		if (companyMapper.saveCompany(companyData) != null) {
-			logger.info("Company Controller INFO -> Company Saved Successfully");
+			logger.info("Company Controller -> Company Created Successful");
 			return new ResponseEntity<>("Company added succesfully", HttpStatus.OK);
 		}
-		logger.warn("Company Controller WARNING! -> Company Saved FAILED!");
-		return new ResponseEntity<>("Company Saved FAILED!", HttpStatus.BAD_REQUEST);
-		} finally {
-			logger.info("Company Controller INFO -> Save Company Method Finished");
-		}
+		logger.info("Company Controller -> Company creation FAILED!!!");
+		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 	}
 
 	// Update Company
 	@PutMapping("/Company")
 	public ResponseEntity<String> updateCompany(@RequestBody CompanyData companyData) {
-		logger.info("Company Controller INFO -> Update Company Method Started");
-		try {
+		logger.info("Company Controller -> Company Updated Successful");
 		if (companyMapper.updateCompany(companyData) != null) {
-			return new ResponseEntity<>("Company Updated Sucessfully", HttpStatus.OK);
+			return new ResponseEntity<>("Sucessfully Updateed Company", HttpStatus.OK);
 		}
-		logger.warn("Company Controller WARNING! -> Company Updated Failed!!!");
+		logger.info("Company Controller -> Company Updated Failed!!!");
 		return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
-		} finally {
-			logger.info("Company Controller INFO -> Update Company Method Finished");
-		}
 	}
 
 	// Delete Company
 	@DeleteMapping("/Company/{companyId}")
 	public ResponseEntity<String> deleteCompany(@PathVariable(name = "companyId") Long companyId) {
-		logger.info("Company Controller INFO -> Delete Company Method Started");
-		try {
-			//check the company id for delete
+		System.out.print(companyId);
 		if (companyMapper.getCompanyById(companyId) != null) {
 			if (companyMapper.deleteCompanyById(companyId) == null) {
-				logger.info("Company Controller -> Company Successfully Deleted , Company Id Found -> Company ID : "+companyId);
+				logger.info("Company Controller -> Company Deleted Successful");
 				return new ResponseEntity<>("Company Sucessfully deleted", HttpStatus.OK);
 			}
 		} else {
-			logger.warn("Company Controller WARNING! -> Company Deleted Failed, Company Id Not Found -> Company ID : "+companyId);
-			return new ResponseEntity<>("Company Deleted Failed, Company Id : "+ companyId+" NOT FOUND!", HttpStatus.BAD_REQUEST);
+			logger.info("Company Controller -> Company Id Not Found");
+			return new ResponseEntity<>("Company Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
 		}
-		} finally {
-			logger.info("Company Controller INFO -> Delete Company Method Finished");
-		}
-		return null;
-
+		logger.info("Company Controller -> Company Deleted Failed!!!");
+		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 
 }

@@ -25,57 +25,37 @@ public class TypeMapper {
 	// Get All Status
 	@SuppressWarnings("static-access")
 	public List<TypeDto> getAllDefectType() {
-		logger.info("Defect Type Mapper INFO -> Get All Defect Type Method Started");
-		try {
+		logger.info("Priority Mapper -> All Priority Data Retrieved");
 		List<DefectType> defectTypeList = typeService.getAllDefectType();
 		return typeConverter.EntityListTODtoList(defectTypeList);
-		} finally {
-			logger.info("Defect Type Mapper INFO -> Get All Defect Type Method Finished");
-		}
 	}
 
 	// Save Status
 	@SuppressWarnings("static-access")
 	public DefectType saveDefectType(TypeDto typeDto) {
-		logger.info("Defect Type Mapper INFO -> Save Defect Type Method Started");
-		try {
+		logger.info("Priority Mapper -> Priority Saved");
 		return typeService.createDefectType(typeConverter.DtoToEntity(typeDto));
-		} finally {
-			logger.info("Defect Type Mapper INFO -> Save Defect Type Method Finished");
-		}
 	}
 
 	// Update Status
 	@SuppressWarnings("static-access")
 	public DefectType updateDefectType(TypeDto typeDto) {
-		logger.info("Defect Type Mapper INFO -> Update Defect Type Method Started");
-		try {
+		logger.info("Priority Mapper -> Priority Updated ");
 		return typeService.updateDefectType(typeConverter.DtoToEntityUpdate(typeDto));
-		} finally {
-			logger.info("Defect Type Mapper INFO -> Update Defect Type Method Finished");
-		}
 	}
 
 	// Delete Status
 	public TypeDto deleteDefectTypeById(Long typeId) {
-		logger.info("Defect Type Mapper INFO -> Delete Defect Type Method Started");
-		try {
+		logger.info("Priority Mapper -> Priority Deleted");
 		typeService.deleteDefectTypeById(typeId);
-	} finally {
-		logger.info("Defect Type Mapper INFO -> Delete Defect Type Method Finished");
-	}
 		return null;
 	}
 
 	// Get Status By Id
 	@SuppressWarnings("static-access")
 	public TypeDto getDefectTypeById(Long typeId) {
-		logger.info("Defect Type Mapper INFO -> Get Defect Type By Id Method Started");
-		try {
+		logger.info("Priority Mapper -> Priority Id Found");
 		DefectType defectType = typeService.getDefectTypeById(typeId);
 		return typeConverter.EntityToDto(defectType);
-		} finally {
-			logger.info("Defect Type Mapper INFO -> Get Defect Type By Id Method Finished");
-		}
 	}
 }

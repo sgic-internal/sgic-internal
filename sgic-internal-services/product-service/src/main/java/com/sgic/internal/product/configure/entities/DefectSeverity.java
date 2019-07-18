@@ -13,26 +13,20 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "productservice", name = "defectseverity")
 public class DefectSeverity implements Serializable {
-	 // Defect severity id AUTO_INCREMENT
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long id; // Defect severity id
 
-	// Defect severity name NOT_NULL
 	@Column(nullable = false)
-	private String name; 
+	private String name; // Defect severity name
 
-	// Defect severity value NOT_NULL
 	@Column(nullable = false)
-	private String value; 
+	private String value; // Defect severity value
 
-	// Defect severity icon NOT_NULL
 	@Column(nullable = false)
-	private String icon; 
+	private String icon; // Defect severity icon
 
-	// Defect severity color NOT_NULL
-	@Column(nullable = false)
-	private String color; 
+	private String color; // Defect severity color
 
 	public long getId() {
 		return id;

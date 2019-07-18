@@ -21,62 +21,40 @@ public class SeverityMapper {
 
 	private static Logger logger = LogManager.getLogger(SeverityDto.class);
 
-	// Get All Severity
+	// Get All Priority
 	@SuppressWarnings("static-access")
 	public List<SeverityDto> getAllSeverity() {
-		logger.info("Severity Mapper INFO -> Get All Severity Method Started");
-		try {
-			List<DefectSeverity> defectSeverityList = severityService.getAllDefectSeverity();
-			return severityConverter.EntityListTODtoList(defectSeverityList);
-		} finally {
-			logger.info("Severity Mapper INFO -> Get All Severity Method Finished");
-		}
+		logger.info("Severity Mapper -> All Severity Data Retrieved");
+		List<DefectSeverity> defectSeverityList = severityService.getAllDefectSeverity();
+		return severityConverter.EntityListTODtoList(defectSeverityList);
 	}
 
 	// Save Severity
 	@SuppressWarnings("static-access")
 	public DefectSeverity saveDefectSeverity(SeverityDto severityDto) {
-		logger.info("Severity Mapper INFO -> Save Severity Method Started");
-		try {
-			logger.info("Severity Mapper INFO -> Severity Saved");
-			return severityService.createDefectSeverity(severityConverter.DtoToEntity(severityDto));
-		} finally {
-			logger.info("Severity Mapper INFO -> Save Severity Method Finished");
-		}
+		logger.info("Severity Mapper -> Severity Saved");
+		return severityService.createDefectSeverity(severityConverter.DtoToEntity(severityDto));
 	}
 
 	// Update Severity
 	@SuppressWarnings("static-access")
 	public DefectSeverity updateDefectSeverity(SeverityDto severityDto) {
-		logger.info("Severity Mapper INFO -> Update Severity Method Started");
-		try {
-			return severityService.updateDefectSeverity(severityConverter.DtoToEntityUpdate(severityDto));
-
-		} finally {
-			logger.info("Severity Mapper INFO -> Update Severity Method Finished");
-		}
+		logger.info("Severity Mapper -> Severity Updated ");
+		return severityService.updateDefectSeverity(severityConverter.DtoToEntityUpdate(severityDto));
 	}
 
 	// Delete Severity
 	public SeverityDto deleteDefectSeverityById(Long severityId) {
-		logger.info("Severity Mapper INFO -> Delete Severity Method Started");
-		try {
-			severityService.deleteDefectSeverityById(severityId);
-		} finally {
-			logger.info("Severity Mapper INFO -> Delete Severity Method Finished");
-		}
+		logger.info("Severity Mapper -> Severity Deleted");
+		severityService.deleteDefectSeverityById(severityId);
 		return null;
 	}
 
 	// Get Severity By Id
 	@SuppressWarnings("static-access")
 	public SeverityDto getDefectSeverityById(Long severityId) {
-		logger.info("Severity Mapper -> Get Severity By Id Method Started");
-		try {
-			DefectSeverity defectSeverity = severityService.getDefectSeverityById(severityId);
-			return severityConverter.EntityToDto(defectSeverity);
-		} finally {
-			logger.info("Severity Mapper -> Get Severity By Id Method Finished");
-		}
+		logger.info("Severity Mapper -> Severity Id Found");
+		DefectSeverity defectSeverity = severityService.getDefectSeverityById(severityId);
+		return severityConverter.EntityToDto(defectSeverity);
 	}
 }
