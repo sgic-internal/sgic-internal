@@ -23,15 +23,19 @@ public class DashboardController {
 	DefectRepository defectRepo;
 
 	private static Logger logger = LogManager.getLogger(DashboardService.class);
+	private long count;
+	private int reject;
+	private int low;
+	private int rejectlow;
 
 	@GetMapping("/getlowcount")
-	public ResponseEntity<Integer> getTotalCount() {
-		try {
-			return new ResponseEntity<>(dashboardService.count(), HttpStatus.OK);
-		} catch (Exception e) {
-			logger.error(" Dashboard Controller :-->their was an error" + e.getMessage());
-		}
-		return null;
+	public ResponseEntity<Float> getTotalCount() {
+
+		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
+				
+//				countByStatusRejectedlow(),HttpStatus.OK);
+				
+//				CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
 
 	}
 
@@ -50,6 +54,12 @@ public class DashboardController {
 	@GetMapping("/getallcount")
 	public ResponseEntity<Long> getTotalCountAll() {
 		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
+
+	}
+
+	@GetMapping("/getrejectedcount")
+	public ResponseEntity<Integer> getRejectedCountAll() {
+		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
 
 	}
 }
