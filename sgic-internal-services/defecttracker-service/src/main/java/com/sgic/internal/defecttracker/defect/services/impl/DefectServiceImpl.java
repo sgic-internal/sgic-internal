@@ -148,6 +148,16 @@ public class DefectServiceImpl implements DefectService {
 		return defectRepository.getByType(type);
 	}
 
+	@Override
+	public double countDefectDensity() {
+		double kloc= 5000;
+		double defectCount=defectRepository.count();
+		System.out.println("Total count :"+defectCount);
+		double defectDen=defectCount *(1000/kloc);
+		System.out.println("Ratio :"+defectDen);
+		return defectDen;
+	}
+
 
 	
 }
