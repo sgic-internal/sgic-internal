@@ -172,6 +172,12 @@ public class DefectController {
 		
 	}
 	
+	@GetMapping(value = "/getDefectDensity")
+	public double getDefectDensity() {
+		return defectService.countDefectDensity();
+		
+	}
+	
 	
 	//Create defect service
 	@PutMapping("/defect/module/{moduleId}")

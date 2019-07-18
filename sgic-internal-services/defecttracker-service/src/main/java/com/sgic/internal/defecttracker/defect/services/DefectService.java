@@ -35,6 +35,6 @@ public interface DefectService {
 	public List<Defect> getDefectByType(String type);
 	
 	public Long countDefect();
-
+	public double countDefectDensity();
 	     	
 }
