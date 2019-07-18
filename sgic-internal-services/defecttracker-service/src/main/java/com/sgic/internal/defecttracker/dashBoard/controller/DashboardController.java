@@ -26,20 +26,16 @@ public class DashboardController {
 	private long count;
 	private int reject;
 	private int low;
-	int High;
+	private int High;
 	private int rejectlow;
-<<<<<<< HEAD
 	private int rejectHigh;
-=======
 	private int medium;
 	private int rejectmedium;
->>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Float> getTotalCount() {
 
 		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
-<<<<<<< HEAD
 //				countByStatusRejectedlow(),HttpStatus.OK);
 
 	}
@@ -52,17 +48,9 @@ public class DashboardController {
 		
 	}
 
-	@GetMapping("/getcountmudium")
-	public ResponseEntity<Integer> getTotalCountmedium() {
-		return new ResponseEntity<>(dashboardService.countmudium(), HttpStatus.OK);
-=======
-
-	}
-
 	@GetMapping("/getcountmedium")
 	public ResponseEntity<Float> getTotalCountmedium() {
 		return new ResponseEntity<>(dashboardService.CalculateMedium(count, rejectlow, medium, rejectmedium),HttpStatus.OK);
->>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 
 	}
 
