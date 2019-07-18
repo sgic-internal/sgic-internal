@@ -43,8 +43,8 @@ public class ModuleConverter {
 //		module.setAbbr(moduleData.getAbbr());
 		
 		// get by project id
-//		project.setProjectId(moduleData.getProjectid());
-//		module.setProject(project);
+		project.setProjectId(moduleData.getProjectid());
+		module.setProject(project);
 		
 		// get by sub module id
 //		subModule.setSubModuleId(moduleData.getSubModuleId());

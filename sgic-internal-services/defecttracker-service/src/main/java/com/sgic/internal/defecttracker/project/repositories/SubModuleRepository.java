@@ -11,7 +11,8 @@ import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public interface SubModuleRepository extends JpaRepository<SubModule, String> {
 
-	SubModule getBySubModuleId(String subModuleId);
+	@Query(value = "FROM SubModule WHERE module_id= :subModuleId")
+	SubModule getBySubModuleId(@Param("subModuleId") String subModuleId);
 	
 	List<SubModule> findModuleBysubModuleId(Module module);
 

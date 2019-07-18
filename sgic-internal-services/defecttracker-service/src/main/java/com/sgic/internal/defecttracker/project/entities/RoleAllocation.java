@@ -1,12 +1,11 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -14,87 +13,27 @@ import javax.persistence.Table;
 public class RoleAllocation {
 
 	@Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long roleId;
-	private String rId;
-	private String role;
-	private int availability;
-	private Long empId;
-	private String firstname;
-	private String designationname;
-	
-	
-	
-	public Long getEmpId() {
-		return empId;
-	}
+	private String roleId;
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getDesignationname() {
-		return designationname;
-	}
-
-	public void setDesignationname(String designationname) {
-		this.designationname = designationname;
-	}
-
-	public String getrId() {
-		return rId;
-	}
-
-	public void setrId(String rId) {
-		this.rId = rId;
-	}
-
-	public Long getRoleId() {
+	public String getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Long roleId) {
+	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
 
-	
-	public String getRole() {
-		return role;
+	// creating relationship class with sub_Module
+	@ManyToOne
+	@JoinColumn(name = "subModuleId", nullable = false)
+	private SubModule subModule;
+
+	public SubModule getSubModule() {
+		return subModule;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setSubModule(SubModule subModule) {
+		this.subModule = subModule;
 	}
-
-	public int getAvailability() {
-		return availability;
-	}
-
-	public void setAvailability(int availability) {
-		this.availability = availability;
-	}
-
-	// creating relationship class with add_project
-//	@ManyToOne  //(fetch=FetchType.LAZY)
-//	@JoinColumn(name = "subModuleId", nullable = false)
-//	private SubModule subModule;
-//
-//	public SubModule getSubModule() {
-//		return subModule;
-//	}
-//
-//	public void setSubModule(SubModule subModule) {
-//		this.subModule = subModule;
-//	}
-//	
-//	
 
 }

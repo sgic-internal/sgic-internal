@@ -7,7 +7,7 @@ public class ModuleData {
 
 	private String moduleId;
 	private String moduleName;
-//	private String projectid;
+	private String projectid;
 //	private String subModuleId;
 //	private String subModuleName;
 
@@ -56,12 +56,12 @@ public class ModuleData {
 //	}
 //
 //	// getters setters for project id
-//	public String getProjectid() {
-//		return projectid;
-//	}
-//
-//	public void setProjectid(String projectid) {
-//		this.projectid = projectid;
-//	}
+	public String getProjectid() {
+		return projectid;
+	}
+
+	public void setProjectid(String projectid) {
+		this.projectid = projectid;
+	}
 
 }
