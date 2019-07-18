@@ -205,8 +205,42 @@ public class DefectController {
 				return defectRepository.save(defects);
 	}
 	
-		
+	//Hari matrix
+	
+	@GetMapping(value = "/getStatusNew")
+	public Long getStatusNew() {
+		return defectService.getStatusNew();	
 	}
 	
+	@GetMapping(value = "/getStatusOpen")
+	public Long getStatusOpen() {
+		return defectService.getStatusOpen();	
+	}
 	
+	@GetMapping(value = "/getStatusClose")
+	public Long getStatusClose() {
+		return defectService.getStatusClose();
+	}
+	
+	@GetMapping(value = "/getStatusRejected")
+	public Long getStatusRejected() {
+		return defectService.getStatusRejected();
+	}
+	
+	@GetMapping(value = "/getStatusReOpen")
+	public Long getStatusReOpen() {
+		return defectService.getStatusReOpen();
+	}
+	
+	@GetMapping(value = "/getStatusFixed")
+	public Long getStatusFixed() {
+		return defectService.getStatusFixed();
+	}
+	
+	@GetMapping(value = "/getStatusDefered")
+	public Long getStatusDefered() {
+		return defectService.getStatusDefered();
+	}
+	
+}
 
