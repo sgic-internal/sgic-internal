@@ -28,7 +28,6 @@ public class ProjectDto {
 		return projectId;
 	}
 
-
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}

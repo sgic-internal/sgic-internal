@@ -18,9 +18,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	// Find Employee By Designation
 	@Query(value = "from Employee where designationid = :designationid")
 	List<Employee> findByDesignation(Long designationid);
-	
+
 	// Find Employee By Name
-	@Query(value= "from Employee where name = :name")
+	@Query(value = "from Employee where name = :name")
 	List<Employee> findByName(String name);
-	
+
 }

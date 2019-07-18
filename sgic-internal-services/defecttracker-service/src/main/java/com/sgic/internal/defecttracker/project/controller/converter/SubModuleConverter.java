@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.entities.Module;
-import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public class SubModuleConverter {
@@ -23,6 +22,7 @@ public class SubModuleConverter {
 			subModuleData.setSubModuleName(subModule.getSubModuleName());
 //			subModuleData.setAbbre(subModule.getAbbre());
 			//get module  id
+			@SuppressWarnings("unused")
 			SubModule subModule1=new SubModule();
 			subModuleData.setModuleId(subModule.getModule().getModuleId());
 			return subModuleData;

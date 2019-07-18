@@ -1,11 +1,5 @@
 package com.sgic.internal.defecttracker.defect.controller.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Lob;
-
-import org.springframework.data.annotation.Id;
-
 public class FileData {
 
 	private String fileName;

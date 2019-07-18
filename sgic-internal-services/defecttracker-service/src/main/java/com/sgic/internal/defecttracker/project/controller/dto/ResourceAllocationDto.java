@@ -2,6 +2,8 @@ package com.sgic.internal.defecttracker.project.controller.dto;
 
 public class ResourceAllocationDto {
 
+	
+//	<---Initialize Variable for Attribute of Resource Allocation DTO--->
 	private Long resourceId;
 //	private String resourceName;
 	private String projectName;
@@ -17,6 +19,7 @@ public class ResourceAllocationDto {
 	private String designationname;
 	
 	
+//	<--- Resource Allocation DTO--- Getter Setter --->
 	public Long getResourceId() {
 		return resourceId;
 	}
