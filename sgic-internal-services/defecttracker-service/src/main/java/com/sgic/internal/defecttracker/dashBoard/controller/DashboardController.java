@@ -26,12 +26,18 @@ public class DashboardController {
 	private int low;
 	int High;
 	private int rejectlow;
+<<<<<<< HEAD
 	private int rejectHigh;
+=======
+	private int medium;
+	private int rejectmedium;
+>>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Float> getTotalCount() {
 
 		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
+<<<<<<< HEAD
 //				countByStatusRejectedlow(),HttpStatus.OK);
 
 	}
@@ -47,24 +53,40 @@ public class DashboardController {
 	@GetMapping("/getcountmudium")
 	public ResponseEntity<Integer> getTotalCountmedium() {
 		return new ResponseEntity<>(dashboardService.countmudium(), HttpStatus.OK);
+=======
 
 	}
 
-	@GetMapping("/getcounthigh")
-	public ResponseEntity<Integer> getTotalCounthigh() {
-		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
+	@GetMapping("/getcountmedium")
+	public ResponseEntity<Float> getTotalCountmedium() {
+		return new ResponseEntity<>(dashboardService.CalculateMedium(count, rejectlow, medium, rejectmedium),HttpStatus.OK);
+>>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 
 	}
 
-	@GetMapping("/getallcount")
-	public ResponseEntity<Long> getTotalCountAll() {
-		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
+//	@GetMapping("/getcounthigh")
+//	public ResponseEntity<Integer> getTotalCounthigh() {
+//		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
+//
+//	}
+//
+//	@GetMapping("/getallcount")
+//	public ResponseEntity<Long> getTotalCountAll() {
+//		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
+//
+//	}
+//
+//	@GetMapping("/getrejectedcount")
+//	public ResponseEntity<Integer> getRejectedCountAll() {
+//		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
+//
+//	}
+	
+
+	@GetMapping("/getseverityindex")
+	public ResponseEntity<Double> getSeverityIndex() {
+		return new ResponseEntity<>(dashboardService.calculateSeverityIndex(), HttpStatus.OK);
 
 	}
 
-	@GetMapping("/getrejectedcount")
-	public ResponseEntity<Integer> getRejectedCountAll() {
-		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
-
-	}
 }
