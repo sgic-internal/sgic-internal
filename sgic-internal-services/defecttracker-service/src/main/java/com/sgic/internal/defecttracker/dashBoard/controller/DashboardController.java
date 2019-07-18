@@ -39,7 +39,7 @@ public class DashboardController {
 
 	@GetMapping("/getcountmudium")
 	public ResponseEntity<Integer> getTotalCountmedium() {
-		return new ResponseEntity<>(dashboardService.countmudium(), HttpStatus.OK);
+		return new ResponseEntity<>(dashboardService.countMedium(), HttpStatus.OK);
 
 	}
 

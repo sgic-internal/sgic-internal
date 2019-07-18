@@ -5,9 +5,9 @@ public interface DashboardService {
 	
 public float CalculateLow(long count,int reject, int low, int rejectlow);
 
-	public Integer countlow();
+	public Integer countLow();
 	
-	public Integer countmudium();
+	public Integer countMedium();
 	
 	public Integer countHigh();
 	

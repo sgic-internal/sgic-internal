@@ -19,12 +19,12 @@ public class DashboardServiceImpl implements DashboardService {
 	private DashboardRepository dashboardRepository;
 
 	@Override
-	public Integer countlow() {
+	public Integer countLow() {
 		return defectRepository.countBySeverity();
 	}
 
 	@Override
-	public Integer countmudium() {
+	public Integer countMedium() {
 		return defectRepository.countBySeverityMedium();
 	}
 
