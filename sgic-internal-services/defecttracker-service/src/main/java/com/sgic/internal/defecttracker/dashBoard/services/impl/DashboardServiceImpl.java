@@ -91,7 +91,6 @@ public class DashboardServiceImpl implements DashboardService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public float CalculateLow(long count, int reject, int low, int rejectlow) {
 	    count = (int) defectRepository.count();
 	    System.out.println(count);
@@ -108,7 +107,8 @@ public class DashboardServiceImpl implements DashboardService {
 		float LowSeverity = (d *100/c);
 		 System.out.println(LowSeverity);
 		return LowSeverity;
-=======
+
+		
 	public float CalculateMedium(long count, int reject, int medium, int rejectmedium) {
 		// int count1 = (int)count;
 		count = (int) defectRepository.count();
@@ -126,7 +126,6 @@ public class DashboardServiceImpl implements DashboardService {
 		float MediumSeverity = (d * 100 / c);
 		System.out.println(MediumSeverity);
 		return MediumSeverity;
->>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 	}
 
 	@Override
