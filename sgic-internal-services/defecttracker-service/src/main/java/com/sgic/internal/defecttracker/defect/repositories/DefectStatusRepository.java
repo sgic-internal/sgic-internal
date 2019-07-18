@@ -6,5 +6,4 @@ import com.sgic.internal.defecttracker.defect.entities.DefectStatus;
 
 public interface DefectStatusRepository extends JpaRepository<DefectStatus, Long>{
 
-	
 }
