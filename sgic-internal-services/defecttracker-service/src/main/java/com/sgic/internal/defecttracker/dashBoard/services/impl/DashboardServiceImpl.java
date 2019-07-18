@@ -12,49 +12,47 @@ public class DashboardServiceImpl implements DashboardService {
 
 	@Autowired
 	private DefectRepository defectRepository;
-	
-	
 
 	@SuppressWarnings("unused")
 	private DashboardRepository dashboardRepository;
 
 	@Override
-	public Integer countLow() {
-		return defectRepository.countBySeverity();
-	}
-
-	@Override
-	public Integer countMedium() {
-		return defectRepository.countBySeverityMedium();
-	}
-
-	@Override
-	public Integer countHigh() {
-		return defectRepository.countBySeverityhigh();
-	}
-
-	@Override
-	public Integer countReject() {
-		return defectRepository.countByStatusRejected();
-	}
-
-	@Override
 	public float CalculateLow(long count, int reject, int low, int rejectlow) {
-	//	int count1 = (int)count;
-	    count = (int) defectRepository.count();
-	    System.out.println(count);
-	    reject = defectRepository.countByStatusRejected();
-	    System.out.println(reject);
-	    low = defectRepository.countBySeverity();
-	    System.out.println(low);
-	    rejectlow = defectRepository.countByStatusRejectedlow();
-	    System.out.println(rejectlow);
-		int c =(int) (count - reject);
-		 System.out.println(c);
-		int d = (int)(low - rejectlow);
-		 System.out.println(d);
-		float LowSeverity = (d *100/c);
-		 System.out.println(LowSeverity);
+		// int count1 = (int)count;
+		count = (int) defectRepository.count();
+		System.out.println(count);
+		reject = defectRepository.countByStatusRejected();
+		System.out.println(reject);
+		low = defectRepository.countBySeverity();
+		System.out.println(low);
+		rejectlow = defectRepository.countByStatusRejectedlow();
+		System.out.println(rejectlow);
+		int c = (int) (count - reject);
+		System.out.println(c);
+		int d = (int) (low - rejectlow);
+		System.out.println(d);
+		float LowSeverity = (d * 100 / c);
+		System.out.println(LowSeverity);
 		return LowSeverity;
+	}
+
+	@Override
+	public float CalculateMedium(long count, int reject, int medium, int rejectmedium) {
+		// int count1 = (int)count;
+		count = (int) defectRepository.count();
+		System.out.println(count);
+		reject = defectRepository.countByStatusRejected();
+		System.out.println(reject);
+		medium = defectRepository.countBySeverityMedium();
+		System.out.println(medium);
+		rejectmedium = defectRepository.countByStatusRejectedmedium();
+		System.out.println(rejectmedium);
+		int c = (int) (count - reject);
+		System.out.println(c);
+		int d = (int) (medium - rejectmedium);
+		System.out.println(d);
+		float MediumSeverity = (d * 100 / c);
+		System.out.println(MediumSeverity);
+		return MediumSeverity;
 	}
 }

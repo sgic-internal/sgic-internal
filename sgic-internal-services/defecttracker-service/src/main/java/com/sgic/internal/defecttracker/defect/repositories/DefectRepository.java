@@ -60,6 +60,9 @@ public interface DefectRepository extends JpaRepository<Defect, String> {
 	
 	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'low'")
 	int countByStatusRejectedlow();
+	
+	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'medium'")
+	int countByStatusRejectedmedium();
 
 	public long count();
 }
