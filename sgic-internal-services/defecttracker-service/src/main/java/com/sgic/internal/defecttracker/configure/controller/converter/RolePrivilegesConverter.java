@@ -5,9 +5,14 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.sgic.internal.defecttracker.configure.controller.dto.RolePrivilegesDto;
+import com.sgic.internal.defecttracker.configure.entity.ProductPrivilege;
 import com.sgic.internal.defecttracker.configure.entity.Role;
 import com.sgic.internal.defecttracker.configure.entity.RolePrivileges;
 
@@ -21,11 +26,15 @@ public class RolePrivilegesConverter {
 				logger.info("Role Privileges Converter -> Convert Lists Entity to DTO");
 				List<RolePrivilegesDto> listRolePrivilegesDto = new ArrayList<>();
 				for (RolePrivileges rolePrivileges : rolePrivilegesList) {
-					RolePrivilegesDto rolePrivilegesDto = new RolePrivilegesDto();
-					rolePrivilegesDto.setProductprivilegeId(rolePrivileges.getId());
-					rolePrivilegesDto.setRoleId(rolePrivileges.getRole().getRoleId());
-					rolePrivilegesDto.setRoleName(rolePrivileges.getRole().getRoleName());
-					rolePrivilegesDto.setProductprivilegeId(rolePrivileges.getProductprivilegeId());
+//					RolePrivilegesDto rolePrivilegesDto = new RolePrivilegesDto();
+//					
+//					rolePrivilegesDto.setRolePrivilegesId(rolePrivileges.getId());
+//					rolePrivilegesDto.setRoleId(rolePrivileges.getRole().getRoleId());
+//					rolePrivilegesDto.setRoleName(rolePrivileges.getRole().getRoleName());
+//					rolePrivilegesDto.setProductPrivilegeId(rolePrivileges.getProductprivilegeId());
+					
+					RolePrivilegesDto rolePrivilegesDto = EntityToDto(rolePrivileges);
+					
 					listRolePrivilegesDto.add(rolePrivilegesDto);
 				}
 				return listRolePrivilegesDto;
@@ -45,7 +54,7 @@ public class RolePrivilegesConverter {
 						role.setRoleName(rolePrivilegesDto.getRoleName());
 						rolePrivileges.setRole(role);
 						
-						rolePrivileges.setProductprivilegeId(rolePrivilegesDto.getProductprivilegeId());
+						rolePrivileges.setProductprivilegeId(rolePrivilegesDto.getProductPrivilegeId());
 						
 						return rolePrivileges;
 					}
@@ -64,7 +73,7 @@ public class RolePrivilegesConverter {
 						role.setRoleName(rolePrivilegesDto.getRoleName());
 						rolePrivileges.setRole(role);
 						
-						rolePrivileges.setProductprivilegeId(rolePrivilegesDto.getProductprivilegeId());
+						rolePrivileges.setProductprivilegeId(rolePrivilegesDto.getProductPrivilegeId());
 						
 						return rolePrivileges;
 					}
@@ -76,10 +85,21 @@ public class RolePrivilegesConverter {
 				RolePrivilegesDto rolePrivilegesDto = new RolePrivilegesDto();
 				if (rolePrivileges != null) {
 					logger.info("Role Privileges Converter -> Convert Object Entity to DTO");
-					rolePrivilegesDto.setProductprivilegeId(rolePrivileges.getId());
+					rolePrivilegesDto.setRolePrivilegesId(rolePrivileges.getId());
 					rolePrivilegesDto.setRoleId(rolePrivileges.getRole().getRoleId());
 					rolePrivilegesDto.setRoleName(rolePrivileges.getRole().getRoleName());
-					rolePrivilegesDto.setProductprivilegeId(rolePrivileges.getProductprivilegeId());
+									
+					rolePrivilegesDto.setProductPrivilegeId(rolePrivileges.getProductprivilegeId());
+					
+					RestTemplate restTemplate = new RestTemplate();
+					ResponseEntity<ProductPrivilege> response = restTemplate.exchange(
+							"http://localhost:8083/productservice/ProductPrivilege/" + rolePrivileges.getProductprivilegeId(),
+							HttpMethod.GET, null, new ParameterizedTypeReference<ProductPrivilege>() {
+							});
+					ProductPrivilege productPrivilege = response.getBody();
+					rolePrivilegesDto.setProductPrivilegeName(productPrivilege.getProductPrivilegeName());
+					rolePrivilegesDto.setProductPrivilegeStatus(productPrivilege.isProductPrivilegeStatus());
+					
 					return rolePrivilegesDto;
 				}
 				return null;

@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.configure.services;
 
 import java.util.List;
 
+import com.sgic.internal.defecttracker.configure.entity.ProductPrivilege;
 import com.sgic.internal.defecttracker.configure.entity.RolePrivileges;
 
 
@@ -16,4 +17,10 @@ public interface RolePrivilegesService {
 		public List<RolePrivileges> getAllRolePrivilegesy();
 		// Delete RolePrivileges Id
 		public RolePrivileges deleteRolePrivilegesById(Long rolePrivilegesId);
+		//
+		public List<RolePrivileges> getAllProductPrivilegesIds();
+		
+		public List<ProductPrivilege> getAllProductPrivileges(); 
+		
+		public ProductPrivilege getProductPrivilegeById(Long productPrivilegeId);
 }

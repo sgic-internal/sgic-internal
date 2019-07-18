@@ -20,12 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.internal.defecttracker.configure.controller.dto.RolePrivilegesDto;
 import com.sgic.internal.defecttracker.configure.controller.dtomapper.RolePrivilegesDtoMapper;
+import com.sgic.internal.defecttracker.configure.services.RolePrivilegesService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class RolePrivilegesController {
 	@Autowired
 	RolePrivilegesDtoMapper rolePrivilegesDtoMapper;
+
+	@Autowired
+	RolePrivilegesService rolePrivilegesService;
 
 	private static Logger logger = LogManager.getLogger(RolePrivilegesDtoMapper.class);
 
@@ -39,6 +43,26 @@ public class RolePrivilegesController {
 			logger.info("Role Privileges Controller INFO -> Create RolePrivileges Method Finished");
 		}
 	}
+
+//	// Get All Product Privileges Id
+//	@GetMapping("/RolePrivilegess")
+//	public List<RolePrivileges> getAllProductPrivilegesId() {
+//		return rolePrivilegesService.getAllProductPrivilegesIds();
+//	}
+//
+//	// Get All Product Privileges Id
+//	@GetMapping("/RolePrivilegesss")
+//	public List<RolePrivilegesDto> getAllProductPrivileges() {
+////						return rolePrivilegesService.getAllProductPrivileges();
+//		return rolePrivilegesDtoMapper.getAllRolePrivileges();
+//	}
+//
+//	// Get Role Privileges By Id
+//	@GetMapping("/RolePrivilegesss/{productPrivilegeId}")
+//	public Object getProductPrivilegeById(@PathVariable(name = "productPrivilegeId") Long productPrivilegeId) {
+//		return rolePrivilegesService.getProductPrivilegeById(productPrivilegeId);
+//
+//	}
 
 	// Get Role Privileges By Id
 	@GetMapping("/RolePrivilege/{rolePrivilegesId}")

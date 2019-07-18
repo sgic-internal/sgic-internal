@@ -4,7 +4,9 @@ public class RolePrivilegesDto {
 	private Long rolePrivilegesId;
 	private Long roleId;
 	private String roleName;
-	private Long productprivilegeId;
+	private Long productPrivilegeId;
+	private String productPrivilegeName;
+	private boolean productPrivilegeStatus;
 
 	public Long getRolePrivilegesId() {
 		return rolePrivilegesId;
@@ -12,6 +14,14 @@ public class RolePrivilegesDto {
 
 	public void setRolePrivilegesId(Long rolePrivilegesId) {
 		this.rolePrivilegesId = rolePrivilegesId;
+	}
+
+	public String getProductPrivilegeName() {
+		return productPrivilegeName;
+	}
+
+	public void setProductPrivilegeName(String productPrivilegeName) {
+		this.productPrivilegeName = productPrivilegeName;
 	}
 
 	public Long getRoleId() {
@@ -30,12 +40,22 @@ public class RolePrivilegesDto {
 		this.roleName = roleName;
 	}
 
-	public Long getProductprivilegeId() {
-		return productprivilegeId;
+
+	public Long getProductPrivilegeId() {
+		return productPrivilegeId;
 	}
 
-	public void setProductprivilegeId(Long productprivilegeId) {
-		this.productprivilegeId = productprivilegeId;
+	public void setProductPrivilegeId(Long productPrivilegeId) {
+		this.productPrivilegeId = productPrivilegeId;
 	}
 
+	public boolean isProductPrivilegeStatus() {
+		return productPrivilegeStatus;
+	}
+
+	public void setProductPrivilegeStatus(boolean productPrivilegeStatus) {
+		this.productPrivilegeStatus = productPrivilegeStatus;
+	}
+
+	
 }

@@ -5,8 +5,13 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import org.springframework.web.client.RestTemplate;
+import com.sgic.internal.defecttracker.configure.entity.ProductPrivilege;
 import com.sgic.internal.defecttracker.configure.entity.RolePrivileges;
 import com.sgic.internal.defecttracker.configure.repository.RolePrivilegesRepository;
 import com.sgic.internal.defecttracker.configure.services.RolePrivilegesService;
@@ -94,6 +99,45 @@ public class RolePrivilegesServiceImpl implements RolePrivilegesService{
 			logger.info("Role Privileges Service INFO -> Delete Role Privileges Method Finished");
 		}
 		return null;
+	}
+
+	@Override
+	public List<RolePrivileges> getAllProductPrivilegesIds() {
+		logger.info("Role Privileges Service INFO -> Get All Product Privileges Id Method Started");
+		try {
+		logger.info("Role Privileges Service INFO -> Get All Product Privileges Id Privileges");
+		return rolePrivilegeRepo.GetAllProductPrivilegeId();
+		} catch (Exception ex) {
+			logger.error("Role Privileges Service ERROR! -> " + ex.getMessage());
+		} finally {
+			logger.info("Role Privileges Service INFO -> Get All Product Privileges Id Method Finished");
+		}
+		return null;
+	}
+	
+	
+	//Get All Product Privileges from Product Service
+	@Override
+	public List<ProductPrivilege> getAllProductPrivileges() {
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<List<ProductPrivilege>> response = restTemplate.exchange(
+				"http://localhost:8083/productservice/ProductPrivileges", HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<ProductPrivilege>>() {
+				});
+		List<ProductPrivilege> getProductPrivileges = response.getBody();
+		return getProductPrivileges;
+	}
+
+	//Get All Product Privilege By Product Privilege Id from Product Service
+	@Override
+	public ProductPrivilege getProductPrivilegeById(Long productPrivilegeId) {
+		RestTemplate restTemplate = new RestTemplate();
+		ResponseEntity<ProductPrivilege> response = restTemplate.exchange(
+				"http://localhost:8083/productservice/ProductPrivilege/" + productPrivilegeId, HttpMethod.GET, null,
+				new ParameterizedTypeReference<ProductPrivilege>() {
+				});
+		ProductPrivilege productPrivilege = response.getBody();
+		return productPrivilege;
 	}
 
 }

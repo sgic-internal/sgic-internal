@@ -2,6 +2,7 @@ package com.sgic.internal.defecttracker.configure.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class RolePrivileges implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "roleId", nullable = false)
 	private Role role;
+	@Column(nullable = false)
 	private Long productprivilegeId;
 
 	public Long getId() {

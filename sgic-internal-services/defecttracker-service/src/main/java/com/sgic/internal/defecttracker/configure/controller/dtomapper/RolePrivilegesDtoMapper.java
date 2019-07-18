@@ -22,16 +22,18 @@ RolePrivilegesConverter rolePrivilegesConverter;
 private static Logger logger = LogManager.getLogger(RolePrivilegesDto.class);
 
 //Get All Role Privileges
-	@SuppressWarnings("static-access")
-	public List<RolePrivilegesDto> getAllRolePrivileges() {
-		logger.info("Role Privileges Mapper INFO -> Get All Role Privileges Method Started");
-		try {
-			List<RolePrivileges> rolePrivilegesList = rolePrivilegesService.getAllRolePrivilegesy();
-			return rolePrivilegesConverter.EntityListTODtoList(rolePrivilegesList);
-		} finally {
-			logger.info("Role Privileges Mapper INFO -> Get All Role Privileges Method Finished");
-		}
+@SuppressWarnings("static-access")
+public List<RolePrivilegesDto> getAllRolePrivileges() {
+	logger.info("Role Privileges Mapper INFO -> Get All Role Privileges Method Started");
+	try {
+		List<RolePrivileges> rolePrivilegesList = rolePrivilegesService.getAllRolePrivilegesy();
+		return rolePrivilegesConverter.EntityListTODtoList(rolePrivilegesList);
+	} finally {
+		logger.info("Role Privileges Mapper INFO -> Get All Role Privileges Method Finished");
 	}
+}
+
+
 
 	// Save Role Privileges
 	@SuppressWarnings("static-access")
@@ -79,5 +81,7 @@ private static Logger logger = LogManager.getLogger(RolePrivilegesDto.class);
 				logger.info("Role Privileges Mapper -> Get Role Privileges By Id Method Finished");
 			}
 		}
+		
+
 	
 }
