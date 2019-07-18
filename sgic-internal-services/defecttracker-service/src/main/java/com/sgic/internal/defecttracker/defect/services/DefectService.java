@@ -34,7 +34,7 @@ public interface DefectService {
 	public List<Defect> getDefectBySeverity(String severity);
 	public List<Defect> getDefectByType(String type);
 	
-	public double countDefectDensity();
+	
 
 	     	
 }
