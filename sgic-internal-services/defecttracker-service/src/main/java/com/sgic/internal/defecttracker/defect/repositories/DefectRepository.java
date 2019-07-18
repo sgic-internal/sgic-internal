@@ -54,4 +54,10 @@ List<Defect> getBySeverity(@Param("severity")String severity);
 @Query(value ="SELECT d FROM Defect d WHERE type =:type")
 List<Defect> getByType(@Param("type")String type);
 
+
+
+Long countByStatus(String status);
+
+//@Query("SELECT COUNT(*) FROM Defect d WHERE d.status=:rejected")
+//Long countRejectedDefect(@Param("rejected") String defectId);
 }

@@ -166,6 +166,13 @@ public class DefectController {
 		return new DefectData();
 	}
 	
+	@GetMapping(value = "/getCount")
+	public Long getCount() {
+		return defectService.countDefect();
+		
+	}
+	
+	
 	//Create defect service
 	@PutMapping("/defect/module/{moduleId}")
 	public Defect createNewDefect(@PathVariable(name = "moduleId") String moduleId,

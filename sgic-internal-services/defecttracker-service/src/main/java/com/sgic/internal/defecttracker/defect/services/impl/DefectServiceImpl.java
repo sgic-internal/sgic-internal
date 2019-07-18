@@ -148,6 +148,17 @@ public class DefectServiceImpl implements DefectService {
 		return defectRepository.getByType(type);
 	}
 
+	@Override
+	public Long countDefect() {
+		Long totCount = defectRepository.count();
+		System.out.println("total count " +totCount);
+		Long totRejCount = defectRepository.countByStatus("rejected");
+		System.out.println("rejected count " +totRejCount);
+		Long ratio =(( totCount-totRejCount)*100)/100;
+		System.out.println("ratio " +ratio);
+		return ratio;
+	}
+
 
 	
 }

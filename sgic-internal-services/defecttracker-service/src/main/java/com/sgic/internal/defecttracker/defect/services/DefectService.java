@@ -33,6 +33,8 @@ public interface DefectService {
 	public List<Defect> getDefectByPriority(String priority);
 	public List<Defect> getDefectBySeverity(String severity);
 	public List<Defect> getDefectByType(String type);
+	
+	public Long countDefect();
 
 	     	
 }
