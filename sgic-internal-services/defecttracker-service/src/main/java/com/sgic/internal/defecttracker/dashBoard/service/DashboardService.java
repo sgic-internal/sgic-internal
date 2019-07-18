@@ -1,10 +1,31 @@
 package com.sgic.internal.defecttracker.dashBoard.service;
 
 public interface DashboardService {
-	
-	
-public float CalculateLow(long count,int reject, int low, int rejectlow);
 
+//	<----Calculate severity Low defect --- Method--- >
+	public float CalculateLow(long count, int reject, int low, int rejectlow);
+
+<<<<<<< HEAD
+	public Integer countlow();
+
+	public Integer countmudium();
+
+	public Integer countHigh();
+
+	public Integer countReject();
+
+//	<----Calculate severity high defect --- Method--- >
+	public float Calculatseverityhigh(long count, int reject, int High, int rejectHigh);
+
+	public Integer countseveritylow();
+
+	public Integer countseveritymudium();
+
+	public Integer countseverityHigh();
+
+	public Integer countseverityReject();
+
+=======
 public float CalculateMedium(long count, int reject, int medium, int rejectmedium);
 	
 	public Integer countLow();
@@ -29,4 +50,5 @@ public float CalculateMedium(long count, int reject, int medium, int rejectmediu
 	
 
 	
+>>>>>>> fe2cf8b3703446888dca715c3f8bcce80c03c74b
 }
