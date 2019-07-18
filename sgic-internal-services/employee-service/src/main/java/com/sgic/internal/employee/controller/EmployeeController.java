@@ -28,6 +28,10 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeDTOMapper employeeDTOMapper;
+	
+	
+	@Autowired
+	private EmployeeService employeeservice;
 
 	@Autowired
 	private EmployeeService employeeservice;

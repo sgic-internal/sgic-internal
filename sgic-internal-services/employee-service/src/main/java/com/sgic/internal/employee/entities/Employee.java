@@ -39,6 +39,13 @@ public class Employee implements Serializable {
 	@Column(name = "name")
 	private String name;
 
+	
+	@NotEmpty
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
+	@Column(name = "firstname")
+	private String firstname;
+	
 	@NotEmpty
 	@Size(min = 2, max = 30)
 	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")

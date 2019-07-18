@@ -1,37 +1,42 @@
 package com.sgic.internal.defecttracker.project.entities;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.sql.Date;
+import java.time.LocalDate;
 
-@SuppressWarnings("serial")
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 @Table(schema = "defectservices", name = "project")
 public class Project implements Serializable {
 
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long pid;
-//
-//
-//	@Size(min = 2, max = 50)
+	LocalDate todayDate = LocalDate.now();
+	java.sql.Date currentDay = java.sql.Date.valueOf(todayDate);
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String projectId;
 
-	@Size(min = 2, max = 50)
 	private String projectName;
 
+	private String type;
 
+	@DateTimeFormat(iso = ISO.DATE)
+	private Date startDate = currentDay;
 
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
-	private List<ResourceAllocation> resourceAllocation;
+	@DateTimeFormat(iso = ISO.DATE)
+	private Date endDate = currentDay;
+
+	private Long duration;
+
+	private String status;
+
+	private String configId;
 
 	public String getProjectId() {
 		return projectId;
@@ -47,6 +52,57 @@ public class Project implements Serializable {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = currentDay;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+//		LocalDate ld = currentDay.toLocalDate();
+//		LocalDate monthLater = ld.plusMonths(duration);
+//		java.sql.Date sqlEndDate = java.sql.Date.valueOf(monthLater);
+		this.endDate = currentDay;
+	}
+
+	public Long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getConfigId() {
+		return configId;
+	}
+
+	public void setConfigId(String configId) {
+		this.configId = configId;
 	}
 
 }
