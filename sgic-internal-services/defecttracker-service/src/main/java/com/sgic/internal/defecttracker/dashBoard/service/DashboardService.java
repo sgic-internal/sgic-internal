@@ -14,7 +14,7 @@ public interface DashboardService {
 //	public Integer countReject();
 
 
-//	<----Calculate severity high defect --- Method--- >
+	//<----Calculate severity high defect --- Method--- >
 	public float Calculatseverityhigh(long count, int reject, int High, int rejectHigh);
 
 	public Integer countseveritylow();
@@ -25,9 +25,10 @@ public interface DashboardService {
 
 	public Integer countseverityReject();
 
-//	<----Calculate severity medium defect --- Method--- >
-public float CalculateMedium(long count, int reject, int medium, int rejectmedium);
+	//	<----Calculate severity medium defect --- Method--- >
+	public float CalculateMedium(long count, int reject, int medium, int rejectmedium);
 	
+	//For Severity Index 
 	public Integer countLow();
 	
 	public Integer countMedium();

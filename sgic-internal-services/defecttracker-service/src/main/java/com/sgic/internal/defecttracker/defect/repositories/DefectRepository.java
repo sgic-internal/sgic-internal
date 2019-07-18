@@ -47,6 +47,7 @@ public interface DefectRepository extends JpaRepository<Defect, String> {
 	@Query(value = "SELECT d FROM Defect d WHERE type =:type")
 	List<Defect> getByType(@Param("type") String type);
 
+	//For Severity Index Start
 	@Query("SELECT COUNT(severity) FROM Defect WHERE severity='Low'")
 	int countBySeverity();
 	
@@ -59,15 +60,6 @@ public interface DefectRepository extends JpaRepository<Defect, String> {
 	@Query("SELECT COUNT(status) FROM Defect WHERE status='Rejected' ")
 	int countByStatusRejected();
 	
-	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'low'")
-	int countByStatusRejectedlow();
-	
-	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'High'")
-	int countByStatusRejectedHigh();
-	
-	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'medium'")
-	int countByStatusRejectedmedium();
-
 	public long count();
 	
 	@Query("SELECT highWeight FROM SeverityWeight")
@@ -78,5 +70,17 @@ public interface DefectRepository extends JpaRepository<Defect, String> {
 	
 	@Query("SELECT lowWeight FROM SeverityWeight")
 	int getLowWeight();
+	//For Severity Index End
+	
+	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'low'")
+	int countByStatusRejectedlow();
+	
+	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'High'")
+	int countByStatusRejectedHigh();
+	
+	@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'medium'")
+	int countByStatusRejectedmedium();
+
+	
 
 }

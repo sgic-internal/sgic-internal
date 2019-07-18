@@ -70,7 +70,7 @@ public class DashboardController {
 //
 //	}
 	
-
+	//For Severity Index Start
 	@GetMapping("/getseverityindex")
 	public ResponseEntity<Double> getSeverityIndex() {
 		return new ResponseEntity<>(dashboardService.calculateSeverityIndex(), HttpStatus.OK);

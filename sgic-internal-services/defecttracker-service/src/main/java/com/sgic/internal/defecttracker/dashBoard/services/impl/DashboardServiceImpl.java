@@ -31,6 +31,8 @@ public class DashboardServiceImpl implements DashboardService {
 		System.out.println(LowSeverity);
 		return LowSeverity;
 	}
+	
+	//For Severity Index start
 	public Integer countLow() {
 		return defectRepository.countBySeverity();
 	}
@@ -89,6 +91,7 @@ public class DashboardServiceImpl implements DashboardService {
 	public Integer countReject() {
 		return defectRepository.countByStatusRejected();
 	}
+	//For Severity Index End
 
 //	@Override
 //	public float CalculateLow(long count, int reject, int low, int rejectlow) {
