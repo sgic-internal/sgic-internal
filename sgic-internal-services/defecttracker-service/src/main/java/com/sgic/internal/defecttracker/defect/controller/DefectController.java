@@ -156,6 +156,17 @@ public class DefectController {
 		return new DefectData();
 	}
 	
+	@GetMapping(value = "/getCount")
+	public Long getCount() {
+		return defectService.countDefect();
+		
+	}
+	
+	@GetMapping(value = "/getDefectDensity")
+	public double getDefectDensity() {
+		return defectService.countDefectDensity();
+		
+	}
 	
 	
 	//Create defect service
