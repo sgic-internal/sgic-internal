@@ -40,7 +40,6 @@ public class DashboardServiceImpl implements DashboardService {
 
 	@Override
 	public float CalculateLow(long count, int reject, int low, int rejectlow) {
-	//	int count1 = (int)count;
 	    count = (int) defectRepository.count();
 	    System.out.println(count);
 	    reject = defectRepository.countByStatusRejected();
@@ -56,5 +55,52 @@ public class DashboardServiceImpl implements DashboardService {
 		float LowSeverity = (d *100/c);
 		 System.out.println(LowSeverity);
 		return LowSeverity;
+	}
+
+	@Override
+	public float Calculatseverityhigh(long count, int reject, int High, int rejectHigh) {
+
+		count = (int) defectRepository.count();
+	    System.out.println(count);
+	    
+	    reject = defectRepository.countByStatusRejected();
+	    System.out.println(reject);
+	    
+	    High = defectRepository.countBySeverity();
+	    System.out.println(High);
+	    
+	    rejectHigh = defectRepository.countByStatusRejectedHigh();
+	    System.out.println(rejectHigh);
+	    
+		int c =(int) (count - reject);
+		 System.out.println(c);
+		 
+		int d = (int)(High - rejectHigh);
+		 System.out.println(d);
+		 
+		float HighSeverity = (d *100/c);
+		 System.out.println(HighSeverity);
+		return HighSeverity;
+		
+	}
+
+	@Override
+	public Integer countseveritylow() {
+		return defectRepository.countBySeverityhigh() ;
+	}
+
+	@Override
+	public Integer countseveritymudium() {
+		return defectRepository.countBySeverityMedium();
+	}
+
+	@Override
+	public Integer countseverityHigh() {
+		return defectRepository.countBySeverityhigh();
+	}
+
+	@Override
+	public Integer countseverityReject() {
+		return defectRepository.countByStatusRejected();
 	}
 }

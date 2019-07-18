@@ -24,17 +24,24 @@ public class DashboardController {
 	private long count;
 	private int reject;
 	private int low;
+	int High;
 	private int rejectlow;
+	private int rejectHigh;
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Float> getTotalCount() {
 
 		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
-				
 //				countByStatusRejectedlow(),HttpStatus.OK);
-				
-//				CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
 
+	}
+
+	@GetMapping("/gethightcount")
+	public ResponseEntity<Float> getTotalCounthighseverity() {
+		return new ResponseEntity<>(dashboardService.Calculatseverityhigh(count,reject, High, rejectHigh),HttpStatus.OK);
+
+		
+		
 	}
 
 	@GetMapping("/getcountmudium")
