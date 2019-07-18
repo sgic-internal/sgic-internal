@@ -27,22 +27,22 @@ public class RoleAllocationServiceImpl implements RoleAllocationService {
 		return roleAllocationRepository.findAll();
 	}
 
-	@Override
-	public RoleAllocation updateRoleAllocation(Long empId,RoleAllocation roleAllocation) {
-		System.out.println("serviceImpl");
-		Long id = roleAllocation.getEmpId();
+//	@Override
+//	public RoleAllocation updateRoleAllocation(Long empId,RoleAllocation roleAllocation) {
+//		System.out.println("serviceImpl");
+	//	Long id = roleAllocation.getEmpId();
 		
-		System.out.println(id);
-		boolean isExist = roleAllocationRepository.findEmployeeByEmpId(id) != null;
-		if (isExist) {
+//		System.out.println(id);
+//		boolean isExist = roleAllocationRepository.findEmployeeByEmpId(id) != null;
+//		if (isExist) {
 			
-			return roleAllocationRepository.save(roleAllocation);
-		} else {
-			
-		}
-
-		return null;
-	}
+//			return roleAllocationRepository.save(roleAllocation);
+//		} else {
+//			
+//		}
+//
+//		return null;
+//}
 		
 		
 
@@ -51,6 +51,12 @@ public class RoleAllocationServiceImpl implements RoleAllocationService {
 		
 		return roleAllocationRepository.getByroleId(roleId);
 	}
+
+@Override
+public RoleAllocation updateRoleAllocation(Long empId, RoleAllocation roleAllocation) {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 
 	}

@@ -170,6 +170,48 @@ public class DefectServiceImpl implements DefectService {
 		return defectDen;
 	}
 
+	//Hari matrix
+	@Override
+	public Long getStatusNew() {
+		Long totNew = defectRepository.countByStatus("New");
+		return totNew;
+	}
+
+	@Override
+	public Long getStatusOpen() {
+		Long totOpen = defectRepository.countByStatus("Open");
+		return totOpen;
+	}
+
+	@Override
+	public Long getStatusClose() {
+		Long totClose= defectRepository.countByStatus("Close");
+		return totClose;
+	}
+
+	@Override
+	public Long getStatusRejected() {
+		Long totRej= defectRepository.countByStatus("Rejected");
+		return totRej;
+	}
+
+	@Override
+	public Long getStatusDefered() {
+		Long totDefered= defectRepository.countByStatus("Defered");
+		return totDefered;
+	}
+
+	@Override
+	public Long getStatusReOpen() {
+		Long totReOpen= defectRepository.countByStatus("ReOpen");
+		return totReOpen;
+	}
+
+	@Override
+	public Long getStatusFixed() {
+		Long totFixed= defectRepository.countByStatus("Fixed");
+		return totFixed;
+	}
 
 	
 }

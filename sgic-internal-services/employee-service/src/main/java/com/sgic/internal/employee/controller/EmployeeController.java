@@ -33,8 +33,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeservice;
 
-	@Autowired
-	private EmployeeService employeeservice;
 
 	private static Logger logger = LogManager.getLogger(EmployeeDTOMapper.class);
 

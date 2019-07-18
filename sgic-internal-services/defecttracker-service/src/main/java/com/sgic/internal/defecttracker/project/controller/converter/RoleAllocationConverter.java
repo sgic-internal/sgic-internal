@@ -22,13 +22,13 @@ public class RoleAllocationConverter {
 		RoleAllocationDto roleAllocationDto = new RoleAllocationDto();
 		
 		if(roleAllocation !=null) {
-			roleAllocationDto.setRoleId(roleAllocation.getRoleId());
-			roleAllocationDto.setAvailability(roleAllocation.getAvailability());
-			roleAllocationDto.setRole(roleAllocation.getRole());
-			roleAllocationDto.setrId(roleAllocation.getrId());
-			roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());
-			roleAllocationDto.setEmpId(roleAllocation.getEmpId());
-			roleAllocationDto.setFirstname(roleAllocation.getFirstname());
+//			roleAllocationDto.setRoleId(roleAllocation.getRoleId());
+//			roleAllocationDto.setAvailability(roleAllocation.getAvailability());
+//			roleAllocationDto.setRole(roleAllocation.getRole());
+//			roleAllocationDto.setrId(roleAllocation.getrId());
+//			roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());
+//			roleAllocationDto.setEmpId(roleAllocation.getEmpId());
+//			roleAllocationDto.setFirstname(roleAllocation.getFirstname());
 //			roleAllocationDto.setSubModuleId(roleAllocation.getSubModule().getSubModuleId());
 			//GetsubModuleId
 //			RoleAllocation  roleAllocation2 = new RoleAllocation();
@@ -46,14 +46,14 @@ public class RoleAllocationConverter {
 		RoleAllocation roleAllocation = new  RoleAllocation();
 		
 		
-			roleAllocation.setRoleId(roleAllocationDto.getRoleId());
-			roleAllocation.setAvailability(roleAllocationDto.getAvailability());
-//			roleAllocation.setEmail(roleAllocationDto.getEmail());
-			roleAllocation.setRole(roleAllocationDto.getRole());
-			roleAllocation.setDesignationname(roleAllocationDto.getDesignationname());
-			roleAllocation.setEmpId(roleAllocationDto.getEmpId());
-			roleAllocation.setrId(roleAllocationDto.getrId());
-			roleAllocation.setFirstname(roleAllocationDto.getFirstname());
+//			roleAllocation.setRoleId(roleAllocationDto.getRoleId());
+//			roleAllocation.setAvailability(roleAllocationDto.getAvailability());
+////			roleAllocation.setEmail(roleAllocationDto.getEmail());
+//			roleAllocation.setRole(roleAllocationDto.getRole());
+//			roleAllocation.setDesignationname(roleAllocationDto.getDesignationname());
+//			roleAllocation.setEmpId(roleAllocationDto.getEmpId());
+//			roleAllocation.setrId(roleAllocationDto.getrId());
+//			roleAllocation.setFirstname(roleAllocationDto.getFirstname());
 //			SubModule constructor
 //			SubModule subModule =new SubModule();
 //          get by subModuleId
@@ -79,13 +79,13 @@ public class RoleAllocationConverter {
 				RoleAllocationDto roleAllocationDto =new RoleAllocationDto();
 				
 				
-				roleAllocationDto.setAvailability(roleAllocation.getAvailability());;
-				roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());;
-				roleAllocationDto.setEmpId(roleAllocation.getEmpId());
-				roleAllocationDto.setFirstname(roleAllocation.getFirstname());
-				roleAllocationDto.setRoleId(roleAllocation.getRoleId());
-				roleAllocationDto.setRole(roleAllocation.getRole());
-				roleAllocationDto.setrId(roleAllocation.getrId());
+//				roleAllocationDto.setAvailability(roleAllocation.getAvailability());;
+//				roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());;
+//				roleAllocationDto.setEmpId(roleAllocation.getEmpId());
+//				roleAllocationDto.setFirstname(roleAllocation.getFirstname());
+//				roleAllocationDto.setRoleId(roleAllocation.getRoleId());
+//				roleAllocationDto.setRole(roleAllocation.getRole());
+//				roleAllocationDto.setrId(roleAllocation.getrId());
 				lRoleAllocationDto.add(roleAllocationDto);
 				// subModule constutor
 //				roleAllocationDto.setSubModuleId(roleAllocation.getSubModule().getSubModuleId());

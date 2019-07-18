@@ -23,9 +23,9 @@ public class SubModuleConverter {
 //			subModuleData.setAbbre(subModule.getAbbre());
 			//get module  id
 
-			@SuppressWarnings("unused")
-			SubModule subModule1=new SubModule();
-			subModuleData.setModuleId(subModule.getModule().getModuleId());
+//			@SuppressWarnings("unused")
+//			SubModule subModule1=new SubModule();
+//			subModuleData.setModuleId(subModule.getModule().getModuleId());
 
 			return subModuleData;
 	}

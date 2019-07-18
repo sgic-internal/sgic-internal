@@ -13,9 +13,9 @@ import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 public interface RoleAllocationRepository  extends JpaRepository<RoleAllocation, Long> {
 	// Find Employee By ID Method
-	RoleAllocation findEmployeeByEmpId(Long empId);
+//	RoleAllocation findEmployeeByEmpId(Long empId);
 
 	RoleAllocation getByroleId(Long roleId);
-	 RoleAllocation getByempId(Long empId);
+//	 RoleAllocation getByempId(Long empId);
 	
 }

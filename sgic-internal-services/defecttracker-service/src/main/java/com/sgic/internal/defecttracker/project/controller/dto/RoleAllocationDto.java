@@ -9,7 +9,7 @@ public class RoleAllocationDto {
 	private String rId;
 	private String role;
 	private int availability;
-	private Long empId;
+//	private Long empId;
 	private String firstname;
 	private String designationname;
 	
@@ -27,13 +27,13 @@ public class RoleAllocationDto {
 //		this.subModuleId = subModuleId;
 //	}
 
-	public Long getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(Long empId) {
-		this.empId = empId;
-	}
+//	public Long getEmpId() {
+//		return empId;
+//	}
+//
+//	public void setEmpId(Long empId) {
+//		this.empId = empId;
+//	}
 
 	public String getFirstname() {
 		return firstname;
