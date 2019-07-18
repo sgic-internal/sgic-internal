@@ -27,12 +27,40 @@ public class DashboardController {
 	private int reject;
 	private int low;
 	private int rejectlow;
+	private int medium;
+	private int rejectmedium;
 
 	@GetMapping("/getlowcount")
 	public ResponseEntity<Float> getTotalCount() {
 
 		return new ResponseEntity<>(dashboardService.CalculateLow(count, reject, low, rejectlow), HttpStatus.OK);
+
 	}
+
+	@GetMapping("/getcountmedium")
+	public ResponseEntity<Float> getTotalCountmedium() {
+		return new ResponseEntity<>(dashboardService.CalculateMedium(count, rejectlow, medium, rejectmedium),HttpStatus.OK);
+
+	}
+
+//	@GetMapping("/getcounthigh")
+//	public ResponseEntity<Integer> getTotalCounthigh() {
+//		return new ResponseEntity<>(dashboardService.countHigh(), HttpStatus.OK);
+//
+//	}
+//
+//	@GetMapping("/getallcount")
+//	public ResponseEntity<Long> getTotalCountAll() {
+//		return new ResponseEntity<>(defectRepo.count(), HttpStatus.OK);
+//
+//	}
+//
+//	@GetMapping("/getrejectedcount")
+//	public ResponseEntity<Integer> getRejectedCountAll() {
+//		return new ResponseEntity<>(dashboardService.countReject(), HttpStatus.OK);
+//
+//	}
+	
 
 	@GetMapping("/getseverityindex")
 	public ResponseEntity<Double> getSeverityIndex() {
