@@ -21,7 +21,7 @@ public class ProjectDto {
 
 	private String status;
 
-	private String configId;
+//	private String configId;
 
 
 	public String getProjectId() {
@@ -80,13 +80,13 @@ public class ProjectDto {
 		this.status = status;
 	}
 
-	public String getConfigId() {
-		return configId;
-	}
-
-	public void setConfigId(String configId) {
-		this.configId = configId;
-	}
+//	public String getConfigId() {
+//		return configId;
+//	}
+//
+//	public void setConfigId(String configId) {
+//		this.configId = configId;
+//	}
 
 
 

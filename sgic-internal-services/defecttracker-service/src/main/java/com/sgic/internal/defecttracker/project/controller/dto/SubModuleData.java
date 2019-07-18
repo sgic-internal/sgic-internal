@@ -7,7 +7,7 @@ public class SubModuleData {
 
 	private String subModuleId;
 	private String subModuleName;
-	private String moduleId;
+//	private String moduleId;
 
 	
 	public SubModuleData(String subModuleId, String subModuleName) {
@@ -22,13 +22,13 @@ public class SubModuleData {
 	
 	
 
-	public String getModuleId() {
-		return moduleId;
-	}
-
-	public void setModuleId(String moduleId) {
-		this.moduleId = moduleId;
-	}
+//	public String getModuleId() {
+//		return moduleId;
+//	}
+//
+//	public void setModuleId(String moduleId) {
+//		this.moduleId = moduleId;
+//	}
 
 	// Getters and Setters for Sub Module
 	public String getSubModuleId() {

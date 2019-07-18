@@ -13,7 +13,9 @@ public interface ModuleService {
 
 	public List<Module> getallDetails();
 
-	public List<Object> getSubmodule(String projectid);
+//	public List<Object> getSubmodule(String projectid);
+	
+	
 
 	public void deleteById(String moduleId);
 
@@ -25,6 +27,8 @@ public interface ModuleService {
 
 	// service for get project id
 	public List<Module> getByprojectId(String projectid);
+
+//	List<Object> getSubmodule(String subModuleId);
 
 	// service for submodule id
 //	public List<Module> getBySubModuleId(String subModuleId);
