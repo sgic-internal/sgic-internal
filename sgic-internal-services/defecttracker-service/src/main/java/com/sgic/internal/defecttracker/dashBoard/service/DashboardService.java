@@ -47,8 +47,13 @@ public interface DashboardService {
 	
 	public Double calculateSeverityIndex();
 
+//	<--Severity Total Count -->
+	public Integer countseveritytotalLow();
 	
+//	<--Severity Total Count -->
+	public Integer countseveritytotalmedium();
 	
-
+//	<--Severity Total Count -->
+	public Integer countseveritytotalhig();
 	
 }
