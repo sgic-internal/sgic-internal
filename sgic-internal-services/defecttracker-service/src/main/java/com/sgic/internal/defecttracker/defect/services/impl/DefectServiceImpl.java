@@ -154,7 +154,7 @@ public class DefectServiceImpl implements DefectService {
 		System.out.println("total count " +totCount);
 		Long totRejCount = defectRepository.countByStatus("rejected");
 		System.out.println("rejected count " +totRejCount);
-		Long ratio =(( totCount-totRejCount)*100)/100;
+		Long ratio =(( totCount-totRejCount)*100)/totCount;
 		System.out.println("ratio " +ratio);
 		return ratio;
 	}
