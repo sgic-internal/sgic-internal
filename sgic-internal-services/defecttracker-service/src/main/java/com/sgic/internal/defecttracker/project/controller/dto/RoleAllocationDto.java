@@ -5,27 +5,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoleAllocationDto {
 
-	private Long roleId;
+	private Long roleallocationId;
 	private String rId;
-	private String role;
+//	private String role;
 	private int availability;
 	private Long empId;
 	private String firstname;
 	private String designationname;
-	
-	
-	
-	
-//    private String subModuleId;
+//	private Long roleId;
 
-	// getterSetter for subModuleId
-//	public String getSubModuleId() {
-//		return subModuleId;
+
+//	public Long getRoleId() {
+//		return roleId;
 //	}
 //
-//	public void setSubModuleId(String subModuleId) {
-//		this.subModuleId = subModuleId;
+//	public void setRoleId(Long roleId) {
+//		this.roleId = roleId;
 //	}
+
+	public Long getRoleallocationId() {
+		return roleallocationId;
+	}
+
+	public void setRoleallocationId(Long roleallocationId) {
+		this.roleallocationId = roleallocationId;
+	}
 
 	public Long getEmpId() {
 		return empId;
@@ -59,23 +63,7 @@ public class RoleAllocationDto {
 		this.rId = rId;
 	}
 
-	public Long getRoleId() {
-		return roleId;
-	}
 
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
 
 	public int getAvailability() {
 		return availability;

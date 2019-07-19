@@ -8,7 +8,7 @@ public interface RoleAllocationRepository extends JpaRepository<RoleAllocation, 
 //	 Find Employee By ID Method
 	RoleAllocation findEmployeeByEmpId(Long empId);
 
-	RoleAllocation getByroleId(Long roleId);
+	RoleAllocation getByroleallocationId(Long roleId);
 
 	RoleAllocation getByempId(Long empId);
 

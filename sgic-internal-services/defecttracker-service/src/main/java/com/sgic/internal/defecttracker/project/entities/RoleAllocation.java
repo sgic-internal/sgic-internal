@@ -2,15 +2,16 @@ package com.sgic.internal.defecttracker.project.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(schema = "defectservices", name = "roleallocation")
@@ -74,15 +75,19 @@ public class RoleAllocation {
 		this.availability = availability;
 	}
 
-	@OneToMany(mappedBy = "Role", cascade = { CascadeType.ALL })
-	public List<Role> role;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@ManyToOne
+	@JoinColumn(name = "roleId", nullable = false)
+	public Role role;
 
-	public List<Role> getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(List<Role> role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	
 
 }

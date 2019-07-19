@@ -60,4 +60,39 @@ Long countByStatus(String status);
 
 //@Query("SELECT COUNT(*) FROM Defect d WHERE d.status=:rejected")
 //Long countRejectedDefect(@Param("rejected") String defectId);
+
+
+//For Severity Index Start
+@Query("SELECT COUNT(severity) FROM Defect WHERE severity='Low'")
+int countBySeverity();
+
+@Query("SELECT COUNT(severity) FROM Defect WHERE severity='Medium'")
+int countBySeverityMedium();
+
+@Query("SELECT COUNT(severity) FROM Defect WHERE severity='High'")
+int countBySeverityhigh();
+
+@Query("SELECT COUNT(status) FROM Defect WHERE status='Rejected' ")
+int countByStatusRejected();
+
+public long count();
+
+@Query("SELECT highWeight FROM SeverityWeight")
+int getHighWeight();
+
+@Query("SELECT mediumWeight FROM SeverityWeight")
+int getMediumWeight();
+
+@Query("SELECT lowWeight FROM SeverityWeight")
+int getLowWeight();
+//For Severity Index End
+
+@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'low'")
+int countByStatusRejectedlow();
+
+@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'High'")
+int countByStatusRejectedHigh();
+
+@Query("SELECT COUNT(severity) FROM Defect WHERE status='Rejected' AND severity = 'medium'")
+int countByStatusRejectedmedium();
 }

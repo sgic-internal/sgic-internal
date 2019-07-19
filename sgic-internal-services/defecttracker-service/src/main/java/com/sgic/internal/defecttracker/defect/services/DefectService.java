@@ -36,5 +36,14 @@ public interface DefectService {
 	
 	public Long countDefect();
 	public double countDefectDensity();
+	
+	 //Hari
+	public Long getStatusNew(); 
+	public Long getStatusOpen();
+	public Long getStatusClose();
+	public Long getStatusRejected();
+	public Long getStatusDefered();
+	public Long getStatusReOpen();
+	public Long getStatusFixed();
 	     	
 }

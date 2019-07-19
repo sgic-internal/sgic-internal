@@ -49,7 +49,7 @@ public class RoleAllocationServiceImpl implements RoleAllocationService {
 	@Override
 	public RoleAllocation getByroleId(Long roleId) {
 		
-		return roleAllocationRepository.getByroleId(roleId);
+		return roleAllocationRepository.getByroleallocationId(roleId);
 	}
 
 

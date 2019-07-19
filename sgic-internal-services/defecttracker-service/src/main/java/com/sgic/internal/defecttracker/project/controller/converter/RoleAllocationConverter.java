@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.dto.RoleAllocationDto;
+import com.sgic.internal.defecttracker.project.entities.Role;
 import com.sgic.internal.defecttracker.project.entities.RoleAllocation;
 
 @Service
@@ -18,18 +19,18 @@ public class RoleAllocationConverter {
 		RoleAllocationDto roleAllocationDto = new RoleAllocationDto();
 
 		if (roleAllocation != null) {
-//			roleAllocationDto.setRoleId(roleAllocation.getRoleId());
+			roleAllocationDto.setRoleallocationId(roleAllocation.getRoleallocationId());
 			roleAllocationDto.setAvailability(roleAllocation.getAvailability());
-//			roleAllocationDto.setRole(roleAllocation.getRole());
 			roleAllocationDto.setrId(roleAllocation.getrId());
 			roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());
 			roleAllocationDto.setEmpId(roleAllocation.getEmpId());
 			roleAllocationDto.setFirstname(roleAllocation.getFirstname());
-//			roleAllocationDto.setSubModuleId(roleAllocation.getSubModule().getSubModuleId());
-			// GetsubModuleId
-//			RoleAllocation  roleAllocation2 = new RoleAllocation();
-//			roleAllocationDto.setSubModuleId(roleAllocation.getSubModule().getSubModuleId());
 
+//			new RoleAllocation();
+//			roleAllocationDto.setRoleId(roleAllocation.getRole().getRoleId());
+
+
+			
 			return roleAllocationDto;
 
 		}
@@ -39,21 +40,20 @@ public class RoleAllocationConverter {
 
 	public static RoleAllocation roleAllocationDtoToRoleAllocation(RoleAllocationDto roleAllocationDto) {
 		RoleAllocation roleAllocation = new RoleAllocation();
-
-//			roleAllocation.setRoleId(roleAllocationDto.getRoleId());
+		
+		Role role = new Role();
+		new RoleAllocation();
+		
+		roleAllocation.setRoleallocationId(roleAllocationDto.getRoleallocationId());
 		roleAllocation.setAvailability(roleAllocationDto.getAvailability());
-//			roleAllocation.setEmail(roleAllocationDto.getEmail());
-		// roleAllocation.setRole(roleAllocationDto.getRole());
 		roleAllocation.setDesignationname(roleAllocationDto.getDesignationname());
 		roleAllocation.setEmpId(roleAllocationDto.getEmpId());
 		roleAllocation.setrId(roleAllocationDto.getrId());
 		roleAllocation.setFirstname(roleAllocationDto.getFirstname());
-
-//			SubModule constructor
-//			SubModule subModule =new SubModule();
-//          get by subModuleId
-//			subModule.setSubModuleId(roleAllocationDto.getSubModuleId());
-//			roleAllocation.setSubModule(subModule);
+		
+		// get by Role id
+//		role.setRoleId(roleAllocationDto.getRoleId());
+//		roleAllocation.setRole(role);
 		return roleAllocation;
 
 	}
@@ -65,18 +65,14 @@ public class RoleAllocationConverter {
 				RoleAllocationDto roleAllocationDto = new RoleAllocationDto();
 
 				roleAllocationDto.setAvailability(roleAllocation.getAvailability());
-				;
 				roleAllocationDto.setDesignationname(roleAllocation.getDesignationname());
-				;
 				roleAllocationDto.setEmpId(roleAllocation.getEmpId());
+				roleAllocationDto.setRoleallocationId(roleAllocation.getRoleallocationId());
 				roleAllocationDto.setFirstname(roleAllocation.getFirstname());
-//				roleAllocationDto.setRoleId(roleAllocation.getRoleId());
-//				roleAllocationDto.setRole(roleAllocation.getRole());
 				roleAllocationDto.setrId(roleAllocation.getrId());
+//				roleAllocationDto.setRoleId(roleAllocation.getRole().getRoleId());
 				lRoleAllocationDto.add(roleAllocationDto);
-				// subModule constutor
-//				roleAllocationDto.setSubModuleId(roleAllocation.getSubModule().getSubModuleId());
-//				ListroleAllocationDto.add(roleAllocationDto);
+
 			}
 			return lRoleAllocationDto;
 

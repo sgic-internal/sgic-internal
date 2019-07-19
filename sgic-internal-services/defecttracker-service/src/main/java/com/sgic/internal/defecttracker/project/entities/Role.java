@@ -1,9 +1,13 @@
 package com.sgic.internal.defecttracker.project.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,5 +34,22 @@ public class Role {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
+	
+	// create relationship with SubModule //
+	@OneToMany(mappedBy = "role", cascade = { CascadeType.ALL })
+	public List<RoleAllocation> roleAllocation;
+
+	public List<RoleAllocation> getRoleAllocation() {
+		return roleAllocation;
+	}
+
+	public void setRoleAllocation(List<RoleAllocation> roleAllocation) {
+		this.roleAllocation = roleAllocation;
+	}
+	
+	
+
+	
+	
 
 }
