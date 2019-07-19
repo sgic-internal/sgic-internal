@@ -25,7 +25,7 @@ public class ProjectConverter {
 			projectDto.setEndDate(project.getEndDate());
 			projectDto.setDuration(project.getDuration());
 			projectDto.setStatus(project.getStatus());
-			projectDto.setConfigId(project.getConfigId());
+//			projectDto.setConfigId(project.getConfigId());
 
 			return projectDto;
 		}
@@ -42,7 +42,7 @@ public class ProjectConverter {
 		project.setEndDate(projectDto.getEndDate());
 		project.setDuration(projectDto.getDuration());
 		project.setStatus(projectDto.getStatus());
-		project.setConfigId(projectDto.getConfigId());
+//		project.setConfigId(projectDto.getConfigId());
 
 
 		return project;
@@ -63,7 +63,7 @@ public class ProjectConverter {
 				projectDto.setEndDate(project.getEndDate());
 				projectDto.setDuration(project.getDuration());
 				projectDto.setStatus(project.getStatus());
-				projectDto.setConfigId(project.getConfigId());
+//				projectDto.setConfigId(project.getConfigId());
 				lProjectDto.add(projectDto);
 
 

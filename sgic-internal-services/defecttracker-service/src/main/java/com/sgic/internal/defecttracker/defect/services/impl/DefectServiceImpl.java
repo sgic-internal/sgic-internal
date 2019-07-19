@@ -149,7 +149,19 @@ public class DefectServiceImpl implements DefectService {
 	}
 
 	@Override
+	public Long countDefect() {
+		Long totCount = defectRepository.count();
+		System.out.println("total count " +totCount);
+		Long totRejCount = defectRepository.countByStatus("rejected");
+		System.out.println("rejected count " +totRejCount);
+		Long ratio =(( totCount-totRejCount)*100)/totCount;
+		System.out.println("ratio " +ratio);
+		return ratio;
+	}
+
+	@Override
 	public double countDefectDensity() {
+		
 		double kloc= 5000;
 		double defectCount=defectRepository.count();
 		System.out.println("Total count :"+defectCount);
@@ -200,8 +212,6 @@ public class DefectServiceImpl implements DefectService {
 		Long totFixed= defectRepository.countByStatus("Fixed");
 		return totFixed;
 	}
-
-
 
 	
 }

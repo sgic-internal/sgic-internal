@@ -93,23 +93,23 @@ public class SubModuleController {
 		logger.info("SubModule are get by name ");
 		return subModuleDataMapper.getBysubModuleNameForMapper(submoduleName);
 	}
-	
-	//Abbrivation for module
-		@PutMapping("/submodule/module/{moduleId}")
-		public SubModule createNewSubModule(@PathVariable(name = "moduleId") String moduleId,
-				@RequestBody SubModuleData subModuleData) {
-			Module module = moduleService.getByModuleId(moduleId);
-			List<SubModule> submodules=subModuleRepository.findSubModuleByModule(module);
-			int a=submodules.size();
-			String submoduleSerial=module.getModuleId() +"-"+subModuleData.getSubModuleId()+"-"+ a;
-			
-			SubModule submodule=new SubModule();
-			submodule.setSubModuleId(submoduleSerial);
-//			submodule.setAbbre(subModuleData.getAbbre());
-			submodule.setSubModuleName(subModuleData.getSubModuleName());
-			submodule.setModule(module);
-			
-			return subModuleRepository.save(submodule);
-		
-		}
+	//////////////////////////////////////////////////////////////
+//	//Abbrivation for module
+//		@PutMapping("/submodule/module/{moduleId}")
+//		public SubModule createNewSubModule(@PathVariable(name = "moduleId") String moduleId,
+//				@RequestBody SubModuleData subModuleData) {
+//			Module module = moduleService.getByModuleId(moduleId);
+//			List<SubModule> submodules=subModuleRepository.findSubModuleByModule(module);
+//			int a=submodules.size();
+//			String submoduleSerial=module.getModuleId() +"-"+subModuleData.getSubModuleId()+"-"+ a;
+//			
+//			SubModule submodule=new SubModule();
+//			submodule.setSubModuleId(submoduleSerial);
+////			submodule.setAbbre(subModuleData.getAbbre());
+//			submodule.setSubModuleName(subModuleData.getSubModuleName());
+////			submodule.setModule(module);
+//			submodule.setModule(module);
+//			return subModuleRepository.save(submodule);
+//		
+//		}
 }

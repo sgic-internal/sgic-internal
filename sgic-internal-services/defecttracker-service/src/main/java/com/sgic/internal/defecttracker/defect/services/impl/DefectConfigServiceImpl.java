@@ -16,5 +16,9 @@ public class DefectConfigServiceImpl implements DefectConfigService{
 	public Object createDefectConfig(DefectConfig defectConfig) {
 		return defectConfigRepository.save(defectConfig);
 	}
+	@Override
+	public DefectConfig findDefectConfigById(long id) {
+		return defectConfigRepository.findById(id).orElse(null);
+	}
 
 }

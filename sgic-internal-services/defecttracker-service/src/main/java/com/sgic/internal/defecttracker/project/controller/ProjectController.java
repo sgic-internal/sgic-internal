@@ -24,7 +24,7 @@ import com.sgic.internal.defecttracker.project.controller.dto.ProjectDto;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.ProjectDtoMapper;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ProjectController {
 
@@ -66,8 +66,8 @@ public class ProjectController {
 		projectDtoMapper.deleteById(projectId);
 	}
 
-	//	 Author :: By Arany
-	//	 Put Mapping For Project
+	// Author :: By Arany
+	// Put Mapping For Project
 	@PutMapping("/updateProject/{projectid}")
 	public ResponseEntity<String> updateProject(@Valid @PathVariable(name = "projectid") String projectid,
 			@RequestBody ProjectDto projectDto) {

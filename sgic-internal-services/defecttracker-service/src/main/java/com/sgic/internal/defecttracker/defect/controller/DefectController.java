@@ -39,6 +39,9 @@ public class DefectController {
 	private ModuleService moduleService;
 	
 	@Autowired
+	private DefectService defectService;
+	
+	@Autowired
 	private DefectRepository defectRepository;
 	
 	@Autowired
@@ -160,6 +163,17 @@ public class DefectController {
 		return new DefectData();
 	}
 	
+	@GetMapping(value = "/getCount")
+	public Long getCount() {
+		return defectService.countDefect();
+		
+	}
+	
+	@GetMapping(value = "/getDefectDensity")
+	public double getDefectDensity() {
+		return defectService.countDefectDensity();
+		
+	}
 	
 	
 	//Create defect service
