@@ -45,6 +45,7 @@ public interface DashboardService {
 	
 	public Long TotalCount();
 	
+	
 	public Double calculateSeverityIndex();
 
 //	<--Severity Total Count -->
@@ -56,4 +57,5 @@ public interface DashboardService {
 //	<--Severity Total Count -->
 	public Integer countseveritytotalhig();
 	
+	public Long counttotaldefect();
 }

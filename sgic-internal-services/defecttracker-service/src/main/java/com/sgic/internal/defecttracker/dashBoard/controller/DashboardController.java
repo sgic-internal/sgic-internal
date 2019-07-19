@@ -101,4 +101,18 @@ public class DashboardController {
 		return null;
 
 	}
+
+//	<--Total Severity High Defect Count Controller-->
+	@GetMapping("/gettoatalcount")
+	public ResponseEntity<Long> Totaldefectcount() {
+		try {
+			logger.info("Dashboard Controller--> successfull ");
+			return new ResponseEntity<>(dashboardService.counttotaldefect(), HttpStatus.OK);
+		} catch (Exception e) {
+			logger.error("Dashboard Controller--> Error" + e.getMessage());
+		}
+		return null;
+
+	}
+
 }

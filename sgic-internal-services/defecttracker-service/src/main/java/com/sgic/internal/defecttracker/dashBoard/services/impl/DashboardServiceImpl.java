@@ -201,4 +201,15 @@ public class DashboardServiceImpl implements DashboardService {
 
 	}
 
+	@Override
+	public Long counttotaldefect() {
+		try {
+			logger.info("Deshboard Service imp--> Success");
+			return defectRepository.count();
+		}catch (Exception e) {
+			logger.error("Deshboard Service imp--> Error" + e.getMessage());
+		}
+		return null;
+	}
+
 }
