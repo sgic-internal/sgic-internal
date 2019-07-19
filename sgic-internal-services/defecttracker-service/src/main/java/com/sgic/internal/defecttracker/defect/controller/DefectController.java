@@ -23,6 +23,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.DefectData;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectDataMapper;
 import com.sgic.internal.defecttracker.defect.entities.Defect;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
+import com.sgic.internal.defecttracker.defect.services.DefectService;
 import com.sgic.internal.defecttracker.project.entities.Module;
 import com.sgic.internal.defecttracker.project.entities.Project;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
@@ -42,6 +43,9 @@ public class DefectController {
 	
 	@Autowired
 	private ProjectService projectService;
+	
+	@Autowired
+	private DefectService defectService;
 	
 
 	private static Logger logger = LogManager.getLogger(DefectDataMapper.class);

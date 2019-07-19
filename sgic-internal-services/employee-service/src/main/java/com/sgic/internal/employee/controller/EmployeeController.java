@@ -33,9 +33,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeservice;
 
-	@Autowired
-	private EmployeeService employeeservice;
-
 	private static Logger logger = LogManager.getLogger(EmployeeDTOMapper.class);
 
 	/* Author:KeerthanaR 17-06-2019 */
