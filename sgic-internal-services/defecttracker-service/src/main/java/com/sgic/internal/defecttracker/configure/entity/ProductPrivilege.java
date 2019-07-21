@@ -1,14 +1,10 @@
-package com.sgic.internal.product.privileges.controller.dto;
+package com.sgic.internal.defecttracker.configure.entity;
 
-public class ProductPrivilegeDto {
+public class ProductPrivilege {
 	private Long productPrivilegeId;
-	// Privilege Entity -> privilege ID
 	private Long productPrivilegeNameId;
-	// Privilege Entity -> privilege Name
 	private String productPrivilegeName;
-	// Product Privilege Entity -> privilege status
 	private boolean productPrivilegeStatus;
-	
 	
 	public Long getProductPrivilegeId() {
 		return productPrivilegeId;
@@ -34,8 +30,6 @@ public class ProductPrivilegeDto {
 	public void setProductPrivilegeStatus(boolean productPrivilegeStatus) {
 		this.productPrivilegeStatus = productPrivilegeStatus;
 	}
-	
-	
 	
 	
 }

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.entities.Project;
+import com.sgic.internal.defecttracker.project.entities.ProjectPrivilegeConfig;
+import com.sgic.internal.defecttracker.project.repositories.ProjectPrivilegeConfigRepository;
 import com.sgic.internal.defecttracker.project.repositories.ProjectRepository;
 import com.sgic.internal.defecttracker.project.services.ProjectService;
 
@@ -14,10 +16,18 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Autowired
 	private ProjectRepository projectRepository;
+	
+	@Autowired
+	private ProjectPrivilegeConfigRepository projectPrivilegeConfigRepository;
 
 	@Override
 	public Project createProject(Project project) {
 		Project responseProject = projectRepository.save(project);
+		
+		Project projObj = new Project();
+		projObj.setProjectId(project.getProjectId());
+		ProjectPrivilegeConfig projectPrivilegeConfig = new ProjectPrivilegeConfig(projObj);
+				projectPrivilegeConfigRepository.save(projectPrivilegeConfig);
 		return responseProject;
 	}
 

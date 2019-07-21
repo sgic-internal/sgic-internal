@@ -30,7 +30,7 @@ public class Project implements Serializable {
 
 	@NotEmpty
 	@Size(min = 2, max = 50)
-	@Pattern(regexp = "[a-zA-z]+([ '-][a-zA-Z]+)*" , message = "Project Name can not contain invalid characters")
+	@Pattern(regexp = "[a-z-A-Z]*", message = "Project Name can not contain invalid characters")
 	@Column(name = "project_name")
 	private String projectName;
 
@@ -69,8 +69,13 @@ public class Project implements Serializable {
 		return projectName;
 	}
 
+<<<<<<< HEAD
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+=======
 	public void setProjectName(String value) {
 		this.projectName = value.trim();
+>>>>>>> release5
 	}
 
 	public String getType() {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.internal.defecttracker.dashBoard.service.DashboardService;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
 
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @SuppressWarnings("unused")
 @RestController
