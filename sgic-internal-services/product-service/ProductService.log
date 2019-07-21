@@ -1,0 +1,30 @@
+2019-07-21 12:27:35.509  INFO 9164 --- [restartedMain] c.s.internal.product.ProductApplication  : Starting ProductApplication on DESKTOP-V3U079T with PID 9164 (started by Tyron in D:\ProjectFinal - Hari\sgic-internal\sgic-internal-services\product-service)
+2019-07-21 12:27:35.513  INFO 9164 --- [restartedMain] c.s.internal.product.ProductApplication  : No active profile set, falling back to default profiles: default
+2019-07-21 12:27:35.542  INFO 9164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-07-21 12:27:35.542  INFO 9164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-07-21 12:27:37.133  INFO 9164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-21 12:27:37.216  INFO 9164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 7 repository interfaces.
+2019-07-21 12:27:37.486  INFO 9164 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3f3e800c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-21 12:27:37.757  INFO 9164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2019-07-21 12:27:37.775  INFO 9164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-07-21 12:27:37.775  INFO 9164 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-07-21 12:27:37.852  INFO 9164 --- [restartedMain] o.a.c.c.C.[.[.[/productservice]          : Initializing Spring embedded WebApplicationContext
+2019-07-21 12:27:37.852  INFO 9164 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2310 ms
+2019-07-21 12:27:38.024  INFO 9164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-07-21 12:27:38.100  INFO 9164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-07-21 12:27:38.229  INFO 9164 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-21 12:27:38.339  INFO 9164 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2019-07-21 12:27:38.340  INFO 9164 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-07-21 12:27:38.640  INFO 9164 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-21 12:27:38.869  INFO 9164 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-07-21 12:27:38.884  INFO 9164 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000422: Disabling contextual LOB creation as connection was null
+2019-07-21 12:27:39.612  INFO 9164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 12:27:40.147  INFO 9164 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-21 12:27:40.177  WARN 9164 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-21 12:27:40.340  WARN 9164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2019-07-21 12:27:40.394  INFO 9164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path '/productservice'
+2019-07-21 12:27:40.397  INFO 9164 --- [restartedMain] c.s.internal.product.ProductApplication  : Started ProductApplication in 5.152 seconds (JVM running for 9.269)
+2019-07-21 15:46:21.169  WARN 9164 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h43m5s144ms293µs).
+2019-07-21 18:17:09.049  WARN 9164 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52m9s963ms272µs200ns).

@@ -25,8 +25,8 @@ public class ProductPrivilegeConverter {
 
 				productPrivilegeDto.setProductPrivilegeId(productPrivilege.getId());
 				productPrivilegeDto.setProductPrivilegeNameId(productPrivilege.getPrivilege().getPrivilegeId());
-				productPrivilegeDto.setProjectPrivilegeName(productPrivilege.getPrivilege().getName());
-				productPrivilegeDto.setProjectPrivilegeStatus(productPrivilege.isPrivilegeStatus());
+				productPrivilegeDto.setProductPrivilegeName(productPrivilege.getPrivilege().getName());
+				productPrivilegeDto.setProductPrivilegeStatus(productPrivilege.isPrivilegeStatus());
 
 				listProductPrivilegeDto.add(productPrivilegeDto);
 			}
@@ -49,7 +49,7 @@ public class ProductPrivilegeConverter {
 			
 			productPrivilege.setPrivilege(privilege);
 
-			productPrivilege.setPrivilegeStatus(productPrivilegeDto.isProjectPrivilegeStatus());
+			productPrivilege.setPrivilegeStatus(productPrivilegeDto.isProductPrivilegeStatus());
 
 			return productPrivilege;
 		}
@@ -65,10 +65,10 @@ public class ProductPrivilegeConverter {
 
 			Privilege privilege = new Privilege();
 			privilege.setPrivilegeId(productPrivilegeDto.getProductPrivilegeNameId());
-			privilege.setName(productPrivilegeDto.getProjectPrivilegeName());
+			privilege.setName(productPrivilegeDto.getProductPrivilegeName());
 			productPrivilege.setPrivilege(privilege);
 
-			productPrivilege.setPrivilegeStatus(productPrivilegeDto.isProjectPrivilegeStatus());
+			productPrivilege.setPrivilegeStatus(productPrivilegeDto.isProductPrivilegeStatus());
 
 			return productPrivilege;
 		}
@@ -82,8 +82,8 @@ public class ProductPrivilegeConverter {
 			logger.info("Product Privilege Converter -> Convert Object Entity to DTO");
 			productPrivilegeDto.setProductPrivilegeId(productPrivilege.getId());
 			productPrivilegeDto.setProductPrivilegeNameId(productPrivilege.getPrivilege().getPrivilegeId());
-			productPrivilegeDto.setProjectPrivilegeName(productPrivilege.getPrivilege().getName());
-			productPrivilegeDto.setProjectPrivilegeStatus(productPrivilege.isPrivilegeStatus());
+			productPrivilegeDto.setProductPrivilegeName(productPrivilege.getPrivilege().getName());
+			productPrivilegeDto.setProductPrivilegeStatus(productPrivilege.isPrivilegeStatus());
 
 			return productPrivilegeDto;
 		}

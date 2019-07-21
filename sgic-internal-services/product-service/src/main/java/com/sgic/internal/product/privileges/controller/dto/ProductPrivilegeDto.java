@@ -4,38 +4,38 @@ public class ProductPrivilegeDto {
 	// Product Privilege Id -> value
 	private Long productPrivilegeId;
 	// Privilege Entity -> privilege ID
-	private Long ProductPrivilegeNameId;
+	private Long productPrivilegeNameId;
 	// Privilege Entity -> privilege Name
-	private String projectPrivilegeName;
+	private String productPrivilegeName;
 	// Product Privilege Entity -> privilege status
-	private boolean projectPrivilegeStatus;
+	private boolean productPrivilegeStatus;
 	
 	
-	public Long getProductPrivilegeNameId() {
-		return ProductPrivilegeNameId;
-	}
-	public void setProductPrivilegeNameId(Long productPrivilegeNameId) {
-		ProductPrivilegeNameId = productPrivilegeNameId;
-	}
-
 	public Long getProductPrivilegeId() {
 		return productPrivilegeId;
 	}
 	public void setProductPrivilegeId(Long productPrivilegeId) {
 		this.productPrivilegeId = productPrivilegeId;
 	}
-	public String getProjectPrivilegeName() {
-		return projectPrivilegeName;
+	public Long getProductPrivilegeNameId() {
+		return productPrivilegeNameId;
 	}
-	public void setProjectPrivilegeName(String projectPrivilegeName) {
-		this.projectPrivilegeName = projectPrivilegeName;
+	public void setProductPrivilegeNameId(Long productPrivilegeNameId) {
+		this.productPrivilegeNameId = productPrivilegeNameId;
 	}
-	public boolean isProjectPrivilegeStatus() {
-		return projectPrivilegeStatus;
+	public String getProductPrivilegeName() {
+		return productPrivilegeName;
 	}
-	public void setProjectPrivilegeStatus(boolean projectPrivilegeStatus) {
-		this.projectPrivilegeStatus = projectPrivilegeStatus;
+	public void setProductPrivilegeName(String productPrivilegeName) {
+		this.productPrivilegeName = productPrivilegeName;
 	}
+	public boolean isProductPrivilegeStatus() {
+		return productPrivilegeStatus;
+	}
+	public void setProductPrivilegeStatus(boolean productPrivilegeStatus) {
+		this.productPrivilegeStatus = productPrivilegeStatus;
+	}
+	
 	
 	
 	
