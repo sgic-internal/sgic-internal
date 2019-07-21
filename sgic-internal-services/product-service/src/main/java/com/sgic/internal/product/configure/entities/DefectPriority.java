@@ -42,7 +42,7 @@ public class DefectPriority implements Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = "Priority";
 	}
 
 	public String getValue() {

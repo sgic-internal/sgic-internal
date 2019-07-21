@@ -13,7 +13,6 @@ import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
 
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-
 @SuppressWarnings("unused")
 @RestController
 public class DashboardController {
