@@ -13,26 +13,20 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "productservice", name = "defectpriority")
 public class DefectPriority implements Serializable {
-	// Defect priority id AUTO_INCREMENT
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; 
+	private Long id; // Defect priority id
 
-	// Defect priority name NOT_NULL
 	@Column(nullable = false)
-	private String name; 
+	private String name; // Defect priority name
 
-	 // Defect priority value NOT_NULL
 	@Column(nullable = false)
-	private String value;
+	private String value; // Defect priority value
 
-	 // Defect priority icon NOT_NULL
 	@Column(nullable = false)
-	private String icon;
+	private String icon; // Defect priority icon
 
-	 // Defect priority color NOT_NULL
-	@Column(nullable = false)
-	private String color;
+	private String color; // Defect priority color
 
 
 	public Long getId() {
@@ -48,7 +42,7 @@ public class DefectPriority implements Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = "Priority";
+		this.name = name;
 	}
 
 	public String getValue() {

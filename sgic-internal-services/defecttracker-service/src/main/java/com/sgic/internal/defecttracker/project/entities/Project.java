@@ -69,8 +69,13 @@ public class Project implements Serializable {
 		return projectName;
 	}
 
+<<<<<<< HEAD
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+=======
+	public void setProjectName(String value) {
+		this.projectName = value.trim();
+>>>>>>> release5
 	}
 
 	public String getType() {

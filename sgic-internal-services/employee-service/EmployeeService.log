@@ -1,0 +1,38 @@
+2019-07-21 11:28:45.081  INFO 3224 --- [restartedMain] c.s.i.employee.EmployeeApplication       : Starting EmployeeApplication on DESKTOP-0SK1209 with PID 3224 (C:\Users\Puthiyajothi\Desktop\Jothi\dashboard-backend\sgic-internal\sgic-internal-services\employee-service\target\classes started by Puthiyajothi in C:\Users\Puthiyajothi\Desktop\Jothi\dashboard-backend\sgic-internal\sgic-internal-services\employee-service)
+2019-07-21 11:28:45.085  INFO 3224 --- [restartedMain] c.s.i.employee.EmployeeApplication       : No active profile set, falling back to default profiles: default
+2019-07-21 11:28:45.145  INFO 3224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-07-21 11:28:45.146  INFO 3224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-07-21 11:28:46.013  INFO 3224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-21 11:28:46.111  INFO 3224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90ms. Found 2 repository interfaces.
+2019-07-21 11:28:46.537  INFO 3224 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$27c7a5c6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-21 11:28:46.900  INFO 3224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+2019-07-21 11:28:46.936  INFO 3224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-07-21 11:28:46.936  INFO 3224 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-07-21 11:28:46.946  INFO 3224 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_171/bin/server;C:/Program Files/Java/jre1.8.0_171/bin;C:/Program Files/Java/jre1.8.0_171/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jre1.8.0_171\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\nodejs\;C:\Git\cmd;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\Puthiyajothi\AppData\Local\Microsoft\WindowsApps;C:\Users\Puthiyajothi\AppData\Roaming\npm;C:\Users\Puthiyajothi\AppData\Local\Programs\Microsoft VS Code\bin;;D:\Software\eclipse;;.]
+2019-07-21 11:28:47.094  INFO 3224 --- [restartedMain] o.a.c.c.C.[.[.[/employeeservice]         : Initializing Spring embedded WebApplicationContext
+2019-07-21 11:28:47.095  INFO 3224 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1949 ms
+2019-07-21 11:28:47.285  INFO 3224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-07-21 11:28:47.391  INFO 3224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-07-21 11:28:47.463  INFO 3224 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-07-21 11:28:47.635  INFO 3224 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-07-21 11:28:47.637  INFO 3224 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-07-21 11:28:47.750  INFO 3224 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-07-21 11:28:47.862  INFO 3224 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-07-21 11:28:47.883  INFO 3224 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000422: Disabling contextual LOB creation as connection was null
+2019-07-21 11:28:48.457  INFO 3224 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 11:28:48.791  INFO 3224 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-07-21 11:28:49.079  INFO 3224 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-21 11:28:49.118  WARN 3224 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-21 11:28:49.310  WARN 3224 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2019-07-21 11:28:49.364  INFO 3224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path '/employeeservice'
+2019-07-21 11:28:49.367  INFO 3224 --- [restartedMain] c.s.i.employee.EmployeeApplication       : Started EmployeeApplication in 4.66 seconds (JVM running for 5.684)
+2019-07-21 13:04:23.785  WARN 3224 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m35s811ms5µs171ns).
+2019-07-21 14:18:09.684  WARN 3224 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=34m15s745ms605µs611ns).
+2019-07-21 15:50:36.895  WARN 3224 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m26s950ms928µs144ns).
+2019-07-21 16:27:36.254  INFO 3224 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-07-21 16:27:36.258  INFO 3224 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-21 16:27:36.259  INFO 3224 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 16:27:36.263  INFO 3224 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-07-21 16:27:36.268  INFO 3224 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

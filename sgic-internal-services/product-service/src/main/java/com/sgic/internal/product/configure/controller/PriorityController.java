@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.internal.product.configure.controller.dto.PriorityDto;
 import com.sgic.internal.product.configure.controller.mapper.PriorityMapper;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 @RestController
 public class PriorityController {
 	@Autowired
@@ -31,100 +31,54 @@ public class PriorityController {
 	// Get All Priority
 	@GetMapping("/Prioritys")
 	public List<PriorityDto> getAllPriority() {
-		try {
-			logger.info("Priority Controller INFO -> Get All Priority Method Started");
-			return priorityMapper.getAllPriority();
-		} catch (Exception ex) {
-			logger.error("Priority Controller ERROR! :-> " + ex.getMessage());
-		} finally {
-			logger.info("Priority Controller INFO -> Get All Priority Finished");
-		}
-		return null;
+		logger.info("Controller -> Data Retrieved Successfull");
+		return priorityMapper.getAllPriority();
 	}
 
-	// Get Priority By Id
+	 //Get Priority By Id
 	@GetMapping("/Priority/{priorityId}")
-	public Object getPriorityById(@PathVariable(name = "priorityId") Long priorityId) {
-		try {
-			logger.info("Priority Controller INFO -> Get Priority By Id  Method Started");
-			//Check Priority Id
-			if (priorityMapper.getDefectPriorityById(priorityId) != null) {
-				logger.info("Priority Controller INFO -> Priority Id Found -> Priority Id : "+priorityId);
-				return priorityMapper.getDefectPriorityById(priorityId);
-			} else {
-				logger.warn("Priority Controller WARNING! -> Priority Id Not Found -> Priority Id : "+priorityId);
-				return "Priority Not Found for this Id : " + priorityId;
-			}
-		} catch (Exception ex) {
-			logger.error("Priority Controller ERROR! :-> " + ex.getMessage());
-		} finally {
-			logger.info("Priority Controller INFO -> Get Priority By Id Method Finished");
-		}
-		return null;
+	public PriorityDto getPriorityById(@PathVariable(name = "priorityId") Long priorityId) {
+		logger.info("Controller -> Data Retrieved Successfull");
+		return priorityMapper.getDefectPriorityById(priorityId);
 	}
+	
 
 	// Save All Priority
 	@PostMapping("/Priority")
 	public ResponseEntity<String> savePriority(@Valid @RequestBody PriorityDto priorityDto) {
-		try {
-			logger.info("Priority Controller INFO -> Save All Priority  Method Started");
-			if (priorityMapper.saveDefectPriority(priorityDto) != null) {
-				logger.info("Priority Controller INFO-> Priority Created Successful");
-				return new ResponseEntity<>("Priority added succesfully", HttpStatus.OK);
-			}
-			logger.warn("Priority Controller WARNING! :-> Priority creation FAILED!!!");
-			return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
-		} catch (Exception ex) {
-			logger.error("Priority Controller ERROR! :-> " + ex.getMessage());
-		} finally {
-			logger.info("Priority Controller INFO -> Save All Priority  Method Finished");
+		if (priorityMapper.saveDefectPriority(priorityDto) != null) {
+			logger.info("Priority Controller -> Priority Created Successful");
+			return new ResponseEntity<>("Priority added succesfully", HttpStatus.OK);
 		}
-		return null;
+		logger.info("Priority Controller -> Priority creation FAILED!!!");
+		return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 	}
 
 	// Update Priority
 	@PutMapping("/Priority")
 	public ResponseEntity<String> updatePriority(@RequestBody PriorityDto priorityDto) {
-		try {
-			logger.info("Priority Controller INFO -> Update Priority  Method Started");
-			if (priorityMapper.updateDefectPriority(priorityDto) != null) {
-				logger.info("Priority Controller INFO -> Priority Updated Successful");
-				return new ResponseEntity<>("Priority Sucessfully Updated", HttpStatus.OK);
-			}
-			logger.warn("Priority Controller WARNING! -> Priority Updated Failed!!!");
-			return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
-		} catch (Exception ex) {
-			logger.error("Priority Controller ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Priority Controller INFO -> Update Priority  Method Finished");
+		logger.info("Priority Controller -> Priority Updated Successful");
+		if (priorityMapper.updateDefectPriority(priorityDto) != null) {
+			return new ResponseEntity<>("Sucessfully Updateed Company", HttpStatus.OK);
 		}
-		return null;
+		logger.info("Priority Controller -> Priority Updated Failed!!!");
+		return new ResponseEntity<>("Update FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 
 	// Delete Company
 	@DeleteMapping("/Priority/{priorityId}")
 	public ResponseEntity<String> deletePriority(@PathVariable(name = "priorityId") Long priorityId) {
-//		System.out.print(priorityId);
-		try {
-			logger.info("Priority Controller INFO -> Delete Priority  Method Started");
-			//check priority Id
-			if (priorityMapper.getDefectPriorityById(priorityId) != null) {
-				// delete priority by id
-				if (priorityMapper.deleteDefectPriorityById(priorityId) == null) {
-					logger.info("Priority Controller INFO -> Priority Deleted Successful");
-					return new ResponseEntity<>("Priority Sucessfully deleted", HttpStatus.OK);
-				}
-			} else {
-				logger.warn("Priority Controller WARNING! -> Priority Id Not Found -> Priority Id : "+priorityId);
-				return new ResponseEntity<>("Priority Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
+		System.out.print(priorityId);
+		if (priorityMapper.getDefectPriorityById(priorityId) != null) {
+			if (priorityMapper.deleteDefectPriorityById(priorityId) == null) {
+				logger.info("Priority Controller -> Priority Deleted Successful");
+				return new ResponseEntity<>("Priority Sucessfully deleted", HttpStatus.OK);
 			}
-			logger.warn("Priority Controller WARNING! -> Priority Deleted Failed!!!");
-			return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
-		} catch (Exception ex) {
-			logger.error("Priority Controller ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Priority Controller INFO -> Delete Priority  Method Finished");
+		} else {
+			logger.info("Priority Controller -> Priority Id Not Found");
+			return new ResponseEntity<>("Company Id Not FOUND!!!", HttpStatus.BAD_REQUEST);
 		}
-		return null;
+		logger.info("Priority Controller -> Priority Deleted Failed!!!");
+		return new ResponseEntity<>("Delete FAILED!!!", HttpStatus.BAD_REQUEST);
 	}
 }

@@ -23,7 +23,7 @@ public class CompanyLicenseTypeController {
 	private CompanyLicenseTypeService companyLicenseTypeService;
 	private static Logger logger = LogManager.getLogger(CompanyMapper.class);
 	
-	// Save All Company License
+	// Save All Company
 		@PostMapping("/License")
 		public ResponseEntity<String> saveCompany() {
 			if (companyLicenseTypeService.saveCompanyLicenseType() != null) {
@@ -34,7 +34,7 @@ public class CompanyLicenseTypeController {
 			return new ResponseEntity<>("SAVE FAILED!", HttpStatus.BAD_REQUEST);
 		}
 	
-		// Get All Company Licenses
+		// Get All Company
 		@CrossOrigin
 		@GetMapping("/Licenses")
 		public List<CompanyLicenseType> getAllCompanyLicenseType() {

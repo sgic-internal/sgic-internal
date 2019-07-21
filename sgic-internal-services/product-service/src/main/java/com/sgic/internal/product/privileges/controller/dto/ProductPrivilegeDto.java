@@ -1,7 +1,6 @@
 package com.sgic.internal.product.privileges.controller.dto;
 
 public class ProductPrivilegeDto {
-	// Product Privilege Id -> value
 	private Long productPrivilegeId;
 	// Privilege Entity -> privilege ID
 	private Long productPrivilegeNameId;

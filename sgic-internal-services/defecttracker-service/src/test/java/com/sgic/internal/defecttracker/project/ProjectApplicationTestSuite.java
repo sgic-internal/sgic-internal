@@ -1,4 +1,4 @@
-package com.sgic.internal.defecttracker.project;
+//package com.sgic.internal.defecttracker.project;
 
 //@RunWith(Suite.class)
 //@Suite.SuiteClasses({

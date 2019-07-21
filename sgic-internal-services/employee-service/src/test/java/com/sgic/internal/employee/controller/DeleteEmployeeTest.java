@@ -20,22 +20,23 @@ public class DeleteEmployeeTest extends EmployeeTest {
 	@SuppressWarnings("unused")
 //	Use EmployeeDTO 
 	private EmployeeDTO employeeDTO = new EmployeeDTO();
-	
+
 //	common URL
 	private String BASE_URL = "http://localhost:8084/employeeservice";
 //	Post API
 	private String ADD_API_URL = "/createemployee";
-	
+
 //	Delete API
 	private String DELETE_API_URL = "/deletebyid/";
-	
+
 // Testing Id for delete Testing
 	private String empId = "emp002";
 
 	@SuppressWarnings("unused")
 //	Save unit Test expected Response
 	private static final String ADD_EMPLOYEE_RESPONSE = "[{\"empId\":\"emp002\",\"name\":\"jothi\",\"email\":\"saidputhi@gmail.com\",\"designation\":\"QA\"}]";
-	
+	@SuppressWarnings("unused")
+
 //	Save unit Test expected Response
 	private static final String DELETE_EMPLOYEE_RESPONSE = "Deleted Successfully";
 

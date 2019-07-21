@@ -18,7 +18,7 @@ public class ProductPrivilegeConverter {
 	// Convert All List<Entity> to List<DTO>
 	public static List<ProductPrivilegeDto> EntityListTODtoList(List<ProductPrivilege> productPrivilegeList) {
 		if (productPrivilegeList != null) {
-			logger.info("Product Privilege Converter -> Convert Lists Entity to DTO");
+			logger.info("Defect Priority Converter -> Convert Lists Entity to DTO");
 			List<ProductPrivilegeDto> listProductPrivilegeDto = new ArrayList<>();
 			for (ProductPrivilege productPrivilege : productPrivilegeList) {
 				ProductPrivilegeDto productPrivilegeDto = new ProductPrivilegeDto();
@@ -35,12 +35,11 @@ public class ProductPrivilegeConverter {
 		return null;
 	}
 
-	
 	// Convert Data To Entity
 	public static ProductPrivilege DtoToEntity(ProductPrivilegeDto productPrivilegeDto) {
 		ProductPrivilege productPrivilege = new ProductPrivilege();
 		if (productPrivilegeDto != null) {
-			logger.info("Product Privilege Converter -> Convert Object DTO to Entity");
+			logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
 //					productPrivilege.setId(productPrivilegeDto.getProjectPrivilegeId());
 
 			Privilege privilege = new Privilege();
@@ -60,7 +59,7 @@ public class ProductPrivilegeConverter {
 	public static ProductPrivilege DtoToEntityUpdate(ProductPrivilegeDto productPrivilegeDto) {
 		ProductPrivilege productPrivilege = new ProductPrivilege();
 		if (productPrivilegeDto != null) {
-			logger.info("Product Privilege Converter -> Convert Object DTO to Entity");
+			logger.info("Defect Priority Converter -> Convert Object DTO to Entity");
 			productPrivilege.setId(productPrivilegeDto.getProductPrivilegeId());
 
 			Privilege privilege = new Privilege();
@@ -79,7 +78,7 @@ public class ProductPrivilegeConverter {
 	public static ProductPrivilegeDto EntityToDto(ProductPrivilege productPrivilege) {
 		ProductPrivilegeDto productPrivilegeDto = new ProductPrivilegeDto();
 		if (productPrivilege != null) {
-			logger.info("Product Privilege Converter -> Convert Object Entity to DTO");
+			logger.info("Defect Priority Converter -> Convert Object Entity to DTO");
 			productPrivilegeDto.setProductPrivilegeId(productPrivilege.getId());
 			productPrivilegeDto.setProductPrivilegeNameId(productPrivilege.getPrivilege().getPrivilegeId());
 			productPrivilegeDto.setProductPrivilegeName(productPrivilege.getPrivilege().getName());

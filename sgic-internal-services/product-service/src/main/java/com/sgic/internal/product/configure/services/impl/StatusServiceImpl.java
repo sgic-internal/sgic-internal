@@ -10,84 +10,53 @@ import org.springframework.stereotype.Service;
 import com.sgic.internal.product.configure.entities.DefectStatus;
 import com.sgic.internal.product.configure.repository.StatusRepo;
 import com.sgic.internal.product.configure.services.StatusService;
+import com.sgic.internal.product.repositories.CompanyRepository;
 
 @Service
-public class StatusServiceImpl implements StatusService {
+public class StatusServiceImpl implements StatusService{
 
 	@Autowired
 	StatusRepo statusRepo;
-
-	private static Logger logger = LogManager.getLogger(DefectStatus.class);
-
+	
+	private static Logger logger = LogManager.getLogger(CompanyRepository.class);
+	
 	@Override
 	public DefectStatus createDefectStatus(DefectStatus defectStatus) {
-		logger.info("Defect Severity Service ->  Save Defect Status Method Started");
-		try {
-			return statusRepo.save(defectStatus);
-		} catch (Exception ex) {
-			logger.error("Defect Severity Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Severity Service -> Save Defect Status Method Finished");
-		}
-		return null;
+		logger.info("service started -> Save DefectStatus");
+		return statusRepo.save(defectStatus);
 	}
 
 	@Override
 	public DefectStatus updateDefectStatus(DefectStatus defectStatus) {
-		logger.info("Defect Severity Service ->  Update Defect Status Method Started");
+		logger.info("service started -> Update DefectStatus");
 		Long id = defectStatus.getId();
-		try {
-			boolean isExist = statusRepo.findDefectStatusById(id) != null;
-			if (isExist) {
-				logger.info("Defect Severity Service  -> Defect Status Id Found");
-				return statusRepo.save(defectStatus);
-			} else {
-				logger.info("Defect Severity Service  -> Defect Status Id Not Found");
-			}
-		} catch (Exception ex) {
-			logger.error("Defect Severity Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Severity Service -> Update Defect Status Method Finished");
+		logger.info("service started -> getDefectStatusId");
+		boolean isExist = statusRepo.findDefectStatusById(id) != null;
+		if (isExist) {
+			logger.info("service started -> Updated By DefectStatusId");
+			return statusRepo.save(defectStatus);
+		} else {
+			logger.info("service started -> DefectStatus Id Not Found");
 		}
 		return null;
 	}
 
 	@Override
 	public DefectStatus getDefectStatusById(Long severeId) {
-		logger.info("Defect Severity Service ->  Get Defect Status By Id Method Started");
-		try {
+		logger.info("service started -> Get DefectStatus Id");
 		return statusRepo.findDefectStatusById(severeId);
-		} catch (Exception ex) {
-			logger.error("Defect Severity Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Severity Service -> Get Defect Status By Id Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public List<DefectStatus> getAllDefectStatus() {
-		logger.info("Defect Severity Service ->  Get All Defect Status Method Started");
-		try {
+		logger.info("service started -> Get All DefectStatus");
 		return statusRepo.findAll();
-		} catch (Exception ex) {
-			logger.error("Defect Severity Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Severity Service -> Get All  Defect Status Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public DefectStatus deleteDefectStatusById(Long severeId) {
-		logger.info("Defect Severity Service ->  Delete Defect Status Method Started");
-		try {
+		logger.info("service started -> Delete DefectStatus");
 		statusRepo.deleteById(severeId);
-		} catch (Exception ex) {
-			logger.error("Defect Severity Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Defect Severity Service -> Delete Defect Status Method Finished");
-		}
 		return null;
 	}
 

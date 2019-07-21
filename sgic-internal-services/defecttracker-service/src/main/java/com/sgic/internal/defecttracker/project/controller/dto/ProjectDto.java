@@ -28,7 +28,6 @@ public class ProjectDto {
 		return projectId;
 	}
 
-
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
@@ -105,4 +104,9 @@ public class ProjectDto {
 //	}
 
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> release5

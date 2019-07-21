@@ -2,35 +2,40 @@ package com.sgic.internal.employee.dto;
 
 public class EmployeeDTO {
 
-//	Initialize Variable for Attribute of EmployeeDTO
-	private String empId;
+//	Initialize EmployeeDTO
+	private Long empId;
+	private String employeeid;
 	private String name;
+	private String firstname;
 	private String email;
-	private String designation;
-
-	
+	private Long designationid;
+	private String designationname;
+	private int availability;
+	private boolean bench;
 
 	public EmployeeDTO() {
 		super();
 	}
 
-	public EmployeeDTO(String empId, String name, String email, String designation) {
-		super();
-		this.empId = empId;
-		this.name = name;
-		this.email = email;
-		this.designation = designation;
+	public EmployeeDTO(String string, String string2, String string3, String string4) {
+		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	// getter setter methods
-	public String getEmpId() {
+	// Initialize Designation DTO Getter Setter
+	public Long getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
+	}
+
+	public String getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(String employeeid) {
+		this.employeeid = employeeid;
 	}
 
 	public String getName() {
@@ -49,12 +54,44 @@ public class EmployeeDTO {
 		this.email = email;
 	}
 
-	public String getDesignation() {
-		return designation;
+	public Long getDesignationid() {
+		return designationid;
 	}
 
-	public void setDesignation(String designation) {
-		this.designation = designation;
+	public void setDesignationid(Long designationid) {
+		this.designationid = designationid;
+	}
+
+	public String getDesignationname() {
+		return designationname;
+	}
+
+	public void setDesignationname(String designationname) {
+		this.designationname = designationname;
+	}
+
+	public int getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(int availability) {
+		this.availability = availability;
+	}
+
+	public boolean isBench() {
+		return bench;
+	}
+
+	public void setBench(boolean bench) {
+		this.bench = bench;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
 }

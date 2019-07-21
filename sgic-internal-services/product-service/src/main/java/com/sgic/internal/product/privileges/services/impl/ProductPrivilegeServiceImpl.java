@@ -24,72 +24,40 @@ public class ProductPrivilegeServiceImpl implements ProductPrivilegeService{
 		logger.info("Product Privilege Service ->  Get Product Privilege By Id Method Started");
 		try {
 		return productPrivilegeRepo.findProductPrivilegeById(productPrivilegeId);
-		} catch (Exception ex) {
-			logger.error("Product Privilege Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Product Privilege Service -> Get Product Privilege By Id Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public ProductPrivilege saveProductPrivilege(ProductPrivilege productPrivilege) {
-		logger.info("Product Privilege Service ->  Save Product Privilege Method Started");
-		try {
+		logger.info("service started -> Save ProductPrivilege");
 		return productPrivilegeRepo.save(productPrivilege);
-		} catch (Exception ex) {
-			logger.error("Product Privilege Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Product Privilege Service -> Save Product Privilege Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public List<ProductPrivilege> getAllProductPrivilege() {
-		logger.info("Product Privilege Service ->  Get All Product Privilege Method Started");
-		try {
+		logger.info("service started -> Get All ProductPrivilege");
 		return productPrivilegeRepo.findAll();
-		} catch (Exception ex) {
-			logger.error("Product Privilege Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Product Privilege Service -> Get All  Product Privilege Method Finished");
-		}
-		return null;
 	}
 
 	@Override
 	public ProductPrivilege deleteProductPrivilegeById(Long productPrivilegeId) {
-		logger.info("Product Privilege Service ->  Delete Product Privilege Method Started");
-		try {
+		logger.info("service started -> Delete ProductPrivilege");
 		 productPrivilegeRepo.deleteById(productPrivilegeId);
-		} catch (Exception ex) {
-			logger.error("Product Privilege Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Product Privilege Service -> Delete Product Privilege Method Finished");
-		}
-		return null;
+		 return null;
 	}
 
 	@Override
 	public ProductPrivilege updateProductPrivilege(ProductPrivilege productPrivilege) {
-		logger.info("Product Privilege Service ->  Update Product Privilege Method Started");
+		logger.info("service started -> Update ProductPrivilege");
 		Long id = productPrivilege.getId();
-		try {
+		logger.info("service started -> getProductPrivilegeId");
 		boolean isExist = productPrivilegeRepo.findProductPrivilegeById(id) != null;
 		if (isExist) {
-			logger.info("Product Privilege Service  -> Product Privilege Id Found & Updated");
+			logger.info("service started -> Updated By ProductPrivilegeId");
 			return productPrivilegeRepo.save(productPrivilege);
 		} else {
-			logger.info("Product Privilege Service  -> Product Privilege Id Not Found & Update Failed!");
-		}
-		} catch (Exception ex) {
-			logger.error("Product Privilege Service ERROR! -> " + ex.getMessage());
-		} finally {
-			logger.info("Product Privilege Service -> Update Product Privilege Method Finished");
+			logger.info("service started -> ProductPrivilegeId Not Found");
 		}
 		return null;
 	}
-
 
 }
