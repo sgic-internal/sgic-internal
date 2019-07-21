@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.internal.defecttracker.dashBoard.service.DashboardService;
 import com.sgic.internal.defecttracker.defect.repositories.DefectRepository;
 
-<<<<<<< HEAD
-@CrossOrigin(origins = "*",allowedHeaders = "*")
-=======
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
->>>>>>> 527913bc042e9494055788d1ddf28490b37e1422
+
 @SuppressWarnings("unused")
 @RestController
 public class DashboardController {
