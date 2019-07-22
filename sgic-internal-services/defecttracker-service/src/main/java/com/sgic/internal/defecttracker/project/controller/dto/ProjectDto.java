@@ -104,9 +104,5 @@ public class ProjectDto {
 //	}
 
 
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> release5

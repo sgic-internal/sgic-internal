@@ -22,7 +22,6 @@ public class ProductPrivilegeServiceImpl implements ProductPrivilegeService{
 	@Override
 	public ProductPrivilege getProductPrivilegeById(Long productPrivilegeId) {
 		logger.info("Product Privilege Service ->  Get Product Privilege By Id Method Started");
-		try {
 		return productPrivilegeRepo.findProductPrivilegeById(productPrivilegeId);
 	}
 
