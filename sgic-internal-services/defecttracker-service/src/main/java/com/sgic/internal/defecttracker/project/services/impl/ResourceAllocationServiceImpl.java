@@ -22,57 +22,91 @@ public class ResourceAllocationServiceImpl implements ResourceAllocationService 
 	@Override
 //	<---Resource Allocation Save method's implementation--->
 	public ResourceAllocation saveresource(ResourceAllocation resourceAllocation) {
-		logger.info("ResourceAllocationServiceImpl-->successfully saved Resource");
-		return resourceAllocationRepository.save(resourceAllocation);
+		try {
+			logger.info("ResourceAllocationServiceImpl-->successfully saved Resource");
+			return resourceAllocationRepository.save(resourceAllocation);
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 //	<---Resource Allocation Get List method's implementation--->
 	public List<ResourceAllocation> gettAllResource() {
-		logger.info("ResourceAllocationServiceImpl-->successfully listed Resource");
-		return resourceAllocationRepository.findAll();
+		try {
+			logger.info("ResourceAllocationServiceImpl-->successfully listed Resource");
+			return resourceAllocationRepository.findAll();
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 //	<---Resource Allocation Get By Id  method's implementation--->
 	public ResourceAllocation findResourceAllocationByresourceId(Long resourceId) {
-		logger.info("ResourceAllocationServiceImpl-->successfully Get Resource By Id");
-		return resourceAllocationRepository.findResourceAllocationByresourceId(resourceId);
+		try {
+			logger.info("ResourceAllocationServiceImpl-->successfully Get Resource By Id");
+			return resourceAllocationRepository.findResourceAllocationByresourceId(resourceId);
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 //	<---Resource Allocation List Resource Allocation By Id method's implementation--->
 	public List<ResourceAllocation> getresourceById() {
-		logger.info("ResourceAllocationServiceImpl-->successfully Resource by Resource Id");
-		return resourceAllocationRepository.getAllresourceId();
+		try {
+			logger.info("ResourceAllocationServiceImpl-->successfully Resource by Resource Id");
+			return resourceAllocationRepository.getAllresourceId();
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+		}
+		return null;
+
 	}
 
 	@Override
 //	<---Resource Allocation List Resource Save  method's implementation--->
 	public void saveResourceTable(List<ResourceAllocation> resourceAllocation) {
 
-		int size = resourceAllocation.size();
-		int counter = 0;
-		List<ResourceAllocation> temp = new ArrayList<>();
+		try {
+			int size = resourceAllocation.size();
+			int counter = 0;
+			List<ResourceAllocation> temp = new ArrayList<>();
 
-		for (ResourceAllocation emp : resourceAllocation) {
-			logger.info("ResourceAllocationServiceImpl-->successfully Resource ---Get -- By --List");
-			temp.add(emp);
+			for (ResourceAllocation emp : resourceAllocation) {
+				logger.info("ResourceAllocationServiceImpl-->successfully Resource ---Get -- By --List");
+				temp.add(emp);
 
-			if ((counter + 1) % 500 == 0 || (counter + 1) == size) {
-				logger.info("ResourceAllocationServiceImpl-->successfully Resource ---Get -- By --List Saved");
-				resourceAllocationRepository.saveAll(resourceAllocation);
-				temp.clear();
+				if ((counter + 1) % 500 == 0 || (counter + 1) == size) {
+					logger.info("ResourceAllocationServiceImpl-->successfully Resource ---Get -- By --List Saved");
+					resourceAllocationRepository.saveAll(resourceAllocation);
+					temp.clear();
+				}
+				counter++;
 			}
-			counter++;
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
 		}
+
 	}
 
 	@Override
 //	<---Resource Allocation Delete  method's implementation--->
 	public ResourceAllocation deleteResourceById(Long resourceId) {
-		logger.info("ResourceAllocationServiceImpl-->successfully Deleted");
-		resourceAllocationRepository.deleteById(resourceId);
+		try {
+			logger.info("ResourceAllocationServiceImpl-->successfully Deleted");
+			resourceAllocationRepository.deleteById(resourceId);
+		} catch (Exception ex) {
+			logger.error("Resource Allocation Imp Error :-> " + ex.getMessage());
+		}
+
 		return null;
 
 	}

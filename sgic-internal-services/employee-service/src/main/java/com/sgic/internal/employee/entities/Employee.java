@@ -1,7 +1,6 @@
 package com.sgic.internal.employee.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,122 +14,123 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 import org.springframework.lang.Nullable;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(schema = "employeeservice", name = "employee", uniqueConstraints = {
-@UniqueConstraint(columnNames = { "employee_id", "email" }) })
+@Table(schema = "employeeservice", name = "employee",
+    uniqueConstraints = {@UniqueConstraint(columnNames = {"employee_id", "email"})})
 public class Employee implements Serializable {
 
-	// Initialize Variable for Attribute of Employee
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long empId;
+  // Initialize Variable for Attribute of Employee
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long empId;
 
-	@Column(name = "employee_id", unique = true)
-	@NotEmpty
-	private String employeeid;
+  @Column(name = "employee_id", unique = true)
+  @NotEmpty
+  private String employeeid;
 
-	@NotEmpty
-	@Size(min = 2, max = 30)
-	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
-	@Column(name = "name")
-	private String name;
+  @NotEmpty
+  @Size(min = 2, max = 30)
+  @Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
+  @Column(name = "name")
+  private String name;
 
-	@NotEmpty
-	@Size(min = 2, max = 30)
-	@Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
-	@Column(name = "firstname")
-	private String firstname;
 
-	@NotEmpty
-	@Size(min = 2, max = 50)
-//	@Email(message = "{Employee.email.invalid}")
-	@Email
-//	@NotBlank(message = "{Employee.email.invalid}")
-//	@Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
+  @NotEmpty
+  @Size(min = 2, max = 30)
+  @Pattern(regexp = "[a-z-A-Z]*", message = "Username can not contain invalid characters")
+  @Column(name = "firstname")
+  private String firstname;
 
-	@Column(name = "email", unique = true)
-	@Email
-	private String email;
 
-	@Nullable
-	private int availability;
+  @NotEmpty
+  @Size(min = 2, max = 50)
+  // @Email(message = "{Employee.email.invalid}")
+  @Email
+  // @NotBlank(message = "{Employee.email.invalid}")
+  // @Pattern(regexp="^([a-zA-Z0-9\\-\\.\\_]+)'+'(\\@)([a-zA-Z0-9\\-\\.]+)'+'(\\.)([a-zA-Z]{2,4})$")
 
-	@Nullable
-	private boolean bench = false;
+  @Column(name = "email", unique = true)
+  @Email
+  private String email;
 
-//	Designation with Designation Entity Relationship
-	@ManyToOne
-	@JoinColumn(name = "designationid", nullable = false)
-	private Designation designation;
+  @Nullable
+  private int availability;
 
-//	Designation Object Getter Setter
-	public Designation getDesignation() {
-		return designation;
-	}
+  @Nullable
+  private boolean bench = false;
 
-	public void setDesignation(Designation designation) {
-		this.designation = designation;
-	}
+  // Designation with Designation Entity Relationship
+  @ManyToOne
+  @JoinColumn(name = "designationid", nullable = false)
+  private Designation designation;
 
-//	Employee Entity's Getter Setter
-	public Long getEmpId() {
-		return empId;
-	}
+  // Designation Object Getter Setter
+  public Designation getDesignation() {
+    return designation;
+  }
 
-	public void setEmpId(Long empId) {
-		this.empId = empId;
-	}
+  public void setDesignation(Designation designation) {
+    this.designation = designation;
+  }
 
-	public String getEmployeeid() {
-		return employeeid;
-	}
+  // Employee Entity's Getter Setter
+  public Long getEmpId() {
+    return empId;
+  }
 
-	public void setEmployeeid(String employeeid) {
-		this.employeeid = employeeid;
-	}
+  public void setEmpId(Long empId) {
+    this.empId = empId;
+  }
 
-	public String getName() {
-		return name;
-	}
+  public String getEmployeeid() {
+    return employeeid;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setEmployeeid(String employeeid) {
+    this.employeeid = employeeid;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public int getAvailability() {
-		return availability;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setAvailability(int availability) {
-		this.availability = availability;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public boolean isBench() {
-		return bench;
-	}
+  public int getAvailability() {
+    return availability;
+  }
 
-	public void setBench(boolean bench) {
-		this.bench = bench;
-	}
+  public void setAvailability(int availability) {
+    this.availability = availability;
+  }
 
-	public String getFirstname() {
-		return firstname;
-	}
+  public boolean isBench() {
+    return bench;
+  }
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+  public void setBench(boolean bench) {
+    this.bench = bench;
+  }
+
+  public String getFirstname() {
+    return firstname;
+  }
+
+  public void setFirstname(String firstname) {
+    this.firstname = firstname;
+  }
 
 }

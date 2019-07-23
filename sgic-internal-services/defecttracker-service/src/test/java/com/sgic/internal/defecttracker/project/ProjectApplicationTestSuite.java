@@ -1,7 +1,4 @@
-package com.sgic.internal.defecttracker.project;
-
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+//package com.sgic.internal.defecttracker.project;
 
 //@RunWith(Suite.class)
 //@Suite.SuiteClasses({

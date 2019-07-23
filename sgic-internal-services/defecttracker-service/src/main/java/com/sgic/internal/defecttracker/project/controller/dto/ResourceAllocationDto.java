@@ -5,6 +5,7 @@ public class ResourceAllocationDto {
 	
 //	<---Initialize Variable for Attribute of Resource Allocation DTO--->
 	private Long resourceId;
+//	private String resourceName;
 	private String projectName;
 	private String projectId;
 	private Long empId;

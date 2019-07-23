@@ -1,7 +1,6 @@
 package com.sgic.internal.employee.controller;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,31 +20,33 @@ import com.sgic.internal.employee.entities.Designation;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class DesignationController {
 
-	@Autowired
-	private DesignationDTOMapper designationDTOMapper;
+  @Autowired
+  private DesignationDTOMapper designationDTOMapper;
 
-	private static Logger logger = LogManager.getLogger(DesignationDTOMapper.class);
+  private static Logger logger = LogManager.getLogger(DesignationDTOMapper.class);
 
-	@PostMapping(value = "/createdesignation")
-//	<---Save New Designation API--->
-	public Designation savedesignation(@RequestBody DesignationDTO designationDTO) {
-		logger.info("Designation Controller -> New Designation Created succesfully");
-		return designationDTOMapper.savedesignation(designationDTO);
+  @PostMapping(value = "/createdesignation")
+  // <---Save New Designation API--->
+  public Designation savedesignation(@RequestBody DesignationDTO designationDTO) {
+    logger.info("Designation Controller -> New Designation Created succesfully");
+    return designationDTOMapper.savedesignation(designationDTO);
 
-	}
+  }
 
-	@GetMapping(value = "/getAllDesignation")
-//	<---List All Designation-->
-	public ResponseEntity<List<DesignationDTO>> getAllDesignation() {
-		logger.info("Designation Controller -> GetDesignation");
-		return new ResponseEntity<>(designationDTOMapper.getAllDesignation(), HttpStatus.OK);
-	}
+  @GetMapping(value = "/getAllDesignation")
+  // <---List All Designation-->
+  public ResponseEntity<List<DesignationDTO>> getAllDesignation() {
+    logger.info("Designation Controller -> GetDesignation");
+    return new ResponseEntity<>(designationDTOMapper.getAllDesignation(), HttpStatus.OK);
+  }
 
-	@GetMapping("/getbydesignationId/{designationid}")
-	// <---Get Designation By Designation ID--->
-	public ResponseEntity<Designation> getDesignationById(@PathVariable(name = "designationid") Long designationid) {
-		logger.info("Designation Controller --> Get by Designation by Id");
-		return new ResponseEntity<>(designationDTOMapper.getBydesignationid(designationid), HttpStatus.OK);
-	}
+  @GetMapping("/getbydesignationId/{designationid}")
+  // <---Get Designation By Designation ID--->
+  public ResponseEntity<Designation> getDesignationById(
+      @PathVariable(name = "designationid") Long designationid) {
+    logger.info("Designation Controller --> Get by Designation by Id");
+    return new ResponseEntity<>(designationDTOMapper.getBydesignationid(designationid),
+        HttpStatus.OK);
+  }
 
 }

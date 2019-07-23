@@ -46,6 +46,7 @@ public class ResourceAllocationConverter {
 			project.setProjectId(resourceAllocationDto.getProjectId());
 			project.setProjectName(resourceAllocationDto.getProjectName());
 			resourceAllocation.setProject(project);
+			
 			return resourceAllocation;
 		}
 
@@ -65,6 +66,7 @@ public class ResourceAllocationConverter {
 				resourceAllocationDto.setEmpId(resourceAllocation.getEmpId());
 				resourceAllocationDto.setProjectId(resourceAllocation.getProject().getProjectId());
 				resourceAllocationDto.setProjectName(resourceAllocation.getProject().getProjectName());
+				
 				ListresourceAllocationDto.add(resourceAllocationDto);
 
 			}

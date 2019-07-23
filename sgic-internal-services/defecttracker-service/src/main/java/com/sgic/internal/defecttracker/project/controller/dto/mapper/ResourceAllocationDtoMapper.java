@@ -6,10 +6,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.sgic.internal.defecttracker.project.controller.converter.ResourceAllocationConverter;
 import com.sgic.internal.defecttracker.project.controller.dto.ResourceAllocationDto;
 import com.sgic.internal.defecttracker.project.entities.ResourceAllocation;
 import com.sgic.internal.defecttracker.project.services.ResourceAllocationService;
+
 
 @Service
 public class ResourceAllocationDtoMapper {
