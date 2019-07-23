@@ -46,10 +46,7 @@ public class DefectController {
 	
 	@Autowired
 	private ProjectService projectService;
-	
-	@Autowired
-	private DefectService defectService;
-	
+		
 
 	private static Logger logger = LogManager.getLogger(DefectDataMapper.class);
 
