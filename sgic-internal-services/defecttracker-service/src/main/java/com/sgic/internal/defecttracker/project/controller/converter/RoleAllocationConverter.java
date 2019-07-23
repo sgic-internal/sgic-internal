@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.project.controller.dto.RoleAllocationDto;
 import com.sgic.internal.defecttracker.project.entities.RoleAllocation;
-import com.sgic.internal.defecttracker.project.entities.SubModule;
 
 @Service
 public class RoleAllocationConverter {

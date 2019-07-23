@@ -19,7 +19,6 @@ import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.project.controller.dto.RoleAllocationDto;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.RoleAllocationDtoMapper;
-import com.sgic.internal.defecttracker.project.entities.RoleAllocation;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.common.api.enums.RestApiResponseStatus;
 import com.sgic.common.api.response.ApiResponse;
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectConfigDto;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectConfigMapper;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 

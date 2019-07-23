@@ -35,7 +35,7 @@ public class DeleteEmployeeTest extends EmployeeTest {
 	@SuppressWarnings("unused")
 //	Save unit Test expected Response
 	private static final String ADD_EMPLOYEE_RESPONSE = "[{\"empId\":\"emp002\",\"name\":\"jothi\",\"email\":\"saidputhi@gmail.com\",\"designation\":\"QA\"}]";
-	@SuppressWarnings("unused")
+	
 
 //	Save unit Test expected Response
 	private static final String DELETE_EMPLOYEE_RESPONSE = "Deleted Successfully";

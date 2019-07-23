@@ -24,8 +24,6 @@ import com.sgic.internal.defecttracker.project.controller.dto.SubModuleData;
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.ModuleDataMapper;
 
 import com.sgic.internal.defecttracker.project.controller.dto.mapper.SubModuleDataMapper;
-import com.sgic.internal.defecttracker.project.entities.Module;
-import com.sgic.internal.defecttracker.project.entities.SubModule;
 import com.sgic.internal.defecttracker.project.repositories.SubModuleRepository;
 import com.sgic.internal.defecttracker.project.services.ModuleService;
 @CrossOrigin

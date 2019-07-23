@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.internal.defecttracker.defect.controller.dto.DefectConfigDto;
-import com.sgic.internal.defecttracker.defect.controller.dto.DefectTypeDto;
 import com.sgic.internal.defecttracker.defect.controller.dto.converter.DefectConfigConverter;
 import com.sgic.internal.defecttracker.defect.entities.DefectConfig;
-import com.sgic.internal.defecttracker.defect.entities.DefectType;
 import com.sgic.internal.defecttracker.defect.services.DefectConfigService;
 
 @Service

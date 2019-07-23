@@ -23,7 +23,6 @@ public class DesignationDTOMapper {
 	// Designation DTO converter
 	private DesignationConverter designationConverter;
 
-	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger(DesignationRepository.class);
 
 	@SuppressWarnings("static-access")
