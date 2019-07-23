@@ -1,7 +1,6 @@
 package com.sgic.internal.employee.dto.mapper;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,42 +14,43 @@ import com.sgic.internal.employee.services.DesignationService;
 @Service
 public class DesignationDTOMapper {
 
-	@Autowired
-	// Designation Service
-	private DesignationService designationService;
+  @Autowired
+  // Designation Service
+  private DesignationService designationService;
 
-	@Autowired
-	// Designation DTO converter
-	private DesignationConverter designationConverter;
+  @Autowired
+  // Designation DTO converter
+  private DesignationConverter designationConverter;
 
-	@SuppressWarnings("unused")
-	private static Logger logger = LogManager.getLogger(DesignationRepository.class);
+  @SuppressWarnings("unused")
+  private static Logger logger = LogManager.getLogger(DesignationRepository.class);
 
-	@SuppressWarnings("static-access")
-	public Designation savedesignation(DesignationDTO designationDTO) {
-		logger.info("Successfully Saved Designation");
-		return designationService.savedesignation(designationConverter.DesignationDTOToDesignation(designationDTO));
-	}
+  @SuppressWarnings("static-access")
+  public Designation savedesignation(DesignationDTO designationDTO) {
+    logger.info("Successfully Saved Designation");
+    return designationService
+        .savedesignation(designationConverter.DesignationDTOToDesignation(designationDTO));
+  }
 
-	@SuppressWarnings("static-access")
-	public List<DesignationDTO> getAllDesignation() {
-		logger.info(" Employee Successfully Listed ");
-		List<Designation> designationlist = designationService.getAllDesignation();
-		return designationConverter.DesignationToDesignationDTO(designationlist);
+  @SuppressWarnings("static-access")
+  public List<DesignationDTO> getAllDesignation() {
+    logger.info(" Employee Successfully Listed ");
+    List<Designation> designationlist = designationService.getAllDesignation();
+    return designationConverter.DesignationToDesignationDTO(designationlist);
 
-	}
+  }
 
-	public Designation getBydesignationid(Long designationid) {
-		logger.info("Successfully get Designation by Id");
-		return designationService.getBydesignationid(designationid);
+  public Designation getBydesignationid(Long designationid) {
+    logger.info("Successfully get Designation by Id");
+    return designationService.getBydesignationid(designationid);
 
-	}
+  }
 
-	// Delete Method for EmployeeMapper
-	public DesignationDTO deleteBydesignationid(Long designationid) {
-		logger.info(" successfully deleted ");
-		designationService.deleteDesignationBydesignationid(designationid);
-		return null;
+  // Delete Method for EmployeeMapper
+  public DesignationDTO deleteBydesignationid(Long designationid) {
+    logger.info(" successfully deleted ");
+    designationService.deleteDesignationBydesignationid(designationid);
+    return null;
 
-	}
+  }
 }

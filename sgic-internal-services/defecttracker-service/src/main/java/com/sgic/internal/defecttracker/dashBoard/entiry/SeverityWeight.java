@@ -8,55 +8,55 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="defectservices",   name="severityweight")
+@Table(schema = "defectservices", name = "severityweight")
 public class SeverityWeight {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="severity_weight_id")
-	private Long severityWeightId;
-	
-	@Column(name="high_weight")
-	private Long highWeight;
-	
-	@Column(name="medium_weight")
-	private Long mediumWeight;
-	
-	@Column(name="low_weight")
-	private Long lowWeight;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "severity_weight_id")
+  private Long severityWeightId;
 
-	public Long getSeverityWeightId() {
-		return severityWeightId;
-	}
+  @Column(name = "high_weight")
+  private Long highWeight;
 
-	public void setSeverityWeightId(Long severityWeightId) {
-		this.severityWeightId = severityWeightId;
-	}
+  @Column(name = "medium_weight")
+  private Long mediumWeight;
 
-	public Long getHighWeight() {
-		return highWeight;
-	}
+  @Column(name = "low_weight")
+  private Long lowWeight;
 
-	public void setHighWeight(Long highWeight) {
-		this.highWeight = highWeight;
-	}
+  public Long getSeverityWeightId() {
+    return severityWeightId;
+  }
 
-	public Long getMediumWeight() {
-		return mediumWeight;
-	}
+  public void setSeverityWeightId(Long severityWeightId) {
+    this.severityWeightId = severityWeightId;
+  }
 
-	public void setMediumWeight(Long mediumWeight) {
-		this.mediumWeight = mediumWeight;
-	}
+  public Long getHighWeight() {
+    return highWeight;
+  }
 
-	public Long getLowWeight() {
-		return lowWeight;
-	}
+  public void setHighWeight(Long highWeight) {
+    this.highWeight = highWeight;
+  }
 
-	public void setLowWeight(Long lowWeight) {
-		this.lowWeight = lowWeight;
-	}
-	
-	
-	
+  public Long getMediumWeight() {
+    return mediumWeight;
+  }
+
+  public void setMediumWeight(Long mediumWeight) {
+    this.mediumWeight = mediumWeight;
+  }
+
+  public Long getLowWeight() {
+    return lowWeight;
+  }
+
+  public void setLowWeight(Long lowWeight) {
+    this.lowWeight = lowWeight;
+  }
+
+
+
 }
