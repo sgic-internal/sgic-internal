@@ -22,9 +22,11 @@ public class SubModuleConverter {
 			subModuleData.setSubModuleName(subModule.getSubModuleName());
 //			subModuleData.setAbbre(subModule.getAbbre());
 			//get module  id
-			@SuppressWarnings("unused")
-			SubModule subModule1=new SubModule();
-			subModuleData.setModuleId(subModule.getModule().getModuleId());
+
+//			@SuppressWarnings("unused")
+//			SubModule subModule1=new SubModule();
+//			subModuleData.setModuleId(subModule.getModule().getModuleId());
+
 			return subModuleData;
 	}
 		return null;
@@ -38,8 +40,8 @@ public class SubModuleConverter {
 			subModule.setSubModuleId(subModuleData.getSubModuleId());;
 			subModule.setSubModuleName(subModuleData.getSubModuleName());
 			// get by module id
-			module.setModuleId(subModuleData.getModuleId());
-			subModule.setModule(module);
+//			module.setModuleId(subModuleData.getModuleId());
+//			subModule.setModule(module);
 //			project.setProjectId(moduleData.getProjectid());
 //			module.setProject(project);
 			
@@ -59,7 +61,7 @@ public class SubModuleConverter {
 //					submoduleData.setAbbre(submodule.getAbbre());
 					
 					
-					submoduleData.setModuleId(submodule.getModule().getModuleId());
+//					submoduleData.setModuleId(submodule.getModule().getModuleId());
 					lSubModuleData.add(submoduleData);
 				}
 

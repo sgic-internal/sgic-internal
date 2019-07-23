@@ -32,10 +32,6 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleRepository.getByModuleId(moduleId);
 	}
 
-	@Override
-	public List<Module> getBymoduleName(String moduleName) {
-		return moduleRepository.getBymoduleName(moduleName);
-	}
 
 	@Override
 	public List<Module> getallDetails() {
@@ -61,13 +57,14 @@ public class ModuleServiceImpl implements ModuleService {
 		return moduleRepository.getByProjectId(projectid);
 	}
 
+//	@Override
+//	public List<Object> getSubmodule(String subModuleId) {
+//		return moduleRepository.getSubmodule(subModuleId);
+//	}
+
 	@Override
-	public List<Object> getSubmodule(String subModuleId) {
-		return moduleRepository.getSubmodule(subModuleId);
+	public List<Module> getBymoduleName(String moduleName) {
+		return moduleRepository.getBymoduleName(moduleName);
 	}
 
-//	@Override
-//	public List<Module> getBySubModuleId(String subModuleId) {
-//		return moduleRepository.getBySubModuleId(subModuleId);
-//	}
 }

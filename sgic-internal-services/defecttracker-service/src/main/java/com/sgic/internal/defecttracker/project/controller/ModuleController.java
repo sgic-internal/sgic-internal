@@ -37,16 +37,16 @@ public class ModuleController {
 
 	@Autowired
 	public ModuleDataMapper moduleDataMapper;
-	
+
 	@Autowired
 	public ProjectDtoMapper projectDtoMapper;
-	
+
 	@Autowired
 	public ProjectService projectService;
-	
+
 	@Autowired
-	public ModuleRepository  moduleRepository;
-	
+	public ModuleRepository moduleRepository;
+
 	@Autowired
 	public ModuleService moduleService;
 
@@ -63,19 +63,30 @@ public class ModuleController {
 		logger.info("Module are listed ");
 		return new ResponseEntity<>(moduleDataMapper.getAllModuleForMapper(), HttpStatus.OK);
 	}
-	
+	// Get All By Project Id  //
 	@GetMapping(value = "/GetAllmodule/{projectid}")
 	public List<Module> getModuleByProjectId(@PathVariable String projectid) {
 		logger.info("Module are listed ");
 		return moduleService.getByprojectId(projectid);
 	}
-	@GetMapping(value = "/GetAllmodulesubmodule/{projectid}")
-	public ResponseEntity<List<Object>> getModuleBySubModuleId(@PathVariable String projectid) {
-		logger.info("Module are listed ");
-		return new ResponseEntity<>(moduleService.getSubmodule(projectid), HttpStatus.OK);
+	// Get All Details in module Table
+	@GetMapping("/FindallMain")
+	public List<Module> FindallMain(Module module) {
+		List<Module> submodule  = (List<Module>) moduleService.getallDetails();
+		return submodule;
 	}
 	
-	
+//	@GetMapping("/findProject")
+//	public  List<Project> findallmain(Project project) {
+//		 List<Project> moduless = (List<Project>) projectservice.findAll();
+//		 return moduless;
+//	        	
+//	}
+//	@GetMapping(value = "/GetAllmodulesubmodule/{projectid}")
+//	public ResponseEntity<List<Object>> getModuleBySubModuleId(@PathVariable String projectid) {
+//		logger.info("Module are listed ");
+//		return new ResponseEntity<>(moduleService.getSubmodule(projectid), HttpStatus.OK);
+//	}
 
 	// Get Mapping For Get Module By Id
 	@GetMapping("/GetmoduleById/{moduleId}")
@@ -96,8 +107,8 @@ public class ModuleController {
 	public void deleteById(@PathVariable String moduleId) {
 		logger.info("Module are delete by id ");
 		moduleDataMapper.deleteById(moduleId);
+		
 	}
-
 
 	// Put Mapping For Module
 	@PutMapping("/updateModule/{moduleId}")
@@ -110,25 +121,23 @@ public class ModuleController {
 			return new ResponseEntity<>("ok", HttpStatus.OK);
 		}
 	}
-	
-	
-	//Abbrivation for module
+
+	// Abbrivation for module
 	@PutMapping("/module/project/{projectId}")
 	public Module createNewModule(@PathVariable(name = "projectId") String projectId,
-			@RequestBody ModuleData moduleData) { 
+			@RequestBody ModuleData moduleData) {
 		Project project = projectService.getByprojectId(projectId);
-		List<Module> modules=moduleRepository.findModuleByProject(project);
-		int a=modules.size();
-		String moduleSerial=project.getProjectId() +"-"+moduleData.getModuleId()+"-"+ a;
-		
-		Module module=new Module();
+		List<Module> modules = moduleRepository.findModuleByProject(project);
+		int a = modules.size();
+		String moduleSerial = project.getProjectId() + "-" + moduleData.getModuleId() + "-" + a;
+
+		Module module = new Module();
 		module.setModuleId(moduleSerial);
-//		module.setAbbr(moduleData.getAbbr());
 		module.setModuleName(moduleData.getModuleName());
 		module.setProject(project);
-		
+
 		return moduleRepository.save(module);
-		
+
 	}
-	
+
 }
